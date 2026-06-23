@@ -232,6 +232,80 @@ KEYWORD_NOISE = STOPWORDS | {
 }
 
 
+# 자료 품질 필터
+# 1) 연구기관의 단순 사진·행사 스케치 게시물은 제외
+# 2) 법령명이 없이 '변경 조문' 등만 표시된 자료는 제외
+RESEARCH_MEDIA_PATTERNS = (
+    r"^\s*\[(?:포토|사진|photo)\]",
+    r"^\s*(?:포토\s*뉴스|포토\s*갤러리|포토\s*앨범)\b",
+    r"사진으로\s*보는",
+    r"(?:현장|행사|세미나|포럼)\s*스케치",
+    r"(?:행사|현장)\s*사진",
+    r"사진\s*(?:공유|모음|자료|갤러리|앨범)",
+)
+
+LAW_GENERIC_PHRASES = (
+    "변경 조문",
+    "변경조문",
+    "신구 조문 대비표",
+    "신구조문대비표",
+    "개정문",
+    "제정·개정 이유",
+    "제정개정이유",
+    "조문 정보",
+    "조문정보",
+    "법령 체계도",
+    "법령체계도",
+)
+
+LAW_NAME_SIGNALS = (
+    "법률", "특별법", "기본법", "시행령", "시행규칙",
+    "조례", "규정", "기준", "지침",
+)
+
+FILTER_COUNTS: Counter[str] = Counter()
+
+
+def exclusion_reason(category: str, title: str) -> str | None:
+    value = clean(title)
+    lower = value.lower()
+
+    if category == "연구":
+        for pattern in RESEARCH_MEDIA_PATTERNS:
+            if re.search(pattern, lower, flags=re.I):
+                return "연구 사진·행사 게시물"
+
+    if category == "법령":
+        normalized = re.sub(r"[^0-9a-z가-힣]+", "", lower)
+
+        # 법령명이 전혀 없이 일반 메뉴명만 제목으로 잡힌 경우
+        if re.fullmatch(
+            r"(변경조문|신구조문대비표|개정문|제정개정이유|"
+            r"조문정보|법령체계도)(?:시행\d+)?",
+            normalized,
+        ):
+            return "법령명 없는 일반 조문 페이지"
+
+        if re.fullmatch(
+            r"(별표|별지|서식)(?:제?\d+(?:의\d+)?)?(?:시행\d+)?",
+            normalized,
+        ):
+            return "법령명 없는 별표·별지 페이지"
+
+        has_generic_phrase = any(
+            phrase.lower() in lower
+            for phrase in LAW_GENERIC_PHRASES
+        )
+        has_law_name = any(
+            signal.lower() in lower
+            for signal in LAW_NAME_SIGNALS
+        )
+        if has_generic_phrase and not has_law_name:
+            return "법령명 없는 일반 조문 페이지"
+
+    return None
+
+
 def make_session() -> requests.Session:
     session = requests.Session()
     retry = Retry(
@@ -334,6 +408,11 @@ def make_item(
     if len(title) < 5 or not url or not published:
         return None
     if published < KEEP_START or published > TODAY + timedelta(days=1):
+        return None
+
+    reason = exclusion_reason(category, title)
+    if reason:
+        FILTER_COUNTS[reason] += 1
         return None
 
     key = f"{published.isoformat()}|{title_key(title)}"
@@ -476,6 +555,15 @@ def deduplicate(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             row.get("title", ""),
             row.get("source", ""),
         )
+
+        reason = exclusion_reason(
+            row.get("category", ""),
+            row.get("title", ""),
+        )
+        if reason:
+            FILTER_COUNTS[reason] += 1
+            continue
+
         key = f"{row.get('date', '')}|{title_key(row.get('title', ''))}"
         old = result.get(key)
         if old is None:
@@ -813,6 +901,13 @@ def main() -> None:
     print("=== 최근 공식자료 ===")
     for source in ("국토교통부", "서울특별시", "경기도"):
         print(f"{source}: {current_status.get(source, '확인 불가')}")
+
+    print("=== 품질 필터 ===")
+    if FILTER_COUNTS:
+        for reason, count in FILTER_COUNTS.items():
+            print(f"{reason}: {count}건 제외")
+    else:
+        print("제외된 자료 없음")
 
     print(
         "RESULT "
