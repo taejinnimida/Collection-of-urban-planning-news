@@ -31,11 +31,25 @@
     .stat b{display:block;font-size:27px;margin-top:5px}
     .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
     h2{font-size:20px;margin:0 0 15px}
-    .item{padding:15px 0;border-bottom:1px solid var(--line)}
+    .category-group{margin-bottom:24px}
+    .category-group:last-child{margin-bottom:0}
+    .category-heading{display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:11px 13px;margin:0 0 2px;border-radius:12px;
+      background:#f3f7fc;border:1px solid var(--line)}
+    .category-heading strong{font-size:17px}
+    .category-count{color:var(--muted);font-size:13px}
+    .item{padding:15px 4px;border-bottom:1px solid var(--line)}
     .item:last-child{border-bottom:0}
     .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:7px}
     .badge{background:var(--soft);color:var(--accent);border-radius:999px;padding:3px 8px}
     .title{font-weight:750;line-height:1.45}
+    .keyword-head{display:flex;justify-content:space-between;align-items:center;
+      gap:12px;margin-bottom:15px}
+    .keyword-head h2{margin:0}
+    .keyword-tabs{display:flex;gap:6px;flex-wrap:wrap}
+    .keyword-tab{border:1px solid var(--line);background:#fff;border-radius:999px;
+      padding:6px 10px;cursor:pointer;font-size:12px;font-weight:750}
+    .keyword-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
     .keywords{display:flex;gap:9px;flex-wrap:wrap}
     .keyword{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#fff}
     .issue{padding:13px 0;border-bottom:1px solid var(--line)}
@@ -82,12 +96,19 @@
 
     <div class="grid">
       <main class="panel">
-        <h2>최신 자료</h2>
+        <h2>최신 자료 · 분야별</h2>
         <div id="items"></div>
       </main>
       <aside>
         <section class="panel">
-          <h2>핵심 키워드 20</h2>
+          <div class="keyword-head">
+            <h2>핵심 키워드 20</h2>
+            <div class="keyword-tabs" aria-label="키워드 분석 기간">
+              <button class="keyword-tab active" data-keyword-period="monthly">월</button>
+              <button class="keyword-tab" data-keyword-period="quarterly">분기</button>
+              <button class="keyword-tab" data-keyword-period="yearly">연</button>
+            </div>
+          </div>
           <div class="keywords" id="keywords"></div>
         </section>
         <section class="panel">
@@ -101,9 +122,10 @@
   <script>
     const PERIOD_DAYS={weekly:7,monthly:30,yearly:365};
     let latest={period_counts:{},items:[],source_status:{},coverage:{}};
-    let keywords={weekly:[],monthly:[],yearly:[]};
+    let keywords={monthly:[],quarterly:[],yearly:[]};
     let issues={weekly:[],monthly:[],yearly:[]};
     let period="weekly";
+    let keywordPeriod="monthly";
 
     const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
       "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -147,19 +169,41 @@
         .map(s=>`<div class="source"><b>${s}</b><small>${esc(src[s]||"확인 중")}</small></div>`).join("");
 
       const days=PERIOD_DAYS[period];
-      const rows=(latest.items||[]).filter(x=>within(x,days)).slice(0,80);
-      document.getElementById("items").innerHTML=rows.length
-        ? rows.map(x=>`
-          <article class="item">
-            <div class="meta">
-              <span class="badge">${esc(x.category)}</span>
-              <span>${esc(x.source)}</span><span>${esc(x.date)}</span>
-            </div>
-            <a class="title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
-          </article>`).join("")
-        : `<div class="empty">이 기간의 자료가 아직 없습니다.</div>`;
+      const rows=(latest.items||[]).filter(x=>within(x,days));
+      const categoryOrder=["정책","연구","법령","기사"];
+      const groupedHtml=categoryOrder.map(category=>{
+        const categoryRows=rows
+          .filter(x=>x.category===category)
+          .sort((a,b)=>String(b.date).localeCompare(String(a.date)))
+          .slice(0,40);
 
-      const kw=keywords[period]||[];
+        if(!categoryRows.length) return "";
+
+        return `
+          <section class="category-group">
+            <div class="category-heading">
+              <strong>${esc(category)}</strong>
+              <span class="category-count">${categoryRows.length}건</span>
+            </div>
+            ${categoryRows.map(x=>`
+              <article class="item">
+                <div class="meta">
+                  <span>${esc(x.source)}</span>
+                  <span>${esc(x.date)}</span>
+                </div>
+                <a class="title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
+              </article>`).join("")}
+          </section>`;
+      }).join("");
+
+      document.getElementById("items").innerHTML=groupedHtml
+        || `<div class="empty">이 기간의 자료가 아직 없습니다.</div>`;
+
+      document.querySelectorAll(".keyword-tab").forEach(b=>
+        b.classList.toggle("active",b.dataset.keywordPeriod===keywordPeriod)
+      );
+
+      const kw=keywords[keywordPeriod]||[];
       document.getElementById("keywords").innerHTML=kw.length
         ? kw.map(x=>`<span class="keyword">${esc(x.word)} ${x.count}</span>`).join("")
         : `<div class="empty">키워드 분석 전입니다.</div>`;
@@ -188,6 +232,12 @@
 
     document.querySelectorAll(".tab").forEach(b=>{
       b.addEventListener("click",()=>{period=b.dataset.period;render();});
+    });
+    document.querySelectorAll(".keyword-tab").forEach(b=>{
+      b.addEventListener("click",()=>{
+        keywordPeriod=b.dataset.keywordPeriod;
+        render();
+      });
     });
     init();
   </script>
