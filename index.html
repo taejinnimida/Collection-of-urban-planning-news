@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>도시계획 뉴스 컬렉션</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;--panel:#fff;--ink:#152033;--muted:#687386;
+      --line:#dfe6ef;--accent:#1368ce;--soft:#eaf3ff;--ok:#17813d;
+      --warn:#a45a00;--shadow:0 10px 30px rgba(26,42,68,.07)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:
+      Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:auto;padding:30px 20px 70px}
+    header{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;
+      margin-bottom:22px}
+    h1{margin:0;font-size:34px;letter-spacing:-1.2px}
+    .subtitle{margin-top:8px;color:var(--muted)}
+    .updated{color:var(--muted);font-size:14px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+      box-shadow:var(--shadow);padding:20px;margin-bottom:18px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .tab{border:1px solid var(--line);background:#fff;border-radius:999px;
+      padding:9px 16px;cursor:pointer;font-weight:700}
+    .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .stat{padding:17px;border-radius:14px;background:#f8fafc;border:1px solid var(--line)}
+    .stat b{display:block;font-size:27px;margin-top:5px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    h2{font-size:20px;margin:0 0 15px}
+    .item{padding:15px 0;border-bottom:1px solid var(--line)}
+    .item:last-child{border-bottom:0}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:7px}
+    .badge{background:var(--soft);color:var(--accent);border-radius:999px;padding:3px 8px}
+    .title{font-weight:750;line-height:1.45}
+    .keywords{display:flex;gap:9px;flex-wrap:wrap}
+    .keyword{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#fff}
+    .issue{padding:13px 0;border-bottom:1px solid var(--line)}
+    .issue:last-child{border-bottom:0}
+    .issue-head{display:flex;justify-content:space-between;gap:14px;font-weight:800}
+    .trend{color:var(--muted);font-size:12px;font-weight:500}
+    .examples{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55}
+    .sources{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .source{padding:13px;background:#f8fafc;border-radius:12px;border:1px solid var(--line)}
+    .source small{display:block;color:var(--muted);margin-top:5px}
+    .coverage{margin-top:15px;padding:12px 14px;border-radius:12px;background:#f8fafc;
+      color:var(--muted);font-size:14px}
+    .empty{padding:28px 0;color:var(--muted);text-align:center}
+    @media(max-width:820px){
+      header{display:block}.updated{margin-top:12px}.stats{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:1fr}.sources{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>도시계획 뉴스 컬렉션</h1>
+        <div class="subtitle">정책·법령·연구·기사의 흐름을 한곳에서 봅니다.</div>
+      </div>
+      <div class="updated" id="updated">자료 준비 중</div>
+    </header>
+
+    <section class="panel">
+      <div class="tabs">
+        <button class="tab active" data-period="weekly">최근 1주</button>
+        <button class="tab" data-period="monthly">최근 1개월</button>
+        <button class="tab" data-period="yearly">최근 1년</button>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="coverage" id="coverage"></div>
+    </section>
+
+    <section class="panel">
+      <h2>공식 정책자료 수집 상태</h2>
+      <div class="sources" id="sources"></div>
+    </section>
+
+    <div class="grid">
+      <main class="panel">
+        <h2>최신 자료</h2>
+        <div id="items"></div>
+      </main>
+      <aside>
+        <section class="panel">
+          <h2>핵심 키워드 20</h2>
+          <div class="keywords" id="keywords"></div>
+        </section>
+        <section class="panel">
+          <h2>주요 이슈</h2>
+          <div id="issues"></div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const PERIOD_DAYS={weekly:7,monthly:30,yearly:365};
+    let latest={period_counts:{},items:[],source_status:{},coverage:{}};
+    let keywords={weekly:[],monthly:[],yearly:[]};
+    let issues={weekly:[],monthly:[],yearly:[]};
+    let period="weekly";
+
+    const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[c]));
+
+    async function getJson(path,fallback){
+      try{
+        const r=await fetch(path+"?v="+Date.now());
+        if(!r.ok) throw new Error(r.status);
+        return await r.json();
+      }catch(e){
+        console.error(path,e);
+        return fallback;
+      }
+    }
+
+    function within(item,days){
+      const d=new Date(item.date+"T00:00:00");
+      const cutoff=new Date();
+      cutoff.setHours(0,0,0,0);
+      cutoff.setDate(cutoff.getDate()-(days-1));
+      return d>=cutoff;
+    }
+
+    function render(){
+      document.querySelectorAll(".tab").forEach(b=>
+        b.classList.toggle("active",b.dataset.period===period)
+      );
+
+      const counts=(latest.period_counts||{})[period]||{};
+      document.getElementById("stats").innerHTML=["정책","법령","연구","기사"]
+        .map(k=>`<div class="stat">${k}<b>${counts[k]||0}</b></div>`).join("");
+
+      const c=latest.coverage||{};
+      document.getElementById("coverage").textContent=c.items
+        ? `최근 1년 ${c.items}건 · ${c.oldest||"-"} ~ ${c.newest||"-"} · 자료기간 ${c.days_covered||0}일`
+        : "첫 자동수집이 끝나면 자료기간이 표시됩니다.";
+
+      const src=latest.source_status||{};
+      document.getElementById("sources").innerHTML=["국토교통부","서울특별시","경기도"]
+        .map(s=>`<div class="source"><b>${s}</b><small>${esc(src[s]||"확인 중")}</small></div>`).join("");
+
+      const days=PERIOD_DAYS[period];
+      const rows=(latest.items||[]).filter(x=>within(x,days)).slice(0,80);
+      document.getElementById("items").innerHTML=rows.length
+        ? rows.map(x=>`
+          <article class="item">
+            <div class="meta">
+              <span class="badge">${esc(x.category)}</span>
+              <span>${esc(x.source)}</span><span>${esc(x.date)}</span>
+            </div>
+            <a class="title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
+          </article>`).join("")
+        : `<div class="empty">이 기간의 자료가 아직 없습니다.</div>`;
+
+      const kw=keywords[period]||[];
+      document.getElementById("keywords").innerHTML=kw.length
+        ? kw.map(x=>`<span class="keyword">${esc(x.word)} ${x.count}</span>`).join("")
+        : `<div class="empty">키워드 분석 전입니다.</div>`;
+
+      const issueRows=issues[period]||[];
+      document.getElementById("issues").innerHTML=issueRows.length
+        ? issueRows.map(x=>`
+          <div class="issue">
+            <div class="issue-head"><span>${esc(x.topic)} · ${x.count}</span>
+              <span class="trend">${esc(x.trend_label)}</span></div>
+            <ul class="examples">${(x.examples||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+          </div>`).join("")
+        : `<div class="empty">이슈 분석 전입니다.</div>`;
+    }
+
+    async function init(){
+      [latest,keywords,issues]=await Promise.all([
+        getJson("data/latest.json",latest),
+        getJson("data/keywords.json",keywords),
+        getJson("data/issues.json",issues)
+      ]);
+      document.getElementById("updated").textContent=
+        latest.updated_at ? `마지막 갱신 ${latest.updated_at}` : "첫 자동수집 대기 중";
+      render();
+    }
+
+    document.querySelectorAll(".tab").forEach(b=>{
+      b.addEventListener("click",()=>{period=b.dataset.period;render();});
+    });
+    init();
+  </script>
+</body>
+</html>
