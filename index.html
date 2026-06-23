@@ -208,13 +208,13 @@
       font-weight:850;
     }
 
-    .tabs,.keyword-tabs{
+    .tabs{
       display:flex;
       gap:8px;
       flex-wrap:wrap;
     }
 
-    .tab,.keyword-tab{
+    .tab{
       border:1px solid var(--line);
       background:#fff;
       border-radius:999px;
@@ -224,10 +224,28 @@
       color:var(--ink);
     }
 
-    .tab.active,.keyword-tab.active{
+    .tab.active{
       color:#fff;
       border-color:var(--navy);
       background:var(--navy);
+    }
+
+    .keyword-period{
+      padding:14px 0 16px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .keyword-period:first-child{padding-top:2px}
+    .keyword-period:last-child{
+      padding-bottom:0;
+      border-bottom:0;
+    }
+
+    .keyword-period h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+      letter-spacing:-.03em;
+      color:var(--navy);
     }
 
     .issues-grid{
@@ -488,13 +506,22 @@
       <aside class="panel">
         <div class="panel-head">
           <h2>핵심 키워드 20</h2>
-          <div class="keyword-tabs">
-            <button class="keyword-tab active" data-keyword-period="monthly">월</button>
-            <button class="keyword-tab" data-keyword-period="quarterly">분기</button>
-            <button class="keyword-tab" data-keyword-period="yearly">연</button>
-          </div>
         </div>
-        <div class="keywords" id="keywords"></div>
+
+        <section class="keyword-period">
+          <h3>월간 · 최근 30일</h3>
+          <div class="keywords" id="keywords-monthly"></div>
+        </section>
+
+        <section class="keyword-period">
+          <h3>분기 · 최근 90일</h3>
+          <div class="keywords" id="keywords-quarterly"></div>
+        </section>
+
+        <section class="keyword-period">
+          <h3>연간 · 최근 365일</h3>
+          <div class="keywords" id="keywords-yearly"></div>
+        </section>
       </aside>
 
       <main class="panel">
@@ -519,7 +546,6 @@
     let keywords={monthly:[],quarterly:[],yearly:[]};
     let issues={weekly:[],monthly:[],yearly:[]};
     let period="weekly";
-    let keywordPeriod="monthly";
 
     const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
       "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -593,14 +619,18 @@
     }
 
     function renderKeywords(){
-      document.querySelectorAll(".keyword-tab").forEach(b=>
-        b.classList.toggle("active",b.dataset.keywordPeriod===keywordPeriod)
-      );
+      const periods=[
+        ["monthly","keywords-monthly"],
+        ["quarterly","keywords-quarterly"],
+        ["yearly","keywords-yearly"]
+      ];
 
-      const rows=keywords[keywordPeriod]||[];
-      document.getElementById("keywords").innerHTML=rows.length
-        ? rows.map(x=>`<span class="keyword">${esc(x.word)} ${x.count}</span>`).join("")
-        : `<div class="empty">키워드 분석 전입니다.</div>`;
+      periods.forEach(([key,id])=>{
+        const rows=keywords[key]||[];
+        document.getElementById(id).innerHTML=rows.length
+          ? rows.map(x=>`<span class="keyword">${esc(x.word)} ${x.count}</span>`).join("")
+          : `<div class="empty">키워드 분석 전입니다.</div>`;
+      });
     }
 
     function renderItems(){
@@ -683,13 +713,6 @@
         period=b.dataset.period;
         renderIssues();
         renderItems();
-      });
-    });
-
-    document.querySelectorAll(".keyword-tab").forEach(b=>{
-      b.addEventListener("click",()=>{
-        keywordPeriod=b.dataset.keywordPeriod;
-        renderKeywords();
       });
     });
 
