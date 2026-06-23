@@ -157,7 +157,79 @@ TOPICS = {
     ),
 }
 
-TOKEN_RE = re.compile(r"[가-힣]{2,}|[A-Za-z]{2,}")
+TOKEN_RE = re.compile(r"[가-힣]{2,}")
+
+# 기관명·언론사명이 아니라 실제 도시계획 이슈가 집계되도록
+# 의미 있는 도시·건축·국토 분야 용어를 우선 집계합니다.
+KEYWORD_PHRASES = {
+    "재건축": ("재건축",),
+    "재개발": ("재개발",),
+    "정비사업": ("정비사업", "도시정비"),
+    "노후계획도시": ("노후계획도시", "1기 신도시"),
+    "주택공급": ("주택공급", "주택 공급"),
+    "공공주택": ("공공주택", "공공임대"),
+    "임대주택": ("임대주택",),
+    "주거복지": ("주거복지",),
+    "도시재생": ("도시재생",),
+    "빈집": ("빈집",),
+    "원도심": ("원도심", "구도심"),
+    "지역소멸": ("지역소멸", "지방소멸"),
+    "균형발전": ("균형발전",),
+    "생활인구": ("생활인구",),
+    "인구감소지역": ("인구감소지역",),
+    "도시계획": ("도시계획",),
+    "국토계획": ("국토계획",),
+    "토지이용": ("토지이용",),
+    "지구단위계획": ("지구단위계획",),
+    "용도지역": ("용도지역",),
+    "개발제한구역": ("개발제한구역", "그린벨트"),
+    "용적률": ("용적률",),
+    "공공기여": ("공공기여",),
+    "도시개발": ("도시개발",),
+    "역세권": ("역세권",),
+    "광역교통": ("광역교통",),
+    "GTX": ("gtx",),
+    "철도지하화": ("철도지하화",),
+    "도시철도": ("도시철도",),
+    "산업단지": ("산업단지", "국가산단"),
+    "도시공업지역": ("도시공업지역",),
+    "도심융합특구": ("도심융합특구",),
+    "기회발전특구": ("기회발전특구",),
+    "스마트시티": ("스마트시티", "스마트도시"),
+    "디지털트윈": ("디지털트윈",),
+    "공공건축": ("공공건축",),
+    "건축물관리": ("건축물관리", "노후건축물"),
+    "녹색건축": ("녹색건축", "제로에너지"),
+    "탄소중립": ("탄소중립",),
+    "기후위기": ("기후위기", "기후적응"),
+    "침수": ("침수",),
+    "폭염": ("폭염",),
+    "골목상권": ("골목상권",),
+    "전통시장": ("전통시장",),
+    "농촌공간": ("농촌공간",),
+    "농촌재생": ("농촌재생",),
+    "토지거래": ("토지거래",),
+    "부동산시장": ("부동산시장", "주택시장"),
+    "공시가격": ("공시가격",),
+    "관광단지": ("관광단지",),
+    "복합개발": ("복합개발",),
+    "경관": ("경관",),
+    "문화재": ("문화재", "국가유산"),
+    "기반시설": ("기반시설",),
+}
+
+# 의미가 약한 행정용어와 기관·언론사·사이트 명칭은 후보에서 제외합니다.
+KEYWORD_NOISE = STOPWORDS | {
+    "국가법령정보센터", "국민참여입법센터", "한국주택경제신문",
+    "서울연구데이터서비스", "하우징헤럴드", "경기도뉴스포털",
+    "연합뉴스", "서울특별시", "서울특별시청", "대한민국정책브리핑",
+    "정책브리핑", "머니투데이", "매일경제", "한국경제", "조선일보",
+    "중앙일보", "동아일보", "한겨레", "경향신문", "뉴스1", "뉴시스",
+    "조례", "자치법규", "행정규칙", "구역", "선정", "지정", "고시",
+    "공고", "일부개정", "전부개정", "개정안", "폐지", "시행",
+    "입법", "예고", "의견", "제출", "알림", "모집", "공모", "접수",
+    "보도", "자료", "센터", "포털", "서비스", "신문", "헤럴드",
+}
 
 
 def make_session() -> requests.Session:
@@ -182,6 +254,27 @@ HTTP = make_session()
 
 def clean(value: Any) -> str:
     return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
+def strip_source_suffix(title: str, source: str = "") -> str:
+    """Google 뉴스 제목 뒤의 '- 언론사/기관명' 꼬리표를 제거합니다."""
+    value = clean(title)
+
+    if source:
+        for separator in (" - ", " – ", " — ", " | "):
+            suffix = separator + clean(source)
+            if value.lower().endswith(suffix.lower()):
+                value = value[:-len(suffix)].strip()
+                break
+
+    # 기존 archive에는 실제 언론사명이 source 필드에 없는 항목도 있으므로
+    # 제목 맨 끝의 짧은 출처 꼬리표를 한 번 더 제거합니다.
+    value = re.sub(
+        r"\s+(?:-|–|—|\|)\s+[^|–—-]{2,50}$",
+        "",
+        value,
+    ).strip()
+    return value
 
 
 def load_json(path: Path, default: Any) -> Any:
@@ -270,9 +363,7 @@ def google_news(
 
     rows: list[dict[str, str]] = []
     for entry in parsed.entries[:100]:
-        title = clean(entry.get("title"))
-        if category == "정책" and not is_relevant(title):
-            continue
+        raw_title = clean(entry.get("title"))
         published = entry_date(entry)
         source_data = entry.get("source") or {}
         feed_source = (
@@ -280,10 +371,22 @@ def google_news(
             if isinstance(source_data, dict)
             else ""
         )
+
+        title = strip_source_suffix(raw_title, feed_source)
+        if category == "정책" and not is_relevant(title):
+            continue
+
+        if category == "정책" and source_hint in {
+            "국토교통부", "서울특별시", "경기도"
+        }:
+            final_source = source_hint
+        else:
+            final_source = feed_source or source_hint or "Google 뉴스"
+
         row = make_item(
             title=title,
             url=entry.get("link", ""),
-            source=source_hint or feed_source or "Google 뉴스",
+            source=final_source,
             category=category,
             published=published,
         )
@@ -367,7 +470,12 @@ def deduplicate(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     result: dict[str, dict[str, str]] = {}
     official = {"국토교통부", "서울특별시", "경기도"}
 
-    for row in rows:
+    for original in rows:
+        row = dict(original)
+        row["title"] = strip_source_suffix(
+            row.get("title", ""),
+            row.get("source", ""),
+        )
         key = f"{row.get('date', '')}|{title_key(row.get('title', ''))}"
         old = result.get(key)
         if old is None:
@@ -414,26 +522,80 @@ def category_counts(
     }
 
 
-def keyword_tokens(title: str) -> list[str]:
-    output: list[str] = []
-    for token in TOKEN_RE.findall(title):
-        token = token.lower()
-        if len(token) >= 2 and token not in STOPWORDS and not token.isdigit():
-            output.append(token)
-    return output
+def keyword_text(row: dict[str, str]) -> str:
+    title = strip_source_suffix(
+        row.get("title", ""),
+        row.get("source", ""),
+    )
+    text = title
+
+    # URL 조각과 기관·언론사명을 제거합니다.
+    text = re.sub(r"https?://\S+|www\.\S+", " ", text, flags=re.I)
+    source = clean(row.get("source", ""))
+    if source:
+        text = re.sub(re.escape(source), " ", text, flags=re.I)
+
+    for noise in KEYWORD_NOISE:
+        if len(noise) >= 2:
+            text = re.sub(re.escape(noise), " ", text, flags=re.I)
+
+    return clean(text)
 
 
 def keyword_rows(
     rows: list[dict[str, str]],
     days: int,
 ) -> list[dict[str, Any]]:
-    counter: Counter[str] = Counter()
+    phrase_counter: Counter[str] = Counter()
+    fallback_counter: Counter[str] = Counter()
+
     for row in period_rows(rows, days):
-        counter.update(keyword_tokens(row["title"]))
-    return [
-        {"word": word, "count": count}
-        for word, count in counter.most_common(20)
-    ]
+        original = strip_source_suffix(
+            row.get("title", ""),
+            row.get("source", ""),
+        )
+        lower = original.lower()
+
+        # 같은 자료에서 동일 키워드는 한 번만 셉니다.
+        for label, variants in KEYWORD_PHRASES.items():
+            if any(variant.lower() in lower for variant in variants):
+                phrase_counter[label] += 1
+
+        clean_text = keyword_text(row)
+        source_tokens = {
+            token.lower()
+            for token in TOKEN_RE.findall(row.get("source", ""))
+        }
+        tokens = {
+            token.lower()
+            for token in TOKEN_RE.findall(clean_text)
+            if (
+                len(token) >= 2
+                and token.lower() not in KEYWORD_NOISE
+                and token.lower() not in source_tokens
+                and not token.isdigit()
+            )
+        }
+        fallback_counter.update(tokens)
+
+    output: list[dict[str, Any]] = []
+    used: set[str] = set()
+
+    for word, count in phrase_counter.most_common():
+        output.append({"word": word, "count": count})
+        used.add(word.lower())
+        if len(output) == 20:
+            return output
+
+    for word, count in fallback_counter.most_common():
+        if word.lower() in used:
+            continue
+        output.append({"word": word, "count": count})
+        used.add(word.lower())
+        if len(output) == 20:
+            break
+
+    return output
 
 
 def match_count(title: str, words: tuple[str, ...]) -> int:
@@ -462,21 +624,21 @@ def issue_rows(
     for topic, words in TOPICS.items():
         matched = [
             row for row in current
-            if match_count(row["title"], words) > 0
+            if match_count(strip_source_suffix(row["title"], row.get("source", "")), words) > 0
         ]
         if not matched:
             continue
 
         matched.sort(
             key=lambda row: (
-                match_count(row["title"], words),
+                match_count(strip_source_suffix(row["title"], row.get("source", "")), words),
                 row["date"],
             ),
             reverse=True,
         )
         previous_count = sum(
             1 for row in previous
-            if match_count(row["title"], words) > 0
+            if match_count(strip_source_suffix(row["title"], row.get("source", "")), words) > 0
         )
         difference = len(matched) - previous_count
 
@@ -632,8 +794,8 @@ def main() -> None:
         KEYWORDS_PATH,
         {
             "updated_at": updated_at,
-            "weekly": keyword_rows(archive, 7),
             "monthly": keyword_rows(archive, 30),
+            "quarterly": keyword_rows(archive, 90),
             "yearly": keyword_rows(archive, 365),
         },
     )
