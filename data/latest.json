@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-24 16:36 KST",
+  "updated_at": "2026-06-24 16:44 KST",
   "coverage": {
-    "items": 3151,
+    "items": 3153,
     "oldest": "2025-06-25",
     "newest": "2026-06-24",
     "days_covered": 365,
@@ -12,26 +12,26 @@
       "정책": 37,
       "법령": 21,
       "연구": 27,
-      "기사": 82
+      "기사": 84
     },
     "monthly": {
       "정책": 95,
       "법령": 137,
       "연구": 75,
-      "기사": 139
+      "기사": 141
     },
     "yearly": {
       "정책": 586,
       "법령": 764,
       "연구": 585,
-      "기사": 1216
+      "기사": 1218
     }
   },
   "source_status": {
     "국토교통부": "10건 수집",
     "서울특별시": "16건 수집",
     "경기도": "17건 수집",
-    "법령·입법": "37건 수집",
+    "법령·입법": "33건 수집",
     "연구기관": "38건 수집",
     "언론": "100건 수집"
   },
@@ -71,17 +71,17 @@
     }
   ],
   "municipal_status": {
-    "고양": "공식 목록 HTTPError, 검색보완 0건",
-    "인천": "공식 목록 0건, 검색보완 0건",
-    "서울": "공식 목록 0건, 검색보완 0건",
     "화성": "공식 목록 3건",
     "남양주": "공식 목록 0건, 검색보완 0건",
-    "광주": "공식 목록 0건, 검색보완 0건",
+    "서울": "공식 목록 0건, 검색보완 0건",
     "과천": "공식 목록 0건, 검색보완 0건",
-    "수원": "공식 목록 0건, 검색보완 0건",
-    "평택": "공식 목록 0건, 검색보완 0건",
     "광명": "공식 목록 1건",
-    "성남": "공식 목록 SSLError, 검색보완 0건"
+    "고양": "공식 목록 ConnectTimeout, 검색보완 0건",
+    "인천": "공식 목록 ConnectTimeout, 검색보완 0건",
+    "수원": "공식 목록 ConnectTimeout, 검색보완 0건",
+    "성남": "공식 목록 ConnectTimeout, 검색보완 0건",
+    "평택": "공식 목록 ConnectTimeout, 검색보완 0건",
+    "광주": "공식 목록 ConnectTimeout, 검색보완 0건"
   },
   "maintenance_updates": [
     {
@@ -116,23 +116,39 @@
     }
   ],
   "maintenance_status": {
-    "인천": "0건",
     "수원": "0건",
-    "고양": "0건",
-    "남양주": "0건",
     "화성": "0건",
+    "인천": "0건",
+    "남양주": "0건",
+    "고양": "0건",
     "성남": "0건",
+    "과천": "0건",
     "평택": "0건",
     "광명": "0건",
-    "과천": "0건",
-    "서울": "15건",
-    "광주": "0건"
+    "광주": "0건",
+    "서울": "15건"
   },
   "items": [
     {
       "id": "f73d40f255b4cb40",
       "title": "강동구, 재개발·재건축 지역 주거상향지원사업 설명회",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE96YzdjdGhlTzNjNk9qaEFzVVY1QTNVUDJkNVlHMzhLTW9QZnZaQnVaLVNnb040dFM2UVVoM285S3NsNGpaOTZJY3ItVUxDWjJfYUJSRnlnWnBUa01zc2FoTnZmSFZjM0w2?oc=5",
+      "source": "한국주택경제신문",
+      "category": "기사",
+      "date": "2026-06-24"
+    },
+    {
+      "id": "b642ba308ad4943c",
+      "title": "수안3구역, 내달 1일 재건축 시공자 현설",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9SWm1yMUNFTlJUdXh2VXB0dm1LcVhmcEJib1ViQXVRbER0ajlMOC1mMURIdHdLVVZkUU1nVlR0VVJDUU9CWEFyRVIwekJNZVVnVU5KYVdYTml6UTk0aEVqN2pRRzBtYzlw?oc=5",
+      "source": "한국주택경제신문",
+      "category": "기사",
+      "date": "2026-06-24"
+    },
+    {
+      "id": "61acff03fa1a627d",
+      "title": "수안1구역, 재개발 시공자 선정 나섰다",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE43SDNpUE9veC11cjBmaTBzekRWSEg3ZTN3OEpnRjR2SzJHOTJzdFNFTThPcEZjRnl1dk9nLVAxbXVBTlp5aDhNQTE3M2RnVXE1R2pwYXYyTHhUalQtNkxMamsyY190cjFr?oc=5",
       "source": "한국주택경제신문",
       "category": "기사",
       "date": "2026-06-24"
@@ -1709,22 +1725,6 @@
       "id": "8bc1f71bdb05d5b8",
       "title": "재건축 조합원 지위 양도 '꼼수' 막혔다",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBVWlBfbU1uYzlZTWhEWFlPUVppRlVMY0U3NmREbWQwazNrWUFpVzM4Q19QdWRkNkRyc2ZPakF2NS1JVXZ2T3VNU3lMdG5haUw3ay11YVJQU3g?oc=5",
-      "source": "언론",
-      "category": "기사",
-      "date": "2026-06-16"
-    },
-    {
-      "id": "53f5d8cd111dc25c",
-      "title": "“1호 결재는 재건축”…서울 정비사업 속도전",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBDbGdVN2ZwUTVvUTBmalZEek1WVlNzRmtCb0RSeTJkSmNJLUlldU9Da2Mtd3MzLTM1TG1BSlZnbW9yVmdmRU1Sd1o1elZ4ZnVjWS1JbmtJNEtRWTg?oc=5",
-      "source": "언론",
-      "category": "기사",
-      "date": "2026-06-16"
-    },
-    {
-      "id": "e887ae9b9709529e",
-      "title": "서울시, 재개발·재건축 활성화 위한 10대 과제 정부에 건의",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4xajBMMHBiRGtMVDVqSlBQUWo4QkpSUHhMUF9sMHlEb1ctR05JNDMwVUtvcDQ5clN6dWlISkh3WUZLV2FFOEY5NnFCbFU5SU54Z2ZXeWRtQUVWUDNES1NUYkRaaWEwWTlVenBaSQ?oc=5",
       "source": "언론",
       "category": "기사",
       "date": "2026-06-16"
