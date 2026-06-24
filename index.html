@@ -35,15 +35,15 @@
     .hero-grid{
       display:grid;
       grid-template-columns:minmax(0,1fr) 310px;
-      gap:18px;
+      gap:14px;
       align-items:stretch;
-      margin-bottom:24px;
+      margin-bottom:18px;
     }
 
     .hero{
-      border-radius:24px;
-      padding:34px 42px 28px;
-      min-height:280px;
+      border-radius:20px;
+      padding:18px 28px 16px;
+      min-height:150px;
       color:#fff;
       background:
         radial-gradient(circle at 85% 18%,rgba(45,160,168,.42),transparent 34%),
@@ -58,86 +58,88 @@
       display:inline-flex;
       align-items:center;
       width:max-content;
-      padding:6px 12px;
+      padding:4px 9px;
       border:1px solid rgba(255,255,255,.28);
       border-radius:999px;
       background:rgba(255,255,255,.07);
-      font-size:1rem;
+      font-size:.88rem;
       font-weight:750;
       letter-spacing:-.02em;
     }
 
     .hero h1{
-      margin:24px 0 14px;
-      max-width:680px;
-      font-size:3.9rem;
-      line-height:1.04;
+      margin:10px 0 7px;
+      max-width:760px;
+      font-size:2.25rem;
+      line-height:1.08;
       letter-spacing:-.055em;
       font-weight:850;
+      white-space:nowrap;
     }
 
     .hero p{
       margin:0;
-      max-width:750px;
+      max-width:900px;
       color:rgba(255,255,255,.86);
-      font-size:1.35rem;
-      line-height:1.7;
+      font-size:1rem;
+      line-height:1.5;
       letter-spacing:-.02em;
     }
 
     .hero-foot{
       display:flex;
       justify-content:space-between;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
-      padding-top:20px;
-      margin-top:24px;
+      padding-top:9px;
+      margin-top:10px;
       border-top:1px solid rgba(255,255,255,.22);
       color:rgba(255,255,255,.78);
-      font-size:1.05rem;
+      font-size:.9rem;
     }
 
     .today-card{
       background:var(--panel);
       border:1px solid var(--line);
-      border-radius:24px;
+      border-radius:20px;
       box-shadow:var(--shadow);
-      padding:28px 26px;
+      padding:18px 20px 15px;
       display:flex;
       flex-direction:column;
-      min-height:280px;
+      min-height:150px;
     }
 
     .today-card h2{
-      margin:0 0 16px;
-      font-size:1.75rem;
+      margin:0 0 6px;
+      font-size:1.2rem;
       letter-spacing:-.035em;
     }
 
     .today-date{
       color:var(--teal);
-      font-size:2.2rem;
+      font-size:1.45rem;
       font-weight:850;
-      letter-spacing:-.045em;
-      line-height:1.25;
+      letter-spacing:-.035em;
+      line-height:1.2;
+      white-space:nowrap;
     }
 
     .today-summary{
-      margin-top:24px;
-      padding:16px 18px;
-      border-radius:18px;
+      margin-top:10px;
+      padding:9px 12px;
+      border-radius:12px;
       background:var(--soft);
-      font-size:1.15rem;
-      line-height:1.65;
+      font-size:.9rem;
+      line-height:1.45;
     }
 
-    .today-summary b{font-size:1.25rem}
+    .today-summary b{font-size:1rem}
     .today-sources{
       margin-top:auto;
-      padding-top:24px;
+      padding-top:9px;
       color:var(--muted);
-      font-size:1rem;
-      line-height:1.65;
+      font-size:.8rem;
+      line-height:1.4;
     }
 
     .section{margin-top:26px}
@@ -439,9 +441,10 @@
     @media(max-width:680px){
       html{font-size:11px}
       .wrap{padding:14px 12px 40px}
-      .hero{padding:26px 24px 22px;min-height:240px}
-      .hero h1{font-size:3.1rem}
-      .hero p{font-size:1.2rem}
+      .hero{padding:20px 20px 18px;min-height:190px}
+      .hero h1{font-size:2.2rem;white-space:normal}
+      .hero p{font-size:1rem}
+      .today-date{white-space:normal}
       .issues-grid{grid-template-columns:1fr}
       .stats{grid-template-columns:1fr 1fr}
       .sources{grid-template-columns:1fr}
@@ -454,7 +457,7 @@
       <div class="hero">
         <div>
           <span class="eyebrow">도시계획·국토정책 자동 아카이브</span>
-          <h1>도시의 변화를<br>매일 기록합니다.</h1>
+          <h1>도시의 변화를 매일 기록합니다.</h1>
           <p>기사, 보도자료, 입법예고, 법령 개정, 연구기관 발간물을 자동 수집하고 핵심 이슈와 키워드의 흐름을 분석합니다.</p>
         </div>
         <div class="hero-foot">
