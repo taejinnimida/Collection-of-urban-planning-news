@@ -419,18 +419,34 @@
       font-size:.98rem;
     }
 
-    .category-group{margin-bottom:22px}
+    .category-group{margin-bottom:9px}
     .category-group:last-child{margin-bottom:0}
 
     .category-heading{
+      width:100%;
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:12px;
-      padding:10px 12px;
+      padding:12px 14px;
+      color:var(--ink);
       background:#f6f9fb;
       border:1px solid var(--line);
       border-radius:12px;
+      cursor:pointer;
+      text-align:left;
+      transition:.15s ease;
+    }
+
+    .category-heading:hover{
+      border-color:#adc3cf;
+      background:#f0f6f8;
+    }
+
+    .category-heading[aria-expanded="true"]{
+      border-color:#9dbdc7;
+      background:#eaf3f5;
+      border-radius:12px 12px 0 0;
     }
 
     .category-heading strong{
@@ -438,10 +454,38 @@
       letter-spacing:-.03em;
     }
 
+    .category-heading-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
     .category-count{
       color:var(--muted);
       font-size:.95rem;
     }
+
+    .category-arrow{
+      width:1.1rem;
+      color:var(--teal);
+      font-size:1.1rem;
+      font-weight:900;
+      text-align:center;
+      transition:transform .15s ease;
+    }
+
+    .category-heading[aria-expanded="true"] .category-arrow{
+      transform:rotate(180deg);
+    }
+
+    .category-body{
+      padding:0 12px;
+      border:1px solid #9dbdc7;
+      border-top:0;
+      border-radius:0 0 12px 12px;
+    }
+
+    .category-body[hidden]{display:none}
 
     .item{
       padding:12px 2px;
@@ -717,7 +761,10 @@
 
       <main class="panel">
         <div class="panel-head">
-          <h2>최신 자료 · 분야별</h2>
+          <div>
+            <h2>최신 자료 · 분야별</h2>
+            <p class="section-desc">분야 제목을 클릭하면 펼치거나 접을 수 있습니다.</p>
+          </div>
         </div>
         <div id="items"></div>
       </main>
@@ -811,6 +858,7 @@
     let keywords={monthly:[],quarterly:[],yearly:[]};
     let issues={weekly:[],monthly:[],yearly:[]};
     let period="weekly";
+    let openItemCategory=null;
 
     const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
       "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -946,21 +994,34 @@
 
         if(!categoryRows.length) return "";
 
+        const isOpen=openItemCategory===category;
+
         return `
           <section class="category-group">
-            <div class="category-heading">
+            <button
+              type="button"
+              class="category-heading"
+              data-item-category="${esc(category)}"
+              aria-expanded="${isOpen}"
+            >
               <strong>${esc(category)}</strong>
-              <span class="category-count">${categoryRows.length}건</span>
+              <span class="category-heading-right">
+                <span class="category-count">${categoryRows.length}건</span>
+                <span class="category-arrow">⌄</span>
+              </span>
+            </button>
+
+            <div class="category-body" ${isOpen?"":"hidden"}>
+              ${categoryRows.map(x=>`
+                <article class="item">
+                  <div class="meta">
+                    <span>${esc(x.source)}</span>
+                    <span>${esc(x.date)}</span>
+                  </div>
+                  <a class="title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
+                </article>
+              `).join("")}
             </div>
-            ${categoryRows.map(x=>`
-              <article class="item">
-                <div class="meta">
-                  <span>${esc(x.source)}</span>
-                  <span>${esc(x.date)}</span>
-                </div>
-                <a class="title" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>
-              </article>
-            `).join("")}
           </section>
         `;
       }).join("");
@@ -1055,9 +1116,19 @@
     document.querySelectorAll(".tab").forEach(b=>{
       b.addEventListener("click",()=>{
         period=b.dataset.period;
+        openItemCategory=null;
         renderIssues();
         renderItems();
       });
+    });
+
+    document.getElementById("items").addEventListener("click",event=>{
+      const button=event.target.closest("[data-item-category]");
+      if(!button) return;
+
+      const category=button.dataset.itemCategory;
+      openItemCategory=openItemCategory===category?null:category;
+      renderItems();
     });
 
     init();
