@@ -463,6 +463,132 @@
       line-height:1.5;
     }
 
+    .planning-grid{
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .city-chips{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
+    .city-chip{
+      padding:5px 8px;
+      border-radius:999px;
+      background:#eef5f7;
+      color:var(--teal);
+      font-size:.82rem;
+      font-weight:750;
+    }
+
+    .notice-list{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:0 18px;
+    }
+
+    .notice-item{
+      padding:11px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .notice-meta{
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+      margin-bottom:4px;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    .notice-city{
+      color:var(--teal);
+      font-weight:800;
+    }
+
+    .notice-title{
+      font-size:1rem;
+      font-weight:720;
+      line-height:1.45;
+    }
+
+    .notice-title:hover{color:var(--teal)}
+
+    .notice-actions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      margin-top:5px;
+      font-size:.8rem;
+    }
+
+    .notice-eum{
+      color:var(--teal);
+      font-weight:750;
+    }
+
+    .notice-eum:hover{
+      text-decoration:underline;
+    }
+
+    .maintenance-list{
+      display:grid;
+      gap:0;
+      margin-bottom:16px;
+    }
+
+    .maintenance-item{
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .maintenance-item .notice-title{
+      font-size:.96rem;
+    }
+
+    .portal-heading{
+      margin:18px 0 10px;
+      font-size:1rem;
+      color:var(--ink);
+    }
+
+    .program-links{
+      display:grid;
+      gap:9px;
+    }
+
+    .program-link{
+      display:block;
+      padding:12px 13px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#f8fbfc;
+      transition:.15s ease;
+    }
+
+    .program-link:hover{
+      border-color:#a9c6cf;
+      transform:translateY(-1px);
+    }
+
+    .program-link strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:3px;
+    }
+
+    .program-link span{
+      display:block;
+      color:var(--muted);
+      font-size:.84rem;
+      line-height:1.4;
+    }
+
     .sources{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -496,6 +622,8 @@
       .today-card{min-height:auto}
       .stats{grid-template-columns:repeat(2,1fr)}
       .analysis-grid{grid-template-columns:1fr}
+      .planning-grid{grid-template-columns:1fr}
+      .notice-list{grid-template-columns:1fr}
     }
 
     @media(max-width:680px){
@@ -595,6 +723,73 @@
       </main>
     </section>
 
+
+    <section class="section planning-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>서울·인천·경기 주요 도시계획 고시</h2>
+            <p class="section-desc">최근 1주 · 선택한 11개 도시의 주요 도시계획 고시</p>
+          </div>
+        </div>
+
+        <div class="city-chips">
+          <span class="city-chip">서울</span>
+          <span class="city-chip">인천</span>
+          <span class="city-chip">수원</span>
+          <span class="city-chip">화성</span>
+          <span class="city-chip">남양주</span>
+          <span class="city-chip">고양</span>
+          <span class="city-chip">성남</span>
+          <span class="city-chip">평택</span>
+          <span class="city-chip">과천</span>
+          <span class="city-chip">광명</span>
+          <span class="city-chip">광주</span>
+        </div>
+
+        <div class="notice-list" id="municipal-notices"></div>
+      </div>
+
+      <aside class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>공공지원 정비사업 추진사항</h2>
+            <p class="section-desc">최근 1주 · 서울·인천·경기 주요도시 공식 소식</p>
+          </div>
+        </div>
+
+        <div class="maintenance-list" id="maintenance-updates"></div>
+
+        <h3 class="portal-heading">공식 추진현황 바로가기</h3>
+        <div class="program-links">
+          <a class="program-link" href="https://news.seoul.go.kr/citybuild/plan-online-archive" target="_blank" rel="noopener">
+            <strong>서울 신속통합기획 온라인 아카이브</strong>
+            <span>대상지별 기획 내용과 추진정보</span>
+          </a>
+          <a class="program-link" href="https://news.seoul.go.kr/citybuild/plan-progress" target="_blank" rel="noopener">
+            <strong>서울 신속통합기획 추진현황</strong>
+            <span>대상지 선정과 연도별 추진 흐름</span>
+          </a>
+          <a class="program-link" href="https://cleanup.seoul.go.kr/cleanup/view/publicRdvlpmnt.do" target="_blank" rel="noopener">
+            <strong>서울 공공재개발·재건축</strong>
+            <span>사업 개요와 선정구역</span>
+          </a>
+          <a class="program-link" href="https://news.seoul.go.kr/citybuild/archives/516139" target="_blank" rel="noopener">
+            <strong>서울 모아타운 추진현황</strong>
+            <span>저층주거지 공공지원형 정비 현황</span>
+          </a>
+          <a class="program-link" href="https://tongtong.lh.or.kr/tongtong/na/ntt/selectNttList.do?bbsId=1343&mi=2189" target="_blank" rel="noopener">
+            <strong>LH 도심복합사업 추진현황</strong>
+            <span>도심 공공주택 복합사업과 공공정비</span>
+          </a>
+          <a class="program-link" href="https://www.ih.co.kr/main/business/regeneration.jsp" target="_blank" rel="noopener">
+            <strong>인천도시공사 도시재생·도심복합</strong>
+            <span>인천 주요 공공주도 도시재생사업</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
     <section class="section panel">
       <div class="panel-head">
         <h2>수집 상태</h2>
@@ -605,7 +800,14 @@
 
   <script>
     const PERIOD_DAYS={weekly:7,monthly:30,yearly:365};
-    let latest={period_counts:{},items:[],source_status:{},coverage:{}};
+    let latest={
+      period_counts:{},
+      items:[],
+      source_status:{},
+      coverage:{},
+      municipal_notices:[],
+      maintenance_updates:[]
+    };
     let keywords={monthly:[],quarterly:[],yearly:[]};
     let issues={weekly:[],monthly:[],yearly:[]};
     let period="weekly";
@@ -699,9 +901,16 @@
                   <span>관련 자료 자동 분석</span>
                   <span class="auto-summary-count">${x.analyzed_count||0}건 기준</span>
                 </div>
-                <p><b>핵심 변화</b> ${esc(x.summary.change||"")}</p>
-                <p><b>주요 쟁점</b> ${esc(x.summary.issue||"")}</p>
-                <p><b>도시계획적 영향</b> ${esc(x.summary.impact||"")}</p>
+                ${(x.summary.points||[]).map(point=>`
+                  <p>
+                    <b>${esc(point.label)}</b>
+                    ${esc(point.text)}
+                  </p>
+                `).join("")}
+                ${x.summary.note
+                  ? `<p>${esc(x.summary.note)}</p>`
+                  : ""
+                }
               </div>
             `:""}
           </article>
@@ -760,6 +969,48 @@
         html||`<div class="empty">이 기간의 자료가 아직 없습니다.</div>`;
     }
 
+
+    function renderMaintenanceUpdates(){
+      const rows=(latest.maintenance_updates||[]).slice(0,18);
+      document.getElementById("maintenance-updates").innerHTML=rows.length
+        ? rows.map(item=>`
+          <article class="maintenance-item">
+            <div class="notice-meta">
+              <span class="notice-city">${esc(item.city||item.source)}</span>
+              <span>${esc(item.date)}</span>
+            </div>
+            <a class="notice-title" href="${esc(item.url)}" target="_blank" rel="noopener">
+              ${esc(item.title)}
+            </a>
+          </article>
+        `).join("")
+        : `<div class="empty">최근 1주 동안 조건에 맞는 공공지원 정비사업 소식이 없습니다.</div>`;
+    }
+
+    function renderMunicipalNotices(){
+      const rows=(latest.municipal_notices||[]).slice(0,36);
+      document.getElementById("municipal-notices").innerHTML=rows.length
+        ? rows.map(item=>`
+          <article class="notice-item">
+            <div class="notice-meta">
+              <span class="notice-city">${esc(item.city)}</span>
+              <span>${esc(item.date)}</span>
+              <span>${esc(item.source_type||"공식 고시공고")}</span>
+            </div>
+            <a class="notice-title" href="${esc(item.url)}" target="_blank" rel="noopener">
+              ${esc(item.title)}
+            </a>
+            <div class="notice-actions">
+              ${item.eum_url
+                ? `<a class="notice-eum" href="${esc(item.eum_url)}" target="_blank" rel="noopener">토지이음에서 확인</a>`
+                : ""
+              }
+            </div>
+          </article>
+        `).join("")
+        : `<div class="empty">최근 1주 동안 조건에 맞는 주요 도시계획 고시가 없습니다.</div>`;
+    }
+
     function renderSources(){
       const src=latest.source_status||{};
       document.getElementById("sources").innerHTML=
@@ -787,6 +1038,8 @@
       renderIssues();
       renderKeywords();
       renderItems();
+      renderMunicipalNotices();
+      renderMaintenanceUpdates();
       renderSources();
     }
 
