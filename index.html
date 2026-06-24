@@ -309,11 +309,71 @@
     }
 
     .examples li{
-      padding:10px 0;
+      padding:0;
       border-bottom:1px dashed var(--line);
       color:#445366;
       font-size:1rem;
       line-height:1.55;
+    }
+
+    .issue-link{
+      display:block;
+      padding:10px 2px;
+      border-radius:8px;
+      transition:.15s ease;
+    }
+
+    .issue-link:hover{
+      background:#f3f8fa;
+      color:var(--teal);
+    }
+
+    .issue-link-title{
+      display:block;
+      font-weight:700;
+    }
+
+    .issue-link-meta{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:.86rem;
+    }
+
+    .auto-summary{
+      margin-top:14px;
+      padding:13px 14px;
+      border:1px solid #c8dff2;
+      border-radius:12px;
+      background:#eaf4fb;
+      color:#24445f;
+    }
+
+    .auto-summary-head{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      margin-bottom:8px;
+      color:#0d5770;
+      font-weight:850;
+      font-size:.95rem;
+    }
+
+    .auto-summary-count{
+      color:#5f7d91;
+      font-size:.8rem;
+      font-weight:650;
+    }
+
+    .auto-summary p{
+      margin:5px 0 0;
+      font-size:.9rem;
+      line-height:1.5;
+    }
+
+    .auto-summary b{
+      color:#173f59;
     }
 
     .analysis-grid{
@@ -614,8 +674,36 @@
             <h3>${esc(x.topic)}</h3>
             <span class="trend">${esc(x.trend_label)}</span>
             <ul class="examples">
-              ${(x.examples||[]).map(t=>`<li>${esc(t)}</li>`).join("")}
+              ${(x.examples||[]).map(example=>{
+                const item=typeof example==="string"
+                  ? {title:example,url:"",source:"",date:""}
+                  : example||{};
+                const meta=[item.source,item.date].filter(Boolean).join(" · ");
+                return `<li>
+                  ${item.url
+                    ? `<a class="issue-link" href="${esc(item.url)}" target="_blank" rel="noopener">
+                        <span class="issue-link-title">${esc(item.title)}</span>
+                        ${meta?`<span class="issue-link-meta">${esc(meta)}</span>`:""}
+                      </a>`
+                    : `<span class="issue-link">
+                        <span class="issue-link-title">${esc(item.title)}</span>
+                        ${meta?`<span class="issue-link-meta">${esc(meta)}</span>`:""}
+                      </span>`
+                  }
+                </li>`;
+              }).join("")}
             </ul>
+            ${x.summary?`
+              <div class="auto-summary">
+                <div class="auto-summary-head">
+                  <span>관련 자료 자동 분석</span>
+                  <span class="auto-summary-count">${x.analyzed_count||0}건 기준</span>
+                </div>
+                <p><b>핵심 변화</b> ${esc(x.summary.change||"")}</p>
+                <p><b>주요 쟁점</b> ${esc(x.summary.issue||"")}</p>
+                <p><b>도시계획적 영향</b> ${esc(x.summary.impact||"")}</p>
+              </div>
+            `:""}
           </article>
         `).join("")
         : `<div class="empty">이슈 분석 전입니다.</div>`;
