@@ -8,7 +8,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote
+from html import unescape
+from urllib.parse import quote, urlencode, urljoin
 
 import feedparser
 import requests
@@ -58,12 +59,267 @@ OFFICIAL_POLICY_QUERIES = [
     ),
 ]
 
+
+# 서울·인천 및 경기 주요 도시의 공식 고시공고 목록
+MUNICIPAL_NOTICE_SOURCES = [
+    {
+        "city": "서울",
+        "url": "https://www.seoul.go.kr/news/news_notice.do",
+        "domain": "seoul.go.kr/news/news_notice.do",
+    },
+    {
+        "city": "인천",
+        "url": (
+            "https://announce.incheon.go.kr/citynet/jsp/sap/"
+            "SAPGosiBizProcess.do?command=searchList&flag=gosiGL&sido=ic&svp=Y"
+        ),
+        "domain": "announce.incheon.go.kr",
+    },
+    {
+        "city": "수원",
+        "url": (
+            "https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do"
+            "?q_currPage=1&q_rowPerPage=50"
+        ),
+        "domain": "suwon.go.kr/web/saeallOfr",
+    },
+    {
+        "city": "화성",
+        "url": (
+            "https://www.hscity.go.kr/www/gosi/BD_notice.do"
+            "?q_currPage=1&q_rowPerPage=50"
+        ),
+        "domain": "hscity.go.kr/www/gosi",
+    },
+    {
+        "city": "남양주",
+        "url": (
+            "https://www.nyj.go.kr/www/selectEminwonWebList.do"
+            "?cpn=1&key=2492&sa1Join=01%3B02%3B04%3B05"
+        ),
+        "domain": "nyj.go.kr/www/selectEminwonWeb",
+    },
+    {
+        "city": "고양",
+        "url": (
+            "https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/"
+            "OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y"
+            "&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt"
+            "&methodnm=selectListOfrNotAncmtHomepage"
+            "&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y"
+            "&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0"
+        ),
+        "domain": "eminwon.goyang.go.kr",
+    },
+    {
+        "city": "성남",
+        "url": (
+            "https://www.seongnam.go.kr/notice/publicNotice01.do"
+            "?menuIdx=1000055&returnURL=%2Fmain.do"
+        ),
+        "domain": "seongnam.go.kr/notice",
+    },
+    {
+        "city": "평택",
+        "url": (
+            "https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do"
+            "?mid=0401020100"
+        ),
+        "domain": "pyeongtaek.go.kr/pyeongtaek/saeol/gosi",
+    },
+    {
+        "city": "과천",
+        "url": (
+            "https://www.gccity.go.kr/portal/saeol/gosi/list.do"
+            "?mId=0301040000"
+        ),
+        "domain": "gccity.go.kr/portal/saeol/gosi",
+    },
+    {
+        "city": "광명",
+        "url": (
+            "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do"
+            "?q_nftcBbsCode=1001"
+        ),
+        "domain": "gm.go.kr/pt/user/nftcBbs",
+    },
+    {
+        "city": "광주",
+        "url": (
+            "https://www.gjcity.go.kr/portal/saeol/gosi/list.do"
+            "?mId=0202010000"
+        ),
+        "domain": "gjcity.go.kr/portal/saeol/gosi",
+    },
+]
+
+URBAN_NOTICE_KEYWORDS = (
+    "도시관리계획",
+    "도시계획시설",
+    "도시기본계획",
+    "지구단위계획",
+    "정비구역",
+    "정비계획",
+    "정비사업",
+    "재개발",
+    "재건축",
+    "소규모재건축",
+    "가로주택정비",
+    "재정비촉진",
+    "도시개발",
+    "개발계획",
+    "산업단지계획",
+    "주거환경개선",
+    "공공주택",
+    "역세권",
+    "용도지역",
+    "용도지구",
+    "용도구역",
+    "개발행위허가제한",
+    "경관계획",
+    "공원조성계획",
+    "택지개발",
+)
+
+MUNICIPAL_NOTICE_DAYS = 7
+MUNICIPAL_NOTICE_LIMIT = 28
+MUNICIPAL_CITY_LIMIT = 4
+
+# 단순 지형도면 고시와 실시계획 고시는 이번 목록에서 제외합니다.
+MUNICIPAL_NOTICE_EXCLUDE_WORDS = (
+    "지형도면",
+    "실시계획",
+)
+
+EUM_GOSI_LIST_URL = "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp"
+
+
+PUBLIC_MAINTENANCE_SOURCES = [
+    {
+        "city": "서울",
+        "query": (
+            "(site:seoul.go.kr OR site:cleanup.seoul.go.kr) "
+            "(신속통합기획 OR 신통기획 OR 공공재개발 OR 공공재건축 "
+            "OR 모아타운 OR 모아주택 OR 도심복합 OR 공공정비)"
+        ),
+    },
+    {
+        "city": "인천",
+        "query": (
+            "(site:incheon.go.kr OR site:ih.co.kr) "
+            "(공공재개발 OR 공공재건축 OR 공공정비 OR 도심복합 "
+            "OR 소규모주택정비 OR 정비사업지원)"
+        ),
+    },
+    {
+        "city": "수원",
+        "query": (
+            "site:suwon.go.kr "
+            "(공공재개발 OR 공공재건축 OR 공공정비 OR 정비사업지원 "
+            "OR 재개발재건축지원 OR 정비사업컨설팅)"
+        ),
+    },
+    {
+        "city": "화성",
+        "query": (
+            "site:hscity.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+    {
+        "city": "남양주",
+        "query": (
+            "site:nyj.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+    {
+        "city": "고양",
+        "query": (
+            "site:goyang.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+    {
+        "city": "성남",
+        "query": (
+            "site:seongnam.go.kr "
+            "(공공재개발 OR 공공정비 OR 정비사업지원 "
+            "OR 재개발재건축지원 OR 정비사업컨설팅)"
+        ),
+    },
+    {
+        "city": "평택",
+        "query": (
+            "site:pyeongtaek.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+    {
+        "city": "과천",
+        "query": (
+            "site:gccity.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+    {
+        "city": "광명",
+        "query": (
+            "site:gm.go.kr "
+            "(공공재개발 OR 공공정비 OR 정비사업지원 "
+            "OR 재개발재건축지원 OR 정비사업컨설팅)"
+        ),
+    },
+    {
+        "city": "광주",
+        "query": (
+            "site:gjcity.go.kr "
+            "(공공정비 OR 정비사업지원 OR 재개발재건축지원 "
+            "OR 정비사업컨설팅 OR 소규모주택정비)"
+        ),
+    },
+]
+
+PUBLIC_MAINTENANCE_KEYWORDS = (
+    "신속통합기획",
+    "신통기획",
+    "공공재개발",
+    "공공재건축",
+    "공공정비",
+    "공공참여",
+    "공공지원",
+    "모아타운",
+    "모아주택",
+    "도심복합",
+    "정비사업 지원",
+    "정비사업지원",
+    "재개발·재건축 지원",
+    "재개발재건축지원",
+    "정비사업 컨설팅",
+    "정비사업컨설팅",
+    "정비사업 지원센터",
+    "정비사업지원센터",
+    "소규모주택정비",
+)
+
+PUBLIC_MAINTENANCE_DAYS = 7
+PUBLIC_MAINTENANCE_LIMIT = 18
+PUBLIC_MAINTENANCE_CITY_LIMIT = 3
+
 OTHER_QUERIES = [
     (
         "법령",
         "법령·입법",
         "(site:opinion.lawmaking.go.kr OR site:law.go.kr) "
-        "(도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 교통)",
+        "(도시 OR 국토 OR 주택 OR 주거 OR 건축 OR 토지 OR 정비 "
+        "OR 재개발 OR 재건축 OR 공공주택 OR 교통 OR 철도 "
+        "OR 도시개발 OR 도시재생 OR 공간 OR 지역 OR 농촌) "
+        "(개정 OR 제정 OR 입법예고 OR 시행령 OR 시행규칙 OR 법률)",
     ),
     (
         "연구",
@@ -236,13 +492,31 @@ KEYWORD_NOISE = STOPWORDS | {
 # 1) 연구기관의 단순 사진·행사 스케치 게시물은 제외
 # 2) 법령명이 없이 '변경 조문' 등만 표시된 자료는 제외
 RESEARCH_MEDIA_PATTERNS = (
+    # 단순 사진·옛 모습 공유
     r"^\s*\[(?:포토|사진|photo)\]",
     r"^\s*(?:포토\s*뉴스|포토\s*갤러리|포토\s*앨범)\b",
     r"사진으로\s*보는",
+    r"(?:옛|과거|예전)\s*(?:사진|모습|풍경)",
+    r"(?:사진|기록)\s*아카이브",
+    r"(?:기록|역사)\s*사진",
+    r"그때\s*그\s*시절",
+    r"추억(?:의)?\s*(?:사진|거리|풍경|모습)",
+    r"(?:옛|과거|예전).{0,20}(?:길|거리|로|동네|마을).{0,20}(?:사진|모습|풍경)",
+    r"(?:길|거리|로|동네|마을).{0,20}(?:옛|과거|예전).{0,20}(?:사진|모습|풍경)",
     r"(?:현장|행사|세미나|포럼)\s*스케치",
     r"(?:행사|현장)\s*사진",
     r"사진\s*(?:공유|모음|자료|갤러리|앨범)",
+
+    # 연구성과가 아닌 기관 홍보·행정 게시물
+    r"(?:채용|직원|연구원)\s*(?:공고|모집)",
+    r"(?:입찰|용역|계약)\s*(?:공고|안내)",
+    r"(?:참가자|교육생|수강생|서포터즈|기자단)\s*모집",
+    r"(?:행사|세미나|포럼|설명회|교육)\s*(?:개최\s*)?안내",
+    r"(?:참가|수강)\s*(?:신청|접수)",
+    r"(?:업무협약|협약식|mou|개소식|방문단|기관방문)",
+    r"(?:카드뉴스|홍보영상|기관동정|수상소식|뉴스레터)",
 )
+
 
 LAW_GENERIC_PHRASES = (
     "변경 조문",
@@ -263,122 +537,117 @@ LAW_NAME_SIGNALS = (
     "조례", "규정", "기준", "지침",
 )
 
+
+# 법령 제목 자체에 아래 도시계획 관련 키워드가 있어야 공유합니다.
+LAW_RELEVANT_KEYWORDS = (
+    "도시", "국토", "주택", "주거", "건축", "토지", "부동산",
+    "정비", "재개발", "재건축", "공공주택", "도시개발",
+    "도시재생", "빈집", "교통", "철도", "도로", "주차",
+    "공간", "지역", "농촌", "산업단지", "물류", "경관",
+    "공원", "녹지", "기반시설", "용도지역", "지구단위",
+    "택지", "역세권", "생활권", "기후", "탄소", "환경",
+)
+
+LAW_GENERIC_TITLE_PATTERNS = (
+    r"^\s*(?:관련\s*)?법령\s*$",
+    r"^\s*(?:관련\s*)?법령\s*(?:개정|제정|변경|안내)\s*$",
+    r"^\s*(?:법률|시행령|시행규칙)\s*(?:개정|제정|변경)\s*$",
+    r"^\s*(?:일부|전부)?개정(?:안|령안)?\s*$",
+    r"^\s*(?:명칭|제명)\s*(?:변경|개칭)\s*$",
+)
+
+LAW_RENAME_PATTERNS = (
+    r"(?:법령|법률|조례|규정).{0,12}(?:명칭|제명).{0,8}(?:변경|개칭)",
+    r"(?:명칭|제명).{0,8}(?:변경|개칭)",
+)
+
 FILTER_COUNTS: Counter[str] = Counter()
 
 
-# 무료 자동 이슈 분석 규칙
-# 기사 본문 생성형 요약이 아니라, 관련 자료 10~15건의 제목에서
-# 반복되는 변화·쟁점·도시계획적 영향을 추출합니다.
-ACTION_SIGNALS = {
-    "추진": "사업·정책 추진",
-    "확대": "대상·지원 확대",
-    "완화": "규제·기준 완화",
-    "강화": "관리·규제 강화",
-    "도입": "새 제도 도입",
-    "지정": "구역·사업 지정",
-    "공급": "공급 확대",
-    "개정": "법·제도 개정",
-    "시행": "제도 시행",
-    "발표": "정책 발표",
-    "검토": "정책·사업 검토",
-    "착공": "사업 착공",
-    "준공": "사업 완료",
-    "유치": "기능·기업 유치",
-    "지원": "재정·행정 지원",
-    "정비": "정비·개선 추진",
-    "조성": "공간·시설 조성",
-    "계획": "계획 수립",
+# 무료 자동 이슈 분석 규칙 V2
+# 고정된 '핵심 변화/주요 쟁점/도시계획적 영향' 문장을 강제로 만들지 않습니다.
+# 관련 자료 10~15건의 제목에서 실제로 2건 이상 반복된 흐름만 표시합니다.
+FLOW_DIMENSIONS = {
+    "정책·제도": {
+        "개정": "법령 개정",
+        "시행": "제도 시행",
+        "완화": "규제 완화",
+        "강화": "관리 강화",
+        "도입": "새 제도 도입",
+        "지정": "구역·사업 지정",
+        "지원": "지원 확대",
+        "공모": "사업 공모",
+        "승인": "계획·사업 승인",
+    },
+    "사업·공급": {
+        "추진": "사업 추진",
+        "공급": "공급 확대",
+        "착공": "사업 착공",
+        "준공": "사업 준공",
+        "조성": "공간·시설 조성",
+        "정비": "정비 추진",
+        "유치": "기능·기업 유치",
+        "계획": "계획 수립",
+    },
+    "시장·비용": {
+        "사업성": "사업성",
+        "공사비": "공사비",
+        "분담금": "분담금",
+        "미분양": "미분양",
+        "가격": "가격 변동",
+        "거래": "거래 변화",
+        "지가": "지가 변화",
+        "임대료": "임대료",
+        "부담": "비용 부담",
+    },
+    "갈등·리스크": {
+        "갈등": "이해관계자 갈등",
+        "반발": "주민 반발",
+        "반대": "반대 여론",
+        "소송": "법적 분쟁",
+        "지연": "사업 지연",
+        "취소": "사업 취소",
+        "무산": "사업 무산",
+        "논란": "정책·사업 논란",
+    },
+    "공간·생활권": {
+        "역세권": "역세권 재편",
+        "상권": "상권 변화",
+        "생활권": "생활권 변화",
+        "빈집": "빈집 관리",
+        "인구": "인구 변화",
+        "소멸": "지역소멸",
+        "교통": "교통체계 변화",
+        "철도": "철도축 변화",
+        "용적률": "개발밀도 변화",
+        "산업단지": "산업입지 변화",
+    },
+    "안전·환경": {
+        "침수": "침수 대응",
+        "폭염": "폭염 대응",
+        "기후": "기후위기 대응",
+        "탄소": "탄소중립",
+        "안전": "안전관리",
+        "재난": "재난 대응",
+        "녹색": "녹색건축",
+    },
 }
 
-ISSUE_SIGNALS = {
-    "갈등": "이해관계자 갈등",
-    "반발": "주민·이해관계자 반발",
-    "반대": "반대 여론",
-    "지연": "사업 지연",
-    "분담금": "분담금 부담",
-    "공사비": "공사비 상승",
-    "사업성": "사업성 확보",
-    "소송": "법적 분쟁",
-    "미분양": "미분양 위험",
-    "공실": "공실 증가",
-    "침체": "시장 침체",
-    "부족": "공급·재원 부족",
-    "부담": "비용 부담",
-    "논란": "정책·사업 논란",
-    "취소": "사업 취소·철회",
-    "무산": "사업 무산 위험",
+FLOW_SENTENCE = {
+    "정책·제도": "{labels} 관련 움직임이 {titles}건의 자료에서 반복됐다.",
+    "사업·공급": "{labels} 흐름이 {titles}건의 자료에서 확인됐다.",
+    "시장·비용": "{labels} 문제가 {titles}건의 자료에서 주요 관심사로 나타났다.",
+    "갈등·리스크": "{labels} 위험이 {titles}건의 자료에서 반복적으로 제기됐다.",
+    "공간·생활권": "{labels}가 {titles}건의 자료에서 공간 변화의 핵심으로 나타났다.",
+    "안전·환경": "{labels}이 {titles}건의 자료에서 주요 대응 과제로 나타났다.",
 }
-
-IMPACT_SIGNALS = {
-    "주택공급": "주택 공급과 주거 선택",
-    "공공주택": "공공주택 공급과 주거복지",
-    "재건축": "노후 주거지 정비와 사업성",
-    "재개발": "기성시가지 정비와 원주민 재정착",
-    "용적률": "도시 밀도와 사업성",
-    "역세권": "거점과 생활권 재편",
-    "광역교통": "광역 접근성과 생활권 확대",
-    "철도": "교통축과 역세권 구조",
-    "상권": "상권과 지역경제",
-    "산업단지": "산업입지와 일자리",
-    "인구": "인구 변화와 생활권 유지",
-    "소멸": "축소지역의 기능 유지",
-    "빈집": "유휴공간과 주거지 관리",
-    "도시재생": "기성시가지 관리와 기능 전환",
-    "토지": "토지이용과 개발 압력",
-    "부동산": "부동산시장과 개발 기대",
-    "기후": "기후위기 대응과 공간 안전",
-    "침수": "도시 안전과 방재",
-    "공공기여": "개발이익과 공공성 배분",
-    "경관": "경관 관리와 개발 규제",
-    "농촌": "농촌 생활권과 서비스 유지",
-}
-
-TOPIC_IMPACT_DEFAULTS = {
-    "주택공급·공공주택": "주택 공급, 주거 선택과 주거복지",
-    "재건축·재개발·정비사업": "노후 주거지 정비, 사업성과 주민 부담",
-    "지역소멸·균형발전": "생활권 유지, 공공서비스와 지역 기능 재편",
-    "철도·광역교통·역세권": "광역 접근성, 역세권과 도시공간 구조",
-    "도시재생·빈집·원도심": "기성시가지 관리, 유휴공간과 상권 회복",
-    "국토계획·용도지역·규제": "토지이용, 개발밀도와 공공성",
-    "산업단지·지역산업 전환": "산업입지, 일자리와 지역경제",
-    "스마트시티·AI·디지털전환": "도시관리 방식과 공공서비스 효율",
-    "기후위기·탄소중립·녹색건축": "도시 안전, 에너지와 기후적응",
-    "상권·골목경제·생활권": "생활권 경제, 공실과 지역상권 유지",
-    "농촌공간·농촌재생": "농촌 생활권, 정주서비스와 유휴공간",
-    "건축정책·공공건축": "건축물 생애주기와 공공공간 품질",
-    "토지·부동산시장": "토지이용, 주택시장과 개발 압력",
-    "관광·지역개발": "지역 기능 전환, 관광수요와 생활환경",
-    "도시안전·재난 대응": "방재, 기반시설과 취약지역 관리",
-}
-
-
-def top_signal_labels(
-    titles: list[str],
-    mapping: dict[str, str],
-    limit: int = 2,
-) -> list[str]:
-    counter: Counter[str] = Counter()
-    for title in titles:
-        lower = title.lower()
-        for signal, label in mapping.items():
-            if signal.lower() in lower:
-                counter[label] += 1
-    return [label for label, _ in counter.most_common(limit)]
-
-
-def join_labels(labels: list[str]) -> str:
-    if not labels:
-        return ""
-    if len(labels) == 1:
-        return labels[0]
-    return "·".join(labels)
 
 
 def diversify_issue_rows(
     matched: list[dict[str, str]],
     limit: int = 15,
 ) -> list[dict[str, str]]:
-    """같은 출처가 요약을 독점하지 않도록 출처별 최대 2건만 반영합니다."""
+    """같은 출처가 분석을 독점하지 않도록 출처별 최대 2건을 우선 반영합니다."""
     selected: list[dict[str, str]] = []
     source_counts: Counter[str] = Counter()
     seen_titles: set[str] = set()
@@ -398,7 +667,6 @@ def diversify_issue_rows(
         if len(selected) >= limit:
             break
 
-    # 출처 제한 때문에 10건 미만이면 남은 고유 자료를 추가합니다.
     if len(selected) < min(10, len(matched)):
         for row in matched:
             key = title_key(row.get("title", ""))
@@ -415,57 +683,76 @@ def diversify_issue_rows(
 def build_issue_summary(
     topic: str,
     basis_rows: list[dict[str, str]],
-) -> dict[str, str]:
+) -> dict[str, Any]:
     titles = [
         strip_source_suffix(row.get("title", ""), row.get("source", ""))
         for row in basis_rows
         if row.get("title")
     ]
 
-    action_labels = top_signal_labels(titles, ACTION_SIGNALS, 2)
-    issue_labels = top_signal_labels(titles, ISSUE_SIGNALS, 2)
-    impact_labels = top_signal_labels(titles, IMPACT_SIGNALS, 2)
+    points: list[dict[str, Any]] = []
 
-    if action_labels:
-        change = (
-            f"최근 관련 자료에서는 {join_labels(action_labels)}가 "
-            f"반복적으로 나타났다."
+    for dimension, signals in FLOW_DIMENSIONS.items():
+        label_counts: Counter[str] = Counter()
+        matched_title_count = 0
+
+        for title in titles:
+            lower = title.lower()
+            labels_in_title: set[str] = set()
+
+            for signal, label in signals.items():
+                if signal.lower() in lower:
+                    labels_in_title.add(label)
+
+            if labels_in_title:
+                matched_title_count += 1
+                label_counts.update(labels_in_title)
+
+        # 한 기사에서만 나온 말은 '흐름'으로 보지 않습니다.
+        if matched_title_count < 2:
+            continue
+
+        top_labels = [
+            label for label, _ in label_counts.most_common(3)
+        ]
+        if not top_labels:
+            continue
+
+        labels_text = "·".join(top_labels)
+        sentence = FLOW_SENTENCE[dimension].format(
+            labels=labels_text,
+            titles=matched_title_count,
+        )
+
+        points.append(
+            {
+                "label": dimension,
+                "text": sentence,
+                "evidence_count": matched_title_count,
+            }
+        )
+
+    points.sort(
+        key=lambda point: point["evidence_count"],
+        reverse=True,
+    )
+
+    # 최대 3개 흐름만 표시합니다.
+    points = points[:3]
+
+    if not points:
+        note = (
+            "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 "
+            "대표 자료만 제시합니다."
         )
     else:
-        change = (
-            f"최근 자료는 {topic}의 정책·사업 동향과 사례를 중심으로 다뤘다."
-        )
-
-    if issue_labels:
-        issue = (
-            f"주요 쟁점으로는 {join_labels(issue_labels)}가 함께 확인된다."
-        )
-    else:
-        issue = (
-            "제목에서 확인되는 뚜렷한 갈등·비용 쟁점은 제한적이며, "
-            "제도와 사업 추진 동향이 중심이다."
-        )
-
-    if impact_labels:
-        impact = (
-            f"도시계획적으로는 {join_labels(impact_labels)}에 미치는 영향을 "
-            f"계속 살펴볼 필요가 있다."
-        )
-    else:
-        fallback = TOPIC_IMPACT_DEFAULTS.get(
-            topic,
-            "토지이용, 생활권과 도시 기능 변화",
-        )
-        impact = (
-            f"도시계획적으로는 {fallback}에 미치는 영향이 주요 관찰 지점이다."
-        )
+        note = ""
 
     return {
-        "change": change,
-        "issue": issue,
-        "impact": impact,
+        "points": points,
+        "note": note,
+        "topic": topic,
     }
-
 
 
 def exclusion_reason(category: str, title: str) -> str | None:
@@ -475,10 +762,26 @@ def exclusion_reason(category: str, title: str) -> str | None:
     if category == "연구":
         for pattern in RESEARCH_MEDIA_PATTERNS:
             if re.search(pattern, lower, flags=re.I):
-                return "연구 사진·행사 게시물"
+                return "연구 사진·홍보·행정 게시물"
 
     if category == "법령":
         normalized = re.sub(r"[^0-9a-z가-힣]+", "", lower)
+
+        # 도시계획 관련 키워드가 제목에 없는 법령은 공유하지 않습니다.
+        if not any(
+            keyword.lower() in lower
+            for keyword in LAW_RELEVANT_KEYWORDS
+        ):
+            return "도시계획 관련 키워드 없는 법령"
+
+        # '관련 법령 개정', '명칭 변경', '개칭' 같은 일반 제목 제외
+        for pattern in LAW_GENERIC_TITLE_PATTERNS:
+            if re.fullmatch(pattern, lower, flags=re.I):
+                return "일반적인 법령 개정 제목"
+
+        for pattern in LAW_RENAME_PATTERNS:
+            if re.search(pattern, lower, flags=re.I):
+                return "단순 명칭 변경 법령"
 
         # 법령명이 전혀 없이 일반 메뉴명만 제목으로 잡힌 경우
         if re.fullmatch(
@@ -628,6 +931,244 @@ def make_item(
     }
 
 
+
+def strip_html(value: str) -> str:
+    value = re.sub(r"(?is)<script.*?</script>|<style.*?</style>", " ", value)
+    value = re.sub(r"(?s)<[^>]+>", " ", value)
+    return clean(unescape(value))
+
+
+def parse_notice_date(value: str) -> date | None:
+    match = re.search(
+        r"(20\d{2})[./-]\s*(\d{1,2})[./-]\s*(\d{1,2})",
+        value,
+    )
+    if not match:
+        return None
+    try:
+        return date(
+            int(match.group(1)),
+            int(match.group(2)),
+            int(match.group(3)),
+        )
+    except ValueError:
+        return None
+
+
+def is_urban_notice(title: str) -> bool:
+    lower = clean(title).lower()
+
+    if any(word.lower() in lower for word in MUNICIPAL_NOTICE_EXCLUDE_WORDS):
+        return False
+
+    return any(keyword.lower() in lower for keyword in URBAN_NOTICE_KEYWORDS)
+
+
+def make_eum_gosi_url(title: str, published: date) -> str:
+    # 토지이음 고시정보에서 제목과 날짜로 다시 확인할 수 있게 합니다.
+    params = {
+        "startdt": (published - timedelta(days=2)).isoformat(),
+        "enddt": (published + timedelta(days=2)).isoformat(),
+        "zonenm": clean(title),
+        "pageNo": "1",
+    }
+    return EUM_GOSI_LIST_URL + "?" + urlencode(params)
+
+
+def extract_notice_rows(
+    html_text: str,
+    source: dict[str, str],
+) -> list[dict[str, str]]:
+    cutoff = TODAY - timedelta(days=MUNICIPAL_NOTICE_DAYS - 1)
+    blocks = re.findall(r"(?is)<tr\b[^>]*>.*?</tr>", html_text)
+    blocks += re.findall(r"(?is)<li\b[^>]*>.*?</li>", html_text)
+
+    rows: list[dict[str, str]] = []
+    seen: set[str] = set()
+
+    for block in blocks:
+        block_text = strip_html(block)
+        published = parse_notice_date(block_text)
+        if not published or published < cutoff or published > TODAY + timedelta(days=1):
+            continue
+
+        anchors = re.findall(
+            r"(?is)<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+            block,
+        )
+
+        candidates: list[tuple[str, str]] = []
+        for href, label_html in anchors:
+            title = strip_html(label_html)
+            if len(title) < 6 or not is_urban_notice(title):
+                continue
+            candidates.append((title, href))
+
+        if not candidates:
+            continue
+
+        title, href = max(candidates, key=lambda item: len(item[0]))
+        key = f"{source['city']}|{published.isoformat()}|{title_key(title)}"
+        if key in seen:
+            continue
+        seen.add(key)
+
+        eum_url = make_eum_gosi_url(title, published)
+
+        if href.lower().startswith("javascript:") or href.startswith("#"):
+            link = eum_url
+            source_type = "토지이음 확인"
+        else:
+            link = urljoin(source["url"], href)
+            source_type = "공식 고시공고"
+
+        rows.append(
+            {
+                "city": source["city"],
+                "title": title,
+                "url": link,
+                "eum_url": eum_url,
+                "date": published.isoformat(),
+                "source_type": source_type,
+            }
+        )
+
+    return rows
+
+
+def fallback_municipal_notices(
+    source: dict[str, str],
+) -> list[dict[str, str]]:
+    terms = (
+        "(도시관리계획 OR 도시계획시설 OR 지구단위계획 OR 정비구역 "
+        "OR 재개발 OR 재건축 OR 도시개발 OR 정비계획 OR 용도지역)"
+    )
+    query = (
+        f"site:{source['domain']} {terms} "
+        f"when:{MUNICIPAL_NOTICE_DAYS}d"
+    )
+    url = (
+        "https://news.google.com/rss/search?q="
+        + quote(query)
+        + "&hl=ko&gl=KR&ceid=KR:ko"
+    )
+    response = HTTP.get(url, timeout=(12, 35))
+    response.raise_for_status()
+    parsed = feedparser.parse(response.content)
+
+    cutoff = TODAY - timedelta(days=MUNICIPAL_NOTICE_DAYS - 1)
+    rows: list[dict[str, str]] = []
+    seen: set[str] = set()
+
+    for entry in parsed.entries[:60]:
+        source_data = entry.get("source") or {}
+        feed_source = (
+            clean(source_data.get("title"))
+            if isinstance(source_data, dict)
+            else ""
+        )
+        title = strip_source_suffix(clean(entry.get("title")), feed_source)
+        published = entry_date(entry)
+
+        if (
+            not published
+            or published < cutoff
+            or not is_urban_notice(title)
+        ):
+            continue
+
+        key = f"{source['city']}|{published.isoformat()}|{title_key(title)}"
+        if key in seen:
+            continue
+        seen.add(key)
+
+        rows.append(
+            {
+                "city": source["city"],
+                "title": title,
+                "url": clean(entry.get("link", "")) or source["url"],
+                "eum_url": make_eum_gosi_url(title, published),
+                "date": published.isoformat(),
+                "source_type": "공식 누리집 검색",
+            }
+        )
+
+    return rows
+
+
+def collect_one_municipal_source(
+    source: dict[str, str],
+) -> tuple[list[dict[str, str]], str]:
+    direct_error = ""
+    try:
+        response = HTTP.get(
+            source["url"],
+            timeout=(12, 35),
+            allow_redirects=True,
+        )
+        response.raise_for_status()
+        response.encoding = response.apparent_encoding or response.encoding
+        rows = extract_notice_rows(response.text, source)
+        if rows:
+            return rows, f"공식 목록 {len(rows)}건"
+        direct_error = "공식 목록 0건"
+    except Exception as exc:
+        direct_error = f"공식 목록 {type(exc).__name__}"
+
+    try:
+        fallback = fallback_municipal_notices(source)
+        if fallback:
+            return fallback, f"{direct_error}, 검색보완 {len(fallback)}건"
+        return [], f"{direct_error}, 검색보완 0건"
+    except Exception as exc:
+        return [], f"{direct_error}, 검색보완 {type(exc).__name__}"
+
+
+def collect_municipal_notices(
+) -> tuple[list[dict[str, str]], dict[str, str]]:
+    all_rows: list[dict[str, str]] = []
+    status: dict[str, str] = {}
+
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        future_map = {
+            executor.submit(collect_one_municipal_source, source): source
+            for source in MUNICIPAL_NOTICE_SOURCES
+        }
+
+        for future in as_completed(future_map):
+            source = future_map[future]
+            try:
+                rows, message = future.result()
+                all_rows.extend(rows)
+                status[source["city"]] = message
+            except Exception as exc:
+                status[source["city"]] = f"수집 실패: {type(exc).__name__}"
+
+    deduped: dict[str, dict[str, str]] = {}
+    for row in all_rows:
+        key = f"{row['city']}|{row['date']}|{title_key(row['title'])}"
+        deduped[key] = row
+
+    sorted_rows = sorted(
+        deduped.values(),
+        key=lambda row: (row["date"], row["city"]),
+        reverse=True,
+    )
+
+    selected: list[dict[str, str]] = []
+    city_counts: Counter[str] = Counter()
+
+    for row in sorted_rows:
+        if city_counts[row["city"]] >= MUNICIPAL_CITY_LIMIT:
+            continue
+        selected.append(row)
+        city_counts[row["city"]] += 1
+        if len(selected) >= MUNICIPAL_NOTICE_LIMIT:
+            break
+
+    return selected, status
+
+
 def google_news(
     query: str,
     category: str,
@@ -675,6 +1216,78 @@ def google_news(
             rows.append(row)
     return rows
 
+
+
+def collect_public_maintenance_updates(
+) -> tuple[list[dict[str, str]], dict[str, str]]:
+    rows: list[dict[str, str]] = []
+    status: dict[str, str] = {}
+    cutoff = TODAY - timedelta(days=PUBLIC_MAINTENANCE_DAYS - 1)
+
+    def collect_one(source: dict[str, str]) -> tuple[str, list[dict[str, str]]]:
+        city = source["city"]
+        query = source["query"] + f" when:{PUBLIC_MAINTENANCE_DAYS}d"
+        found = google_news(query, "정비", city)
+
+        selected: list[dict[str, str]] = []
+        for row in found:
+            title = clean(row.get("title", ""))
+            published = row_date(row)
+            if not published or published < cutoff:
+                continue
+            if not any(
+                keyword.lower() in title.lower()
+                for keyword in PUBLIC_MAINTENANCE_KEYWORDS
+            ):
+                continue
+
+            copied = dict(row)
+            copied["city"] = city
+            copied["source"] = city
+            copied["source_type"] = "공식 정비사업 소식"
+            selected.append(copied)
+
+        return city, selected
+
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        futures = {
+            executor.submit(collect_one, source): source
+            for source in PUBLIC_MAINTENANCE_SOURCES
+        }
+        for future in as_completed(futures):
+            source = futures[future]
+            city = source["city"]
+            try:
+                _, found = future.result()
+                rows.extend(found)
+                status[city] = f"{len(found)}건"
+            except Exception as exc:
+                status[city] = f"수집 실패: {type(exc).__name__}"
+
+    unique: dict[str, dict[str, str]] = {}
+    for row in rows:
+        key = f"{row.get('city')}|{row.get('date')}|{title_key(row.get('title', ''))}"
+        unique[key] = row
+
+    ordered = sorted(
+        unique.values(),
+        key=lambda row: (row.get("date", ""), row.get("city", "")),
+        reverse=True,
+    )
+
+    output: list[dict[str, str]] = []
+    city_counts: Counter[str] = Counter()
+
+    for row in ordered:
+        city = row.get("city", "")
+        if city_counts[city] >= PUBLIC_MAINTENANCE_CITY_LIMIT:
+            continue
+        output.append(row)
+        city_counts[city] += 1
+        if len(output) >= PUBLIC_MAINTENANCE_LIMIT:
+            break
+
+    return output, status
 
 def month_windows() -> list[tuple[date, date]]:
     windows: list[tuple[date, date]] = []
@@ -1012,6 +1625,10 @@ def main() -> None:
         old_archive = []
 
     current, current_status = run_jobs(current_jobs(), "최근수집")
+    municipal_notices, municipal_status = collect_municipal_notices()
+    maintenance_updates, maintenance_status = (
+        collect_public_maintenance_updates()
+    )
     combined = old_archive + current
 
     old_report = coverage(old_archive)
@@ -1030,8 +1647,21 @@ def main() -> None:
         combined.extend(historical)
 
     archive = deduplicate(combined)
+
+    # 기존 archive에 남아 있던 연구 사진·홍보물과 일반 법령 페이지도
+    # 매 실행 때 다시 검사하여 정리합니다.
+    quality_archive: list[dict[str, str]] = []
+    for row in archive:
+        category = clean(row.get("category", ""))
+        title = clean(row.get("title", ""))
+        reason = exclusion_reason(category, title)
+        if reason:
+            FILTER_COUNTS["기존자료 정리: " + reason] += 1
+            continue
+        quality_archive.append(row)
+
     archive = [
-        row for row in archive
+        row for row in quality_archive
         if row_date(row)
         and KEEP_START <= row_date(row) <= TODAY + timedelta(days=1)
     ]
@@ -1082,6 +1712,10 @@ def main() -> None:
             },
             "source_status": current_status,
             "backfill_status": backfill_status,
+            "municipal_notices": municipal_notices,
+            "municipal_status": municipal_status,
+            "maintenance_updates": maintenance_updates,
+            "maintenance_status": maintenance_status,
             "items": yearly[:200],
         },
     )
@@ -1108,6 +1742,22 @@ def main() -> None:
     print("=== 최근 공식자료 ===")
     for source in ("국토교통부", "서울특별시", "경기도"):
         print(f"{source}: {current_status.get(source, '확인 불가')}")
+
+    print("=== 공공지원 정비사업 추진사항 ===")
+    print(f"최근 추진사항 {len(maintenance_updates)}건")
+    for city in (
+        "서울", "인천", "수원", "화성", "남양주", "고양",
+        "성남", "평택", "과천", "광명", "광주"
+    ):
+        print(f"{city}: {maintenance_status.get(city, '확인 불가')}")
+
+    print("=== 주요 도시계획 고시 ===")
+    print(f"선택 도시 고시 {len(municipal_notices)}건")
+    for city in (
+        "서울", "인천", "수원", "화성", "남양주", "고양",
+        "성남", "평택", "과천", "광명", "광주"
+    ):
+        print(f"{city}: {municipal_status.get(city, '확인 불가')}")
 
     print("=== 품질 필터 ===")
     if FILTER_COUNTS:
