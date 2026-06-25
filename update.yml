@@ -42,7 +42,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
-          RUN_AI_ANALYSIS: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 10 * * *' || github.event.schedule == '0 18 * * *' }}
+          RUN_AI_ANALYSIS: ${{ github.event_name != 'schedule' || github.event.schedule == '0 10 * * *' || github.event.schedule == '0 18 * * *' }}
         run: python scripts/collect.py
 
       - name: 수집 결과 저장
