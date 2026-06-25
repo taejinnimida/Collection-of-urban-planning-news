@@ -1090,7 +1090,11 @@ def extract_gemini_json(response_data):
 
     candidates = response_data.get("candidates") or []
     if not candidates:
-        raise ValueError("Gemini 응답에 candidates가 없습니다.")
+        feedback = response_data.get("promptFeedback") or {}
+        raise ValueError(
+            "Gemini 응답에 candidates가 없습니다. "
+            f"promptFeedback={feedback}"
+        )
 
     parts = (
         candidates[0]
@@ -1098,21 +1102,33 @@ def extract_gemini_json(response_data):
         .get("parts", [])
     )
     text = "".join(
-        clean(part.get("text", ""))
+        str(part.get("text", ""))
         for part in parts
         if isinstance(part, dict)
-    )
-    if not text:
-        raise ValueError("Gemini 응답 본문이 비어 있습니다.")
+    ).strip()
 
-    text = re.sub(r"^```(?:json)?\\s*|\\s*```$", "", text.strip())
+    if not text:
+        finish_reason = candidates[0].get("finishReason", "")
+        raise ValueError(
+            "Gemini 응답 본문이 비어 있습니다. "
+            f"finishReason={finish_reason}"
+        )
+
+    text = re.sub(
+        r"^```(?:json)?\s*|\s*```$",
+        "",
+        text,
+        flags=re.I,
+    ).strip()
     return json.loads(text)
 
 
 def call_gemini_issue_analysis(candidates):
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not api_key:
-        raise RuntimeError("GEMINI_API_KEY가 등록되지 않았습니다.")
+        raise RuntimeError(
+            "GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        )
 
     request_rows = []
     id_map = {}
@@ -1134,24 +1150,25 @@ def call_gemini_issue_analysis(candidates):
         )
 
     prompt = (
-        "당신은 20년 경력 도시계획 실무자를 돕는 전문 편집자다.\\n"
-        "아래 이슈별 공개자료 제목·검색 설명문·출처·날짜를 종합해 "
-        "각 이슈를 분석하라.\\n\\n"
-        "작성 원칙:\\n"
-        "1. 개별 제목을 순서대로 풀어쓰거나 나열하지 않는다.\\n"
-        "2. 여러 자료에 공통으로 나타난 변화와 쟁점을 종합한다.\\n"
-        "3. 같은 사건의 반복보도는 하나의 흐름으로 취급한다.\\n"
-        "4. 자료에 없는 수치·원인·전망·정책효과를 만들지 않는다.\\n"
-        "5. 2~3개 항목만 작성한다. 근거가 약한 항목은 생략한다.\\n"
-        "6. 각 문장은 45~110자 정도의 자연스러운 한국어로 쓴다.\\n"
-        "7. '도시계획적 의미'는 공간구조, 생활권, 사업성, "
-        "공공성, 형평성, 도시관리 중 자료로 뒷받침되는 내용만 쓴다.\\n"
-        "8. 공통 흐름이 약하면 note에 그 한계를 짧게 적는다.\\n\\n"
-        "분석할 이슈 JSON:\\n"
+        "당신은 20년 경력 도시계획 실무자를 돕는 전문 편집자다.\n"
+        "아래 공개자료의 제목·검색 설명문·출처·날짜를 종합해 "
+        "이슈별 분석을 작성하라.\n\n"
+        "반드시 지킬 원칙:\n"
+        "1. 제목에 들어 있는 단어의 출현 횟수만 세어 문장을 만들지 않는다.\n"
+        "2. 개별 제목을 순서대로 나열하거나 바꿔 쓰지 않는다.\n"
+        "3. 반복보도는 하나의 사건으로 보고 공통 흐름을 종합한다.\n"
+        "4. 자료에 없는 원인·효과·전망·수치를 만들지 않는다.\n"
+        "5. 핵심 변화, 주요 쟁점, 도시계획적 의미 중 근거가 있는 "
+        "2~3개 항목만 작성한다.\n"
+        "6. 각 문장은 55~120자의 자연스러운 한국어로 작성한다.\n"
+        "7. 도시계획적 의미는 공간구조, 생활권, 사업성, 공공성, "
+        "형평성, 도시관리 중 자료로 확인되는 내용만 다룬다.\n"
+        "8. 근거가 부족하면 억지 분석을 하지 말고 note에 한계를 적는다.\n\n"
+        "분석 대상 JSON:\n"
         + json.dumps(request_rows, ensure_ascii=False)
     )
 
-    payload = {
+    base_payload = {
         "contents": [
             {
                 "role": "user",
@@ -1161,60 +1178,121 @@ def call_gemini_issue_analysis(candidates):
         "generationConfig": {
             "temperature": 0.2,
             "maxOutputTokens": 8192,
-            "responseFormat": {
-                "text": {
-                    "mimeType": "application/json",
-                    "schema": ai_response_schema(),
-                }
-            },
         },
     }
 
-    response = HTTP.post(
-        GEMINI_API_URL,
-        headers={
-            "x-goog-api-key": api_key,
-            "Content-Type": "application/json",
-        },
-        json=payload,
-        timeout=(15, 150),
+    # 현재 generateContent 공식 REST 형식
+    primary_payload = json.loads(
+        json.dumps(base_payload, ensure_ascii=False)
     )
-    response.raise_for_status()
-    parsed = extract_gemini_json(response.json())
+    primary_payload["generationConfig"]["responseFormat"] = {
+        "text": {
+            "mimeType": "application/json",
+            "schema": ai_response_schema(),
+        }
+    }
+
+    # 일부 계정·API 버전에서 쓰이는 기존 호환 형식
+    legacy_payload = json.loads(
+        json.dumps(base_payload, ensure_ascii=False)
+    )
+    legacy_payload["generationConfig"]["responseMimeType"] = (
+        "application/json"
+    )
+    legacy_payload["generationConfig"]["responseJsonSchema"] = (
+        ai_response_schema()
+    )
+
+    def post_payload(payload, label):
+        response = HTTP.post(
+            GEMINI_API_URL,
+            headers={
+                "x-goog-api-key": api_key,
+                "Content-Type": "application/json",
+            },
+            json=payload,
+            timeout=(15, 180),
+        )
+        if response.ok:
+            return response.json(), label
+
+        detail = clean(response.text)[:800]
+        raise RuntimeError(
+            f"{label} 호출 실패 HTTP {response.status_code}: {detail}"
+        )
+
+    first_error = ""
+    try:
+        response_data, api_format = post_payload(
+            primary_payload,
+            "responseFormat",
+        )
+    except Exception as exc:
+        first_error = str(exc)
+        try:
+            response_data, api_format = post_payload(
+                legacy_payload,
+                "responseJsonSchema",
+            )
+        except Exception as second_exc:
+            raise RuntimeError(
+                f"1차 {first_error} / 2차 {second_exc}"
+            ) from second_exc
+
+    parsed = extract_gemini_json(response_data)
 
     applied = 0
+    returned_ids = set()
+
     for analysis in parsed.get("analyses", []):
-        row = id_map.get(clean(analysis.get("id", "")))
+        analysis_id = clean(analysis.get("id", ""))
+        row = id_map.get(analysis_id)
         if not row:
             continue
 
         points = []
         used_labels = set()
+
         for point in analysis.get("points", []):
             label = clean(point.get("label", ""))
             text = clean(point.get("text", ""))
+
             if (
                 label not in AI_LABELS
                 or label in used_labels
-                or len(text) < 15
+                or len(text) < 20
             ):
                 continue
+
             used_labels.add(label)
-            points.append({"label": label, "text": text})
+            points.append(
+                {
+                    "label": label,
+                    "text": text,
+                }
+            )
 
         if len(points) < 2:
             continue
 
+        returned_ids.add(analysis_id)
         row["summary"] = {
             "mode": "ai",
             "model": GEMINI_MODEL,
+            "api_format": api_format,
             "generated_at": NOW.isoformat(),
             "points": points[:3],
             "note": clean(analysis.get("note", "")),
         }
         applied += 1
 
-    return applied
+    missing = len(id_map) - len(returned_ids)
+    if applied == 0:
+        raise RuntimeError(
+            "Gemini 응답은 왔지만 적용 가능한 분석이 0건입니다."
+        )
+
+    return applied, missing
 
 
 def enrich_issue_payload_with_ai(issue_payload, previous_payload):
@@ -1230,36 +1308,82 @@ def enrich_issue_payload_with_ai(issue_payload, previous_payload):
             if summary.get("mode") != "ai":
                 candidates.append((period_key, row))
 
+    requested = should_run_ai_analysis()
     applied = 0
+    missing = 0
     error = ""
 
-    if should_run_ai_analysis() and candidates:
+    if requested and candidates:
         try:
-            applied = call_gemini_issue_analysis(candidates)
+            applied, missing = call_gemini_issue_analysis(
+                candidates
+            )
         except Exception as exc:
             error = f"{type(exc).__name__}: {exc}"
-            print(f"[Gemini AI 분석] 실패, 규칙형 유지: {error}")
+            print(f"[Gemini AI 분석] 실패: {error}")
+
+        if error:
+            public_error = clean(error)[:420]
+            for _, row in candidates:
+                if (row.get("summary") or {}).get("mode") == "ai":
+                    continue
+                row["summary"] = {
+                    "mode": "error",
+                    "model": GEMINI_MODEL,
+                    "generated_at": NOW.isoformat(),
+                    "points": [],
+                    "note": (
+                        "Gemini 분석에 실패했습니다. "
+                        f"{public_error}"
+                    ),
+                }
+        elif missing:
+            for _, row in candidates:
+                if (row.get("summary") or {}).get("mode") == "ai":
+                    continue
+                row["summary"] = {
+                    "mode": "error",
+                    "model": GEMINI_MODEL,
+                    "generated_at": NOW.isoformat(),
+                    "points": [],
+                    "note": (
+                        "Gemini 응답에서 이 이슈의 분석이 "
+                        "누락되었습니다."
+                    ),
+                }
 
     for period_key in ("weekly", "monthly", "yearly"):
         for row in issue_payload.get(period_key, []):
             row.pop("_analysis_materials", None)
 
+    all_rows = [
+        row
+        for period_key in ("weekly", "monthly", "yearly")
+        for row in issue_payload.get(period_key, [])
+    ]
+
     return {
-        "requested": should_run_ai_analysis(),
+        "requested": requested,
         "key_configured": bool(
             os.getenv("GEMINI_API_KEY", "").strip()
         ),
         "model": GEMINI_MODEL,
         "reused": reused,
         "updated": applied,
-        "fallback": sum(
+        "missing": missing,
+        "rule_count": sum(
             1
-            for period_key in ("weekly", "monthly", "yearly")
-            for row in issue_payload.get(period_key, [])
-            if (row.get("summary") or {}).get("mode") != "ai"
+            for row in all_rows
+            if (row.get("summary") or {}).get("mode") == "rule"
+        ),
+        "error_count": sum(
+            1
+            for row in all_rows
+            if (row.get("summary") or {}).get("mode") == "error"
         ),
         "error": error,
     }
+
 
 def issue_rows(rows, days):
     current_start = TODAY - timedelta(days=days - 1)
@@ -1427,7 +1551,9 @@ def main():
         f"키등록={ai_status['key_configured']} "
         f"재사용={ai_status['reused']} "
         f"신규={ai_status['updated']} "
-        f"규칙형={ai_status['fallback']}"
+        f"누락={ai_status['missing']} "
+        f"규칙형={ai_status['rule_count']} "
+        f"오류={ai_status['error_count']}"
     )
     if ai_status["error"]:
         print(f"오류={ai_status['error']}")
