@@ -43,7 +43,14 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
           RUN_AI_ANALYSIS: ${{ github.event_name != 'schedule' || github.event.schedule == '0 10 * * *' || github.event.schedule == '0 18 * * *' }}
-        run: python scripts/collect.py
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "Gemini API 키: 등록됨"
+          else
+            echo "Gemini API 키: 미등록"
+          fi
+          echo "AI 분석 실행 여부: $RUN_AI_ANALYSIS"
+          python scripts/collect.py
 
       - name: 수집 결과 저장
         run: |
