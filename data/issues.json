@@ -1,36 +1,33 @@
 {
-  "updated_at": "2026-06-25 10:29 KST",
+  "updated_at": "2026-06-25 10:44 KST",
   "coverage": {
-    "items": 3177,
+    "items": 3187,
     "oldest": "2025-06-26",
     "newest": "2026-06-24",
     "days_covered": 364,
     "complete": true
   },
-  "ai_status": {
-    "requested": true,
-    "key_configured": false,
-    "model": "gemini-2.5-flash",
-    "reused": 0,
-    "updated": 0,
-    "missing": 0,
-    "rule_count": 0,
-    "error_count": 24,
-    "error": "RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
-  },
   "weekly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 73,
-      "trend_label": "직전 동일기간보다 24건 증가",
+      "count": 74,
+      "trend_label": "직전 동일기간보다 25건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "154357115a7e6349d081",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "정비 추진·공급 확대 흐름이 5건의 자료에서 확인됐다.",
+            "evidence_count": 5
+          },
+          {
+            "label": "정책·제도",
+            "text": "지원 확대 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "재건축·재개발·정비사업"
       },
       "examples": [
         {
@@ -64,13 +61,21 @@
       "count": 13,
       "trend_label": "직전 동일기간보다 7건 증가",
       "analyzed_count": 13,
-      "analysis_fingerprint": "ac4e3e36b7e65ad549e8",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정 관련 움직임이 5건의 자료에서 반복됐다.",
+            "evidence_count": 5
+          },
+          {
+            "label": "사업·공급",
+            "text": "공급 확대·사업 착공 흐름이 3건의 자료에서 확인됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "주택공급·공공주택"
       },
       "examples": [
         {
@@ -104,13 +109,21 @@
       "count": 7,
       "trend_label": "직전 동일기간과 동일",
       "analyzed_count": 7,
-      "analysis_fingerprint": "557af9d61d084bf297b5",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "침수 대응·폭염 대응·기후위기 대응이 7건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 7
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "기후위기·탄소중립·녹색건축"
       },
       "examples": [
         {
@@ -144,13 +157,21 @@
       "count": 5,
       "trend_label": "직전 동일기간보다 1건 증가",
       "analyzed_count": 5,
-      "analysis_fingerprint": "7dcb2c31a73a97a5e04f",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "공간·생활권",
+            "text": "철도축 변화·역세권 재편가 5건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 5
+          },
+          {
+            "label": "안전·환경",
+            "text": "안전관리이 2건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "철도·광역교통·역세권"
       },
       "examples": [
         {
@@ -184,13 +205,10 @@
       "count": 5,
       "trend_label": "직전 동일기간보다 2건 증가",
       "analyzed_count": 5,
-      "analysis_fingerprint": "b852ba929e6dcc06c798",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
         "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
+        "topic": "토지·부동산시장"
       },
       "examples": [
         {
@@ -224,13 +242,21 @@
       "count": 5,
       "trend_label": "직전 동일기간보다 3건 증가",
       "analyzed_count": 5,
-      "analysis_fingerprint": "a0a6fd4dee235ef6d10d",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "침수 대응이 4건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "도시안전·재난 대응"
       },
       "examples": [
         {
@@ -264,13 +290,21 @@
       "count": 4,
       "trend_label": "직전 동일기간보다 6건 감소",
       "analyzed_count": 4,
-      "analysis_fingerprint": "d002d6f9e4e573dc56a8",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·정비 추진 흐름이 3건의 자료에서 확인됐다.",
+            "evidence_count": 3
+          },
+          {
+            "label": "공간·생활권",
+            "text": "개발밀도 변화·역세권 재편가 2건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "국토계획·용도지역·규제"
       },
       "examples": [
         {
@@ -304,13 +338,10 @@
       "count": 3,
       "trend_label": "직전 동일기간과 동일",
       "analyzed_count": 3,
-      "analysis_fingerprint": "9441ef8a58bea3f5023b",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
         "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
+        "topic": "지역소멸·균형발전"
       },
       "examples": [
         {
@@ -332,21 +363,74 @@
           "date": "2026-06-21"
         }
       ]
+    },
+    {
+      "topic": "스마트시티·AI·디지털전환",
+      "count": 2,
+      "trend_label": "직전 동일기간보다 4건 감소",
+      "analyzed_count": 2,
+      "summary": {
+        "points": [],
+        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
+        "topic": "스마트시티·AI·디지털전환"
+      },
+      "examples": [
+        {
+          "title": "‘행복도시 스마트시티 현재와 미래 세미나’ 개최",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5QeDJ3OW1VYk5HOGpGS1MyZmxUdEdOY3lyVTdwc0FVaGREZll1ZkhXeDNkWV9WVG1wYzFYMWJXTEV1T0ZNaVdhWFF1S1lOVFkxamc0ZjA0X1FaMDdabkdZYklWOURPZXM?oc=5",
+          "source": "언론",
+          "date": "2026-06-19"
+        },
+        {
+          "title": "행정규칙 > 스마트도시 조성 위탁업무 및 수탁기관 지정 고시",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5EZ214UFFlSG5hRXk5cTlUQ19qY0EtNzltZGxKS1hPLS1rZ2dOX05XYkctS1VKRUl0NHh0UUJ0NnFEcV9NUlppNjB3SG0zdVpBS0EzSU5YWF9XTEFmdExOcUVmZUFQMk90WUZWZlRia0lxdw?oc=5",
+          "source": "법령·입법",
+          "date": "2026-06-19"
+        }
+      ]
+    },
+    {
+      "topic": "상권·골목경제·생활권",
+      "count": 2,
+      "trend_label": "직전 동일기간보다 2건 증가",
+      "analyzed_count": 2,
+      "summary": {
+        "points": [],
+        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
+        "topic": "상권·골목경제·생활권"
+      },
+      "examples": [
+        {
+          "title": "경기도 특사경, 생활권 인근 유해가스 불법배출 사업장 28곳 적발",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdTFtdktwTkJfcGpPZG42X1lYT2UtMDQ1OXYwUHY3aGpKcEEzVFZUcEhObTlrWVNQRG5qcEEtcGduakxxN0tEWE9GLVRndGh4Tl9RUFVjU0NMRkt4czkzbHA2LXp3MEdsT0hZclViemNMUGp6Qy1tajFjTnlGbjdQQzdIQ1E?oc=5",
+          "source": "경기도",
+          "date": "2026-06-23"
+        },
+        {
+          "title": "경기도주식회사, 지역축제에서 ‘일회용품 없는 친환경 전통시장 만들기’ 캠페인 진행",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPN1I0cmxwMVE3MXhWbm5tR0wxRE81a3owUG5kT05qdi1zWDR2aEJYWlBjQ192dGZMSFRJNXl2dDA5bW9UUXhEY0lrYkNSbVBnNll5MWpWdURnN0lpcHkxS01UZzJWN1FHbzZwUHZsbmV3UndUeER5M3c2RFVtYjU3dEJneUc?oc=5",
+          "source": "경기도",
+          "date": "2026-06-21"
+        }
+      ]
     }
   ],
   "monthly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 130,
-      "trend_label": "직전 동일기간보다 24건 증가",
+      "count": 131,
+      "trend_label": "직전 동일기간보다 25건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "647c20ea2a62692fd350",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "정비 추진·공급 확대 흐름이 7건의 자료에서 확인됐다.",
+            "evidence_count": 7
+          }
+        ],
+        "note": "",
+        "topic": "재건축·재개발·정비사업"
       },
       "examples": [
         {
@@ -380,13 +464,21 @@
       "count": 33,
       "trend_label": "직전 동일기간보다 25건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "d546a70db97814212b53",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·구역·사업 지정·법령 개정 관련 움직임이 7건의 자료에서 반복됐다.",
+            "evidence_count": 7
+          },
+          {
+            "label": "사업·공급",
+            "text": "공급 확대·사업 추진·사업 착공 흐름이 3건의 자료에서 확인됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "주택공급·공공주택"
       },
       "examples": [
         {
@@ -420,13 +512,26 @@
       "count": 19,
       "trend_label": "직전 동일기간보다 1건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "98d5d467d63db7655a51",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·정비 추진·사업 추진 흐름이 10건의 자료에서 확인됐다.",
+            "evidence_count": 10
+          },
+          {
+            "label": "공간·생활권",
+            "text": "개발밀도 변화·역세권 재편·교통체계 변화가 7건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 7
+          },
+          {
+            "label": "정책·제도",
+            "text": "규제 완화·제도 시행·법령 개정 관련 움직임이 3건의 자료에서 반복됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "국토계획·용도지역·규제"
       },
       "examples": [
         {
@@ -456,17 +561,73 @@
       ]
     },
     {
+      "topic": "철도·광역교통·역세권",
+      "count": 17,
+      "trend_label": "직전 동일기간보다 11건 증가",
+      "analyzed_count": 11,
+      "summary": {
+        "points": [
+          {
+            "label": "공간·생활권",
+            "text": "철도축 변화·역세권 재편가 11건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 11
+          },
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·사업 추진·공급 확대 흐름이 4건의 자료에서 확인됐다.",
+            "evidence_count": 4
+          }
+        ],
+        "note": "",
+        "topic": "철도·광역교통·역세권"
+      },
+      "examples": [
+        {
+          "title": "(자료제공) 서울시, 제3차 도시철도망 구축계획 수립…“주민 숙원 노선 반드시 완수” > 보도자료",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1Sdm5vcDBjdjc5djg1c1plTWZrWHplMkhhbUtILXZSd1Nod0JwSGNtWXVMR0NpaDdaTmdmYnNRLXBIR0FHM05fZU9QQTE5NnZqSTFlcW55dlB6RTRVQk81OUlESW1FOE5fVk0xcHdVVlByQ2hXb0lKYnJSbw?oc=5",
+          "source": "서울특별시",
+          "date": "2026-06-10"
+        },
+        {
+          "title": "철도지하화및철도부지통합개발에관한특별법시행규칙",
+          "url": "https://news.google.com/rss/articles/CBMi8wJBVV95cUxPdXNsZXhIUkZJZzhiVm9LQURZdldqM2FobkpCd3RzSHc3eWNfaGhTNmFMRThiMEJTUXIzVERaVTVmQlRvVldSazdrQThGVTJxSUg3VkJSSXl1UmRsWnladDE3M3o5VjVSRTdlREFVMWxvUlZ6ejdqNnBpOWsteUZwMWZZbGF0eW40cU1yTWhxeTZtRzg1WmlZVHU4azRjY0xXdzB3LVpkQ0dwNk1ZalhVZVB3QllMSkdVRTRWM1U4YUdSM0tMcVZRMzkxak1RcjhhdWl6cWsybjZPQ2lIRl9YTFJnZlFFa3Vqcm5nM2ZndmYxT0Vva3EzYjVmRldUWllWVUVoR3VDR1hFS21jbGM4dEpIQk1zaHFhNlRrTDBIRV9hSDVpNDNMOV92clMtMVA2cUhSUF9JVkUwV3pWWV9qbW4taV83S2h1dHUzTUJSYWZBemxGdmtVc1c4WEJPalNycE5jNW9ycEJTWUE1em5yXzBFcw?oc=5",
+          "source": "국가법령정보센터",
+          "date": "2026-06-09"
+        },
+        {
+          "title": "도시철도운송사업의 면허에 관한 자료",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9qWFZmUlRIT3RuM0lON0swZ0NNMk1kY1NLZldGQXZFZnFJelByeUhYMm5QaEhSdnhjZnN2bERPQVNseVFod2djSjRuNE90YzRQSklxVzZ1NzJJYVZqSlVaREZHR1E1N2k1THptWE80Z1hCR2hWUDZlYmFLaWtQX0U?oc=5",
+          "source": "법령·입법",
+          "date": "2026-06-08"
+        },
+        {
+          "title": "현행 자치법규 > 법규명 > 서울특별시 도시철도건설기준에 관한 규칙",
+          "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNWVlvZ2J2dERfS2VrRDUzVUJCdEctOGpVd0NZeE1Qd2lRdndCYWpLbE84dkRYR3J1cnFJbXpZa3NUcThvU1dZVkN4ZGdKVm4tVUhGdXN6RjRTMXVTelBjMjhKT0hpNFJrcjBJMlhBUUJOMVRWZGR5NWJjUXFpSDY0aHNPaDFZdkRzd1FBNjMwLVJ6TnNybmJKZ1ZHdHhnME9Tb2dZWGVzNjI3VGpCTzRYbmVlSGExUEdBX0ZrZ0x0cTVIQktSLTdMZ1o4YkQ4UVVCYUtfeHZzTDhQQ2JKVDB2LXJTckFMQXlPNm0zVzlidExIYmxpTHhoeXNNOVNBRWxTQ3pGdlZ6ZkZSM2ZIZ1Z4N2k2SVhJQU5INk9RVUFYamExVUlSUEZQMzBVczNaMmd2WkJrZlJqT1hhc19sUWNLYw?oc=5",
+          "source": "법령·입법",
+          "date": "2026-06-01"
+        }
+      ]
+    },
+    {
       "topic": "기후위기·탄소중립·녹색건축",
       "count": 17,
       "trend_label": "직전 동일기간보다 14건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "6ab3fe90a0579cce1561",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "폭염 대응·침수 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 15
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정·지원 확대 관련 움직임이 3건의 자료에서 반복됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "기후위기·탄소중립·녹색건축"
       },
       "examples": [
         {
@@ -496,57 +657,25 @@
       ]
     },
     {
-      "topic": "철도·광역교통·역세권",
-      "count": 16,
-      "trend_label": "직전 동일기간보다 10건 증가",
-      "analyzed_count": 10,
-      "analysis_fingerprint": "493727361b313ec0dea2",
-      "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
-      },
-      "examples": [
-        {
-          "title": "(자료제공) 서울시, 제3차 도시철도망 구축계획 수립…“주민 숙원 노선 반드시 완수” > 보도자료",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1Sdm5vcDBjdjc5djg1c1plTWZrWHplMkhhbUtILXZSd1Nod0JwSGNtWXVMR0NpaDdaTmdmYnNRLXBIR0FHM05fZU9QQTE5NnZqSTFlcW55dlB6RTRVQk81OUlESW1FOE5fVk0xcHdVVlByQ2hXb0lKYnJSbw?oc=5",
-          "source": "서울특별시",
-          "date": "2026-06-10"
-        },
-        {
-          "title": "도시철도운송사업의 면허에 관한 자료",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9qWFZmUlRIT3RuM0lON0swZ0NNMk1kY1NLZldGQXZFZnFJelByeUhYMm5QaEhSdnhjZnN2bERPQVNseVFod2djSjRuNE90YzRQSklxVzZ1NzJJYVZqSlVaREZHR1E1N2k1THptWE80Z1hCR2hWUDZlYmFLaWtQX0U?oc=5",
-          "source": "법령·입법",
-          "date": "2026-06-08"
-        },
-        {
-          "title": "현행 자치법규 > 법규명 > 서울특별시 도시철도건설기준에 관한 규칙",
-          "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNWVlvZ2J2dERfS2VrRDUzVUJCdEctOGpVd0NZeE1Qd2lRdndCYWpLbE84dkRYR3J1cnFJbXpZa3NUcThvU1dZVkN4ZGdKVm4tVUhGdXN6RjRTMXVTelBjMjhKT0hpNFJrcjBJMlhBUUJOMVRWZGR5NWJjUXFpSDY0aHNPaDFZdkRzd1FBNjMwLVJ6TnNybmJKZ1ZHdHhnME9Tb2dZWGVzNjI3VGpCTzRYbmVlSGExUEdBX0ZrZ0x0cTVIQktSLTdMZ1o4YkQ4UVVCYUtfeHZzTDhQQ2JKVDB2LXJTckFMQXlPNm0zVzlidExIYmxpTHhoeXNNOVNBRWxTQ3pGdlZ6ZkZSM2ZIZ1Z4N2k2SVhJQU5INk9RVUFYamExVUlSUEZQMzBVczNaMmd2WkJrZlJqT1hhc19sUWNLYw?oc=5",
-          "source": "법령·입법",
-          "date": "2026-06-01"
-        },
-        {
-          "title": "29일 ‘부산진역~부산역 철도지하화통합개발사업 현장’ 찾아 추진현황 점검, 성공적인 사업 추진을 위해 유관기관 간 긴밀한 협력 당부",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBjdzhNUkU0elMtUC1pMVZleE1GbmRrdXhCeWdjekNVOVhsZXVjZnNBTENlQVNaOWg0SHRwUWlIMVUzckZnMHB5RjhFaXVXMkhRNW1QMGN1RVljckxzN2I3TTBwOE1WaV9fMnVpNXY3MlNXWFo1MTU0?oc=5",
-          "source": "국토교통부",
-          "date": "2026-05-29"
-        }
-      ]
-    },
-    {
       "topic": "스마트시티·AI·디지털전환",
       "count": 12,
       "trend_label": "직전 동일기간보다 11건 증가",
       "analyzed_count": 11,
-      "analysis_fingerprint": "a5e7e4b9f3eaaaf2df44",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "구역·사업 지정·제도 시행·사업 공모 관련 움직임이 5건의 자료에서 반복됐다.",
+            "evidence_count": 5
+          },
+          {
+            "label": "사업·공급",
+            "text": "공간·시설 조성 흐름이 5건의 자료에서 확인됐다.",
+            "evidence_count": 5
+          }
+        ],
+        "note": "",
+        "topic": "스마트시티·AI·디지털전환"
       },
       "examples": [
         {
@@ -580,13 +709,16 @@
       "count": 12,
       "trend_label": "직전 동일기간보다 1건 감소",
       "analyzed_count": 12,
-      "analysis_fingerprint": "f062f7b0418a5f35d91c",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "관리 강화·제도 시행 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "토지·부동산시장"
       },
       "examples": [
         {
@@ -620,13 +752,21 @@
       "count": 9,
       "trend_label": "직전 동일기간보다 7건 증가",
       "analyzed_count": 8,
-      "analysis_fingerprint": "8089d6542cd101b25a4e",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "침수 대응·안전관리·재난 대응이 7건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 7
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "도시안전·재난 대응"
       },
       "examples": [
         {
@@ -654,21 +794,115 @@
           "date": "2026-06-21"
         }
       ]
+    },
+    {
+      "topic": "지역소멸·균형발전",
+      "count": 7,
+      "trend_label": "직전 동일기간보다 7건 증가",
+      "analyzed_count": 7,
+      "summary": {
+        "points": [
+          {
+            "label": "공간·생활권",
+            "text": "지역소멸가 3건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "지역소멸·균형발전"
+      },
+      "examples": [
+        {
+          "title": "이 대통령, 25일 이재용 회장 만난다…AI·지역균형발전 논의할 듯",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yd0FhWGhQOTZYbEk0RXBCcXNyd3hHZU1ZazR2RHY4bXYzeWpUbWpEN0lYaEdETlhwTUZxYkZxd0xiT3ZBTW9ZZTlYQ0lrdzhCbVREUVRMd2hDcHZZWU1BeGN1OEw3aVdDbF9N?oc=5",
+          "source": "언론",
+          "date": "2026-06-23"
+        },
+        {
+          "title": "부산도시공사, 서부산 행정복합타운 착공…\"지역 균형발전\"",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0xc294M0RuMjZ5UF9YMTBPV2Z0X2FibnMwcmFzSTdDUm1EMUlCVkE3Ynp6R2loUE14ODhxRGFROXhaVER2dzhMdVpwZ3RpZGNqcnBiUmVzWEZxSjjSAWBBVV95cUxOTVJKcmt6MFdRNUtNbnNiLXdnUnAwUVJiVUh0M0kzU2hleHJXSTB5UjlPSW82eG1VMlVPQlh1V2tHZGlvdXo2OFBHMkF0WXJtVDFuSHlnZVRQaER2N001RDA?oc=5",
+          "source": "언론",
+          "date": "2026-06-22"
+        },
+        {
+          "title": "지역소멸과 AI 기반 디지털 헬스케어",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE03VnpLcnZVZG1FRjdjbFg4bzZmU2pUaXBlVEVhSFY4MmZ2d1pTQ0RjLUFBcUlGcWF0aWEzbU1WeE5UVEEtLVR6MVNSVXREUWp4V0JvVnNhcnA4dFFkZEtmYmV3MTNqcUpOTGIwdFc3Yk8?oc=5",
+          "source": "언론",
+          "date": "2026-06-21"
+        },
+        {
+          "title": "지역균형발전 우수사례에 의령군·하동군 선정",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA5MmR3TTAtdzQxUmhqRFpCLUR6Qnd3VjJUUDVrVjFRM3lVdWowdmY4ZldXOEtIZENaX0loTDduOVN2RTBRWVVvdEtmbkE3WjVQRGgyZXRvS1c1ZjjSAWBBVV95cUxOdDdVci1QVS1aOFEzLXB2NUJXSzR3TEhCUVBhdWFnYlFfbWVmcklFalVZNjNIYUFjMlFwTUI5VWtwdXBtS2Naa1p4OG1jQlFkRHpsNC1ycVZIVG9jalRaRHc?oc=5",
+          "source": "언론",
+          "date": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "topic": "도시재생·빈집·원도심",
+      "count": 6,
+      "trend_label": "직전 동일기간과 동일",
+      "analyzed_count": 6,
+      "summary": {
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "지원 확대·사업 공모 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "도시재생·빈집·원도심"
+      },
+      "examples": [
+        {
+          "title": "GH, 17~18일 '도시재생대학 관리전문과정' 운영",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5GY1V2YXZpc3NiRDNvUTJtdll1X1p0VFpCTzVfeHpMYWhQTFlCV3UtNmdOTlk3dkk5cGVEdEJBLWs2NFBtV2dHb2VFamdEbzg?oc=5",
+          "source": "언론",
+          "date": "2026-06-17"
+        },
+        {
+          "title": "GH 경기도 도시재생지원센터, 도시재생대학 '관리전문과정' 운영",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1hY2Nyb1hkMTIxSzl5anNEMTJ5eElTNHI4VFZLUUI4Sms1S0FMV0hIenB4TFp0VFB2b3RRSkxHSVdlZ1RKdEhmdXAxTE5TQ2lfM1V6V0xWMWlUb1U?oc=5",
+          "source": "언론",
+          "date": "2026-06-17"
+        },
+        {
+          "title": "도시 미래 설계하는 청년들… 부산도시공사, ‘청년도시재생사’ 프로젝트 출발",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1wOGt4SVNHQWQ1MHY2V1A5TnFDaTMza2pzSUp0UDJMaUdhOFdzWDJHWjg0bGFweWV3dmQzMDNYUmVuQ21yWGIzUjZMZVoycUU?oc=5",
+          "source": "v.daum.net",
+          "date": "2026-06-17"
+        },
+        {
+          "title": "국토부, 도시재생 전문인력 양성사업 수행대학 2곳 공모",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9vMmtZdFhiU3Q2X2p4OE1xTU1hVVE3NDVlNWlvc3JWMmJRSm1IWkNHWWs2N1hjZlFDcDh4dHF6MUxnVEJhVE5BUy1nR25oSjM3RnRXbGxvNHI4MUXSAWBBVV95cUxNRjVfMDZ2VkRmcWNKX0g4MFRZcFdpVVl5ZDYxS1YyN0JKUHgzbWN4Z3c0VzV5VTBKQ3N1VzU0SmJ5S0ZmZmlqd0hHSTZ4UjduVk5MZVhSN2dlX0QzRTc5aFM?oc=5",
+          "source": "언론",
+          "date": "2026-06-16"
+        }
+      ]
     }
   ],
   "yearly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 1168,
+      "count": 1169,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
-      "analysis_fingerprint": "6d284c0ad10c3d39d9af",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "정비 추진·공급 확대·사업 추진 흐름이 9건의 자료에서 확인됐다.",
+            "evidence_count": 9
+          },
+          {
+            "label": "정책·제도",
+            "text": "지원 확대·규제 완화·제도 시행 관련 움직임이 3건의 자료에서 반복됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "재건축·재개발·정비사업"
       },
       "examples": [
         {
@@ -698,57 +932,25 @@
       ]
     },
     {
-      "topic": "국토계획·용도지역·규제",
+      "topic": "주택공급·공공주택",
       "count": 161,
       "trend_label": "최근 1년 누적",
-      "analyzed_count": 13,
-      "analysis_fingerprint": "d1819260f4c250ccc1a1",
-      "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
-      },
-      "examples": [
-        {
-          "title": "민경선 고양시장 당선인 \"일산신도시 재건축 용적률 350% 검토\"",
-          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1GUHBxQWs4OV9vck9Pb01VUDY4OHl5QmQ2VmE3NGZEazVSb0FKTjU3aGZTNlAtVVVxNjl3aXJWUXZzenRiOVR5My1pbi0ySGV4aFh6T1JoNk9fVWwxeTRCT9IBYEFVX3lxTE1GUHBxQWs4OV9vck9Pb01VUDY4OHl5QmQ2VmE3NGZEazVSb0FKTjU3aGZTNlAtVVVxNjl3aXJWUXZzenRiOVR5My1pbi0ySGV4aFh6T1JoNk9fVWwxeTRCTw?oc=5",
-          "source": "언론",
-          "date": "2026-06-23"
-        },
-        {
-          "title": "장승배기역세권 재개발사업 도시계획·건축계획 업체 선정",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1aRlNWbHEwemxCVElXZkpyalcwdnF6NVB6YjlnZWFnTkNFbFh1bEdGZlNpMGItWk9GLUtpdEhZOXpIc2FIbXFrVWdlbmlSU3JHWHRnMzZqZm81anZwVjhWb3hqM210NXVPeDlFVHpxRlRVS00?oc=5",
-          "source": "하우징헤럴드",
-          "date": "2026-06-22"
-        },
-        {
-          "title": "자치법규 > 전남광주통합특별시 서구 장기미집행 도시계획시설 대지보상특별회계 설치 및 운영 조례",
-          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xdEdwcWdYcGxONnM0M3FzdjRJZi1pOUdmd0JFN2RfZ21KSl83R3BTOHZ4b05EOHNjZzlCOXZJYWZlMWh4TVlGWmRTcGVwUkFvOUY0VllsY0Z3OEFkLVFycXdva1VDTDg?oc=5",
-          "source": "법령·입법",
-          "date": "2026-06-21"
-        },
-        {
-          "title": "도화1구역 재개발정비사업 도시계획·범죄예방 용역업체 선정",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE0wcWV4SjllZHNrOFVxRlZGcXdYZGNFMDlSVmRfdndRall0YXd4U3V5d1BORVI0YnNvd0g2alpHX21oZnRZZ19OZU4xeDBkSUx6SGJrdXN1MW4xVjRnNW9fbjY1WHFiSS1ORE1VR1dtcTJ4RUE?oc=5",
-          "source": "언론",
-          "date": "2026-06-19"
-        }
-      ]
-    },
-    {
-      "topic": "주택공급·공공주택",
-      "count": 160,
-      "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
-      "analysis_fingerprint": "81fd0054cdad989af097",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·구역·사업 지정·법령 개정 관련 움직임이 9건의 자료에서 반복됐다.",
+            "evidence_count": 9
+          },
+          {
+            "label": "사업·공급",
+            "text": "공급 확대·사업 착공·계획 수립 흐름이 3건의 자료에서 확인됐다.",
+            "evidence_count": 3
+          }
+        ],
+        "note": "",
+        "topic": "주택공급·공공주택"
       },
       "examples": [
         {
@@ -778,17 +980,78 @@
       ]
     },
     {
+      "topic": "국토계획·용도지역·규제",
+      "count": 161,
+      "trend_label": "최근 1년 누적",
+      "analyzed_count": 13,
+      "summary": {
+        "points": [
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·정비 추진·공급 확대 흐름이 10건의 자료에서 확인됐다.",
+            "evidence_count": 10
+          },
+          {
+            "label": "공간·생활권",
+            "text": "개발밀도 변화·역세권 재편·교통체계 변화가 4건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "정책·제도",
+            "text": "규제 완화·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "국토계획·용도지역·규제"
+      },
+      "examples": [
+        {
+          "title": "민경선 고양시장 당선인 \"일산신도시 재건축 용적률 350% 검토\"",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1GUHBxQWs4OV9vck9Pb01VUDY4OHl5QmQ2VmE3NGZEazVSb0FKTjU3aGZTNlAtVVVxNjl3aXJWUXZzenRiOVR5My1pbi0ySGV4aFh6T1JoNk9fVWwxeTRCT9IBYEFVX3lxTE1GUHBxQWs4OV9vck9Pb01VUDY4OHl5QmQ2VmE3NGZEazVSb0FKTjU3aGZTNlAtVVVxNjl3aXJWUXZzenRiOVR5My1pbi0ySGV4aFh6T1JoNk9fVWwxeTRCTw?oc=5",
+          "source": "언론",
+          "date": "2026-06-23"
+        },
+        {
+          "title": "장승배기역세권 재개발사업 도시계획·건축계획 업체 선정",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1aRlNWbHEwemxCVElXZkpyalcwdnF6NVB6YjlnZWFnTkNFbFh1bEdGZlNpMGItWk9GLUtpdEhZOXpIc2FIbXFrVWdlbmlSU3JHWHRnMzZqZm81anZwVjhWb3hqM210NXVPeDlFVHpxRlRVS00?oc=5",
+          "source": "하우징헤럴드",
+          "date": "2026-06-22"
+        },
+        {
+          "title": "자치법규 > 전남광주통합특별시 서구 장기미집행 도시계획시설 대지보상특별회계 설치 및 운영 조례",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0xdEdwcWdYcGxONnM0M3FzdjRJZi1pOUdmd0JFN2RfZ21KSl83R3BTOHZ4b05EOHNjZzlCOXZJYWZlMWh4TVlGWmRTcGVwUkFvOUY0VllsY0Z3OEFkLVFycXdva1VDTDg?oc=5",
+          "source": "법령·입법",
+          "date": "2026-06-21"
+        },
+        {
+          "title": "도화1구역 재개발정비사업 도시계획·범죄예방 용역업체 선정",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE0wcWV4SjllZHNrOFVxRlZGcXdYZGNFMDlSVmRfdndRall0YXd4U3V5d1BORVI0YnNvd0g2alpHX21oZnRZZ19OZU4xeDBkSUx6SGJrdXN1MW4xVjRnNW9fbjY1WHFiSS1ORE1VR1dtcTJ4RUE?oc=5",
+          "source": "언론",
+          "date": "2026-06-19"
+        }
+      ]
+    },
+    {
       "topic": "토지·부동산시장",
       "count": 101,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 14,
-      "analysis_fingerprint": "9cd3e174482a58bcdee1",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "지원 확대·구역·사업 지정·관리 강화 관련 움직임이 4건의 자료에서 반복됐다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "시장·비용",
+            "text": "가격 변동·거래 변화·지가 변화 문제가 4건의 자료에서 주요 관심사로 나타났다.",
+            "evidence_count": 4
+          }
+        ],
+        "note": "",
+        "topic": "토지·부동산시장"
       },
       "examples": [
         {
@@ -819,16 +1082,29 @@
     },
     {
       "topic": "철도·광역교통·역세권",
-      "count": 84,
+      "count": 85,
       "trend_label": "최근 1년 누적",
-      "analyzed_count": 14,
-      "analysis_fingerprint": "9000f389bf1972037002",
+      "analyzed_count": 15,
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "공간·생활권",
+            "text": "철도축 변화·역세권 재편가 14건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 14
+          },
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·사업 추진·공급 확대 흐름이 6건의 자료에서 확인됐다.",
+            "evidence_count": 6
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·새 제도 도입·관리 강화 관련 움직임이 4건의 자료에서 반복됐다.",
+            "evidence_count": 4
+          }
+        ],
+        "note": "",
+        "topic": "철도·광역교통·역세권"
       },
       "examples": [
         {
@@ -836,6 +1112,12 @@
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1Sdm5vcDBjdjc5djg1c1plTWZrWHplMkhhbUtILXZSd1Nod0JwSGNtWXVMR0NpaDdaTmdmYnNRLXBIR0FHM05fZU9QQTE5NnZqSTFlcW55dlB6RTRVQk81OUlESW1FOE5fVk0xcHdVVlByQ2hXb0lKYnJSbw?oc=5",
           "source": "서울특별시",
           "date": "2026-06-10"
+        },
+        {
+          "title": "철도지하화및철도부지통합개발에관한특별법시행규칙",
+          "url": "https://news.google.com/rss/articles/CBMi8wJBVV95cUxPdXNsZXhIUkZJZzhiVm9LQURZdldqM2FobkpCd3RzSHc3eWNfaGhTNmFMRThiMEJTUXIzVERaVTVmQlRvVldSazdrQThGVTJxSUg3VkJSSXl1UmRsWnladDE3M3o5VjVSRTdlREFVMWxvUlZ6ejdqNnBpOWsteUZwMWZZbGF0eW40cU1yTWhxeTZtRzg1WmlZVHU4azRjY0xXdzB3LVpkQ0dwNk1ZalhVZVB3QllMSkdVRTRWM1U4YUdSM0tMcVZRMzkxak1RcjhhdWl6cWsybjZPQ2lIRl9YTFJnZlFFa3Vqcm5nM2ZndmYxT0Vva3EzYjVmRldUWllWVUVoR3VDR1hFS21jbGM4dEpIQk1zaHFhNlRrTDBIRV9hSDVpNDNMOV92clMtMVA2cUhSUF9JVkUwV3pWWV9qbW4taV83S2h1dHUzTUJSYWZBemxGdmtVc1c4WEJPalNycE5jNW9ycEJTWUE1em5yXzBFcw?oc=5",
+          "source": "국가법령정보센터",
+          "date": "2026-06-09"
         },
         {
           "title": "도시철도운송사업의 면허에 관한 자료",
@@ -848,12 +1130,6 @@
           "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNWVlvZ2J2dERfS2VrRDUzVUJCdEctOGpVd0NZeE1Qd2lRdndCYWpLbE84dkRYR3J1cnFJbXpZa3NUcThvU1dZVkN4ZGdKVm4tVUhGdXN6RjRTMXVTelBjMjhKT0hpNFJrcjBJMlhBUUJOMVRWZGR5NWJjUXFpSDY0aHNPaDFZdkRzd1FBNjMwLVJ6TnNybmJKZ1ZHdHhnME9Tb2dZWGVzNjI3VGpCTzRYbmVlSGExUEdBX0ZrZ0x0cTVIQktSLTdMZ1o4YkQ4UVVCYUtfeHZzTDhQQ2JKVDB2LXJTckFMQXlPNm0zVzlidExIYmxpTHhoeXNNOVNBRWxTQ3pGdlZ6ZkZSM2ZIZ1Z4N2k2SVhJQU5INk9RVUFYamExVUlSUEZQMzBVczNaMmd2WkJrZlJqT1hhc19sUWNLYw?oc=5",
           "source": "법령·입법",
           "date": "2026-06-01"
-        },
-        {
-          "title": "29일 ‘부산진역~부산역 철도지하화통합개발사업 현장’ 찾아 추진현황 점검, 성공적인 사업 추진을 위해 유관기관 간 긴밀한 협력 당부",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBjdzhNUkU0elMtUC1pMVZleE1GbmRrdXhCeWdjekNVOVhsZXVjZnNBTENlQVNaOWg0SHRwUWlIMVUzckZnMHB5RjhFaXVXMkhRNW1QMGN1RVljckxzN2I3TTBwOE1WaV9fMnVpNXY3MlNXWFo1MTU0?oc=5",
-          "source": "국토교통부",
-          "date": "2026-05-29"
         }
       ]
     },
@@ -862,13 +1138,26 @@
       "count": 75,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 12,
-      "analysis_fingerprint": "2329b641325f455efa2c",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "지원 확대·새 제도 도입·사업 공모 관련 움직임이 4건의 자료에서 반복됐다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "사업·공급",
+            "text": "정비 추진·사업 추진 흐름이 4건의 자료에서 확인됐다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "공간·생활권",
+            "text": "빈집 관리·상권 변화가 4건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 4
+          }
+        ],
+        "note": "",
+        "topic": "도시재생·빈집·원도심"
       },
       "examples": [
         {
@@ -902,13 +1191,21 @@
       "count": 37,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
-      "analysis_fingerprint": "8b161bb00ed45c84713a",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "정책·제도",
+            "text": "구역·사업 지정·사업 공모·제도 시행 관련 움직임이 6건의 자료에서 반복됐다.",
+            "evidence_count": 6
+          },
+          {
+            "label": "사업·공급",
+            "text": "공간·시설 조성·기능·기업 유치 흐름이 6건의 자료에서 확인됐다.",
+            "evidence_count": 6
+          }
+        ],
+        "note": "",
+        "topic": "스마트시티·AI·디지털전환"
       },
       "examples": [
         {
@@ -942,13 +1239,21 @@
       "count": 33,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
-      "analysis_fingerprint": "6c7cdb83f4ae8a11945e",
       "summary": {
-        "mode": "error",
-        "model": "gemini-2.5-flash",
-        "generated_at": "2026-06-25T10:29:03.749736+09:00",
-        "points": [],
-        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "침수 대응·폭염 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 15
+          },
+          {
+            "label": "정책·제도",
+            "text": "지원 확대·제도 시행·법령 개정 관련 움직임이 4건의 자료에서 반복됐다.",
+            "evidence_count": 4
+          }
+        ],
+        "note": "",
+        "topic": "기후위기·탄소중립·녹색건축"
       },
       "examples": [
         {
@@ -974,6 +1279,107 @@
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOG1TMXNLeDJJMlhLUE1XdlBFM3RrR3lTdTNSTTJfM1BYT25XOG9xaDl4YVhNYTZDaHVJbHdvTHFGOVJuUnZ1Z3pOZi04RW9ielM2dExnVlVWczFkXzVwaFdBUmlvcmVTSHRFMm1pQ2s2amoyR3dCMTBFR2hSUVBkMUxhWTQ?oc=5",
           "source": "경기도",
           "date": "2026-06-23"
+        }
+      ]
+    },
+    {
+      "topic": "도시안전·재난 대응",
+      "count": 31,
+      "trend_label": "최근 1년 누적",
+      "analyzed_count": 13,
+      "summary": {
+        "points": [
+          {
+            "label": "안전·환경",
+            "text": "침수 대응·안전관리·재난 대응이 9건의 자료에서 주요 대응 과제로 나타났다.",
+            "evidence_count": 9
+          },
+          {
+            "label": "정책·제도",
+            "text": "제도 시행·법령 개정·지원 확대 관련 움직임이 4건의 자료에서 반복됐다.",
+            "evidence_count": 4
+          },
+          {
+            "label": "사업·공급",
+            "text": "계획 수립·사업 추진 흐름이 2건의 자료에서 확인됐다.",
+            "evidence_count": 2
+          }
+        ],
+        "note": "",
+        "topic": "도시안전·재난 대응"
+      },
+      "examples": [
+        {
+          "title": "도시하천유역 침수피해방지대책법 시행령",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB2VWVrQTJtdGFTRjg4ZGJMbTVDaHYyRWV2blQxcHVmRE8yempib3pDaEZ6c2NXR0pFMHU5M1F0TU1BRE1BeEhndzRKQXpoN2R2c3k1ZW1nVm5wWVdmQXVUaGtRbUlZemItdGsxeTJWeFQ2VXJl?oc=5",
+          "source": "국민참여입법센터",
+          "date": "2026-06-24"
+        },
+        {
+          "title": "(자료제공) ''빈틈없이 살핀다''… 오세훈 시장, 관악구 침수취약지역 점검",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE8tZVRLZFZSMDZDWVYybFhGQllNandyd3ROSGdfQVpNSWZSYlFuTUE0TWs5UkdlTVg4dURMMEJYYzlVNmZDU21kSHlRV2JWb01VNTZfd2ctX3E5VkRKbVU2QTc2amtHR2s1VTgwTjk3bmpudzJRaFZjWVN3?oc=5",
+          "source": "서울특별시",
+          "date": "2026-06-22"
+        },
+        {
+          "title": "홍익대학교 산학협력단-서울연구원, 도시침수 예·경보 기술 고도화 위한 업무협약 체결 > 보도자료",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9pQ2tTQkxWVjEtV3ljTGZYUW5zQ09Vb2hWem9jMWxyTGxSRzVFOTNtbnVjdFh2MHBRV2toT0tQU3lhVFI4SnhVNV96WWxFX0lReDllQ0NHNmZpOE15bE1rZzhyeVI3Uk0?oc=5",
+          "source": "서울특별시",
+          "date": "2026-06-21"
+        },
+        {
+          "title": "법령 > 제정·개정문 > 도시하천유역 침수피해방지대책법 시행령",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE92R1ZwVTROaTNSTG1XbURTQjNtUHRJMkNjMTFYUHN3ZXRVUnE1ZnlBNExFVFJFWXNPeXp6a1BmVHZ5WWZPUVVMY0IteFFwZFUybUVJUGxXdVZYT015enczR2lZTFhJYUZmRGlEdE9KbHd0Sm5Kalgw?oc=5",
+          "source": "법령·입법",
+          "date": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "topic": "지역소멸·균형발전",
+      "count": 26,
+      "trend_label": "최근 1년 누적",
+      "analyzed_count": 15,
+      "summary": {
+        "points": [
+          {
+            "label": "공간·생활권",
+            "text": "지역소멸·인구 변화가 7건의 자료에서 공간 변화의 핵심으로 나타났다.",
+            "evidence_count": 7
+          },
+          {
+            "label": "사업·공급",
+            "text": "사업 추진·정비 추진·공급 확대 흐름이 5건의 자료에서 확인됐다.",
+            "evidence_count": 5
+          }
+        ],
+        "note": "",
+        "topic": "지역소멸·균형발전"
+      },
+      "examples": [
+        {
+          "title": "인구감소지역에 더 높은 세제 감면율 적용…\"지역 균형발전 촉진\"",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9zZUtySGlYVWRuc1Y3aUptWUk2aXJZUWJIb2M2N1lMbGFJclpOR2Fsa256T3g4Vk5uWmZLY1I0SjdFRWRESFRjQTJvLWZYcUJFM0s4YjI2UW4ya2h3U2V5V3ZUaWRsNmRIM1dKZg?oc=5",
+          "source": "언론",
+          "date": "2025-08-28"
+        },
+        {
+          "title": "이 대통령, 25일 이재용 회장 만난다…AI·지역균형발전 논의할 듯",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1yd0FhWGhQOTZYbEk0RXBCcXNyd3hHZU1ZazR2RHY4bXYzeWpUbWpEN0lYaEdETlhwTUZxYkZxd0xiT3ZBTW9ZZTlYQ0lrdzhCbVREUVRMd2hDcHZZWU1BeGN1OEw3aVdDbF9N?oc=5",
+          "source": "언론",
+          "date": "2026-06-23"
+        },
+        {
+          "title": "지방소멸시대, 세대별 다지역 거주 정책의 수용성과 추진 전략",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPdVB2WkhMTlhObEFVRlZQeGpjRm0tNkFBbk8tWlJ2dERKcXMzclJWUHVwaUlpaDJYMFhmYjVySDc1WEg1NEhjT05SenhLR3JzUUh0VFBnRE56cmRIMmJpOVdNZ3pXYjRydU5semtTbnQzTXdBMG1OLTZLTlVIbmtMNGMyNDY5UmQyRlZXdkNxMm0?oc=5",
+          "source": "연구기관",
+          "date": "2026-03-24"
+        },
+        {
+          "title": "지역관광권 형성 전략: 생활인구의 광역연계권을 기반으로",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQUUJPeFVyRlZZcWo1WF80aHBfV3c2UEFBYVNaUmNYbllIYTJnMjNFLUJ6d2Q3NExuOGJLS2RKOVVGcTF5NkJYN3Jlb0JNQlpIejMyMWlXT3BQMTlidWQwdExwUEJBcVBGT2VFZkxrdHlVY2JvN1JkNmVwdGdtUVlLRXlNb3diMlgwbEJNRUdHeUk5UFlLODZoZlBTWHNycWtVWTdTV2VLLUJ3Z2lFc0xkQXVJYkxCY2RQZmJEYVAyMFI2cFpNdG9ZWVJxMllydG1yckVVREFYekRUNEJMXzhUVXRtNEEzdw?oc=5",
+          "source": "연구기관",
+          "date": "2026-02-11"
         }
       ]
     }
