@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-25 10:01 KST",
+  "updated_at": "2026-06-25 10:29 KST",
   "coverage": {
-    "items": 3176,
+    "items": 3177,
     "oldest": "2025-06-26",
     "newest": "2026-06-24",
     "days_covered": 364,
@@ -13,32 +13,24 @@
     "model": "gemini-2.5-flash",
     "reused": 0,
     "updated": 0,
-    "fallback": 24,
-    "error": "RuntimeError: GEMINI_API_KEY가 등록되지 않았습니다."
+    "missing": 0,
+    "rule_count": 0,
+    "error_count": 24,
+    "error": "RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
   },
   "weekly": [
     {
       "topic": "재건축·재개발·정비사업",
       "count": 73,
-      "trend_label": "직전 동일기간보다 25건 증가",
+      "trend_label": "직전 동일기간보다 24건 증가",
       "analyzed_count": 15,
       "analysis_fingerprint": "154357115a7e6349d081",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "정비 추진·공급 확대 흐름이 5건의 자료에서 확인됐다.",
-            "evidence_count": 5
-          },
-          {
-            "label": "정책·제도",
-            "text": "지원 확대 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "재건축·재개발·정비사업",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -74,21 +66,11 @@
       "analyzed_count": 13,
       "analysis_fingerprint": "ac4e3e36b7e65ad549e8",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·법령 개정 관련 움직임이 5건의 자료에서 반복됐다.",
-            "evidence_count": 5
-          },
-          {
-            "label": "사업·공급",
-            "text": "공급 확대·사업 착공 흐름이 3건의 자료에서 확인됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "주택공급·공공주택",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -124,21 +106,11 @@
       "analyzed_count": 7,
       "analysis_fingerprint": "557af9d61d084bf297b5",
       "summary": {
-        "points": [
-          {
-            "label": "안전·환경",
-            "text": "침수 대응·폭염 대응·기후위기 대응이 7건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 7
-          },
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "기후위기·탄소중립·녹색건축",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -174,21 +146,11 @@
       "analyzed_count": 5,
       "analysis_fingerprint": "7dcb2c31a73a97a5e04f",
       "summary": {
-        "points": [
-          {
-            "label": "공간·생활권",
-            "text": "철도축 변화·역세권 재편가 5건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 5
-          },
-          {
-            "label": "안전·환경",
-            "text": "안전관리이 2건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "철도·광역교통·역세권",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -224,10 +186,11 @@
       "analyzed_count": 5,
       "analysis_fingerprint": "b852ba929e6dcc06c798",
       "summary": {
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
         "points": [],
-        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
-        "topic": "토지·부동산시장",
-        "mode": "rule"
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -263,21 +226,11 @@
       "analyzed_count": 5,
       "analysis_fingerprint": "a0a6fd4dee235ef6d10d",
       "summary": {
-        "points": [
-          {
-            "label": "안전·환경",
-            "text": "침수 대응이 4건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 4
-          },
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "도시안전·재난 대응",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -313,21 +266,11 @@
       "analyzed_count": 4,
       "analysis_fingerprint": "d002d6f9e4e573dc56a8",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "계획 수립·정비 추진 흐름이 3건의 자료에서 확인됐다.",
-            "evidence_count": 3
-          },
-          {
-            "label": "공간·생활권",
-            "text": "개발밀도 변화·역세권 재편가 2건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "국토계획·용도지역·규제",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -363,10 +306,11 @@
       "analyzed_count": 3,
       "analysis_fingerprint": "9441ef8a58bea3f5023b",
       "summary": {
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
         "points": [],
-        "note": "관련 제목들 사이에서 2건 이상 반복된 공통 흐름이 뚜렷하지 않아 대표 자료만 제시합니다.",
-        "topic": "지역소멸·균형발전",
-        "mode": "rule"
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -393,21 +337,16 @@
   "monthly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 129,
-      "trend_label": "직전 동일기간보다 23건 증가",
+      "count": 130,
+      "trend_label": "직전 동일기간보다 24건 증가",
       "analyzed_count": 15,
-      "analysis_fingerprint": "52b18633d851f8636420",
+      "analysis_fingerprint": "647c20ea2a62692fd350",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "정비 추진·공급 확대 흐름이 6건의 자료에서 확인됐다.",
-            "evidence_count": 6
-          }
-        ],
-        "note": "",
-        "topic": "재건축·재개발·정비사업",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -423,15 +362,15 @@
           "date": "2026-06-16"
         },
         {
+          "title": "재개발·재건축 갈등과 분쟁 막는다…강동구 “실무 중심 ‘정비사업 아카데미’ 운영”",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9oWWlTLThYc0tldkdEWjlDMmZ0Ql8xbHU1dWhTaDY4NVg4ekFFd2lRaVllWGRHTHFaM3R5bFlOeUdWSEJCV3lIM01VRy1xcTBl?oc=5",
+          "source": "문화일보",
+          "date": "2026-06-16"
+        },
+        {
           "title": "강동구, 재개발·재건축 지역 주거상향지원사업 설명회",
           "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE96YzdjdGhlTzNjNk9qaEFzVVY1QTNVUDJkNVlHMzhLTW9QZnZaQnVaLVNnb040dFM2UVVoM285S3NsNGpaOTZJY3ItVUxDWjJfYUJSRnlnWnBUa01zc2FoTnZmSFZjM0w2?oc=5",
           "source": "한국주택경제신문",
-          "date": "2026-06-24"
-        },
-        {
-          "title": "창동 상아1차 재건축정비사업 시공자 선정",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5vaHUtYVBtN3JEUEFCS3FubHZxTnBLS2poUUtHWVFrTUNKTE9qbVlvcDFYMVI0bGUxR0Rvb3lUM1BENk16LXFuRHU4dFV2TWZJNlNjSmZZUmw3bHQzUFBFSXZIZERDd3V6eS1UYWh6T1p5LWs?oc=5",
-          "source": "하우징헤럴드",
           "date": "2026-06-24"
         }
       ]
@@ -443,21 +382,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "d546a70db97814212b53",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·구역·사업 지정·법령 개정 관련 움직임이 7건의 자료에서 반복됐다.",
-            "evidence_count": 7
-          },
-          {
-            "label": "사업·공급",
-            "text": "공급 확대·사업 추진·사업 착공 흐름이 3건의 자료에서 확인됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "주택공급·공공주택",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -493,26 +422,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "98d5d467d63db7655a51",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "계획 수립·정비 추진·사업 추진 흐름이 10건의 자료에서 확인됐다.",
-            "evidence_count": 10
-          },
-          {
-            "label": "공간·생활권",
-            "text": "개발밀도 변화·역세권 재편·교통체계 변화가 7건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 7
-          },
-          {
-            "label": "정책·제도",
-            "text": "규제 완화·제도 시행·법령 개정 관련 움직임이 3건의 자료에서 반복됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "국토계획·용도지역·규제",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -548,21 +462,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "6ab3fe90a0579cce1561",
       "summary": {
-        "points": [
-          {
-            "label": "안전·환경",
-            "text": "폭염 대응·침수 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 15
-          },
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·법령 개정·지원 확대 관련 움직임이 3건의 자료에서 반복됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "기후위기·탄소중립·녹색건축",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -598,21 +502,11 @@
       "analyzed_count": 10,
       "analysis_fingerprint": "493727361b313ec0dea2",
       "summary": {
-        "points": [
-          {
-            "label": "공간·생활권",
-            "text": "철도축 변화·역세권 재편가 10건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 10
-          },
-          {
-            "label": "사업·공급",
-            "text": "계획 수립·사업 추진·공급 확대 흐름이 4건의 자료에서 확인됐다.",
-            "evidence_count": 4
-          }
-        ],
-        "note": "",
-        "topic": "철도·광역교통·역세권",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -648,21 +542,11 @@
       "analyzed_count": 11,
       "analysis_fingerprint": "a5e7e4b9f3eaaaf2df44",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "구역·사업 지정·제도 시행·사업 공모 관련 움직임이 5건의 자료에서 반복됐다.",
-            "evidence_count": 5
-          },
-          {
-            "label": "사업·공급",
-            "text": "공간·시설 조성 흐름이 5건의 자료에서 확인됐다.",
-            "evidence_count": 5
-          }
-        ],
-        "note": "",
-        "topic": "스마트시티·AI·디지털전환",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -698,16 +582,11 @@
       "analyzed_count": 12,
       "analysis_fingerprint": "f062f7b0418a5f35d91c",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "관리 강화·제도 시행 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "토지·부동산시장",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -743,21 +622,11 @@
       "analyzed_count": 8,
       "analysis_fingerprint": "8089d6542cd101b25a4e",
       "summary": {
-        "points": [
-          {
-            "label": "안전·환경",
-            "text": "침수 대응·안전관리·재난 대응이 7건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 7
-          },
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "도시안전·재난 대응",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -790,26 +659,16 @@
   "yearly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 1167,
+      "count": 1168,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
-      "analysis_fingerprint": "04e81a2cecbe84593ef5",
+      "analysis_fingerprint": "6d284c0ad10c3d39d9af",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "정비 추진·계획 수립·공급 확대 흐름이 10건의 자료에서 확인됐다.",
-            "evidence_count": 10
-          },
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·지원 확대·규제 완화 관련 움직임이 5건의 자료에서 반복됐다.",
-            "evidence_count": 5
-          }
-        ],
-        "note": "",
-        "topic": "재건축·재개발·정비사업",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -825,15 +684,15 @@
           "date": "2026-06-16"
         },
         {
+          "title": "재개발·재건축 갈등과 분쟁 막는다…강동구 “실무 중심 ‘정비사업 아카데미’ 운영”",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9oWWlTLThYc0tldkdEWjlDMmZ0Ql8xbHU1dWhTaDY4NVg4ekFFd2lRaVllWGRHTHFaM3R5bFlOeUdWSEJCV3lIM01VRy1xcTBl?oc=5",
+          "source": "문화일보",
+          "date": "2026-06-16"
+        },
+        {
           "title": "강동구, 재개발·재건축 지역 주거상향지원사업 설명회",
           "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE96YzdjdGhlTzNjNk9qaEFzVVY1QTNVUDJkNVlHMzhLTW9QZnZaQnVaLVNnb040dFM2UVVoM285S3NsNGpaOTZJY3ItVUxDWjJfYUJSRnlnWnBUa01zc2FoTnZmSFZjM0w2?oc=5",
           "source": "한국주택경제신문",
-          "date": "2026-06-24"
-        },
-        {
-          "title": "창동 상아1차 재건축정비사업 시공자 선정",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5vaHUtYVBtN3JEUEFCS3FubHZxTnBLS2poUUtHWVFrTUNKTE9qbVlvcDFYMVI0bGUxR0Rvb3lUM1BENk16LXFuRHU4dFV2TWZJNlNjSmZZUmw3bHQzUFBFSXZIZERDd3V6eS1UYWh6T1p5LWs?oc=5",
-          "source": "하우징헤럴드",
           "date": "2026-06-24"
         }
       ]
@@ -845,26 +704,11 @@
       "analyzed_count": 13,
       "analysis_fingerprint": "d1819260f4c250ccc1a1",
       "summary": {
-        "points": [
-          {
-            "label": "사업·공급",
-            "text": "계획 수립·정비 추진·공급 확대 흐름이 10건의 자료에서 확인됐다.",
-            "evidence_count": 10
-          },
-          {
-            "label": "공간·생활권",
-            "text": "개발밀도 변화·역세권 재편·교통체계 변화가 4건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 4
-          },
-          {
-            "label": "정책·제도",
-            "text": "규제 완화·법령 개정 관련 움직임이 2건의 자료에서 반복됐다.",
-            "evidence_count": 2
-          }
-        ],
-        "note": "",
-        "topic": "국토계획·용도지역·규제",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -900,21 +744,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "81fd0054cdad989af097",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "제도 시행·구역·사업 지정·법령 개정 관련 움직임이 9건의 자료에서 반복됐다.",
-            "evidence_count": 9
-          },
-          {
-            "label": "사업·공급",
-            "text": "공급 확대·사업 착공·계획 수립 흐름이 3건의 자료에서 확인됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "주택공급·공공주택",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -950,21 +784,11 @@
       "analyzed_count": 14,
       "analysis_fingerprint": "9cd3e174482a58bcdee1",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "지원 확대·구역·사업 지정·관리 강화 관련 움직임이 4건의 자료에서 반복됐다.",
-            "evidence_count": 4
-          },
-          {
-            "label": "시장·비용",
-            "text": "가격 변동·거래 변화·지가 변화 문제가 4건의 자료에서 주요 관심사로 나타났다.",
-            "evidence_count": 4
-          }
-        ],
-        "note": "",
-        "topic": "토지·부동산시장",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -1000,26 +824,11 @@
       "analyzed_count": 14,
       "analysis_fingerprint": "9000f389bf1972037002",
       "summary": {
-        "points": [
-          {
-            "label": "공간·생활권",
-            "text": "철도축 변화·역세권 재편가 13건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 13
-          },
-          {
-            "label": "사업·공급",
-            "text": "계획 수립·사업 추진·공급 확대 흐름이 6건의 자료에서 확인됐다.",
-            "evidence_count": 6
-          },
-          {
-            "label": "정책·제도",
-            "text": "새 제도 도입·관리 강화·법령 개정 관련 움직임이 3건의 자료에서 반복됐다.",
-            "evidence_count": 3
-          }
-        ],
-        "note": "",
-        "topic": "철도·광역교통·역세권",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -1055,26 +864,11 @@
       "analyzed_count": 12,
       "analysis_fingerprint": "2329b641325f455efa2c",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "지원 확대·새 제도 도입·사업 공모 관련 움직임이 4건의 자료에서 반복됐다.",
-            "evidence_count": 4
-          },
-          {
-            "label": "사업·공급",
-            "text": "정비 추진·사업 추진 흐름이 4건의 자료에서 확인됐다.",
-            "evidence_count": 4
-          },
-          {
-            "label": "공간·생활권",
-            "text": "빈집 관리·상권 변화가 4건의 자료에서 공간 변화의 핵심으로 나타났다.",
-            "evidence_count": 4
-          }
-        ],
-        "note": "",
-        "topic": "도시재생·빈집·원도심",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -1110,21 +904,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "8b161bb00ed45c84713a",
       "summary": {
-        "points": [
-          {
-            "label": "정책·제도",
-            "text": "구역·사업 지정·사업 공모·제도 시행 관련 움직임이 6건의 자료에서 반복됐다.",
-            "evidence_count": 6
-          },
-          {
-            "label": "사업·공급",
-            "text": "공간·시설 조성·기능·기업 유치 흐름이 6건의 자료에서 확인됐다.",
-            "evidence_count": 6
-          }
-        ],
-        "note": "",
-        "topic": "스마트시티·AI·디지털전환",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
@@ -1160,21 +944,11 @@
       "analyzed_count": 15,
       "analysis_fingerprint": "6c7cdb83f4ae8a11945e",
       "summary": {
-        "points": [
-          {
-            "label": "안전·환경",
-            "text": "폭염 대응·침수 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
-            "evidence_count": 15
-          },
-          {
-            "label": "정책·제도",
-            "text": "지원 확대·제도 시행·법령 개정 관련 움직임이 4건의 자료에서 반복됐다.",
-            "evidence_count": 4
-          }
-        ],
-        "note": "",
-        "topic": "기후위기·탄소중립·녹색건축",
-        "mode": "rule"
+        "mode": "error",
+        "model": "gemini-2.5-flash",
+        "generated_at": "2026-06-25T10:29:03.749736+09:00",
+        "points": [],
+        "note": "Gemini 분석에 실패했습니다. RuntimeError: GEMINI_API_KEY가 GitHub Secrets에 등록되지 않았습니다."
       },
       "examples": [
         {
