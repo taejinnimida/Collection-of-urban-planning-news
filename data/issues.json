@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-06-25 09:49 KST",
+  "updated_at": "2026-06-25 10:01 KST",
   "coverage": {
-    "items": 3173,
+    "items": 3176,
     "oldest": "2025-06-26",
     "newest": "2026-06-24",
     "days_covered": 364,
     "complete": true
   },
   "ai_status": {
-    "requested": false,
+    "requested": true,
     "key_configured": false,
     "model": "gemini-2.5-flash",
     "reused": 0,
     "updated": 0,
     "fallback": 24,
-    "error": ""
+    "error": "RuntimeError: GEMINI_API_KEY가 등록되지 않았습니다."
   },
   "weekly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 72,
-      "trend_label": "직전 동일기간보다 24건 증가",
+      "count": 73,
+      "trend_label": "직전 동일기간보다 25건 증가",
       "analyzed_count": 15,
       "analysis_fingerprint": "154357115a7e6349d081",
       "summary": {
@@ -393,8 +393,8 @@
   "monthly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 128,
-      "trend_label": "직전 동일기간보다 22건 증가",
+      "count": 129,
+      "trend_label": "직전 동일기간보다 23건 증가",
       "analyzed_count": 15,
       "analysis_fingerprint": "52b18633d851f8636420",
       "summary": {
@@ -790,7 +790,7 @@
   "yearly": [
     {
       "topic": "재건축·재개발·정비사업",
-      "count": 1166,
+      "count": 1167,
       "trend_label": "최근 1년 누적",
       "analyzed_count": 15,
       "analysis_fingerprint": "04e81a2cecbe84593ef5",
@@ -953,7 +953,7 @@
         "points": [
           {
             "label": "정책·제도",
-            "text": "지원 확대·관리 강화·구역·사업 지정 관련 움직임이 4건의 자료에서 반복됐다.",
+            "text": "지원 확대·구역·사업 지정·관리 강화 관련 움직임이 4건의 자료에서 반복됐다.",
             "evidence_count": 4
           },
           {
@@ -1163,7 +1163,7 @@
         "points": [
           {
             "label": "안전·환경",
-            "text": "침수 대응·폭염 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
+            "text": "폭염 대응·침수 대응·기후위기 대응이 15건의 자료에서 주요 대응 과제로 나타났다.",
             "evidence_count": 15
           },
           {
