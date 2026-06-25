@@ -88,6 +88,15 @@
     .auto-summary-count{color:#5f7d91;font-size:.8rem;font-weight:650}
     .auto-summary p{margin:5px 0 0;font-size:.9rem;line-height:1.5}
     .auto-summary b{color:#173f59}
+    .auto-summary.error{
+      border-color:#e2b0b0;
+      background:#fff0f0;
+      color:#7a3030;
+    }
+    .auto-summary.error .auto-summary-head{
+      color:#8b3434;
+    }
+    .auto-summary.error b{color:#8b3434}
 
     .ai-status{
       display:inline-flex;
@@ -458,7 +467,7 @@
 
     if(status.error){
       el.className="ai-status error";
-      el.textContent="Gemini 오류 · 규칙형 표시";
+      el.textContent="Gemini 분석 실패 · 오류 표시";
       return;
     }
 
@@ -505,9 +514,15 @@
             }).join("")}
           </ul>
           ${x.summary?`
-            <div class="auto-summary">
+            <div class="auto-summary ${x.summary.mode==="error"?"error":""}">
               <div class="auto-summary-head">
-                <span>${x.summary.mode==="ai"?"Gemini AI 이슈 분석":"관련 자료 자동 분석"}</span>
+                <span>${
+                  x.summary.mode==="ai"
+                    ?"Gemini 2.5 Flash 이슈 분석"
+                    :x.summary.mode==="error"
+                      ?"Gemini 분석 실패"
+                      :"관련 자료 자동 분석"
+                }</span>
                 <span class="auto-summary-count">${x.analyzed_count||0}건 기준</span>
               </div>
               ${(x.summary.points||[]).map(point=>`<p><b>${esc(point.label)}</b> ${esc(point.text)}</p>`).join("")}
