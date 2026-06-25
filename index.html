@@ -88,40 +88,7 @@
     .auto-summary-count{color:#5f7d91;font-size:.8rem;font-weight:650}
     .auto-summary p{margin:5px 0 0;font-size:.9rem;line-height:1.5}
     .auto-summary b{color:#173f59}
-    .auto-summary.error{
-      border-color:#e2b0b0;
-      background:#fff0f0;
-      color:#7a3030;
-    }
-    .auto-summary.error .auto-summary-head{
-      color:#8b3434;
-    }
-    .auto-summary.error b{color:#8b3434}
 
-    .ai-status{
-      display:inline-flex;
-      align-items:center;
-      padding:7px 11px;
-      border-radius:999px;
-      font-size:.86rem;
-      font-weight:800;
-      white-space:nowrap;
-    }
-    .ai-status.ai{
-      color:#0d5b48;
-      border:1px solid #9fd3c4;
-      background:#e8f7f1;
-    }
-    .ai-status.rule{
-      color:#765914;
-      border:1px solid #e4ce91;
-      background:#fff8df;
-    }
-    .ai-status.error{
-      color:#8b3434;
-      border:1px solid #e2b0b0;
-      background:#fff0f0;
-    }
 
     /* ── 분석 그리드 (키워드 + 최신자료) ── */
     .analysis-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:16px;align-items:start}
@@ -290,7 +257,6 @@
         <h2 class="section-title">기간별 핵심 이슈</h2>
         <p class="section-desc">제목 출현 빈도와 관련 자료 묶음을 기준으로 흐름을 정리합니다.</p>
       </div>
-      <span class="ai-status rule" id="ai-status">분석 상태 확인 중</span>
     </div>
     <div class="tabs">
       <button class="tab active" data-period="weekly">최근 1주</button>
@@ -418,7 +384,7 @@
 
   const NOTICE_PORTALS={
     "전체":"https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp",
-    "서울":"https://www.seoul.go.kr/news/news_notice.do",
+    "서울":"https://urban.seoul.go.kr/view/new/main.html",
     "인천":"https://announce.incheon.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&sido=ic&svp=Y",
     "수원":"https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50",
     "화성":"https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50",
@@ -460,33 +426,6 @@
       </article>`).join("");
   }
 
-  function renderAiStatus(){
-    const status=issues.ai_status||{};
-    const el=document.getElementById("ai-status");
-    if(!el) return;
-
-    if(status.error){
-      el.className="ai-status error";
-      el.textContent="Gemini 분석 실패 · 오류 표시";
-      return;
-    }
-
-    if(!status.key_configured){
-      el.className="ai-status rule";
-      el.textContent="Gemini 키 미등록 · 규칙형 표시";
-      return;
-    }
-
-    const hasAi=(status.updated||0)+(status.reused||0)>0;
-    if(hasAi){
-      el.className="ai-status ai";
-      el.textContent=`Gemini 분석 작동 · ${status.updated||0}건 갱신`;
-    }else{
-      el.className="ai-status rule";
-      el.textContent="Gemini 대기 · 규칙형 표시";
-    }
-  }
-
   function renderIssues(){
     document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.period===period));
     const rows=issues[period]||[];
@@ -514,15 +453,9 @@
             }).join("")}
           </ul>
           ${x.summary?`
-            <div class="auto-summary ${x.summary.mode==="error"?"error":""}">
+            <div class="auto-summary">
               <div class="auto-summary-head">
-                <span>${
-                  x.summary.mode==="ai"
-                    ?"Gemini 2.5 Flash 이슈 분석"
-                    :x.summary.mode==="error"
-                      ?"Gemini 분석 실패"
-                      :"관련 자료 자동 분석"
-                }</span>
+                <span>관련 자료 자동 분석</span>
                 <span class="auto-summary-count">${x.analyzed_count||0}건 기준</span>
               </div>
               ${(x.summary.points||[]).map(point=>`<p><b>${esc(point.label)}</b> ${esc(point.text)}</p>`).join("")}
@@ -611,7 +544,9 @@
       official.href=NOTICE_PORTALS[selectedNoticeCity]||NOTICE_PORTALS["전체"];
       official.textContent=selectedNoticeCity==="전체"
         ? "토지이음 고시정보 전체보기"
-        : `${selectedNoticeCity} 공식 고시공고 전체보기`;
+        : selectedNoticeCity==="서울"
+          ? "서울도시계획포털 바로가기"
+          : `${selectedNoticeCity} 공식 고시공고 전체보기`;
     }
 
     document.getElementById("municipal-notices").innerHTML=rows.length
@@ -648,7 +583,7 @@
     document.getElementById("updated").textContent=latest.updated_at?`마지막 갱신: ${latest.updated_at}`:"첫 자동수집 대기 중";
   }
 
-  function render(){renderTop();renderStats();renderAiStatus();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderMaintenanceUpdates();renderSources()}
+  function render(){renderTop();renderStats();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderMaintenanceUpdates();renderSources()}
 
   async function init(){
     [latest,keywords,issues]=await Promise.all([
