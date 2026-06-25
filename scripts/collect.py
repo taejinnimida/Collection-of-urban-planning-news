@@ -59,17 +59,83 @@ OFFICIAL_POLICY_QUERIES = [
 ]
 
 MUNICIPAL_NOTICE_SOURCES = [
-    {"city": "서울", "url": "https://www.seoul.go.kr/news/news_notice.do", "domain": "seoul.go.kr/news/news_notice.do"},
-    {"city": "인천", "url": "https://announce.incheon.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&sido=ic&svp=Y", "domain": "announce.incheon.go.kr"},
-    {"city": "수원", "url": "https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50", "domain": "suwon.go.kr/web/saeallOfr"},
-    {"city": "화성", "url": "https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50", "domain": "hscity.go.kr/www/gosi"},
-    {"city": "남양주", "url": "https://www.nyj.go.kr/www/selectEminwonWebList.do?cpn=1&key=2492&sa1Join=01%3B02%3B04%3B05", "domain": "nyj.go.kr/www/selectEminwonWeb"},
-    {"city": "고양", "url": "https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0", "domain": "eminwon.goyang.go.kr"},
-    {"city": "성남", "url": "https://www.seongnam.go.kr/notice/publicNotice01.do?menuIdx=1000055&returnURL=%2Fmain.do", "domain": "seongnam.go.kr/notice"},
-    {"city": "평택", "url": "https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do?mid=0401020100", "domain": "pyeongtaek.go.kr/pyeongtaek/saeol/gosi"},
-    {"city": "과천", "url": "https://www.gccity.go.kr/portal/saeol/gosi/list.do?mId=0301040000", "domain": "gccity.go.kr/portal/saeol/gosi"},
-    {"city": "광명", "url": "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001", "domain": "gm.go.kr/pt/user/nftcBbs"},
-    {"city": "광주", "url": "https://www.gjcity.go.kr/portal/saeol/gosi/list.do?mId=0202010000", "domain": "gjcity.go.kr/portal/saeol/gosi"},
+    {
+        "city": "서울",
+        "mode": "portal",
+        "url": "https://urban.seoul.go.kr/view/html/PMNU4030100001",
+        "domain": "urban.seoul.go.kr",
+        "label": "서울도시공간포털 결정고시",
+    },
+    {
+        "city": "인천",
+        "mode": "bulletin",
+        "url": "https://www.incheon.go.kr/IC010303",
+        "domain": "incheon.go.kr/IC010303",
+        "label": "인천시보",
+    },
+    {
+        "city": "수원",
+        "mode": "list",
+        "url": "https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50",
+        "domain": "suwon.go.kr/web/saeallOfr",
+        "label": "수원시 고시공고",
+    },
+    {
+        "city": "화성",
+        "mode": "list",
+        "url": "https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50",
+        "domain": "hscity.go.kr/www/gosi",
+        "label": "화성시 고시공고",
+    },
+    {
+        "city": "남양주",
+        "mode": "bulletin",
+        "url": "https://www.nyj.go.kr/www/selectBbsNttList.do?bbsNo=69&key=2500",
+        "domain": "nyj.go.kr/www/selectBbsNttList.do",
+        "label": "남양주시보",
+    },
+    {
+        "city": "고양",
+        "mode": "list",
+        "url": "https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0",
+        "domain": "eminwon.goyang.go.kr",
+        "label": "고양시 고시공고",
+    },
+    {
+        "city": "성남",
+        "mode": "portal",
+        "url": "https://www.seongnam.go.kr/notice/publicNotice01.do?menuIdx=1000055&returnURL=%2Fmain.do",
+        "domain": "seongnam.go.kr/notice",
+        "label": "성남시 고시",
+    },
+    {
+        "city": "평택",
+        "mode": "portal",
+        "url": "https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do?mid=0401020100",
+        "domain": "pyeongtaek.go.kr/pyeongtaek/saeol/gosi",
+        "label": "평택시 고시공고",
+    },
+    {
+        "city": "과천",
+        "mode": "list",
+        "url": "https://www.gccity.go.kr/portal/saeol/gosi/list.do?mId=0301040000",
+        "domain": "gccity.go.kr/portal/saeol/gosi",
+        "label": "과천시 고시공고",
+    },
+    {
+        "city": "광명",
+        "mode": "list",
+        "url": "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
+        "domain": "gm.go.kr/pt/user/nftcBbs",
+        "label": "광명시 고시공고",
+    },
+    {
+        "city": "광주",
+        "mode": "list",
+        "url": "https://www.gjcity.go.kr/portal/saeol/gosi/list.do?mId=0202010000",
+        "domain": "gjcity.go.kr/portal/saeol/gosi",
+        "label": "광주시 고시공고",
+    },
 ]
 
 URBAN_NOTICE_KEYWORDS = (
@@ -564,9 +630,41 @@ def parse_notice_date(value):
 
 def is_urban_notice(title):
     lower = clean(title).lower()
-    if any(word.lower() in lower for word in MUNICIPAL_NOTICE_EXCLUDE_WORDS):
+    if not any(
+        keyword.lower() in lower
+        for keyword in URBAN_NOTICE_KEYWORDS
+    ):
         return False
-    return any(keyword.lower() in lower for keyword in URBAN_NOTICE_KEYWORDS)
+
+    # '실시계획'이나 '지형도면'만을 알리는 후속 고시는 제외한다.
+    # 다만 도시관리계획 결정, 지구단위계획, 정비구역 지정처럼
+    # 중요한 계획내용과 함께 적힌 경우에는 수집한다.
+    if any(
+        word.lower() in lower
+        for word in MUNICIPAL_NOTICE_EXCLUDE_WORDS
+    ):
+        substantive = (
+            "도시관리계획",
+            "도시기본계획",
+            "지구단위계획",
+            "정비구역",
+            "정비계획",
+            "재정비촉진",
+            "도시개발",
+            "개발계획",
+            "용도지역",
+            "용도지구",
+            "용도구역",
+            "개발행위허가제한",
+            "경관계획",
+            "공원조성계획",
+            "사전열람",
+            "주민열람",
+        )
+        if not any(word.lower() in lower for word in substantive):
+            return False
+
+    return True
 
 
 def make_eum_gosi_url(title, published):
@@ -578,40 +676,201 @@ def make_eum_gosi_url(title, published):
     return EUM_GOSI_LIST_URL + "?" + urlencode(params)
 
 
+def notice_title_from_block(block_text):
+    value = clean(block_text)
+    value = re.sub(
+        r"20\d{2}[./-]\s*\d{1,2}[./-]\s*\d{1,2}",
+        " ",
+        value,
+    )
+    value = re.sub(r"^\s*\d+\s+", "", value)
+    value = re.sub(
+        r"\s+(?:담당부서|등록부서|조회수|등록일)\s*[:：]?.*$",
+        "",
+        value,
+    )
+    return clean(value)
+
+
 def extract_notice_rows(html_text, source):
-    cutoff = TODAY - timedelta(days=MUNICIPAL_NOTICE_DAYS - 1)
-    blocks = re.findall(r"(?is)<tr\b[^>]*>.*?</tr>", html_text)
-    blocks += re.findall(r"(?is)<li\b[^>]*>.*?</li>", html_text)
+    cutoff = TODAY - timedelta(
+        days=MUNICIPAL_NOTICE_DAYS - 1
+    )
+    blocks = re.findall(
+        r"(?is)<tr\b[^>]*>.*?</tr>",
+        html_text,
+    )
+    blocks += re.findall(
+        r"(?is)<li\b[^>]*>.*?</li>",
+        html_text,
+    )
+
     rows = []
     seen: set[str] = set()
+
     for block in blocks:
         block_text = strip_html(block)
         published = parse_notice_date(block_text)
-        if not published or published < cutoff or published > TODAY + timedelta(days=1):
+        if (
+            not published
+            or published < cutoff
+            or published > TODAY + timedelta(days=1)
+        ):
             continue
-        anchors = re.findall(r"(?is)<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>", block)
+
+        anchors = re.findall(
+            r"(?is)<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+            block,
+        )
         candidates = []
+
         for href, label_html in anchors:
             title = strip_html(label_html)
             if len(title) < 6 or not is_urban_notice(title):
                 continue
             candidates.append((title, href))
+
+        # 일부 지자체는 제목이 링크 안쪽이 아니라 표 셀 전체에 있다.
+        if not candidates:
+            title = notice_title_from_block(block_text)
+            if len(title) >= 6 and is_urban_notice(title):
+                candidates.append((title, ""))
+
         if not candidates:
             continue
-        title, href = max(candidates, key=lambda item: len(item[0]))
-        key = f"{source['city']}|{published.isoformat()}|{title_key(title)}"
+
+        title, href = max(
+            candidates,
+            key=lambda item: len(item[0]),
+        )
+        key = (
+            f"{source['city']}|"
+            f"{published.isoformat()}|"
+            f"{title_key(title)}"
+        )
         if key in seen:
             continue
         seen.add(key)
+
         eum_url = make_eum_gosi_url(title, published)
-        if href.lower().startswith("javascript:") or href.startswith("#"):
-            link = eum_url
-            source_type = "토지이음 확인"
+
+        if (
+            not href
+            or href.lower().startswith("javascript:")
+            or href.startswith("#")
+        ):
+            link = source["url"]
+            source_type = source.get(
+                "label",
+                "공식 고시공고",
+            )
         else:
             link = urljoin(source["url"], href)
-            source_type = "공식 고시공고"
-        rows.append({"city": source["city"], "title": title, "url": link,
-                     "eum_url": eum_url, "date": published.isoformat(), "source_type": source_type})
+            source_type = source.get(
+                "label",
+                "공식 고시공고",
+            )
+
+        rows.append(
+            {
+                "city": source["city"],
+                "title": title,
+                "url": link,
+                "eum_url": eum_url,
+                "date": published.isoformat(),
+                "source_type": source_type,
+            }
+        )
+
+    return rows
+
+
+def extract_bulletin_rows(html_text, source):
+    cutoff = TODAY - timedelta(
+        days=MUNICIPAL_NOTICE_DAYS - 1
+    )
+    blocks = re.findall(
+        r"(?is)<tr\b[^>]*>.*?</tr>",
+        html_text,
+    )
+    blocks += re.findall(
+        r"(?is)<li\b[^>]*>.*?</li>",
+        html_text,
+    )
+
+    rows = []
+    seen: set[str] = set()
+
+    for block in blocks:
+        block_text = strip_html(block)
+        published = parse_notice_date(block_text)
+        if (
+            not published
+            or published < cutoff
+            or published > TODAY + timedelta(days=1)
+        ):
+            continue
+
+        anchors = re.findall(
+            r"(?is)<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+            block,
+        )
+
+        candidates = []
+        for href, label_html in anchors:
+            title = strip_html(label_html)
+            if re.search(
+                r"(?:시보\s*제?\s*\d+\s*호|제\s*\d+\s*호)",
+                title,
+                flags=re.I,
+            ):
+                candidates.append((title, href))
+
+        if not candidates:
+            continue
+
+        title, href = max(
+            candidates,
+            key=lambda item: len(item[0]),
+        )
+
+        if source["city"] == "인천" and not title.startswith("인천"):
+            title = f"인천시보 {title}"
+        elif source["city"] == "남양주" and not title.startswith("남양주"):
+            title = f"남양주시보 {title}"
+
+        key = (
+            f"{source['city']}|"
+            f"{published.isoformat()}|"
+            f"{title_key(title)}"
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+
+        if (
+            not href
+            or href.lower().startswith("javascript:")
+            or href.startswith("#")
+        ):
+            link = source["url"]
+        else:
+            link = urljoin(source["url"], href)
+
+        rows.append(
+            {
+                "city": source["city"],
+                "title": title,
+                "url": link,
+                "eum_url": "",
+                "date": published.isoformat(),
+                "source_type": source.get(
+                    "label",
+                    "공식 시보",
+                ),
+            }
+        )
+
     return rows
 
 
@@ -645,24 +904,63 @@ def fallback_municipal_notices(source):
 
 
 def collect_one_municipal_source(source):
+    mode = source.get("mode", "list")
+
+    # 화면에서 목록을 나중에 불러오는 사이트는 공식 링크만 제공한다.
+    if mode == "portal":
+        return [], "공식 페이지 직접 확인"
+
     direct_error = ""
     try:
-        response = HTTP.get(source["url"], timeout=(12, 35), allow_redirects=True)
+        response = HTTP.get(
+            source["url"],
+            timeout=(12, 35),
+            allow_redirects=True,
+        )
         response.raise_for_status()
-        response.encoding = response.apparent_encoding or response.encoding
-        rows = extract_notice_rows(response.text, source)
+        response.encoding = (
+            response.apparent_encoding
+            or response.encoding
+        )
+
+        if mode == "bulletin":
+            rows = extract_bulletin_rows(
+                response.text,
+                source,
+            )
+        else:
+            rows = extract_notice_rows(
+                response.text,
+                source,
+            )
+
         if rows:
-            return rows, f"공식 목록 {len(rows)}건"
-        direct_error = "공식 목록 0건"
+            return rows, f"{source.get('label', '공식 목록')} {len(rows)}건"
+
+        direct_error = f"{source.get('label', '공식 목록')} 0건"
     except Exception as exc:
-        direct_error = f"공식 목록 {type(exc).__name__}"
+        direct_error = (
+            f"{source.get('label', '공식 목록')} "
+            f"{type(exc).__name__}"
+        )
+
+    # 일반 고시목록만 검색 보완을 시도한다.
+    if mode != "list":
+        return [], direct_error
+
     try:
         fallback = fallback_municipal_notices(source)
         if fallback:
-            return fallback, f"{direct_error}, 검색보완 {len(fallback)}건"
+            return (
+                fallback,
+                f"{direct_error}, 검색보완 {len(fallback)}건",
+            )
         return [], f"{direct_error}, 검색보완 0건"
     except Exception as exc:
-        return [], f"{direct_error}, 검색보완 {type(exc).__name__}"
+        return (
+            [],
+            f"{direct_error}, 검색보완 {type(exc).__name__}",
+        )
 
 
 def collect_municipal_notices():
