@@ -89,6 +89,31 @@
     .auto-summary p{margin:5px 0 0;font-size:.9rem;line-height:1.5}
     .auto-summary b{color:#173f59}
 
+    .ai-status{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 11px;
+      border-radius:999px;
+      font-size:.86rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .ai-status.ai{
+      color:#0d5b48;
+      border:1px solid #9fd3c4;
+      background:#e8f7f1;
+    }
+    .ai-status.rule{
+      color:#765914;
+      border:1px solid #e4ce91;
+      background:#fff8df;
+    }
+    .ai-status.error{
+      color:#8b3434;
+      border:1px solid #e2b0b0;
+      background:#fff0f0;
+    }
+
     /* ── 분석 그리드 (키워드 + 최신자료) ── */
     .analysis-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:16px;align-items:start}
 
@@ -130,8 +155,40 @@
     /* ── 도시계획고시 + 정비사업 ── */
     .planning-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:16px;align-items:start}
     .city-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-    .city-chip{padding:5px 8px;border-radius:999px;background:#eef5f7;color:var(--teal);
-      font-size:.82rem;font-weight:750}
+    .city-chip{
+      padding:6px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      background:#eef5f7;
+      color:var(--teal);
+      font-size:.82rem;
+      font-weight:750;
+      cursor:pointer;
+    }
+    .city-chip:hover{border-color:#9fc0c8}
+    .city-chip.active{
+      color:#fff;
+      border-color:var(--teal);
+      background:var(--teal);
+    }
+    .notice-tools{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin:0 0 8px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:#f6f9fb;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+    .notice-tools a{
+      color:var(--teal);
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .notice-tools a:hover{text-decoration:underline}
     .notice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
     .notice-item{padding:10px 0;border-bottom:1px solid var(--line)}
     .notice-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:4px;color:var(--muted);font-size:.84rem}
@@ -224,6 +281,7 @@
         <h2 class="section-title">기간별 핵심 이슈</h2>
         <p class="section-desc">제목 출현 빈도와 관련 자료 묶음을 기준으로 흐름을 정리합니다.</p>
       </div>
+      <span class="ai-status rule" id="ai-status">분석 상태 확인 중</span>
     </div>
     <div class="tabs">
       <button class="tab active" data-period="weekly">최근 1주</button>
@@ -272,13 +330,25 @@
           <p class="section-desc">최근 1주 · 선택한 11개 도시의 주요 도시계획 고시</p>
         </div>
       </div>
-      <div class="city-chips">
-        <span class="city-chip">서울</span><span class="city-chip">인천</span>
-        <span class="city-chip">수원</span><span class="city-chip">화성</span>
-        <span class="city-chip">남양주</span><span class="city-chip">고양</span>
-        <span class="city-chip">성남</span><span class="city-chip">평택</span>
-        <span class="city-chip">과천</span><span class="city-chip">광명</span>
-        <span class="city-chip">광주</span>
+      <div class="city-chips" id="city-chips">
+        <button class="city-chip active" type="button" data-notice-city="전체">전체</button>
+        <button class="city-chip" type="button" data-notice-city="서울">서울</button>
+        <button class="city-chip" type="button" data-notice-city="인천">인천</button>
+        <button class="city-chip" type="button" data-notice-city="수원">수원</button>
+        <button class="city-chip" type="button" data-notice-city="화성">화성</button>
+        <button class="city-chip" type="button" data-notice-city="남양주">남양주</button>
+        <button class="city-chip" type="button" data-notice-city="고양">고양</button>
+        <button class="city-chip" type="button" data-notice-city="성남">성남</button>
+        <button class="city-chip" type="button" data-notice-city="평택">평택</button>
+        <button class="city-chip" type="button" data-notice-city="과천">과천</button>
+        <button class="city-chip" type="button" data-notice-city="광명">광명</button>
+        <button class="city-chip" type="button" data-notice-city="광주">광주</button>
+      </div>
+      <div class="notice-tools">
+        <span id="notice-result-label">전체 도시 자동수집 결과</span>
+        <a id="notice-official-link" href="https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp" target="_blank" rel="noopener">
+          공식 고시자료 전체보기
+        </a>
       </div>
       <div class="notice-list" id="municipal-notices"></div>
     </div>
@@ -335,6 +405,22 @@
   let issues={weekly:[],monthly:[],yearly:[]};
   let period="weekly";
   let openItemCategory=null;
+  let selectedNoticeCity="전체";
+
+  const NOTICE_PORTALS={
+    "전체":"https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp",
+    "서울":"https://www.seoul.go.kr/news/news_notice.do",
+    "인천":"https://announce.incheon.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&sido=ic&svp=Y",
+    "수원":"https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50",
+    "화성":"https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50",
+    "남양주":"https://www.nyj.go.kr/www/selectEminwonWebList.do?cpn=1&key=2492&sa1Join=01%3B02%3B04%3B05",
+    "고양":"https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y",
+    "성남":"https://www.seongnam.go.kr/notice/publicNotice01.do?menuIdx=1000055&returnURL=%2Fmain.do",
+    "평택":"https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do?mid=0401020100",
+    "과천":"https://www.gccity.go.kr/portal/saeol/gosi/list.do?mId=0301040000",
+    "광명":"https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
+    "광주":"https://www.gjcity.go.kr/portal/saeol/gosi/list.do?mId=0202010000"
+  };
 
   const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -363,6 +449,33 @@
         <div class="stat-index">${no}</div><h3>${esc(title)}</h3>
         <p>${esc(desc)}</p><div class="stat-count">${counts[key]||0}건</div>
       </article>`).join("");
+  }
+
+  function renderAiStatus(){
+    const status=issues.ai_status||{};
+    const el=document.getElementById("ai-status");
+    if(!el) return;
+
+    if(status.error){
+      el.className="ai-status error";
+      el.textContent="Gemini 오류 · 규칙형 표시";
+      return;
+    }
+
+    if(!status.key_configured){
+      el.className="ai-status rule";
+      el.textContent="Gemini 키 미등록 · 규칙형 표시";
+      return;
+    }
+
+    const hasAi=(status.updated||0)+(status.reused||0)>0;
+    if(hasAi){
+      el.className="ai-status ai";
+      el.textContent=`Gemini 분석 작동 · ${status.updated||0}건 갱신`;
+    }else{
+      el.className="ai-status rule";
+      el.textContent="Gemini 대기 · 규칙형 표시";
+    }
   }
 
   function renderIssues(){
@@ -459,7 +572,33 @@
   }
 
   function renderMunicipalNotices(){
-    const rows=(latest.municipal_notices||[]).slice(0,36);
+    const allRows=latest.municipal_notices||[];
+    const rows=(selectedNoticeCity==="전체"
+      ? allRows
+      : allRows.filter(item=>item.city===selectedNoticeCity)
+    ).slice(0,36);
+
+    document.querySelectorAll("[data-notice-city]").forEach(button=>{
+      button.classList.toggle(
+        "active",
+        button.dataset.noticeCity===selectedNoticeCity
+      );
+    });
+
+    const label=document.getElementById("notice-result-label");
+    const official=document.getElementById("notice-official-link");
+    if(label){
+      label.textContent=selectedNoticeCity==="전체"
+        ? `전체 도시 자동수집 ${rows.length}건`
+        : `${selectedNoticeCity} 자동수집 ${rows.length}건`;
+    }
+    if(official){
+      official.href=NOTICE_PORTALS[selectedNoticeCity]||NOTICE_PORTALS["전체"];
+      official.textContent=selectedNoticeCity==="전체"
+        ? "토지이음 고시정보 전체보기"
+        : `${selectedNoticeCity} 공식 고시공고 전체보기`;
+    }
+
     document.getElementById("municipal-notices").innerHTML=rows.length
       ? rows.map(item=>`
           <article class="notice-item">
@@ -473,7 +612,10 @@
               ${item.eum_url?`<a class="notice-eum" href="${esc(item.eum_url)}" target="_blank" rel="noopener">토지이음에서 확인</a>`:""}
             </div>
           </article>`).join("")
-      : `<div class="empty">최근 1주 동안 조건에 맞는 주요 도시계획 고시가 없습니다.</div>`;
+      : `<div class="empty">
+          최근 1주 자동수집에서 확인된 고시가 없습니다.<br>
+          실제 고시가 없다는 뜻은 아니므로 위의 공식 고시공고 링크를 확인하세요.
+        </div>`;
   }
 
   function renderSources(){
@@ -491,7 +633,7 @@
     document.getElementById("updated").textContent=latest.updated_at?`마지막 갱신: ${latest.updated_at}`:"첫 자동수집 대기 중";
   }
 
-  function render(){renderTop();renderStats();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderMaintenanceUpdates();renderSources()}
+  function render(){renderTop();renderStats();renderAiStatus();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderMaintenanceUpdates();renderSources()}
 
   async function init(){
     [latest,keywords,issues]=await Promise.all([
@@ -512,6 +654,13 @@
     const category=button.dataset.itemCategory;
     openItemCategory=openItemCategory===category?null:category;
     renderItems();
+  });
+
+  document.getElementById("city-chips").addEventListener("click",event=>{
+    const button=event.target.closest("[data-notice-city]");
+    if(!button) return;
+    selectedNoticeCity=button.dataset.noticeCity;
+    renderMunicipalNotices();
   });
 
   init();
