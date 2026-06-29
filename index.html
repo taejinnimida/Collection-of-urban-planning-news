@@ -165,6 +165,7 @@
       white-space:nowrap;
     }
     .notice-tools a:hover{text-decoration:underline}
+    .notice-official-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .notice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
     .notice-item{padding:10px 0;border-bottom:1px solid var(--line)}
     .notice-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:4px;color:var(--muted);font-size:.84rem}
@@ -301,29 +302,23 @@
     <div class="panel">
       <div class="panel-head">
         <div>
-          <h2>서울·인천·경기 주요 도시계획 고시</h2>
-          <p class="section-desc">최근 1주 · 선택한 11개 도시의 주요 도시계획 고시</p>
+          <h2>서울·경기 주요 도시계획 자료</h2>
+          <p class="section-desc">최근 30일 · 선택한 7개 도시의 도시계획 고시·공개자료</p>
         </div>
       </div>
       <div class="city-chips" id="city-chips">
         <button class="city-chip active" type="button" data-notice-city="전체">전체</button>
         <button class="city-chip" type="button" data-notice-city="서울">서울</button>
-        <button class="city-chip" type="button" data-notice-city="인천">인천</button>
         <button class="city-chip" type="button" data-notice-city="수원">수원</button>
         <button class="city-chip" type="button" data-notice-city="화성">화성</button>
-        <button class="city-chip" type="button" data-notice-city="남양주">남양주</button>
         <button class="city-chip" type="button" data-notice-city="고양">고양</button>
         <button class="city-chip" type="button" data-notice-city="성남">성남</button>
-        <button class="city-chip" type="button" data-notice-city="평택">평택</button>
         <button class="city-chip" type="button" data-notice-city="과천">과천</button>
         <button class="city-chip" type="button" data-notice-city="광명">광명</button>
-        <button class="city-chip" type="button" data-notice-city="광주">광주</button>
       </div>
       <div class="notice-tools">
         <span id="notice-result-label">전체 도시 자동수집 결과</span>
-        <a id="notice-official-link" href="https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp" target="_blank" rel="noopener">
-          공식 고시자료 전체보기
-        </a>
+        <span class="notice-official-links" id="notice-official-links"></span>
       </div>
       <div class="notice-list" id="municipal-notices"></div>
     </div>
@@ -331,10 +326,17 @@
     <aside class="panel">
       <div class="panel-head">
         <div>
-          <h2>공공지원 정비사업 추진사항</h2>
-          <p class="section-desc">최근 1주 · 서울·인천·경기 주요도시 공식 소식</p>
+          <h2>서울시 주요 주택뉴스</h2>
+          <p class="section-desc">최근 2주 · 서울주거포털 보도자료</p>
         </div>
       </div>
+      <div class="maintenance-list" id="seoul-housing-news"></div>
+      <a class="program-link" id="seoul-housing-link" href="https://housing.seoul.go.kr/site/main/tvReportedInfo/list?cp=2&pageSize=5" target="_blank" rel="noopener">
+        <strong>서울주거포털 주요 주택뉴스 전체보기</strong>
+        <span>신속통합기획·공공주택·정비사업·주거정책 보도자료</span>
+      </a>
+
+      <h3 class="portal-heading" style="margin-top:22px">공공지원 정비사업 추진사항</h3>
       <div class="maintenance-list" id="maintenance-updates"></div>
       <h3 class="portal-heading">공식 추진현황 바로가기</h3>
       <div class="program-links">
@@ -358,10 +360,6 @@
           <strong>LH 도심복합사업 추진현황</strong>
           <span>도심 공공주택 복합사업과 공공정비</span>
         </a>
-        <a class="program-link" href="https://www.ih.co.kr/main/business/regeneration.jsp" target="_blank" rel="noopener">
-          <strong>인천도시공사 도시재생·도심복합</strong>
-          <span>인천 주요 공공주도 도시재생사업</span>
-        </a>
       </div>
     </aside>
   </section>
@@ -375,7 +373,7 @@
 
 <script>
   const PERIOD_DAYS={weekly:7,monthly:30,yearly:365};
-  let latest={period_counts:{},items:[],source_status:{},coverage:{},municipal_notices:[],municipal_status:{},maintenance_updates:[]};
+  let latest={period_counts:{},items:[],source_status:{},coverage:{},municipal_notices:[],municipal_status:{},seoul_housing_news:[],seoul_housing_status:"",seoul_housing_link:"",maintenance_updates:[]};
   let keywords={monthly:[],quarterly:[],yearly:[]};
   let issues={weekly:[],monthly:[],yearly:[]};
   let period="weekly";
@@ -383,32 +381,34 @@
   let selectedNoticeCity="전체";
 
   const NOTICE_PORTALS={
-    "전체":"https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp",
-    "서울":"https://urban.seoul.go.kr/view/html/PMNU4030100001",
-    "인천":"https://www.incheon.go.kr/IC010303",
-    "수원":"https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50",
-    "화성":"https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50",
-    "남양주":"https://www.nyj.go.kr/www/selectBbsNttList.do?bbsNo=69&key=2500",
-    "고양":"https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y",
-    "성남":"https://www.seongnam.go.kr/notice/publicNotice01.do?menuIdx=1000055&returnURL=%2Fmain.do",
-    "평택":"https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do?mid=0401020100",
-    "과천":"https://www.gccity.go.kr/portal/saeol/gosi/list.do?mId=0301040000",
-    "광명":"https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
-    "광주":"https://www.gjcity.go.kr/portal/saeol/gosi/list.do?mId=0202010000"
+    "전체":[
+      {label:"토지이음 고시정보 전체보기",url:"https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp"}
+    ],
+    "서울":[
+      {label:"서울도시공간포털 결정고시",url:"https://urban.seoul.go.kr/view/html/PMNU4030100001"}
+    ],
+    "수원":[
+      {label:"수원 지구단위계획",url:"https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303"},
+      {label:"수원 기본·도시관리계획",url:"https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1164"}
+    ],
+    "화성":[
+      {label:"화성시 고시공고",url:"https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50"}
+    ],
+    "고양":[
+      {label:"고양시 고시",url:"https://www.goyang.go.kr/www/link/BD_notice.do?se=01"}
+    ],
+    "성남":[
+      {label:"성남 지구단위계획 고시·공고",url:"https://www.seongnam.go.kr/city/1000818/30278/bbsList.do"}
+    ],
+    "과천":[
+      {label:"과천시 고시공고",url:"https://www.gccity.go.kr/portal/saeol/gosi/list.do?mId=0301040000"}
+    ],
+    "광명":[
+      {label:"광명시 고시공고",url:"https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001"}
+    ]
   };
 
-  const NOTICE_PORTAL_LABELS={
-    "서울":"서울도시공간포털 결정고시",
-    "인천":"인천시보 바로가기",
-    "남양주":"남양주시보 바로가기",
-    "성남":"성남시 고시 바로가기",
-    "평택":"평택시 고시공고 바로가기",
-    "광명":"광명시 고시공고 바로가기",
-    "광주":"광주시 고시공고 바로가기"
-  };
-
-  const PORTAL_ONLY_CITIES=new Set(["서울","성남","평택"]);
-  const BULLETIN_CITIES=new Set(["인천","남양주"]);
+  const PORTAL_ONLY_CITIES=new Set(["서울"]);
 
   const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
@@ -518,6 +518,24 @@
     document.getElementById("items").innerHTML=html||`<div class="empty">이 기간의 자료가 아직 없습니다.</div>`;
   }
 
+  function renderSeoulHousingNews(){
+    const rows=(latest.seoul_housing_news||[]).slice(0,8);
+    const link=document.getElementById("seoul-housing-link");
+    if(link && latest.seoul_housing_link){
+      link.href=latest.seoul_housing_link;
+    }
+    document.getElementById("seoul-housing-news").innerHTML=rows.length
+      ? rows.map(item=>`
+          <article class="maintenance-item">
+            <div class="notice-meta">
+              <span class="notice-city">서울</span>
+              <span>${esc(item.date)}</span>
+            </div>
+            <a class="notice-title" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a>
+          </article>`).join("")
+      : `<div class="empty">자동수집 결과가 없습니다.<br>아래 서울주거포털 링크에서 직접 확인하세요.</div>`;
+  }
+
   function renderMaintenanceUpdates(){
     const rows=(latest.maintenance_updates||[]).slice(0,18);
     document.getElementById("maintenance-updates").innerHTML=rows.length
@@ -547,30 +565,27 @@
     });
 
     const label=document.getElementById("notice-result-label");
-    const official=document.getElementById("notice-official-link");
+    const officialLinks=document.getElementById("notice-official-links");
     const cityStatus=(latest.municipal_status||{})[selectedNoticeCity]||"";
 
     if(label){
       if(selectedNoticeCity==="전체"){
-        label.textContent=`전체 도시 수집결과 ${rows.length}건`;
+        label.textContent=`전체 도시 최근 30일 수집결과 ${rows.length}건`;
       }else if(PORTAL_ONLY_CITIES.has(selectedNoticeCity)){
-        label.textContent=`${selectedNoticeCity} · 공식 페이지 직접 확인`;
-      }else if(BULLETIN_CITIES.has(selectedNoticeCity)){
-        label.textContent=`${selectedNoticeCity} 시보 ${rows.length}건`;
+        label.textContent=`${selectedNoticeCity} · 공식 포털 직접 확인`;
       }else{
         label.textContent=rows.length
-          ? `${selectedNoticeCity} 자동수집 ${rows.length}건`
-          : `${selectedNoticeCity} 최근 1주 조건 일치 0건`;
+          ? `${selectedNoticeCity} 최근 30일 ${rows.length}건`
+          : `${selectedNoticeCity} 최근 30일 조건 일치 0건`;
       }
+      label.title=cityStatus;
     }
 
-    if(official){
-      official.href=NOTICE_PORTALS[selectedNoticeCity]||NOTICE_PORTALS["전체"];
-      official.textContent=selectedNoticeCity==="전체"
-        ? "토지이음 고시정보 전체보기"
-        : NOTICE_PORTAL_LABELS[selectedNoticeCity]
-          || `${selectedNoticeCity} 공식 고시공고 전체보기`;
-      official.title=cityStatus;
+    if(officialLinks){
+      const links=NOTICE_PORTALS[selectedNoticeCity]||NOTICE_PORTALS["전체"];
+      officialLinks.innerHTML=links.map(item=>`
+        <a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.label)}</a>
+      `).join("");
     }
 
     document.getElementById("municipal-notices").innerHTML=rows.length
@@ -588,12 +603,10 @@
           </article>`).join("")
       : `<div class="empty">${
           selectedNoticeCity==="전체"
-            ?"최근 1주 조건에 맞는 자동수집 결과가 없습니다."
+            ?"최근 30일 조건에 맞는 자동수집 결과가 없습니다."
             :PORTAL_ONLY_CITIES.has(selectedNoticeCity)
-              ?"이 지자체는 게시물 목록을 화면에서 나중에 불러와 자동수집이 어렵습니다.<br>위의 공식 페이지에서 직접 확인하세요."
-              :BULLETIN_CITIES.has(selectedNoticeCity)
-                ?"최근 1주 시보 발행분이 없거나 목록을 불러오지 못했습니다.<br>위의 시보 페이지에서 직접 확인하세요."
-                :"최근 1주 조건에 맞는 고시가 확인되지 않았습니다.<br>위의 공식 고시공고 페이지도 함께 확인하세요."
+              ?"서울 결정고시는 공식 포털에서 직접 검색하는 방식입니다.<br>위의 서울도시공간포털 링크를 이용하세요."
+              :"최근 30일 조건에 맞는 도시계획 자료가 확인되지 않았습니다.<br>위의 공식 자료 페이지도 함께 확인하세요."
         }</div>`;
   }
 
@@ -612,7 +625,7 @@
     document.getElementById("updated").textContent=latest.updated_at?`마지막 갱신: ${latest.updated_at}`:"첫 자동수집 대기 중";
   }
 
-  function render(){renderTop();renderStats();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderMaintenanceUpdates();renderSources()}
+  function render(){renderTop();renderStats();renderIssues();renderKeywords();renderItems();renderMunicipalNotices();renderSeoulHousingNews();renderMaintenanceUpdates();renderSources()}
 
   async function init(){
     [latest,keywords,issues]=await Promise.all([
