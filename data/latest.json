@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-29 16:59 KST",
+  "updated_at": "2026-06-29 17:00 KST",
   "coverage": {
-    "items": 3323,
+    "items": 3324,
     "oldest": "2025-06-30",
     "newest": "2026-06-29",
     "days_covered": 365,
@@ -12,27 +12,27 @@
       "정책": 45,
       "법령": 4,
       "연구": 16,
-      "기사": 133
+      "기사": 134
     },
     "monthly": {
       "정책": 133,
       "법령": 138,
       "연구": 83,
-      "기사": 265
+      "기사": 266
     },
     "yearly": {
       "정책": 630,
       "법령": 781,
       "연구": 572,
-      "기사": 1340
+      "기사": 1341
     }
   },
   "source_status": {
     "국토교통부": "7건 수집",
     "서울특별시": "22건 수집",
     "경기도": "16건 수집",
-    "법령·입법": "35건 수집",
-    "연구기관": "30건 수집",
+    "법령·입법": "34건 수집",
+    "연구기관": "29건 수집",
     "언론": "100건 수집"
   },
   "backfill_status": {},
@@ -73,11 +73,11 @@
   "municipal_status": {
     "서울": "공식 페이지 직접 확인",
     "과천": "과천시 고시공고 1건",
-    "화성": "화성시 고시공고 2건",
     "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
+    "화성": "화성시 고시공고 2건",
+    "수원": "수원 지구단위계획 1건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건",
-    "수원": "수원 지구단위계획 1건 / 수원 기본·도시관리계획 0건, 검색보완 0건"
+    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -115,17 +115,17 @@
     }
   ],
   "maintenance_status": {
-    "남양주": "0건",
-    "고양": "0건",
-    "수원": "0건",
-    "화성": "0건",
     "인천": "0건",
+    "고양": "0건",
+    "화성": "0건",
+    "남양주": "0건",
+    "수원": "0건",
     "평택": "0건",
+    "서울": "7건",
+    "성남": "0건",
     "과천": "0건",
     "광주": "0건",
-    "광명": "0건",
-    "성남": "0건",
-    "서울": "7건"
+    "광명": "0건"
   },
   "items": [
     {
@@ -262,6 +262,14 @@
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE16ZXdBb1FweEZEa0ZRcUlkRllITEx5VzRZanVMU0ZjdWt3OGswT3pTNUU1c3RXTjNlOC1Zc0lLZWI0VUJkbjFpTldVWlNrRm5lQ3dWYnJDRWxTcExmX3RFb1d2dXhKLXZNcTdKeVNJTkg1QzhSTk14Ug?oc=5",
       "source": "서울특별시",
       "category": "정책",
+      "date": "2026-06-29"
+    },
+    {
+      "id": "c76db0062df4f5e3",
+      "title": "靑, 유시민 ‘재건축론’에 “증축·재건축·재개발 결정하는 건 국민”",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAwcUxHWWJ0RGtjMTlld3Z4dEotbVNIZElHUEJ1UkpWR3pMOXhDTlFBWmQ5b1NuMGI2bkRJZC1fU3Z1elVXc1RYYXlJWmtCWlFReXUtMVRDczRNTGVzRzFlRVl6STVDWXdseGM2aFZVQTY4a01hQjRWd29paDl5dw?oc=5",
+      "source": "서울신문",
+      "category": "기사",
       "date": "2026-06-29"
     },
     {
@@ -1729,14 +1737,6 @@
       "title": "매탄나구역 재개발조합추진위원회 정비사업전문관리업자 선정 입찰공고",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFAwNE5UUmlPMXhiRVRQcWJZbDZpeWo4MGkwdDBrWVBqQUQ2WVpIZEVZemFmVjdqMnFJVkpVdXBtVy1OOGVBZjI4WEtEaUJReWxhUVNvcWIxeWc2WEJiWUQ1bVJfMmxwOW52?oc=5",
       "source": "한국주택경제신문",
-      "category": "기사",
-      "date": "2026-06-22"
-    },
-    {
-      "id": "8a3bbbcabebc9649",
-      "title": "재개발 대안되나...민간 도심복합개발 추진 '붐'",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1oVVYxR1haUGIzajdPVjhUNnc3T3ByU0lNeFNVMFN6X3NBSnE0djMtSDM3aFk4b1Znc1NhbkE5S2NRNWxDenYyd3FCNW9Jb0J0cDhyWUJwdGNyUdIBVEFVX3lxTFBjY0k2NVgxcUdnUnctNHJKbTVVMTFDZzhUM1dHQTVjd1dVTHZYX0xWTl91bVFobVpyejE2MnVlNjhuVUotTWRxbllLWjUyaW5UTXNkeQ?oc=5",
-      "source": "한국경제",
       "category": "기사",
       "date": "2026-06-22"
     }
