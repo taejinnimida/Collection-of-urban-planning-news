@@ -67,18 +67,18 @@ MUNICIPAL_NOTICE_SOURCES = [
         "label": "서울도시공간포털 결정고시",
     },
     {
-        "city": "인천",
-        "mode": "bulletin",
-        "url": "https://www.incheon.go.kr/IC010303",
-        "domain": "incheon.go.kr/IC010303",
-        "label": "인천시보",
+        "city": "수원",
+        "mode": "list",
+        "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303",
+        "domain": "suwon.go.kr/web/board/BD_board.list.do",
+        "label": "수원 지구단위계획",
     },
     {
         "city": "수원",
         "mode": "list",
-        "url": "https://www.suwon.go.kr/web/saeallOfr/BD_ofrList.do?q_currPage=1&q_rowPerPage=50",
-        "domain": "suwon.go.kr/web/saeallOfr",
-        "label": "수원시 고시공고",
+        "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1164",
+        "domain": "suwon.go.kr/web/board/BD_board.list.do",
+        "label": "수원 기본·도시관리계획",
     },
     {
         "city": "화성",
@@ -88,32 +88,18 @@ MUNICIPAL_NOTICE_SOURCES = [
         "label": "화성시 고시공고",
     },
     {
-        "city": "남양주",
-        "mode": "bulletin",
-        "url": "https://www.nyj.go.kr/www/selectBbsNttList.do?bbsNo=69&key=2500",
-        "domain": "nyj.go.kr/www/selectBbsNttList.do",
-        "label": "남양주시보",
-    },
-    {
         "city": "고양",
         "mode": "list",
-        "url": "https://eminwon.goyang.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?context=NTIS&countYn=Y&epcCheck=Y&homepage_pbs_yn=Y&initValue=Y&jndinm=OfrNotAncmtEJB&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage&not_ancmt_se_code=01%2C04%2C05&ofr_pageSize=50&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0",
-        "domain": "eminwon.goyang.go.kr",
-        "label": "고양시 고시공고",
+        "url": "https://www.goyang.go.kr/www/link/BD_notice.do?se=01",
+        "domain": "goyang.go.kr/www/link/BD_notice.do",
+        "label": "고양시 고시·도시계획 선별",
     },
     {
         "city": "성남",
-        "mode": "portal",
-        "url": "https://www.seongnam.go.kr/notice/publicNotice01.do?menuIdx=1000055&returnURL=%2Fmain.do",
-        "domain": "seongnam.go.kr/notice",
-        "label": "성남시 고시",
-    },
-    {
-        "city": "평택",
-        "mode": "portal",
-        "url": "https://www.pyeongtaek.go.kr/pyeongtaek/saeol/gosi/list.do?mid=0401020100",
-        "domain": "pyeongtaek.go.kr/pyeongtaek/saeol/gosi",
-        "label": "평택시 고시공고",
+        "mode": "list",
+        "url": "https://www.seongnam.go.kr/city/1000818/30278/bbsList.do",
+        "domain": "seongnam.go.kr/city/1000818/30278/bbsList.do",
+        "label": "성남 지구단위계획 고시·공고",
     },
     {
         "city": "과천",
@@ -129,13 +115,6 @@ MUNICIPAL_NOTICE_SOURCES = [
         "domain": "gm.go.kr/pt/user/nftcBbs",
         "label": "광명시 고시공고",
     },
-    {
-        "city": "광주",
-        "mode": "list",
-        "url": "https://www.gjcity.go.kr/portal/saeol/gosi/list.do?mId=0202010000",
-        "domain": "gjcity.go.kr/portal/saeol/gosi",
-        "label": "광주시 고시공고",
-    },
 ]
 
 URBAN_NOTICE_KEYWORDS = (
@@ -146,11 +125,29 @@ URBAN_NOTICE_KEYWORDS = (
     "개발행위허가제한", "경관계획", "공원조성계획", "택지개발",
 )
 
-MUNICIPAL_NOTICE_DAYS = 7
-MUNICIPAL_NOTICE_LIMIT = 28
-MUNICIPAL_CITY_LIMIT = 4
+MUNICIPAL_NOTICE_DAYS = 30
+MUNICIPAL_NOTICE_LIMIT = 48
+MUNICIPAL_CITY_LIMIT = 8
 MUNICIPAL_NOTICE_EXCLUDE_WORDS = ("지형도면", "실시계획",)
 EUM_GOSI_LIST_URL = "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp"
+
+SEOUL_HOUSING_NEWS_URL = (
+    "https://housing.seoul.go.kr/site/main/"
+    "tvReportedInfo/list?cp=1&pageSize=20"
+)
+SEOUL_HOUSING_NEWS_LINK = (
+    "https://housing.seoul.go.kr/site/main/"
+    "tvReportedInfo/list?cp=2&pageSize=5"
+)
+SEOUL_HOUSING_NEWS_DAYS = 14
+SEOUL_HOUSING_NEWS_LIMIT = 8
+SEOUL_HOUSING_KEYWORDS = (
+    "주택", "주거", "공공주택", "임대주택", "주택공급",
+    "재개발", "재건축", "정비사업", "신속통합기획",
+    "모아타운", "모아주택", "미리내집", "역세권",
+    "지구단위계획", "용적률", "건폐율", "전세",
+    "주거환경", "공동주택", "한옥",
+)
 
 PUBLIC_MAINTENANCE_SOURCES = [
     {"city": "서울", "query": "(site:seoul.go.kr OR site:cleanup.seoul.go.kr) (신속통합기획 OR 신통기획 OR 공공재개발 OR 공공재건축 OR 모아타운 OR 모아주택 OR 도심복합 OR 공공정비)"},
@@ -628,6 +625,21 @@ def parse_notice_date(value):
         return None
 
 
+def parse_latest_notice_date(value):
+    candidates = []
+    for year, month, day in re.findall(
+        r"(20\d{2})[./-]\s*(\d{1,2})[./-]\s*(\d{1,2})",
+        value,
+    ):
+        try:
+            parsed = date(int(year), int(month), int(day))
+        except ValueError:
+            continue
+        if parsed <= TODAY + timedelta(days=1):
+            candidates.append(parsed)
+    return max(candidates) if candidates else None
+
+
 def is_urban_notice(title):
     lower = clean(title).lower()
     if not any(
@@ -710,7 +722,7 @@ def extract_notice_rows(html_text, source):
 
     for block in blocks:
         block_text = strip_html(block)
-        published = parse_notice_date(block_text)
+        published = parse_latest_notice_date(block_text)
         if (
             not published
             or published < cutoff
@@ -803,7 +815,7 @@ def extract_bulletin_rows(html_text, source):
 
     for block in blocks:
         block_text = strip_html(block)
-        published = parse_notice_date(block_text)
+        published = parse_latest_notice_date(block_text)
         if (
             not published
             or published < cutoff
@@ -974,9 +986,22 @@ def collect_municipal_notices():
             try:
                 rows, message = future.result()
                 all_rows.extend(rows)
-                status[source["city"]] = message
+                city = source["city"]
+                previous = status.get(city, "")
+                status[city] = (
+                    f"{previous} / {message}"
+                    if previous
+                    else message
+                )
             except Exception as exc:
-                status[source["city"]] = f"수집 실패: {type(exc).__name__}"
+                city = source["city"]
+                message = f"수집 실패: {type(exc).__name__}"
+                previous = status.get(city, "")
+                status[city] = (
+                    f"{previous} / {message}"
+                    if previous
+                    else message
+                )
     deduped = {}
     for row in all_rows:
         key = f"{row['city']}|{row['date']}|{title_key(row['title'])}"
@@ -1017,6 +1042,177 @@ def google_news(query, category, source_hint):
         if row:
             rows.append(row)
     return rows
+
+
+
+def normalize_seoul_housing_title(value):
+    title = clean(value)
+    title = re.sub(
+        r"\s+(?:□|○|※|- 서울시,).*$",
+        "",
+        title,
+    )
+    if len(title) > 180:
+        for separator in (" - ", " □ ", " ○ ", "… "):
+            if separator in title:
+                candidate = title.split(separator, 1)[0].strip()
+                if len(candidate) >= 12:
+                    title = candidate
+                    break
+    return clean(title)[:220]
+
+
+def collect_seoul_housing_news():
+    cutoff = TODAY - timedelta(
+        days=SEOUL_HOUSING_NEWS_DAYS - 1
+    )
+    rows = []
+    direct_message = ""
+
+    try:
+        response = HTTP.get(
+            SEOUL_HOUSING_NEWS_URL,
+            timeout=(12, 45),
+            allow_redirects=True,
+        )
+        response.raise_for_status()
+        response.encoding = (
+            response.apparent_encoding
+            or response.encoding
+        )
+
+        blocks = re.findall(
+            r"(?is)<tr\b[^>]*>.*?</tr>",
+            response.text,
+        )
+        blocks += re.findall(
+            r"(?is)<li\b[^>]*>.*?</li>",
+            response.text,
+        )
+        blocks += re.findall(
+            r"(?is)<article\b[^>]*>.*?</article>",
+            response.text,
+        )
+
+        seen = set()
+        for block in blocks:
+            block_text = strip_html(block)
+            published = parse_latest_notice_date(block_text)
+            if (
+                not published
+                or published < cutoff
+                or published > TODAY + timedelta(days=1)
+            ):
+                continue
+
+            anchors = re.findall(
+                r"""(?is)<a\b[^>]*href=["']([^"']+)["'][^>]*>(.*?)</a>""",
+                block,
+            )
+            candidates = []
+            for href, label_html in anchors:
+                title = normalize_seoul_housing_title(
+                    strip_html(label_html)
+                )
+                if len(title) < 12:
+                    continue
+                if title in {
+                    "기존 보도자료 바로가기",
+                    "보도자료",
+                    "서울주거포털",
+                }:
+                    continue
+                if not any(
+                    keyword.lower() in title.lower()
+                    for keyword in SEOUL_HOUSING_KEYWORDS
+                ):
+                    continue
+                candidates.append((title, href))
+
+            if not candidates:
+                continue
+
+            title, href = max(
+                candidates,
+                key=lambda item: len(item[0]),
+            )
+            key = (
+                f"{published.isoformat()}|"
+                f"{title_key(title)}"
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+
+            rows.append(
+                {
+                    "title": title,
+                    "url": urljoin(
+                        SEOUL_HOUSING_NEWS_URL,
+                        href,
+                    ),
+                    "source": "서울주거포털",
+                    "city": "서울",
+                    "date": published.isoformat(),
+                    "source_type": "서울시 주요 주택뉴스",
+                }
+            )
+
+        direct_message = f"공식 목록 {len(rows)}건"
+    except Exception as exc:
+        direct_message = f"공식 목록 {type(exc).__name__}"
+
+    if not rows:
+        try:
+            query = (
+                "site:housing.seoul.go.kr/site/main/tvReportedInfo "
+                "(주택 OR 주거 OR 재개발 OR 재건축 OR 정비사업 "
+                "OR 공공주택 OR 모아타운 OR 신속통합기획) "
+                f"when:{SEOUL_HOUSING_NEWS_DAYS}d"
+            )
+            fallback = google_news(
+                query,
+                "정책",
+                "서울주거포털",
+            )
+            for row in fallback:
+                published = row_date(row)
+                title = normalize_seoul_housing_title(
+                    row.get("title", "")
+                )
+                if not published or published < cutoff:
+                    continue
+                if not any(
+                    keyword.lower() in title.lower()
+                    for keyword in SEOUL_HOUSING_KEYWORDS
+                ):
+                    continue
+                copied = dict(row)
+                copied["title"] = title
+                copied["city"] = "서울"
+                copied["source"] = "서울주거포털"
+                copied["source_type"] = "서울시 주요 주택뉴스"
+                rows.append(copied)
+            direct_message += f", 검색보완 {len(rows)}건"
+        except Exception as exc:
+            direct_message += (
+                f", 검색보완 {type(exc).__name__}"
+            )
+
+    unique = {}
+    for row in rows:
+        key = (
+            f"{row.get('date', '')}|"
+            f"{title_key(row.get('title', ''))}"
+        )
+        unique[key] = row
+
+    ordered = sorted(
+        unique.values(),
+        key=lambda row: row.get("date", ""),
+        reverse=True,
+    )
+    return ordered[:SEOUL_HOUSING_NEWS_LIMIT], direct_message
 
 
 def collect_public_maintenance_updates():
@@ -1285,6 +1481,7 @@ def main():
         old_archive = []
     current, current_status = run_jobs(current_jobs(), "최근수집")
     municipal_notices, municipal_status = collect_municipal_notices()
+    seoul_housing_news, seoul_housing_status = collect_seoul_housing_news()
     maintenance_updates, maintenance_status = collect_public_maintenance_updates()
     combined = old_archive + current
     old_report = coverage(old_archive)
@@ -1333,6 +1530,9 @@ def main():
         },
         "source_status": current_status, "backfill_status": backfill_status,
         "municipal_notices": municipal_notices, "municipal_status": municipal_status,
+        "seoul_housing_news": seoul_housing_news,
+        "seoul_housing_status": seoul_housing_status,
+        "seoul_housing_link": SEOUL_HOUSING_NEWS_LINK,
         "maintenance_updates": maintenance_updates, "maintenance_status": maintenance_status,
         "items": yearly[:200],
     })
@@ -1351,6 +1551,10 @@ def main():
     print("=== 최근 공식자료 ===")
     for source in ("국토교통부", "서울특별시", "경기도"):
         print(f"{source}: {current_status.get(source, '확인 불가')}")
+    print(
+        "=== 서울시 주요 주택뉴스 ===\n"
+        f"{len(seoul_housing_news)}건 · {seoul_housing_status}"
+    )
     print(f"=== 공공지원 정비사업 추진사항 ===\n최근 추진사항 {len(maintenance_updates)}건")
     print(f"=== 주요 도시계획 고시 ===\n선택 도시 고시 {len(municipal_notices)}건")
     print("=== 품질 필터 ===")
