@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-06-30 10:34 KST",
-  "run_started_at": "2026-06-30T10:34:44.931781+09:00",
+  "updated_at": "2026-06-30 10:35 KST",
+  "run_started_at": "2026-06-30T10:35:41.320065+09:00",
   "coverage": {
-    "items": 3979,
+    "items": 3983,
     "oldest": "2025-07-01",
     "newest": "2026-06-30",
     "days_covered": 365,
@@ -19,19 +19,19 @@
       "정책": 43,
       "법령": 1,
       "연구": 19,
-      "기사": 586
+      "기사": 591
     },
     "monthly": {
       "정책": 137,
       "법령": 135,
-      "연구": 91,
-      "기사": 910
+      "연구": 90,
+      "기사": 915
     },
     "yearly": {
       "정책": 637,
       "법령": 774,
-      "연구": 582,
-      "기사": 1986
+      "연구": 581,
+      "기사": 1991
     }
   },
   "source_status": {
@@ -39,9 +39,9 @@
     "서울특별시": "20건 수집",
     "경기도": "18건 수집",
     "법령·입법": "34건 수집",
-    "연구기관": "37건 수집",
+    "연구기관": "36건 수집",
     "언론-도시계획": "98건 수집",
-    "언론-지구단위": "82건 수집",
+    "언론-지구단위": "83건 수집",
     "언론-정비사업": "99건 수집",
     "언론-주택공급": "35건 수집",
     "언론-지역정책": "92건 수집",
@@ -49,9 +49,9 @@
     "언론-도시재생": "100건 수집",
     "언론-스마트기후": "100건 수집",
     "분야:정책": "46건 수집",
-    "분야:연구": "37건 수집",
+    "분야:연구": "36건 수집",
     "분야:법령": "34건 수집",
-    "분야:기사": "705건 수집"
+    "분야:기사": "706건 수집"
   },
   "backfill_status": {},
   "municipal_notices": [
@@ -94,24 +94,16 @@
       "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-24&enddt=2026-06-28&zonenm=%EA%B3%B5%EC%9B%90%EC%A1%B0%EC%84%B1%EA%B3%84%ED%9A%8D+%EA%B2%B0%EC%A0%95%28%EB%B3%80%EA%B2%BD%29+%EA%B3%A0%EC%8B%9C+-+%EB%B0%A9%EC%B6%95%EA%B3%B5%EC%9B%90%28%ED%96%A5%EB%82%A82%EC%A7%80%EA%B5%AC+%EA%B7%BC%EB%A6%B0%EA%B3%B5%EC%9B%902%ED%98%B8%29&pageNo=1",
       "date": "2026-06-26",
       "source_type": "화성시 고시공고"
-    },
-    {
-      "city": "수원",
-      "title": "인계동 지구단위계획",
-      "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303",
-      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-15&enddt=2026-06-19&zonenm=%EC%9D%B8%EA%B3%84%EB%8F%99+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D&pageNo=1",
-      "date": "2026-06-17",
-      "source_type": "수원 지구단위계획"
     }
   ],
   "municipal_status": {
     "서울": "공식 페이지 직접 확인",
-    "화성": "화성시 고시공고 2건",
     "과천": "과천시 고시공고 1건",
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
-    "수원": "수원 지구단위계획 1건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
+    "화성": "화성시 고시공고 2건",
     "광명": "광명시 고시공고 2건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건"
+    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "수원": "수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건 / 수원 지구단위계획 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -152,16 +144,16 @@
     }
   ],
   "maintenance_status": {
-    "고양": "0건",
-    "화성": "0건",
     "남양주": "0건",
+    "고양": "0건",
     "수원": "0건",
+    "화성": "0건",
     "인천": "0건",
     "평택": "0건",
-    "광주": "0건",
-    "광명": "0건",
     "과천": "0건",
+    "광명": "0건",
     "성남": "0건",
+    "광주": "0건",
     "서울": "6건"
   },
   "items": [
@@ -763,6 +755,15 @@
       "category": "기사",
       "date": "2026-06-29",
       "description": "중동 골목상권, 다시 불 켠다 충청헤럴드"
+    },
+    {
+      "id": "1d1f69d1f426f755",
+      "title": "20년 무사고…대전도시철도 누적 이용객 7억명 돌파",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5jQ1QzVEt6ZmlnLVgwa2FkTW13X3huU0pWZnMxZUd6MEVtNkpFam9vRFZ5T0F2dWRlMWNza0MxVkNxNVEyMmNQVHN6NGdwc0dJVmxpbHpoX0FNQjlnUlhNSG9xYmR6UW1I?oc=5",
+      "source": "충청헤럴드",
+      "category": "기사",
+      "date": "2026-06-29",
+      "description": "20년 무사고…대전도시철도 누적 이용객 7억명 돌파 충청헤럴드"
     },
     {
       "id": "e70ca18f1fdf2955",
@@ -1594,6 +1595,15 @@
       "description": "제12대 서울시의회 與 사령탑에 ‘정책·도시계획통’ 김길영 의원 선출 비즈월드"
     },
     {
+      "id": "75bef0dad86f8b3b",
+      "title": "경상원, “주식시장 호황에도 골목상권 회복 더뎌”",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFByaGhsbHZOZTNoeFJRLVgyajJLSUI0dG03R2R6cTJ6QmpXb1pYaGd6RktQQTJLMktWUHNTcGc2OG9DMkY4SGg4UG5WMFc0Nzg5T0swdXY1ajNCSy0tUEtvUEhzVlc3VGYyM3Vr?oc=5",
+      "source": "비즈월드",
+      "category": "기사",
+      "date": "2026-06-29",
+      "description": "경상원, “주식시장 호황에도 골목상권 회복 더뎌” 비즈월드"
+    },
+    {
       "id": "fbfffe3a9836cc60",
       "title": "재개발로 쫓겨난 양동 주민들, 공공임대 ‘해든집’도 못 들어간다",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9fS0VWNmRWQ3NSZnRHYTU5ZnU4SThGUHpZbC1sYzVpMVJKSGhQaW1DWTdTODhrSFVJQXFOVFZ5NW5fRXNkOWdWc0xhdmF1WjRNZHA3ZU1ZcnozMHNMa1RjbDlaQmh6TFI0?oc=5",
@@ -1905,24 +1915,6 @@
       "source": "뉴스토마토",
       "category": "기사",
       "date": "2026-06-29"
-    },
-    {
-      "id": "914be3374b8fd522",
-      "title": "전문가들 “균형발전 기대…관건은 인력 남방한계선”",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE82N2d6dzdaZXZKNG1rT2VOQ2dETEZ6TUFOQkRXamE3LUE5dk9KSXdYM1lMNWkwNnhqbkNTOWI2TFlBSnhJYmtodnB2S19ZMGdXX0VqM1oxcWpxZWR4M3BoMg?oc=5",
-      "source": "뉴스토마토",
-      "category": "기사",
-      "date": "2026-06-29",
-      "description": "전문가들 “균형발전 기대…관건은 인력 남방한계선” 뉴스토마토"
-    },
-    {
-      "id": "ca0da4285ad0902d",
-      "title": "내부 통로 2곳 도로명 부여 추진…상권 활성화·이용객 편의 향상 기대",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5hS3MtOVZJWmdXT21tbnIxcnRtbFotcmVPdDJDem1MOGtVLWd0eDdDZlZHWE5NNnYxUTlETmx3N05GX0daMUZJMFc0dUViQ055VmxhRmFUUkFCLWlzekJrbEdGc1dSa0J0ZFctaA?oc=5",
-      "source": "뉴스N제주",
-      "category": "기사",
-      "date": "2026-06-29",
-      "description": "내부 통로 2곳 도로명 부여 추진…상권 활성화·이용객 편의 향상 기대 뉴스N제주"
     }
   ]
 }
