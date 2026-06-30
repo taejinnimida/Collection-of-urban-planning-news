@@ -1517,12 +1517,19 @@ def main():
     current_official_count = sum(1 for row in current
                                  if row.get("source") in {"국토교통부", "서울특별시", "경기도"})
     if current_official_count == 0 and not official_recent:
-        raise RuntimeError("국토부·서울시·경기도의 최근 공식자료를 한 건도 확인하지 못했습니다.")
+        warning = (
+            "국토부·서울시·경기도 최근 공식자료를 확인하지 못했습니다. "
+            "자료 저장은 계속 진행합니다."
+        )
+        print(f"[경고] {warning}")
+        current_status["공식자료 경고"] = warning
     if report["complete"]:
         write_json(STATE_PATH, {"complete": True, "completed_at": NOW.isoformat(), "coverage": report})
     write_json(ARCHIVE_PATH, archive)
     write_json(LATEST_PATH, {
-        "updated_at": updated_at, "coverage": report,
+        "updated_at": updated_at,
+        "run_started_at": NOW.isoformat(),
+        "coverage": report,
         "period_counts": {
             "weekly": category_counts(archive, 7),
             "monthly": category_counts(archive, 30),
@@ -1563,8 +1570,15 @@ def main():
             print(f"{reason}: {count}건 제외")
     else:
         print("제외된 자료 없음")
-    print(f"RESULT items={report['items']} oldest={report['oldest']} newest={report['newest']} "
-          f"days={report['days_covered']} complete={report['complete']} official14d={len(official_recent)}")
+    print(
+        f"RESULT updated_at={updated_at} "
+        f"items={report['items']} "
+        f"oldest={report['oldest']} "
+        f"newest={report['newest']} "
+        f"days={report['days_covered']} "
+        f"complete={report['complete']} "
+        f"official14d={len(official_recent)}"
+    )
 
 
 if __name__ == "__main__":
