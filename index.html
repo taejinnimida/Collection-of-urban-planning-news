@@ -612,16 +612,25 @@
 
   function renderSources(){
     const src=latest.source_status||{};
-    document.getElementById("sources").innerHTML=
-      ["국토교통부","서울특별시","경기도"].map(s=>`
-        <div class="source"><b>${s}</b><small>${esc(src[s]||"확인 중")}</small></div>`).join("");
+    const cards=[
+      ["국토교통부","국토교통부"],
+      ["서울특별시","서울특별시"],
+      ["경기도","경기도"],
+      ["언론 기사","분야:기사"],
+      ["법령·입법","분야:법령"],
+      ["연구기관","분야:연구"]
+    ];
+    document.getElementById("sources").innerHTML=cards.map(([label,key])=>`
+      <div class="source"><b>${esc(label)}</b><small>${esc(src[key]||src[label]||"확인 중")}</small></div>`).join("");
   }
 
   function renderTop(){
     const c=latest.coverage||{};
+    const today=latest.today_counts||{};
+    const weekly=((latest.period_counts||{}).weekly)||{};
     document.getElementById("today-date").textContent=formatDate();
-    document.getElementById("today-count").textContent=`자료 ${c.items||0}건`;
-    document.getElementById("today-range").textContent=c.days_covered?`${c.days_covered}일 범위`:"자료기간 확인 중";
+    document.getElementById("today-count").textContent=`전체 자료 ${c.items||0}건`;
+    document.getElementById("today-range").textContent=`오늘 기사 ${today["기사"]||0}건 · 최근 7일 기사 ${weekly["기사"]||0}건`;
     document.getElementById("updated").textContent=latest.updated_at?`마지막 갱신: ${latest.updated_at}`:"첫 자동수집 대기 중";
   }
 
