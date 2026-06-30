@@ -178,7 +178,20 @@ PUBLIC_MAINTENANCE_CITY_LIMIT = 3
 OTHER_QUERIES = [
     ("법령", "법령·입법", "(site:opinion.lawmaking.go.kr OR site:law.go.kr) (도시 OR 국토 OR 주택 OR 주거 OR 건축 OR 토지 OR 정비 OR 재개발 OR 재건축 OR 공공주택 OR 교통 OR 철도 OR 도시개발 OR 도시재생 OR 공간 OR 지역 OR 농촌) (개정 OR 제정 OR 입법예고 OR 시행령 OR 시행규칙 OR 법률)"),
     ("연구", "연구기관", "(site:krihs.re.kr OR site:si.re.kr OR site:auri.re.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통) -site:data.si.re.kr/photo"),
-    ("기사", "언론", "(도시계획 OR 국토계획 OR 지구단위계획 OR 용도지역 OR 도시개발 OR 도시재생 OR 재개발 OR 재건축 OR 지역소멸 OR 균형발전 OR 공공주택 OR 철도지하화 OR 스마트시티)"),
+]
+
+# 기사 수집은 한 방 쿼리 대신 주제별 쿼리 여러 개로 나눈다.
+# Google News RSS는 OR가 많은 긴 검색문에서 결과가 비거나 흔들릴 때가 있어
+# 기술사 공부에 필요한 범위를 여러 갈래로 안정적으로 긁는다.
+ARTICLE_NEWS_QUERIES = [
+    ("기사", "언론-도시계획", "(도시계획 OR 국토계획 OR 도시관리계획 OR 도시기본계획)"),
+    ("기사", "언론-지구단위", "(지구단위계획 OR 용도지역 OR 용도지구 OR 용적률 OR 공공기여)"),
+    ("기사", "언론-정비사업", "(재개발 OR 재건축 OR 정비사업 OR 신속통합기획 OR 모아타운 OR 노후계획도시)"),
+    ("기사", "언론-주택공급", "(공공주택 OR 주택공급 OR 역세권 복합개발 OR 도심복합사업 OR 택지개발)"),
+    ("기사", "언론-지역정책", "(지역소멸 OR 지방소멸 OR 균형발전 OR 생활인구 OR 도심융합특구 OR 기회발전특구)"),
+    ("기사", "언론-교통공간", "(철도지하화 OR GTX OR 광역교통 OR 역세권 OR 도시철도)"),
+    ("기사", "언론-도시재생", "(도시재생 OR 빈집 OR 원도심 OR 상권활성화 OR 골목상권)"),
+    ("기사", "언론-스마트기후", "(스마트시티 OR 스마트도시 OR 도시데이터 OR 탄소중립 OR 침수 OR 폭염)"),
 ]
 
 RELEVANT_WORDS = (
@@ -590,9 +603,17 @@ def is_relevant(title):
     return any(word.lower() in lower for word in RELEVANT_WORDS)
 
 
-def make_item(title, url, source, category, published):
+def make_item(
+    title,
+    url,
+    source,
+    category,
+    published,
+    description="",
+):
     title = clean(title)
     url = clean(url)
+    description = clean(description)[:700]
     if len(title) < 5 or not url or not published:
         return None
     if published < KEEP_START or published > TODAY + timedelta(days=1):
@@ -602,11 +623,17 @@ def make_item(title, url, source, category, published):
         FILTER_COUNTS[reason] += 1
         return None
     key = f"{published.isoformat()}|{title_key(title)}"
-    return {
+    row = {
         "id": hashlib.sha1(key.encode("utf-8")).hexdigest()[:16],
-        "title": title, "url": url, "source": source,
-        "category": category, "date": published.isoformat(),
+        "title": title,
+        "url": url,
+        "source": source,
+        "category": category,
+        "date": published.isoformat(),
     }
+    if description and description.lower() != title.lower():
+        row["description"] = description
+    return row
 
 
 def strip_html(value):
@@ -1031,14 +1058,25 @@ def google_news(query, category, source_hint):
         source_data = entry.get("source") or {}
         feed_source = clean(source_data.get("title")) if isinstance(source_data, dict) else ""
         title = strip_source_suffix(raw_title, feed_source)
-        if category == "정책" and not is_relevant(title):
+        if category in {"정책", "기사"} and not is_relevant(title):
             continue
         if category == "정책" and source_hint in {"국토교통부", "서울특별시", "경기도"}:
             final_source = source_hint
         else:
             final_source = feed_source or source_hint or "Google 뉴스"
-        row = make_item(title=title, url=entry.get("link", ""),
-                        source=final_source, category=category, published=published)
+        description = strip_html(
+            entry.get("summary")
+            or entry.get("description")
+            or ""
+        )
+        row = make_item(
+            title=title,
+            url=entry.get("link", ""),
+            source=final_source,
+            category=category,
+            published=published,
+            description=description,
+        )
         if row:
             rows.append(row)
     return rows
@@ -1285,6 +1323,8 @@ def current_jobs():
         jobs.append(("정책", source, f"{query} when:14d"))
     for category, source, query in OTHER_QUERIES:
         jobs.append((category, source, f"{query} when:30d"))
+    for category, source, query in ARTICLE_NEWS_QUERIES:
+        jobs.append((category, source, f"{query} when:14d"))
     return jobs
 
 
@@ -1296,6 +1336,8 @@ def backfill_jobs():
             jobs.append(("정책", source, query + suffix))
         for category, source, query in OTHER_QUERIES:
             jobs.append((category, source, query + suffix))
+        for category, source, query in ARTICLE_NEWS_QUERIES:
+            jobs.append((category, source, query + suffix))
     return jobs
 
 
@@ -1303,6 +1345,7 @@ def run_jobs(jobs, label):
     rows = []
     status = {}
     source_counts: Counter[str] = Counter()
+    category_counts_for_status: Counter[str] = Counter()
     failures: Counter[str] = Counter()
     with ThreadPoolExecutor(max_workers=6) as executor:
         future_map = {executor.submit(google_news, query, category, source): (category, source, query)
@@ -1313,6 +1356,7 @@ def run_jobs(jobs, label):
                 found = future.result()
                 rows.extend(found)
                 source_counts[source] += len(found)
+                category_counts_for_status[category] += len(found)
             except Exception as exc:
                 failures[source] += 1
                 print(f"[{label}] {source} 실패: {type(exc).__name__}: {exc}")
@@ -1327,6 +1371,8 @@ def run_jobs(jobs, label):
             status[source] = f"수집 실패 {failed}회"
         else:
             status[source] = "검색 결과 0건"
+    for category, count in category_counts_for_status.items():
+        status[f"분야:{category}"] = f"{count}건 수집"
     return rows, status
 
 
@@ -1530,6 +1576,7 @@ def main():
         "updated_at": updated_at,
         "run_started_at": NOW.isoformat(),
         "coverage": report,
+        "today_counts": category_counts(archive, 1),
         "period_counts": {
             "weekly": category_counts(archive, 7),
             "monthly": category_counts(archive, 30),
