@@ -3,14 +3,15 @@ name: 도시계획 뉴스 자동수집
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
+    branches:
+      - main
   schedule:
-    # 한국시간 오전 8시 = UTC 전날 23시
-    - cron: "0 23 * * *"
-    # 한국시간 오전 10시 = UTC 1시
-    - cron: "0 1 * * *"
-    # 한국시간 오후 6시 = UTC 9시
-    - cron: "0 9 * * *"
+    - cron: "17 8 * * *"
+      timezone: "Asia/Seoul"
+    - cron: "17 10 * * *"
+      timezone: "Asia/Seoul"
+    - cron: "17 18 * * *"
+      timezone: "Asia/Seoul"
 
 permissions:
   contents: write
@@ -28,13 +29,12 @@ jobs:
 
     steps:
       - name: 저장소 불러오기
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: 파이썬 설치
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"
 
       - name: 작업파일 확인
         run: |
@@ -42,15 +42,17 @@ jobs:
           echo "schedule=${{ github.event.schedule }}"
           echo "branch=${{ github.ref_name }}"
           echo "sha=${{ github.sha }}"
-          echo "현재시각 UTC: $(date -u +'%Y-%m-%d %H:%M')"
-          echo "현재시각 KST: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
+          echo "UTC: $(date -u +'%Y-%m-%d %H:%M:%S')"
+          echo "KST: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M:%S')"
           test -f scripts/collect.py
           test -f index.html
           test -f requirements.txt
           python -m py_compile scripts/collect.py
 
       - name: 필요한 프로그램 설치
-        run: python -m pip install --quiet -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       - name: 뉴스와 정책자료 수집
         run: python scripts/collect.py
@@ -63,21 +65,30 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+
           latest = json.loads(Path("data/latest.json").read_text(encoding="utf-8"))
+          keywords = json.loads(Path("data/keywords.json").read_text(encoding="utf-8"))
+          issues = json.loads(Path("data/issues.json").read_text(encoding="utf-8"))
+
           print("latest.updated_at =", latest.get("updated_at"))
+          print("latest.run_started_at =", latest.get("run_started_at"))
           print("items =", len(latest.get("items", [])))
+          print("today_counts =", latest.get("today_counts", {}))
+          print("weekly_counts =", latest.get("period_counts", {}).get("weekly", {}))
           print("municipal_notices =", len(latest.get("municipal_notices", [])))
           print("seoul_housing_news =", len(latest.get("seoul_housing_news", [])))
+          print("keyword periods =", list(keywords.keys()) if isinstance(keywords, dict) else type(keywords).__name__)
+          print("issue periods =", list(issues.keys()) if isinstance(issues, dict) else type(issues).__name__)
           PY
 
-      - name: 수집 결과 저장
+      - name: 수집 결과 커밋
         run: |
           git config user.name "urban-planning-news-bot"
           git config user.email "urban-planning-news-bot@users.noreply.github.com"
-          git add data/
+          git add data/latest.json data/keywords.json data/issues.json data/archive.json
           git status --short
           if git diff --cached --quiet; then
-            echo "새로운 데이터 변경사항이 없습니다."
+            echo "데이터 변경사항 없음. 배포는 계속 진행합니다."
           else
             git commit -m "자동수집: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
             git push
@@ -85,33 +96,32 @@ jobs:
 
       - name: 홈페이지 파일 준비
         run: |
+          rm -rf _site
           mkdir -p _site/data
-          cp index.html _site/
+          cp index.html _site/index.html
           touch _site/.nojekyll
-          cp data/latest.json _site/data/
-          cp data/keywords.json _site/data/
-          cp data/issues.json _site/data/
+          cp data/latest.json _site/data/latest.json
+          cp data/keywords.json _site/data/keywords.json
+          cp data/issues.json _site/data/issues.json
           echo "배포 파일 확인"
           find _site -maxdepth 2 -type f -print
 
       - name: GitHub Pages 설정
-        uses: actions/configure-pages@v6.0.0
-        with:
-          enablement: true
+        uses: actions/configure-pages@v5
 
       - name: 홈페이지 업로드
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
   deploy:
+    needs: collect
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: collect
 
     steps:
       - name: 홈페이지 배포
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
