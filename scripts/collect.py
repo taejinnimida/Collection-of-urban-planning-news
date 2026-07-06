@@ -61,8 +61,9 @@ OFFICIAL_POLICY_QUERIES = [
 MUNICIPAL_NOTICE_SOURCES = [
     {
         "city": "서울",
-        "mode": "portal",
+        "mode": "seoul_api",
         "url": "https://urban.seoul.go.kr/view/html/PMNU4030100001",
+        "api_url": "https://urban.seoul.go.kr/ntfc/getNtfcList.json",
         "domain": "urban.seoul.go.kr",
         "label": "서울도시공간포털 결정고시",
     },
@@ -716,7 +717,8 @@ def exclusion_reason(category, title, url="", source=""):
 def make_session():
     session = requests.Session()
     retry = Retry(total=3, connect=3, read=3, backoff_factor=0.8,
-                  status_forcelist=(429, 500, 502, 503, 504), allowed_methods=("GET",))
+                  status_forcelist=(429, 500, 502, 503, 504),
+                  allowed_methods=("GET", "POST"))
     adapter = HTTPAdapter(max_retries=retry)
     session.mount("https://", adapter)
     session.mount("http://", adapter)
@@ -1098,6 +1100,111 @@ def extract_bulletin_rows(html_text, source):
     return rows
 
 
+def _seoul_pick(item, keys):
+    """여러 후보 키 중 먼저 값이 있는 것을 반환한다."""
+    for key in keys:
+        value = item.get(key)
+        if value not in (None, "", []):
+            return value
+    return ""
+
+
+def _seoul_notice_date(item):
+    raw = _seoul_pick(item, ("noticeDate", "noticeDt", "createDatetime"))
+    if not raw:
+        return None
+    text = str(raw)[:10].replace(".", "-").replace("/", "-")
+    try:
+        return dateparser.parse(text).date()
+    except Exception:
+        return None
+
+
+def _seoul_notice_title(item):
+    title = clean(_seoul_pick(item, ("title", "noticeName", "noticeSj")))
+    notice_no = clean(_seoul_pick(item, ("noticeNo", "noticeCode")))
+    organ = item.get("organ")
+    organ_name = ""
+    if isinstance(organ, dict):
+        organ_name = clean(_seoul_pick(organ, ("insttName", "insttFullName")))
+    prefix = " ".join(part for part in (organ_name, notice_no) if part).strip()
+    if title and prefix and prefix not in title:
+        return f"{prefix} {title}".strip()
+    return title or prefix
+
+
+def collect_seoul_urban_notices(source):
+    """서울도시공간포털 결정고시를 내부 JSON API에서 직접 수집한다."""
+    api_url = source.get(
+        "api_url",
+        "https://urban.seoul.go.kr/ntfc/getNtfcList.json",
+    )
+    payload = {
+        "pageNo": 1,
+        "pageSize": 50,
+        "keywordList": [""],
+        "noticeCode": "",
+        "organCode": "",
+        "pubSiteCode": "",
+        "bgnDate": "",
+        "endDate": "",
+        "srchType": "title",
+    }
+    headers = {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Accept": "application/json, text/plain, */*",
+        "Origin": "https://urban.seoul.go.kr",
+        "Referer": source.get("url", "https://urban.seoul.go.kr"),
+        "X-Requested-With": "XMLHttpRequest",
+    }
+    response = HTTP.post(
+        api_url,
+        data=json.dumps(payload),
+        headers=headers,
+        timeout=(12, 35),
+    )
+    response.raise_for_status()
+    data = response.json()
+
+    block = data.get("content", data)
+    if isinstance(block, dict):
+        items = block.get("content") or block.get("list") or []
+    elif isinstance(block, list):
+        items = block
+    else:
+        items = []
+
+    cutoff = TODAY - timedelta(days=MUNICIPAL_NOTICE_DAYS - 1)
+    rows = []
+    seen: set[str] = set()
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        title = _seoul_notice_title(item)
+        published = _seoul_notice_date(item)
+        if not title or not published:
+            continue
+        if published < cutoff:
+            continue
+        if not is_urban_notice(title):
+            continue
+        key = f"서울|{published.isoformat()}|{title_key(title)}"
+        if key in seen:
+            continue
+        seen.add(key)
+        rows.append({
+            "city": "서울",
+            "title": title,
+            "url": source.get("url", ""),
+            "eum_url": make_eum_gosi_url(title, published),
+            "date": published.isoformat(),
+            "source_type": source.get("label", "서울도시공간포털 결정고시"),
+        })
+
+    return rows
+
+
 def fallback_municipal_notices(source):
     terms = ("(도시관리계획 OR 도시계획시설 OR 지구단위계획 OR 정비구역 "
              "OR 재개발 OR 재건축 OR 도시개발 OR 정비계획 OR 용도지역)")
@@ -1129,6 +1236,16 @@ def fallback_municipal_notices(source):
 
 def collect_one_municipal_source(source):
     mode = source.get("mode", "list")
+
+    # 서울도시공간포털은 내부 JSON API에서 결정고시를 직접 수집한다.
+    if mode == "seoul_api":
+        try:
+            rows = collect_seoul_urban_notices(source)
+            if rows:
+                return rows, f"{source.get('label', '결정고시')} {len(rows)}건"
+            return [], f"{source.get('label', '결정고시')} 0건"
+        except Exception as exc:
+            return [], f"{source.get('label', '결정고시')} {type(exc).__name__}"
 
     # 화면에서 목록을 나중에 불러오는 사이트는 공식 링크만 제공한다.
     if mode == "portal":
