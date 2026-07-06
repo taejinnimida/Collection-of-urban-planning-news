@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-06 09:38 KST",
-  "run_started_at": "2026-07-06T09:38:24.118082+09:00",
+  "updated_at": "2026-07-06 09:43 KST",
+  "run_started_at": "2026-07-06T09:43:59.933335+09:00",
   "coverage": {
-    "items": 5348,
+    "items": 5368,
     "oldest": "2025-07-07",
     "newest": "2026-07-06",
     "days_covered": 365,
@@ -18,40 +18,41 @@
     "weekly": {
       "정책": 38,
       "법령": 4,
-      "연구": 21,
-      "기사": 799
+      "연구": 22,
+      "기사": 810
     },
     "monthly": {
       "정책": 169,
       "법령": 93,
-      "연구": 90,
-      "기사": 2063
+      "연구": 99,
+      "기사": 2074
     },
     "yearly": {
       "정책": 673,
       "법령": 785,
-      "연구": 587,
-      "기사": 3303
+      "연구": 596,
+      "기사": 3314
     }
   },
   "source_status": {
     "국토교통부": "1건 수집",
-    "서울특별시": "16건 수집",
+    "서울특별시": "18건 수집",
     "경기도": "16건 수집",
     "법령·입법": "36건 수집",
-    "연구기관": "23건 수집",
+    "연구기관": "13건 수집",
+    "지역연구원": "12건 수집",
     "언론-도시계획": "11건 수집",
     "언론-지구단위": "95건 수집",
     "언론-정비사업": "98건 수집",
-    "언론-주택공급": "31건 수집",
+    "언론-주택공급": "30건 수집",
     "언론-지역정책": "24건 수집",
     "언론-교통공간": "99건 수집",
     "언론-도시재생": "100건 수집",
-    "언론-공업지역산업단지": "97건 수집",
+    "언론-공업지역산업단지": "94건 수집",
     "언론-스마트기후": "11건 수집",
-    "분야:정책": "33건 수집",
-    "분야:기사": "566건 수집",
-    "분야:연구": "23건 수집",
+    "분야:정책": "35건 수집",
+    "분야:연구": "25건 수집",
+    "분야:기사": "562건 수집",
     "분야:법령": "36건 수집"
   },
   "backfill_status": {},
@@ -150,9 +151,9 @@
     "과천": "과천시 고시공고 0건, 검색보완 0건",
     "광명": "광명시 고시공고 2건",
     "서울": "서울도시공간포털 결정고시 22건",
-    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
     "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
-    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건"
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "수원": "수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건 / 수원 지구단위계획 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -194,16 +195,16 @@
   ],
   "maintenance_status": {
     "남양주": "0건",
+    "수원": "0건",
+    "고양": "0건",
     "화성": "0건",
     "인천": "0건",
-    "고양": "0건",
-    "수원": "0건",
     "서울": "3건",
+    "과천": "0건",
+    "성남": "0건",
     "평택": "0건",
     "광명": "0건",
-    "과천": "0건",
-    "광주": "0건",
-    "성남": "0건"
+    "광주": "0건"
   },
   "items": [
     {
@@ -306,6 +307,15 @@
       "description": "상계보람, 최고 45층 아파트 4,483세대로 재건축 한국주택경제신문"
     },
     {
+      "id": "5e529c09da63b765",
+      "title": "서초동 초역세권 신축급 빌딩 등 6건",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBYQ0tPZHpUVS1PMDZQMGRWaFVNS0xpUUVpNDJzYngyOHltU2Z6eGV0eHdHaXowd1NJZUg2MDljcldGdXhrVnBLS19KZnFNY09NOEg3dERxYzE2QdIBVEFVX3lxTE5DUDBZTGVJRmRPMVF1M0R5OHhQWm40eFZfQlZkM3pheng2Vnd4Szczem1tdDI1bmUyV0NJNnItZkpGRGtaZG50SVU4d3FiVWkzR0lxMA?oc=5",
+      "source": "한국경제",
+      "category": "기사",
+      "date": "2026-07-05",
+      "description": "서초동 초역세권 신축급 빌딩 등 6건 한국경제"
+    },
+    {
       "id": "c7a60a44d73742e9",
       "title": "광주교통공사, 상반기 재정 신속집행 전국 도시철도기관 1위",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE84T2FsTzZwTFZLVWRfWm9iQXBwN3duaGVQblY5YnVMY0ZpdzBteTEtanduQ0Fsa01BOG84S2dtOEdmYnVzSnU3OHUtS2UzTTVkdXc1aHFuRkxZNmtXYUhKZklqSXhGMy16RXI2TVR3dw?oc=5",
@@ -376,6 +386,15 @@
       "category": "기사",
       "date": "2026-07-05",
       "description": "군산 ‘맛의거리 맛리단길’, 중기부 유망골목상권 선정 전라매일"
+    },
+    {
+      "id": "3597105812d84703",
+      "title": "전북, 도시재생 공모 5곳 선정…국비 461억 확보",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE96V1pqWE54dmlTbkp0cEQ1Uk1KaWNuSGpEN21vWlVEV1dDMG5MWkRPVG5FQ2M3M016NVY1UVQtTDdLd1R5WW1PVnlqRDJ3NmFJcnhRcjJQd0djcUpXUjB0Z3Z4U0xYTmVqcVJCamVlLVNoSWYzUjk5a0NIS21RMDg?oc=5",
+      "source": "전라매일",
+      "category": "기사",
+      "date": "2026-07-05",
+      "description": "전북, 도시재생 공모 5곳 선정…국비 461억 확보 전라매일"
     },
     {
       "id": "032c5ce067b431db",
@@ -538,6 +557,24 @@
       "category": "기사",
       "date": "2026-07-05",
       "description": "성동구, 성수 준공업지역 용적률·높이 규제 완화 뉴시스"
+    },
+    {
+      "id": "a1c942d6793677ac",
+      "title": "국토부 업무보고 앞두고…주택공급·GTX '중간 성적표'",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1maXVLbEhZQTI4RGNpYlktdTRGcVpnTUtqb3JYMGVKeG1ub2hNMWU3UHV1SVMyMTN6RzFQUUttb29VQVNpeFVSeUdaTW01YnhvRlV3aGYxZ1hjRFE?oc=5",
+      "source": "뉴스1",
+      "category": "기사",
+      "date": "2026-07-05",
+      "description": "국토부 업무보고 앞두고…주택공급·GTX '중간 성적표' 뉴스1"
+    },
+    {
+      "id": "95ce96d3c7617ffe",
+      "title": "다음 달 '5극3특' 밑그림 나온다…정주여건·광역교통 구체화",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45ZHVuWFpSZ2VVYlFQTF9ybXVOR1RZdmdUSEdVVS10SS1QTU1Jcl95RmdQeDlTM3ZRZUZTQ20xTXZHYUlDR0FNUFNBN2tfXy1VMXl0M2NSZjh1dXc?oc=5",
+      "source": "뉴스1",
+      "category": "기사",
+      "date": "2026-07-05",
+      "description": "다음 달 '5극3특' 밑그림 나온다…정주여건·광역교통 구체화 뉴스1"
     },
     {
       "id": "96fc2ba9fe14d2c1",
@@ -1287,6 +1324,15 @@
       "description": "군산·남원·김제 도시재생 공모 선정…전북 5개 시군 국비 461억 확보 프레시안"
     },
     {
+      "id": "966ee594524e071c",
+      "title": "국토부·방사청, 미래 항공기 '민·군 공동인증' MOU \"UAM·무인기 시대 본격화\"",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15Sk9IdnE5blFfSTRHU3U5akRYd2J0VHRaYl9yVm5UbXBXTnlWc3pudThreEpZSjVPMEdVS1JMLTl3MUJQQW15cUlqaXBFb3pXV2llWDB4cWxqZw?oc=5",
+      "source": "파이낸셜뉴스",
+      "category": "기사",
+      "date": "2026-07-03",
+      "description": "국토부·방사청, 미래 항공기 '민·군 공동인증' MOU \"UAM·무인기 시대 본격화\" 파이낸셜뉴스"
+    },
+    {
       "id": "ca7276205635bb11",
       "title": "대전 갈마동 도시재생사업 선정…363억 원 투입된다",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9JS1ZHalViZ1I4YVd6RmhoS253OXdZTUdpVTd5VGpaV3Q2ZGpZelVrVXNCRGkyWndOSUg2aUZhcE1ENDQxUWRHSkVkMDBFTWtidEt0TDBLQ3RRYVVSOE5MUUFR?oc=5",
@@ -1773,6 +1819,15 @@
       "description": "10조 공공기여 이끈 사전협상…65%는 강남3구 쏠려 서울경제신문"
     },
     {
+      "id": "b0273162e161017f",
+      "title": "국토부, 민·군 항공 협약 2건…UAM 인증·수리온 안전 강화",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1za3Z2XzBYXy1yWUJRUXRQcnpZMXBWNG1vZ3dtV0xZX0FmellmOEwyYzhmbmdnSFAtZFNIXzhKeFllc21seFBCbThWV3d5NUYwR1HSAVNBVV95cUxPY0hKR083RmdUOTJ1RlZBNTNlRlFNdTVoUUlFamhsTEI1T0kyczJLUTdJLTJUUzEybjB2RTdSdVBkVmdPYXlmNVk0YUQzU0J2RDF4QQ?oc=5",
+      "source": "서울경제신문",
+      "category": "기사",
+      "date": "2026-07-03",
+      "description": "국토부, 민·군 항공 협약 2건…UAM 인증·수리온 안전 강화 서울경제신문"
+    },
+    {
       "id": "1b5f7a05657d8c02",
       "title": "은마 재건축 사업시행계획 인가…2028년 착공·5850세대 공급 목표",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE40ODQxUjBLWVhRbExzSGp5X1hUdEtRVWVCYVJSU1J2a3puTXFMaGVaMWVpRXI1a1dxQWdHZTNxMTlsa05zQ1dYTlVEZHFjWHhTVWxVN1NxVmdRRzRkNk1lZDdHSkc?oc=5",
@@ -1951,60 +2006,6 @@
       "category": "기사",
       "date": "2026-07-03",
       "description": "대전 갈마지구, 국토부 도시재생 공모 선정… 광역시 중 유일 대전일보"
-    },
-    {
-      "id": "96660a5979d8427e",
-      "title": "\"정전돼도 잘보이도록\"…대전도시철도, 비상안전시설 보강",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9tQU5falRTemZoc1JqdEpmTTVEQ0h5VjFjY1ZFaTRvRGNVNXhIVUZrdzFZNmlVbWVGNS0tczk3RGYybUlQbkV4ejJyVG5GTjVGVTVMSXoyUXM1U1cz?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "\"정전돼도 잘보이도록\"…대전도시철도, 비상안전시설 보강 뉴스핌"
-    },
-    {
-      "id": "a6cf9e130edcef31",
-      "title": "전북, 도시재생사업 공모 5곳 선정…국비 461억원 확보",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1tc3lGRkd2bk9CbnRTNjBYTkFoRkd0c0xtMmRqejNfeDY4dF9rNVZjYTViSEdnRVJyZVJYOHdEXzVvQ255ZWVueFFmUjlXeU9Nb3YwMnEyRjVsQ2FF?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "전북, 도시재생사업 공모 5곳 선정…국비 461억원 확보 뉴스핌"
-    },
-    {
-      "id": "0e45385a1e806078",
-      "title": "군산 맛의거리 '맛리단길' 유망골목상권 선정",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1aU3I3eWNSa3IwRGpWUV9hWjN6SEQ3UFpoa2F1VXBoVDlxUV9QNlB3MWZDcm90dEhZVTBibk9QRi0xdHNqV21Ha3JKLUZUWm8xakpfRElrSWxRbUlC?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "군산 맛의거리 '맛리단길' 유망골목상권 선정 뉴스핌"
-    },
-    {
-      "id": "13d4fce1838de5d0",
-      "title": "구청장 성적표 된 재건축…서울 자치구, 정비사업 속도전",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1jTktEX3dHNzJRQWxFWUlQNkpEWHFqcHhoUXBlNjY0NHBJY1lxcXV1bXVJOGhrbmhxUkd6NWZQemYxYXVTdDREVkNOS1NPbDFXckdXVHRnVkY0WGR6?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "구청장 성적표 된 재건축…서울 자치구, 정비사업 속도전 뉴스핌"
-    },
-    {
-      "id": "a0f5de703ee5a5f4",
-      "title": "오세훈, 민선9기 첫 민생행보는 '골목상권'",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBlUmRMSGw5UHlfaVBKdVZ6eUhSNzR0dlI0VzJuVjFuc19RRFNySWVGcXZYTWNoMlpzYkp4NjNMaV8wNFZTY1B5RXFIOXNNX3p5RDNLM1owdzlwcmY3?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "오세훈, 민선9기 첫 민생행보는 '골목상권' 뉴스핌"
-    },
-    {
-      "id": "6721a11eeae72621",
-      "title": "소상공인 지원 및 상권활성화 정책 브리핑듣는 오세훈 시장",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE82TnYwbUNpUVVSNHJMOXEwTWUtZkdteFNKVkdtUGFtVnAzMDdoUDF6Vmw1MFpTbC1rZFdFOExYcGdOWXlVVHMycC1OOTQ2T2ZLN0ZZcXRHSjdiakR1?oc=5",
-      "source": "뉴스핌",
-      "category": "기사",
-      "date": "2026-07-03",
-      "description": "소상공인 지원 및 상권활성화 정책 브리핑듣는 오세훈 시장 뉴스핌"
     }
   ]
 }
