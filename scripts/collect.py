@@ -682,6 +682,10 @@ def exclusion_reason(category, title, url="", source=""):
     lower = value.lower()
     url_lower = clean(url).lower()
 
+    # data.si.re.kr(서울연구데이터서비스 사진)은 분야와 상관없이 무조건 제외한다.
+    if "data.si.re.kr" in url_lower:
+        return "서울연구데이터서비스 제외"
+
     if category == "연구":
         for pattern in RESEARCH_URL_EXCLUDE_PATTERNS:
             if re.search(pattern, url_lower, flags=re.I):
@@ -690,9 +694,6 @@ def exclusion_reason(category, title, url="", source=""):
         for pattern in RESEARCH_MEDIA_PATTERNS:
             if re.search(pattern, lower, flags=re.I):
                 return "연구 사진·홍보·행정 게시물"
-
-        if "data.si.re.kr" in url_lower:
-            return "서울연구데이터서비스 제외"
 
     if category == "법령":
         normalized = re.sub(r"[^0-9a-z가-힣]+", "", lower)
