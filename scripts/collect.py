@@ -682,8 +682,10 @@ def exclusion_reason(category, title, url="", source=""):
     lower = value.lower()
     url_lower = clean(url).lower()
 
-    # data.si.re.kr(서울연구데이터서비스 사진)은 분야와 상관없이 무조건 제외한다.
-    if "data.si.re.kr" in url_lower:
+    # 서울연구데이터서비스는 '사진으로 본 서울' 등 사진 자료라 제외한다.
+    # (구글뉴스 RSS로 감싸져 URL이 news.google.com이므로 출처 이름으로 판별한다.)
+    source_clean = clean(source)
+    if "서울연구데이터서비스" in source_clean or "data.si.re.kr" in url_lower:
         return "서울연구데이터서비스 제외"
 
     if category == "연구":
@@ -1842,11 +1844,6 @@ def main():
         historical, backfill_status = run_jobs(backfill_jobs(), "1년 역수집")
         combined.extend(historical)
     archive = deduplicate(combined)
-    # ── 진단: data.si.re.kr 사진이 실제로 걸러지는지 눈으로 확인 ──
-    _sirekr_before = sum(1 for r in archive if "data.si.re.kr" in clean(r.get("url", "")).lower())
-    print("=" * 50)
-    print("★★★ NEW-CODE-CHECK v2 실행됨 ★★★")
-    print(f"★ 정리 전 archive 안 data.si.re.kr 사진 개수: {_sirekr_before}개")
     quality_archive = []
     for row in archive:
         category = clean(row.get("category", ""))
@@ -1861,9 +1858,6 @@ def main():
             FILTER_COUNTS["기존자료 정리: " + reason] += 1
             continue
         quality_archive.append(row)
-    _sirekr_after = sum(1 for r in quality_archive if "data.si.re.kr" in clean(r.get("url", "")).lower())
-    print(f"★ 정리 후 남은 data.si.re.kr 사진 개수: {_sirekr_after}개 (0이어야 정상)")
-    print("=" * 50)
     archive = [row for row in quality_archive
                if row_date(row) and KEEP_START <= row_date(row) <= TODAY + timedelta(days=1)]
     archive.sort(key=lambda r: (r.get("date", ""), r.get("source", "")), reverse=True)
