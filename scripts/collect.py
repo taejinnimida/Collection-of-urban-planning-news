@@ -691,7 +691,7 @@ def exclusion_reason(category, title, url="", source=""):
             if re.search(pattern, lower, flags=re.I):
                 return "연구 사진·홍보·행정 게시물"
 
-        if "data.si.re.kr" in url_lower or "서울연구데이터서비스" in source:
+        if "data.si.re.kr" in url_lower:
             return "서울연구데이터서비스 제외"
 
     if category == "법령":
