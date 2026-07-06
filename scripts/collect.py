@@ -178,7 +178,8 @@ PUBLIC_MAINTENANCE_CITY_LIMIT = 3
 
 OTHER_QUERIES = [
     ("법령", "법령·입법", "(site:opinion.lawmaking.go.kr OR site:law.go.kr) (도시 OR 국토 OR 주택 OR 주거 OR 건축 OR 토지 OR 정비 OR 재개발 OR 재건축 OR 공공주택 OR 교통 OR 철도 OR 도시개발 OR 도시재생 OR 공간 OR 지역 OR 농촌) (개정 OR 제정 OR 입법예고 OR 시행령 OR 시행규칙 OR 법률)"),
-    ("연구", "연구기관", "(site:krihs.re.kr OR site:si.re.kr OR site:auri.re.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통) -site:data.si.re.kr"),
+    ("연구", "연구기관", "(site:krihs.re.kr OR site:si.re.kr OR site:auri.re.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통)"),
+    ("연구", "지역연구원", "(site:gri.re.kr OR site:ii.re.kr OR site:lhri.lh.or.kr OR site:lhi.lh.or.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통 OR 정비 OR 도시재생)"),
 ]
 
 # 기사 수집은 한 방 쿼리 대신 주제별 쿼리 여러 개로 나눈다.
