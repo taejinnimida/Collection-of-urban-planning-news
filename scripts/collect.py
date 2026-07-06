@@ -178,7 +178,7 @@ PUBLIC_MAINTENANCE_CITY_LIMIT = 3
 
 OTHER_QUERIES = [
     ("법령", "법령·입법", "(site:opinion.lawmaking.go.kr OR site:law.go.kr) (도시 OR 국토 OR 주택 OR 주거 OR 건축 OR 토지 OR 정비 OR 재개발 OR 재건축 OR 공공주택 OR 교통 OR 철도 OR 도시개발 OR 도시재생 OR 공간 OR 지역 OR 농촌) (개정 OR 제정 OR 입법예고 OR 시행령 OR 시행규칙 OR 법률)"),
-    ("연구", "연구기관", "(site:krihs.re.kr OR site:si.re.kr OR site:auri.re.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통) -site:data.si.re.kr/photo"),
+    ("연구", "연구기관", "(site:krihs.re.kr OR site:si.re.kr OR site:auri.re.kr) (도시 OR 국토 OR 주택 OR 건축 OR 토지 OR 지역 OR 교통) -site:data.si.re.kr"),
 ]
 
 # 기사 수집은 한 방 쿼리 대신 주제별 쿼리 여러 개로 나눈다.
@@ -532,7 +532,7 @@ RESEARCH_MEDIA_PATTERNS = (
 
 # 제목에 '사진'이 없어도 URL이 사진·갤러리 페이지면 연구자료에서 제외합니다.
 RESEARCH_URL_EXCLUDE_PATTERNS = (
-    r"data\.si\.re\.kr/photo/",
+    r"data\.si\.re\.kr",
     r"/photo(?:/|\?|$)",
     r"/gallery(?:/|\?|$)",
     r"/photoView(?:/|\?|$)",
@@ -690,8 +690,8 @@ def exclusion_reason(category, title, url="", source=""):
             if re.search(pattern, lower, flags=re.I):
                 return "연구 사진·홍보·행정 게시물"
 
-        if "서울연구데이터서비스" in source and "/photo/" in url_lower:
-            return "연구 사진·갤러리 페이지"
+        if "data.si.re.kr" in url_lower or "서울연구데이터서비스" in source:
+            return "서울연구데이터서비스 제외"
 
     if category == "법령":
         normalized = re.sub(r"[^0-9a-z가-힣]+", "", lower)
