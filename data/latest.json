@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-07-06 23:45 KST",
-  "run_started_at": "2026-07-06T23:45:45.613767+09:00",
+  "updated_at": "2026-07-07 03:00 KST",
+  "run_started_at": "2026-07-07T03:00:02.047278+09:00",
   "coverage": {
-    "items": 5599,
-    "oldest": "2025-07-07",
+    "items": 5604,
+    "oldest": "2025-07-08",
     "newest": "2026-07-06",
-    "days_covered": 365,
+    "days_covered": 364,
     "complete": true
   },
   "today_counts": {
-    "정책": 1,
+    "정책": 0,
     "법령": 0,
-    "연구": 2,
-    "기사": 154
+    "연구": 0,
+    "기사": 0
   },
   "period_counts": {
     "weekly": {
-      "정책": 42,
-      "법령": 4,
-      "연구": 32,
-      "기사": 994
+      "정책": 28,
+      "법령": 3,
+      "연구": 21,
+      "기사": 865
     },
     "monthly": {
-      "정책": 173,
-      "법령": 93,
+      "정책": 172,
+      "법령": 87,
       "연구": 121,
-      "기사": 2279
+      "기사": 2287
     },
     "yearly": {
       "정책": 677,
-      "법령": 785,
-      "연구": 618,
-      "기사": 3519
+      "법령": 784,
+      "연구": 619,
+      "기사": 3524
     }
   },
   "source_status": {
     "국토교통부": "4건 수집",
     "서울특별시": "14건 수집",
     "경기도": "16건 수집",
-    "법령·입법": "32건 수집",
-    "연구기관": "12건 수집",
-    "지역연구원": "33건 수집",
+    "법령·입법": "33건 수집",
+    "연구기관": "13건 수집",
+    "지역연구원": "34건 수집",
     "언론-도시계획": "9건 수집",
-    "언론-지구단위": "92건 수집",
+    "언론-지구단위": "93건 수집",
     "언론-정비사업": "99건 수집",
-    "언론-주택공급": "31건 수집",
+    "언론-주택공급": "32건 수집",
     "언론-지역정책": "23건 수집",
     "언론-교통공간": "100건 수집",
     "언론-도시재생": "100건 수집",
     "언론-공업지역산업단지": "95건 수집",
     "언론-스마트기후": "8건 수집",
     "분야:정책": "34건 수집",
-    "분야:연구": "45건 수집",
-    "분야:기사": "557건 수집",
-    "분야:법령": "32건 수집"
+    "분야:연구": "47건 수집",
+    "분야:기사": "559건 수집",
+    "분야:법령": "33건 수집"
   },
   "backfill_status": {},
   "municipal_notices": [
@@ -128,24 +128,16 @@
       "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-23&enddt=2026-06-27&zonenm=%EA%B5%AC%EB%A1%9C%EA%B5%AC+2026-96+%EC%9A%B0%EC%84%B1%ED%83%80%EC%9A%B4+%EC%86%8C%EA%B7%9C%EB%AA%A8%EC%9E%AC%EA%B1%B4%EC%B6%95%EC%82%AC%EC%97%85+%EC%82%AC%EC%97%85%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D+%EB%B3%80%EA%B2%BD%EC%9D%B8%EA%B0%80+%EA%B3%A0%EC%8B%9C&pageNo=1",
       "date": "2026-06-25",
       "source_type": "서울도시공간포털 결정고시"
-    },
-    {
-      "city": "수원",
-      "title": "인계동 지구단위계획",
-      "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303",
-      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-15&enddt=2026-06-19&zonenm=%EC%9D%B8%EA%B3%84%EB%8F%99+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D&pageNo=1",
-      "date": "2026-06-17",
-      "source_type": "수원 지구단위계획"
     }
   ],
   "municipal_status": {
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
     "화성": "화성시 고시공고 1건",
-    "수원": "수원 기본·도시관리계획 0건, 검색보완 0건 / 수원 지구단위계획 1건",
     "과천": "과천시 고시공고 0건, 검색보완 0건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건",
-    "서울": "서울도시공간포털 결정고시 23건"
+    "서울": "서울도시공간포털 결정고시 23건",
+    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -186,17 +178,17 @@
     }
   ],
   "maintenance_status": {
-    "수원": "0건",
     "남양주": "0건",
     "인천": "0건",
-    "고양": "0건",
     "화성": "0건",
-    "평택": "0건",
-    "과천": "0건",
+    "수원": "0건",
+    "고양": "0건",
     "성남": "0건",
-    "광주": "0건",
+    "평택": "0건",
     "광명": "0건",
-    "서울": "5건"
+    "과천": "0건",
+    "서울": "4건",
+    "광주": "0건"
   },
   "items": [
     {
@@ -488,6 +480,15 @@
       "description": "가락극동 재건축사업 계단실을 이용한 부속실 제연시스템 선정 하우징헤럴드"
     },
     {
+      "id": "2ae4a750e9acfd1d",
+      "title": "이문4재정비촉진구역 재개발정비사업 도로, 공원 감리분야 협력업체 선정",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBCN0FjXzd4UHhPQ1FEUEpTN0tXQkVvenI0R3M5S0dMYWVfdXRTWGFTWnRDSFRWQ2tBeEw3WXlHaE1yeDJQSEFpTXRDOE5sdjg0dDhpRDZ0RVdBWGRPa2N4ZEtHLWVRSnJKbFRNYjNMZmh1YUE?oc=5",
+      "source": "하우징헤럴드",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "이문4재정비촉진구역 재개발정비사업 도로, 공원 감리분야 협력업체 선정 하우징헤럴드"
+    },
+    {
       "id": "4e99d613689ab8cf",
       "title": "동두천시, 빈집 무상 철거 지원 확대",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBVdWFJS3JQdUlJOGtGRUZ4d2NNUlVTeHJWX0pJOGp5VkVsNUQzc3pmVlRFN1dLM0JISk80OUhQVnRRRHpOUlF1MEp1TkNfdTZOSEdlNmU0NUJCQ1ZSNVZ4REpFdnA2RW0taTFB?oc=5",
@@ -495,6 +496,15 @@
       "category": "기사",
       "date": "2026-07-06",
       "description": "동두천시, 빈집 무상 철거 지원 확대 프레시안"
+    },
+    {
+      "id": "d0ed0b8fbb28b4a0",
+      "title": "[군산시] 중앙동2구역, 국토부 도시재생 공모 선정…국비 150억 확보",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1USWI0cFlEWTBuNVpfMFF3QjhzTlFKNzZERmpBWUl6NFhFY1ItSk1ZNXJMZW5CTVkzS005Q0dtOVlWdWRraUtoaXRDZk9iVXptc3BEQkY0Uk9vRzlqaWcxV1UyMFhtM2FlbVE?oc=5",
+      "source": "투데이안",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "[군산시] 중앙동2구역, 국토부 도시재생 공모 선정…국비 150억 확보 투데이안"
     },
     {
       "id": "336be9af7648904e",
@@ -1145,6 +1155,15 @@
       "description": "충남 아산시, 국토부 도시재생 공모 선정… 국비 50억 확보 대전일보"
     },
     {
+      "id": "339668ec21ee2e2e",
+      "title": "경남도, 남해안 관광 도심항공교통(UAM) 시범사업 청사진 마련",
+      "url": "https://news.google.com/rss/articles/CBMiP0FVX3lxTFAzTmp5blYxRWwzazNQVndvTjZOTkFDNU44WFdfbi1Sd1NVY01ab09Yck5sNXhOTzFoRldqOFA1OA?oc=5",
+      "source": "다경뉴스",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "경남도, 남해안 관광 도심항공교통(UAM) 시범사업 청사진 마련 다경뉴스"
+    },
+    {
       "id": "91e3c1d59a4a6d07",
       "title": "성수동 준공업지역, 문화콘텐츠·첨단산업 거점으로",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5uZVN3dVIxSjN2dFZjZFlzdmw4clpJT3JlZkpmQl9RR09uQVUwYW96bGQtRnlwQmpZV0lpVG5wdVVlWjQycHRKcnFtdVpaWmtfQWdOemZnYWlpTXBTX2RvV1RrYW11RGpUNXRpYmdhTWlJNU9wbmM3dtIBeEFVX3lxTE5uZVN3dVIxSjN2dFZjZFlzdmw4clpJT3JlZkpmQl9RR09uQVUwYW96bGQtRnlwQmpZV0lpVG5wdVVlWjQycHRKcnFtdVpaWmtfQWdOemZnYWlpTXBTX2RvV1RrYW11RGpUNXRpYmdhTWlJNU9wbmM3dg?oc=5",
@@ -1262,6 +1281,15 @@
       "description": "칠곡군 약목면 복성리, 도시재생사업구역 선정 뉴데일리 대구경북"
     },
     {
+      "id": "3cb10bf8c76d9c62",
+      "title": "아산 온양6동 온주마을, 노후주택·빈집 손본다…국비 50억 원 확보",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE53dVp2VmNPaVZEYVU2V3g1TWozc2VHTlNsNE9XTG1ndEN3alAtbWhlM2JHbWRkRkdDbmNTQkEzSzBGOXF5bVNBRllybENJMW9DMm1XMlV1cFR2MzNYdnlVWjdvT091VnF3enRDVA?oc=5",
+      "source": "농수축산신문",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "아산 온양6동 온주마을, 노후주택·빈집 손본다…국비 50억 원 확보 농수축산신문"
+    },
+    {
       "id": "b3e1633370319c77",
       "title": "대광위, 도시철도 계획부터 건설까지 전과정 지원",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9LNGRVSnY5Zi03MnI0b010M3F1VUVMM0xnTDNua2VBZDR5a3ZZSW9kQ1c4ZFl1OENwNUxmZnQ4ZlpOM2Fua0h3VzR4NFVtZ2wwaWhPbUNpNzNpRHpmNnd1UW9hZjlqb1doYUctTA?oc=5",
@@ -1341,6 +1369,15 @@
       "category": "기사",
       "date": "2026-07-06",
       "description": "[종합] 도시철도 건설사업 빨라지나? 교차로저널"
+    },
+    {
+      "id": "cc0a7155dcc0df6f",
+      "title": "광주 도시철도, 승강기 고장 문자로 알림",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBMZzNIbVhodEppSmNaZFhkNzV1aExSYS1UaVhnX3FJbXBTY21PRlAzMXFyaGswNmhUdGgtZmw3UXg1N0NFdW5nTVpHSlhxVnUxZWlFZEMxclF1cVRjUGFENjFPMHVobm9xV0E?oc=5",
+      "source": "광주타임즈",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "광주 도시철도, 승강기 고장 문자로 알림 광주타임즈"
     },
     {
       "id": "09c3547dbc1bd622",
@@ -1452,6 +1489,24 @@
     },
     {
       "id": "74bcce77f3a5156b",
+      "title": "“후백제역사문화센터, 단순 시설 넘어 역사·문화 복합플랫폼 되어야”(2026.7.5. 전북일보)",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaVRkcEJHRDlhckRaU3ROYTdaZlIyaFItTDgxT0oteGY1cXFGdjVkM3Z0VlJYMFN1M0lkazZQclU0ZUVCbU5uUUItVV9melRrRS1iYy1VVTFBLVdXZ1R3SElRczRwMXprMjJDN2tYZE52c3N3VDQ4Q1NtV3dmZTlZdHQtQk04dw?oc=5",
+      "source": "건축공간연구원",
+      "category": "연구",
+      "date": "2026-07-06",
+      "description": "“후백제역사문화센터, 단순 시설 넘어 역사·문화 복합플랫폼 되어야”(2026.7.5. 전북일보) | 언론기사 | auri 소식 | 소식 건축공간연구원"
+    },
+    {
+      "id": "aa0057ba8105e0d3",
+      "title": "[공공시설물 시리즈#13] 같은 문제 반복되는 광양시 공공시설, 관리 시스템의 한계(2026.7.5. 광양시민신문)",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNU2doWGIwRnFja2h4Wkk5UVM2TFI4WDlEcjNRcGFwQm5xbUFmekxrMktZTlZNYUhuanh3eXVxR0FIRUNJdFJKRXl3RUhGZm5mVF8zcklYcXluNmVrVXF3TExRRFBqVzNmc0lPUHdTY0pWbjNiQms3c3BVQm44b1phY05TOTdodw?oc=5",
+      "source": "건축공간연구원",
+      "category": "연구",
+      "date": "2026-07-06",
+      "description": "[공공시설물 시리즈#13] 같은 문제 반복되는 광양시 공공시설, 관리 시스템의 한계(2026.7.5. 광양시민신문) 건축공간연구원"
+    },
+    {
+      "id": "74bcce77f3a5156b",
       "title": "“후백제역사문화센터, 단순 시설 넘어 역사·문화 복합플랫폼 되어야”(2026.7.5. 전북일보) | 언론기사",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaVRkcEJHRDlhckRaU3ROYTdaZlIyaFItTDgxT0oteGY1cXFGdjVkM3Z0VlJYMFN1M0lkazZQclU0ZUVCbU5uUUItVV9melRrRS1iYy1VVTFBLVdXZ1R3SElRczRwMXprMjJDN2tYZE52c3N3VDQ4Q1NtV3dmZTlZdHQtQk04dw?oc=5",
       "source": "건축공간연구원",
@@ -1550,6 +1605,15 @@
       "description": "장마 시작됐는데 방치된 빈집…붕괴 위험 ‘어쩌나’ v.daum.net"
     },
     {
+      "id": "1ad01ce5cf6184ce",
+      "title": "[민선 9기 전망과 과제-양구군]국도46호선·철도 역세권 개발로 ‘미래 성장기반’ 구축",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9xZVBQOFVJeHRmYVFWdHN3ZGFNZWpGVG1TdU9KeUNXMGRybnJwZUFSZmtlTUgxZWppRWFtNjRwZmJGZE1CczRvU2JOZlJNWTQ?oc=5",
+      "source": "v.daum.net",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "[민선 9기 전망과 과제-양구군]국도46호선·철도 역세권 개발로 ‘미래 성장기반’ 구축 v.daum.net"
+    },
+    {
       "id": "f554d1aee525a3c8",
       "title": "칠곡군 약목면 '우리동네살리기 도시재생' 선정",
       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNSUpNN2lCTndmSkhMSDdxUG5kd1F6Mm5zVFpaaVJlV1hZazlPOWJaTWhDVE5lU005UkNnaURPQzR1eXlBU1VmaF9wQVRrMXRna2ZMMjdRTm14NzVTeTBfZ2U1Mk1tT0FuWnpySjY2bUhYT0tIVDBGc2lRVUlpd09nXw?oc=5",
@@ -1566,6 +1630,15 @@
       "category": "기사",
       "date": "2026-07-06",
       "description": "칠곡 약목면, 국토부 도시재생사업 선정 tbc.co.kr"
+    },
+    {
+      "id": "43c85efdf24b2b4e",
+      "title": "경남도, 남해안 관광 UAM 2030년 상용화 목표",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE55WXpaaHZvWUdHeFRKRXNkWmIzMFhNSHN6WEtqeGZ2MW03LWVPQ0ZyVjhtME5OY0F5cWZ6RGM5ZWNWMUJ6N1ZKemZhcmRORXh2TmtaMA?oc=5",
+      "source": "knn.co.kr",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "경남도, 남해안 관광 UAM 2030년 상용화 목표 knn.co.kr"
     },
     {
       "id": "53ffe41dcb4b5baa",
@@ -1917,87 +1990,6 @@
       "category": "기사",
       "date": "2026-07-05",
       "description": "성수 준공업지역, 문화콘텐츠·첨단산업 거점으로…성동구 “용적률·높이규제 완화” 문화일보"
-    },
-    {
-      "id": "3f823219abb6498b",
-      "title": "칠곡군, 경북 유일 ‘우리동네 살리기’ 도시재생사업 선정",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFA1eGd5dzNNODlscUJCc0V1eFE3ZVQ2YzNrOUVkZ0JpUGtBbmFvR2pUbzBma3BZa1FTQUhmQUZyaHo2ZVRPZjQzMUhlYTlhSURJ?oc=5",
-      "source": "문화일보",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "칠곡군, 경북 유일 ‘우리동네 살리기’ 도시재생사업 선정 문화일보"
-    },
-    {
-      "id": "f484e8a3bc49500f",
-      "title": "인천시, 도시재생 마중물 끝나도 자생력 키운다…‘사후관리 공통지침’ 수립",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LVkQ1T1RMZDlKM2VYYjlybjVYLVl6UVhxWlZoTGE2QWY5Z1VzRWJsUXBfX1ZHNnVGYWpIdzhqVFpmazJjUlNjVlNxSmVFOWFp?oc=5",
-      "source": "문화일보",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "인천시, 도시재생 마중물 끝나도 자생력 키운다…‘사후관리 공통지침’ 수립 문화일보"
-    },
-    {
-      "id": "e2595d0a668b1681",
-      "title": "경북 칠곡군…`우리동네살리기` 도시재생사업 따냈다",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAwR1RoNTBrSWVkcTdDSjMxZVhOX3pMODMxeWFkWllGclZKaG05T3lKOFpONUtnUUhTRS1PSlFpTnBDQjFfczl6RkVkalYwaGRKN1NoQ2Flc2xOVDNFcjUxYmJn?oc=5",
-      "source": "매일신문",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "경북 칠곡군…`우리동네살리기` 도시재생사업 따냈다 매일신문"
-    },
-    {
-      "id": "780e751521b036a9",
-      "title": "칠곡군 `우리동네살리기` 도시재생사업 따냈다",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAwR1RoNTBrSWVkcTdDSjMxZVhOX3pMODMxeWFkWllGclZKaG05T3lKOFpONUtnUUhTRS1PSlFpTnBDQjFfczl6RkVkalYwaGRKN1NoQ2Flc2xOVDNFcjUxYmJn?oc=5",
-      "source": "매일신문",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "칠곡군 `우리동네살리기` 도시재생사업 따냈다 매일신문"
-    },
-    {
-      "id": "9b0aba586547b00b",
-      "title": "[부동산 손자병법] \"강남 재건축 분담금 2억 껑충\"… 용적률 낮은 대단지 주목",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5SRWNSeGptRkFIMmNoWndqLW9YME0yazI4WGhNalRVQWhqM0E1YksxOUYxNHkyeUlWaGhEdjZ1emc0aUxSZHJ1RjRkeVcxVDdkZXZoeFBwa28?oc=5",
-      "source": "매일경제",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "[부동산 손자병법] \"강남 재건축 분담금 2억 껑충\"… 용적률 낮은 대단지 주목 매일경제"
-    },
-    {
-      "id": "3e2f842c198937cc",
-      "title": "롯데건설, 성수4지구 품었다 … 1.3조원 재개발 핵심지 수주",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA3QWZKbFFabW9BdGo3VjJhZHRVckZPMjI1SWZqbmxPdi1oeWxRQ005cEd3ZUJBekljY0ZmcHJJb3htWXlaRmxqQjFvS3dzeXdLMHU0MXFlRnA?oc=5",
-      "source": "매일경제",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "롯데건설, 성수4지구 품었다 … 1.3조원 재개발 핵심지 수주 매일경제"
-    },
-    {
-      "id": "7adecb62d4c54a32",
-      "title": "전북 시군 5곳, 상반기 정부 도시재생사업 선정",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1DQldsM1l3a2xvNnFyTWJlM0xRMHg1M0JkZ2huazRFYUJPd1ZEM3JiekVjbEpQcGhpR0dlS1E1WFVlbjNNMmVFUE5jbU1HcnVldG9mbmJuVUx5VlFibUM3RjRaWmJGVWI5ODdUalFOUUpzZGktSnfSAWZBVV95cUxNOGNIdE1qaUFrQ1JmUzRBelM2SUlOX1MyaF9CdlVQZEhFcEpKVEQweDd6dXl2WVZSZ0hRcEhlV1BKQmdjMlpGWUY2aUU3LXBMb2RvZ1ZCa1BXVnpJV3Q5QUVPcWw3UXc?oc=5",
-      "source": "동아일보",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "전북 시군 5곳, 상반기 정부 도시재생사업 선정 동아일보"
-    },
-    {
-      "id": "9d83538ae4dc94c8",
-      "title": "[이번주 재개발ㆍ재건축] 의정부 가재울ㆍ성남 태평3 시공사 ‘윤곽’",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBFX2lSSW8yUnMzM0pWeTBfVW9nNl9TWmF2cnZONjZsVTRsOVB3eGYyNy1sSUR1MVNyeUNiMlNaQW50aW03c2N5Nnoxc1FrcFlLbEZreEpqZGZzQXFRRnY0d3ZnV2ZiYUV6eWNyWUtUZ2lXVmpi?oc=5",
-      "source": "대한경제",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "[이번주 재개발ㆍ재건축] 의정부 가재울ㆍ성남 태평3 시공사 ‘윤곽’ 대한경제"
-    },
-    {
-      "id": "88b2b9e8f8f12bef",
-      "title": "정희용 의원, 칠곡군, 국토부‘우리동네살리기’ 도시재생사업 선정 환영",
-      "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1NWHRBcXR0djBKamZsT1JoMVlHSWE0UjM4RDNNWVhWVEQwd3AtSXNEdjhoRE9pNENSbDhLRTg3M3JlQVU5?oc=5",
-      "source": "다경뉴스",
-      "category": "기사",
-      "date": "2026-07-05",
-      "description": "정희용 의원, 칠곡군, 국토부‘우리동네살리기’ 도시재생사업 선정 환영 다경뉴스"
     }
   ]
 }
