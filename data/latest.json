@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-07 19:39 KST",
-  "run_started_at": "2026-07-07T19:39:58.927759+09:00",
+  "updated_at": "2026-07-07 21:18 KST",
+  "run_started_at": "2026-07-07T21:18:40.968983+09:00",
   "coverage": {
-    "items": 5744,
+    "items": 5764,
     "oldest": "2025-07-08",
     "newest": "2026-07-07",
     "days_covered": 365,
@@ -11,49 +11,49 @@
   "today_counts": {
     "정책": 2,
     "법령": 0,
-    "연구": 0,
-    "기사": 88
+    "연구": 3,
+    "기사": 100
   },
   "period_counts": {
     "weekly": {
-      "정책": 33,
+      "정책": 34,
       "법령": 3,
-      "연구": 21,
-      "기사": 997
+      "연구": 24,
+      "기사": 1012
     },
     "monthly": {
-      "정책": 177,
+      "정책": 178,
       "법령": 87,
-      "연구": 121,
-      "기사": 2420
+      "연구": 124,
+      "기사": 2435
     },
     "yearly": {
-      "정책": 682,
+      "정책": 683,
       "법령": 784,
-      "연구": 619,
-      "기사": 3659
+      "연구": 622,
+      "기사": 3675
     }
   },
   "source_status": {
-    "국토교통부": "2건 수집",
-    "서울특별시": "12건 수집",
-    "경기도": "18건 수집",
-    "법령·입법": "29건 수집",
-    "연구기관": "14건 수집",
-    "지역연구원": "30건 수집",
+    "국토교통부": "3건 수집",
+    "서울특별시": "13건 수집",
+    "경기도": "19건 수집",
+    "법령·입법": "31건 수집",
+    "연구기관": "17건 수집",
+    "지역연구원": "32건 수집",
     "언론-도시계획": "8건 수집",
     "언론-지구단위": "90건 수집",
     "언론-정비사업": "98건 수집",
-    "언론-주택공급": "33건 수집",
+    "언론-주택공급": "32건 수집",
     "언론-지역정책": "22건 수집",
     "언론-교통공간": "100건 수집",
     "언론-도시재생": "100건 수집",
     "언론-공업지역산업단지": "95건 수집",
-    "언론-스마트기후": "5건 수집",
-    "분야:정책": "32건 수집",
-    "분야:연구": "44건 수집",
-    "분야:기사": "551건 수집",
-    "분야:법령": "29건 수집"
+    "언론-스마트기후": "4건 수집",
+    "분야:정책": "35건 수집",
+    "분야:연구": "49건 수집",
+    "분야:법령": "31건 수집",
+    "분야:기사": "549건 수집"
   },
   "backfill_status": {},
   "municipal_notices": [
@@ -120,16 +120,24 @@
       "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-23&enddt=2026-06-27&zonenm=%EA%B5%AC%EB%A1%9C%EA%B5%AC+2026-96+%EC%9A%B0%EC%84%B1%ED%83%80%EC%9A%B4+%EC%86%8C%EA%B7%9C%EB%AA%A8%EC%9E%AC%EA%B1%B4%EC%B6%95%EC%82%AC%EC%97%85+%EC%82%AC%EC%97%85%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D+%EB%B3%80%EA%B2%BD%EC%9D%B8%EA%B0%80+%EA%B3%A0%EC%8B%9C&pageNo=1",
       "date": "2026-06-25",
       "source_type": "서울도시공간포털 결정고시"
+    },
+    {
+      "city": "수원",
+      "title": "인계동 지구단위계획",
+      "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-15&enddt=2026-06-19&zonenm=%EC%9D%B8%EA%B3%84%EB%8F%99+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D&pageNo=1",
+      "date": "2026-06-17",
+      "source_type": "수원 지구단위계획"
     }
   ],
   "municipal_status": {
     "화성": "화성시 고시공고 0건, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
+    "수원": "수원 지구단위계획 1건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
     "과천": "과천시 고시공고 0건, 검색보완 0건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "서울": "서울도시공간포털 결정고시 24건",
-    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
-    "수원": "수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건 / 수원 지구단위계획 ConnectTimeout, 검색보완 0건",
-    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건"
+    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건",
+    "서울": "서울도시공간포털 결정고시 24건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -170,17 +178,17 @@
     }
   ],
   "maintenance_status": {
-    "남양주": "0건",
     "화성": "0건",
     "인천": "0건",
-    "수원": "0건",
+    "남양주": "0건",
     "고양": "0건",
-    "성남": "0건",
-    "광명": "0건",
-    "평택": "0건",
-    "과천": "0건",
+    "수원": "0건",
     "서울": "4건",
-    "광주": "0건"
+    "평택": "0건",
+    "광명": "0건",
+    "성남": "0건",
+    "광주": "0건",
+    "과천": "0건"
   },
   "items": [
     {
@@ -191,6 +199,15 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "김원기 의정부시장 “8호선 연장·GTX 조기 개통 총력, 시민 삶 바꿀 성과 낼 것” 헬스경향"
+    },
+    {
+      "id": "871ec10a9ab01c05",
+      "title": "경남도, 남해안 관광 도심항공교통(UAM) 시범사업 청사진 마련",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE14WmRJeXJ0WTkxVERvQXQ0dWlhU0Y4Zmh3d2JSQ0x5alg3WXJFUWVaMmdFSTBWM2RKeWZycWpwZzBKbG5zaUFIajFyZW1DTzN5YTE4ZllURVMtamduTi1WY3RUWFltWTRuZFQwYVF3?oc=5",
+      "source": "한산신문",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "경남도, 남해안 관광 도심항공교통(UAM) 시범사업 청사진 마련 한산신문"
     },
     {
       "id": "cc1f9df21df7aee4",
@@ -391,6 +408,33 @@
       "description": "대방역세권 장기전세 도시정비형재개발사업 추진위 주민총회 홍보 업체 선정 하우징헤럴드"
     },
     {
+      "id": "6d4999e5e24af3de",
+      "title": "노량진 만양로6길 모아타운추진위 도시계획분야 업체 선정",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5VYWh2dC1HeHNEeElMRzhkVTQ5clhDdDFZanFsUTllbHBOOUZQclJoQ2xhc1hQTFFjYWZBWk43dVpMUG5WdGstVGVjMUZTNDRnM1dXRzl3OXFzZFVyczJDb05leS1aTXZBUmRMRDdvMlZURXc?oc=5",
+      "source": "하우징헤럴드",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "노량진 만양로6길 모아타운추진위 도시계획분야 업체 선정 하우징헤럴드"
+    },
+    {
+      "id": "ae61f1af8f69667a",
+      "title": "개포현대4차 재건축조합 법무사 선정",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1jc1M5cms0YzJHNkduTndHZl9GcHprclFqYW1YbGJCazNCalpoNVN4a1h5TVBPd2dXb0Y2aDVaYnRmWTV1NkNPWjFQZGdKdWxScW9xT1pOS0xsSWVEQzdwVE9jbGhkMVJnRDR3ek9tNlNkVXc?oc=5",
+      "source": "하우징헤럴드",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "개포현대4차 재건축조합 법무사 선정 하우징헤럴드"
+    },
+    {
+      "id": "9d8d6440642fdccb",
+      "title": "사당동 인정아파트 소규모재건축조합 분양·광고 대행업체 선정",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBQc0doOHNBcGtuUk1hWHdVOThnd0Nfd2RNcE1lbTVZanh0ZTRrbHh5X3NmeUFraERnam5VMTFJQm9ZREVnVkZhTGpxOTZTd3d0TUV4S3oyRG1iYmV6bWQ4RTVLVzgyVnNWd0NISmhTZ0NWWGM?oc=5",
+      "source": "하우징헤럴드",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "사당동 인정아파트 소규모재건축조합 분양·광고 대행업체 선정 하우징헤럴드"
+    },
+    {
       "id": "bf6a03df5a31c1dc",
       "title": "해남군, 송지면 산정마을의 도시재생사업 선정 및 추진",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE01azdSdWhvWHZJMWtLMHpRNFA1bGViUE1OLXVfN2R0bnVLd3Y5VTN1enhrbE1hRjd3YUdKQWRWLWNhcEEwZVFsaWVUUHFmMXU3WXVoSHZUaTVHbms5S1JsbFlfZUszTHM?oc=5",
@@ -425,6 +469,15 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "분당발전본부, 분당동 골목상권 활성화 캠페인 중부일보"
+    },
+    {
+      "id": "061c0effc6294d53",
+      "title": "광명시 산업단지 전담 TF 출범…기업 지원체계 구축 본격화",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9SbGdta1NoT0lOS1RaUWtLcGNPbnJ4S0h4dUNyTlZhcDFvWmdadS1aVS1wUmtva1Rkbzh4YjhESFQ3VmdvYV9CbVhldTZrT2xQN0hpV09lVU1iT05zeXZfV3hxODA2U2E4WUxVbUVlMlZqNW9G0gF0QVVfeXFMT1JsZ21rU2hPSU5LVFpRa0twY09ucnhLSHh1Q3JOVmFwMW9aZ1p1LVpVLXBSa29rVGRvOHhiOERIVDdWZ29hX0JtWGV1NmtPbFA3SGlXT2VVTWJPTnN5dl9XeHE4MDZTYThZTFVtRWUyVmo1b0Y?oc=5",
+      "source": "주간한국",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "광명시 산업단지 전담 TF 출범…기업 지원체계 구축 본격화 주간한국"
     },
     {
       "id": "844e28de9beb418a",
@@ -479,6 +532,15 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "[경기] 침수·병해충 선제 대응 위한 장마철 필지별 영농관리 수칙 발표 월간친환경"
+    },
+    {
+      "id": "a81c70eecd1ee19e",
+      "title": "[기획]“1만평 기부” 약속했던 우양산업개발…보문단지 용도변경 '기부채납 공방' 새 국면",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBVRV9WMk5KSmRWZFY1dDFxMGFwVFZOYnBGTF9jQmItM0NoVkloSC1WNEhYWWJfR0VFLWVXdTlJWGxkLWpkbTZWVWdoRVJIZ0wtdVVTU01DbGZSLTJvZ3JTWjJqQnpweFk?oc=5",
+      "source": "영남경제",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "[기획]“1만평 기부” 약속했던 우양산업개발…보문단지 용도변경 '기부채납 공방' 새 국면 영남경제"
     },
     {
       "id": "57502cc8bc67cae4",
@@ -634,6 +696,15 @@
       "description": "“닥치고 공급” 외침에도…새 아파트 귀해진 원도심 정비사업 급물살 매일경제"
     },
     {
+      "id": "18992b90dd4d0320",
+      "title": "[단독] GTX-C, 2년만에 공사 재개…도봉·의정부 기대감",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE4tS29mYlEzWG9MZXdSMXg0WkJpVE9zUm5CUVoxVUpUR0dRdldrczZydWZDRUpMNXpUYkdWYjc3SXRTV1k3Q21meUFTSDgzUHpBbG9qVlRnaC0?oc=5",
+      "source": "매일경제",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "[단독] GTX-C, 2년만에 공사 재개…도봉·의정부 기대감 매일경제"
+    },
+    {
       "id": "5efa80c1e7a10c1c",
       "title": "[인터뷰] UAM과 드론은 대한민국 산업 구조 자체를 바꿀 수 있는 미래 성장축입니다",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fR0lwcXJxTzFMNnNWeC1fdDhHaW0xd1FGMXpJUnZOVVlEb0NKZ04yOHVTLVlGeE1KWWdpdWs2c2IwcE9aT2k2OXEtMGlrS3I3aVZibGFhdFFPQUFfZ0lKbFh6NUo?oc=5",
@@ -715,6 +786,15 @@
       "description": "(단독)삼정기업 SPC, 기흥역세권 사업 통매각 뉴스토마토"
     },
     {
+      "id": "3dceba6ff5936041",
+      "title": "광명시 광명시흥 산업단지 전담팀 출범",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1PNDJTTFRXQmZjcFlwN19MZ2tUbUtIX0dGRENCRlZCUy1XUkQ3S1hFbjdVeDFubG5ERnl2MmZYSXNmeG1rZVBTcTdOLVMxTkdzelR3Wi0ySTEzRS1wOXpNTXRSdHc2ckxEU2l6STVJeHjSAXRBVV95cUxPVUpwRTYtd2tEVW5qbmtPT2k0anhaR3BpVTVHREZlbDRnNFpZaUh6NkxWNGZTOTZ3TkNDM1J2R0t5ckVVSWRkUWhIQVZuYVVKQm5RUS1lcFlrN19iNGtJUkdYOVVpdVkwcXZCejBtUmlLM0RxVA?oc=5",
+      "source": "뉴스클레임",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "광명시 광명시흥 산업단지 전담팀 출범 뉴스클레임"
+    },
+    {
       "id": "5e39d70e92e279e7",
       "title": "전남광주 도시철도본부, 지하철 2호선 1단계 개통 준비 박차",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9lSGRrQ2MzbjY5NUJURFBtWk1SU1RDWl9TTmZfbUg2R0JOakpPeFJGT20wTHpxajlBVk1JaENQTndIQ0RSLU1sVTdvN0ZzSi1jaEZxX013a2xvMWgzMC1Z?oc=5",
@@ -760,6 +840,15 @@
       "description": "충북개발공사, 청주 원도심 공간혁신구역 개발계획 의견수렴 착수 국토일보"
     },
     {
+      "id": "a76a12e2beb969e2",
+      "title": "설산업 선제적 위기 대비·대응을 위한 건설산업 조기경보시스템(EWS) 구축 방안",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWENZZnc4dHd2ZTZ3bWpRZmJxa2xxWWZidmVYTV9LZEZRbmRCT3E0eEwyNEF6bGdzRXhFSEJhS001Qzd5dFp0VkNqc01DLVVuUzY4U1pDMjEycVh5Xy1CYm5DSTB4YUVFRVZUdl9adTJzdFJJVmtkZUtCWTY0M1k2R1ZtREgtd2xxTkhqX3o4X1ZsZndBSXRuMXo3RQ?oc=5",
+      "source": "국토연구원",
+      "category": "연구",
+      "date": "2026-07-07",
+      "description": "설산업 선제적 위기 대비·대응을 위한 건설산업 조기경보시스템(EWS) 구축 방안 | 보도자료 | 연구원소식 국토연구원"
+    },
+    {
       "id": "d97f2fc41eb8810a",
       "title": "도시철도 역에 마트 개점…부산대역, 전국 첫 ‘지역 상생형 마트’",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMWRNTEtuOHJUTVdLejhBalE0S085NHVRbnVCd3MtSFVZVXNYUlJWSW5wTkRtSFBpa2EzUF9scGJJb3Q2U3dzN0xnYy1IQWxhWmFXb3NRVDBkTldlMVFzcmtzRUhfVDFXYm1vQU96UDUwZFJjaTNuSENTSWhuVnc0YzlOMFhiamdJN0Vnbmp3?oc=5",
@@ -803,6 +892,24 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "제주 원도심 빈 건물, 청년 공공임대주택·지원시설로 탈바꿈 경향신문"
+    },
+    {
+      "id": "84b76525afc3338d",
+      "title": "광명시, 광명시흥 산업단지 신속대응 전담팀 운영",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5xeUc3LVFhVjdsNHNqWjNITEhJU1l3aWFJVjVtbFRwRTdOSTM1TE1WUGdRZ0RqSl9ZU0d4bVhzaHJaR0gzcDJJbHlPZlBPamxyZU9mS1dJd2xRdGFwTHIwTkM3NFUzbkhQV0hiYTd4YmtFQdIBckFVX3lxTE5xeUc3LVFhVjdsNHNqWjNITEhJU1l3aWFJVjVtbFRwRTdOSTM1TE1WUGdRZ0RqSl9ZU0d4bVhzaHJaR0gzcDJJbHlPZlBPamxyZU9mS1dJd2xRdGFwTHIwTkM3NFUzbkhQV0hiYTd4YmtFQQ?oc=5",
+      "source": "경인종합일보",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "광명시, 광명시흥 산업단지 신속대응 전담팀 운영 경인종합일보"
+    },
+    {
+      "id": "31406bab2ed37bfa",
+      "title": "안성시, 2026 도시재생대학 수료식 개최",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vYnp0VmRfRWUxdFJUc2ZpUHhvaGdSOWs5Ykp5QjFQUXZHUXlMbk11RUdGbTR2aFNEX0d5cnBHMEdVQWhnOWRlR0VoN0Q2azRRTExxYVBXZWplMklIRUhOYWliV3dPOUpG?oc=5",
+      "source": "경인매일",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "안성시, 2026 도시재생대학 수료식 개최 경인매일"
     },
     {
       "id": "69fd5e8baf889979",
@@ -859,6 +966,24 @@
       "description": "‘AI 시대, 흔들림 없이 내 일을 잇다’ 경기북부광역새일센터 토크콘서트 개최 경기도뉴스포털"
     },
     {
+      "id": "9f228bb168750417",
+      "title": "건축공간연구원, 건축서비스산업 실태조사 실시 | 보도자료",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQTjJ2Zmpoc0h3eVhqRjBFYUJNdHpoMTBvanFDV3htOW0yYS1BZFdjOUxUbWwxbUUyQnU4M3k3LXl3TjhIWXB0ZnRMVlNpakpXWF9aYzFScEx0S2twQTdybkhDU1l3YWJhVTR4OUFqWExqUm8tb1FxcG5USHg0cFBVNDZrcWM1Zw?oc=5",
+      "source": "건축공간연구원",
+      "category": "연구",
+      "date": "2026-07-07",
+      "description": "건축공간연구원, 건축서비스산업 실태조사 실시 | 보도자료 | auri 소식 | 소식 건축공간연구원"
+    },
+    {
+      "id": "daa8edea0a048bcb",
+      "title": "건축공간연구원, ‘건축서비스산업 실태조사’ 나섰다(2026.7.7. 국토일보) | 언론기사",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNVWNUdTZEbEFCNXo3U3BUSkp4RTFUb0ZJS3F0Z1lvNVBUSzVGT0EwNWdiczBVaWwydEhaenoyWm92d0VZbkg2bzVZdlFCSUhjd1NKLWRET1l0bUtnU2RLUU13QXFZTVhXYjJEUy1venNxSDlOZnlhNzZMeVcwdGVVNFl5S0g4UQ?oc=5",
+      "source": "건축공간연구원",
+      "category": "연구",
+      "date": "2026-07-07",
+      "description": "건축공간연구원, ‘건축서비스산업 실태조사’ 나섰다(2026.7.7. 국토일보) | 언론기사 | auri 소식 | 소식 건축공간연구원"
+    },
+    {
       "id": "c8adc95924d21909",
       "title": "'가덕도신공항↔통영·고성' UAM(도심항공교통) 운행 멀지 않았다",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9GZHJHbUE1dXhhWU95aFctTDNtYnFDclR3S0J2MnlBdmgtbG1xWVlXRG4teFZHendhb0t1MmVCdEtkZmxNRG9rclA0a3hHOWVjaG9CdU5uZWNnRkhmeTIzS054VEU1d9IBZkFVX3lxTE9GZHJHbUE1dXhhWU95aFctTDNtYnFDclR3S0J2MnlBdmgtbG1xWVlXRG4teFZHendhb0t1MmVCdEtkZmxNRG9rclA0a3hHOWVjaG9CdU5uZWNnRkhmeTIzS054VEU1dw?oc=5",
@@ -866,6 +991,15 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "'가덕도신공항↔통영·고성' UAM(도심항공교통) 운행 멀지 않았다 거제인터넷신문"
+    },
+    {
+      "id": "dee7c618ad90a71d",
+      "title": "국립산림과학원 \"친환경 방제제로 러브버그 밀도 절반 이상 억제 확인\"",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9qS0ZZdW9Hc0NZQ3NIaXh6NVoyRGk2Q0xtQlgtbVBPSEJVUk5MenVGTWY3czBaQWx5SXpOZktESjh3VTNuOGZzc0hOdDhJUG5WSlVV?oc=5",
+      "source": "강소기업뉴스",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "국립산림과학원 \"친환경 방제제로 러브버그 밀도 절반 이상 억제 확인\" 강소기업뉴스"
     },
     {
       "id": "1dae92118cbd75cd",
@@ -929,6 +1063,15 @@
       "category": "기사",
       "date": "2026-07-07",
       "description": "장수군, 국토부 도시재생 공모 선정…국비 21억 확보 v.daum.net"
+    },
+    {
+      "id": "d903d51c4d89e05f",
+      "title": "청주 `수동 원도심 개발계획' 의견수렴 착수",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1tZlh3QjhpdUNqV3lVXzBkOXJoUGxWZG84T1VBYzViMU5ZdTdyLWxDSTRoNFZ6QjlCSC1oT3BNQXFOWEZxV0pmc1NxdWFDbzA?oc=5",
+      "source": "v.daum.net",
+      "category": "기사",
+      "date": "2026-07-07",
+      "description": "청주 `수동 원도심 개발계획' 의견수렴 착수 v.daum.net"
     },
     {
       "id": "ec2efd210996cab8",
@@ -1363,6 +1506,15 @@
       "description": "파동강촌2지구 재건축정비사업 정비기반시설부담금 환급 변호사 선정 하우징헤럴드"
     },
     {
+      "id": "9e1c040d806eaf00",
+      "title": "홍제3구역 재건축정비사업 공공하수관 폐쇄공사 용역업체 선정",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB0X18xMUMzWnhhQ2UzbVBiUzMzWWJEYnJabHJkdkNUQmktTzVxS1VSQ3RDak1tNlZ0bmZZLW9QOTBzWlZRSlRULTRCUlF4UTdFcjVKU2xiSmRRV1NHbno5TUlhejcxVF9sbmlCNXdMNVE3cnM?oc=5",
+      "source": "하우징헤럴드",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "홍제3구역 재건축정비사업 공공하수관 폐쇄공사 용역업체 선정 하우징헤럴드"
+    },
+    {
       "id": "4e99d613689ab8cf",
       "title": "동두천시, 빈집 무상 철거 지원 확대",
       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBVdWFJS3JQdUlJOGtGRUZ4d2NNUlVTeHJWX0pJOGp5VkVsNUQzc3pmVlRFN1dLM0JISk80OUhQVnRRRHpOUlF1MEp1TkNfdTZOSEdlNmU0NUJCQ1ZSNVZ4REpFdnA2RW0taTFB?oc=5",
@@ -1478,6 +1630,15 @@
       "category": "기사",
       "date": "2026-07-06",
       "description": "소상공인연합회 출신 25명 지방의회 입성...골목상권 정책 힘 받는다 중소기업투데이"
+    },
+    {
+      "id": "f80bf72ebd36e85e",
+      "title": "소공인 출신 25명 지방의회 입성...골목상권 정책 힘 받는다",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9KODBmdUNaeEY4MlVxb0lYaGpZVFhHbFVlT0trRlRQZlZ0VHF3WXFjSWRMVmRSbmptM2IwZFpyUE12WmVJZFBnOFVKWWZmSnZpbGRvWjlvbjFwVzlRN0g4dmdYSlYyLU5V0gFsQVVfeXFMTXNZRHJ1RGlnVWZMbVduOXk5b2JvdkdzSHlSVGx0SzhVQTZENlpYcm5mNW1LSTlZT0VLdENidk9Nb2hDZGVWa2JFWUhkZG9sQVpqNjg1aTBXa2NjeDRkR1ZVUTI0UWhpX3VZSzYw?oc=5",
+      "source": "중소기업투데이",
+      "category": "기사",
+      "date": "2026-07-06",
+      "description": "소공인 출신 25명 지방의회 입성...골목상권 정책 힘 받는다 중소기업투데이"
     },
     {
       "id": "a796394d3702de38",
@@ -1829,159 +1990,6 @@
       "category": "기사",
       "date": "2026-07-06",
       "description": "[아유경제_부동산] 서울시, 재정비촉진지구 내 존치구역 5곳 규제 완화… 용적률 완화 아유경제"
-    },
-    {
-      "id": "0103cfa5acdec98b",
-      "title": "인천시, 도시재생사업 사후관리 체계화…“주민 주도 자생력 키운다”",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBPYkd1QUQ1SERLdVpqRFhGRElUM2ZneXc1bWhRLUEyWjVjbm5xQXU5cTRGd09NNXBsbkx3UEVvQWZqTW83aHNuTVpFdXM4UUs4VjNBMmx3Y3JfeWljTUNHYXZ2a0hGd0xlMkxiUHVR?oc=5",
-      "source": "아시아투데이",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "인천시, 도시재생사업 사후관리 체계화…“주민 주도 자생력 키운다” 아시아투데이"
-    },
-    {
-      "id": "ecc97d6fa40877a7",
-      "title": "도시철도 계획부터 착공까지…국토부 대광위, “원스톱 지원”",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9TUlJzWkVadEFfZzdjMk5TNlRxQ2pqVktXQWhQYy02eGtMZ1ZYZDAwTU82NHg0bllIb05wajZDWjZYQ1NwU3JrSDhHdmpYZWYyeF9IYkZ4UkYxdE40OFY0Y1Btenk1ZXU1NDdEbUV3?oc=5",
-      "source": "아시아투데이",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "도시철도 계획부터 착공까지…국토부 대광위, “원스톱 지원” 아시아투데이"
-    },
-    {
-      "id": "22e8d4002d0596ec",
-      "title": "황인호 동구청장 \"성장 동력 위해 대전역세권 개발해야\"",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAwdzRjUUFvV1Jrd3hVR05PQlpKcWZJNGY1T05OY3NudjRHNGFyNFcxWmUtR1Bma0ZSTW9ibDJjbjRmLWxVMFZtd2tkMU1BdGt0WTBRcUNxYzNEZGtoaEptTA?oc=5",
-      "source": "아시아경제",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "황인호 동구청장 \"성장 동력 위해 대전역세권 개발해야\" 아시아경제"
-    },
-    {
-      "id": "6b2f4edca75010c7",
-      "title": "도시철도 구축 계획, 대광위로 '일원화'",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA0WXRzeFlXcVZlakpyQzBYSzgxWTA4Q19PTXEyb1ZRVEpUMlNHX1FXU05fU0tlUHNYUmhCQ1YxQ3FkUVZLWTZPV2hLZjBZX2IyVnlNTWItLUdxd2p4V3RxMml2S2tBRk1lM3VIdE5zWUg?oc=5",
-      "source": "신아일보",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "도시철도 구축 계획, 대광위로 '일원화' 신아일보"
-    },
-    {
-      "id": "f4b8b1b3e1d9f594",
-      "title": "대전 중구, 인천 제물포서 원도심 활성화 우수사례 탐방",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE50SzMyX015NmItZzB1LWdkbkZMa3dxTENNYS00bTJ5Sy1STUptek5zekR6azJldGR6UENoUzB2REUza2JJN3ZSUzB2TUFLUHZBTFNsNWhzZDc4cVluRGtRY0huYndWZWhheEM2UXVqRDU?oc=5",
-      "source": "신아일보",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "대전 중구, 인천 제물포서 원도심 활성화 우수사례 탐방 신아일보"
-    },
-    {
-      "id": "e4af90728495d977",
-      "title": "군산 중앙동2구역 도시재생 공모 선정…국비 150억원 확보",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBwWVNEek5UVEE1Vmg0eWVOeS1zdmVYOFdTRU1lbzNhWDRZbjdRX3U4TkU5RElpbVJlNHFncnQxdVN3ZTVCU3NHWHNOYlZYbnF2aHVVTzAzNUF4bjh0ZzNhZFNEV2lDbEp1Y0FXQWhWSTY?oc=5",
-      "source": "신아일보",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "군산 중앙동2구역 도시재생 공모 선정…국비 150억원 확보 신아일보"
-    },
-    {
-      "id": "a474e4a98a3edd5b",
-      "title": "성동구, 성수동 준공업지역 문화콘텐츠·첨단산업 거점으로... 용적률·높이규제 완화:시대일보",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9LQmZCVFJ1YlhyY29pRENibTVMZVdXcmktUWtiSGU5STNVVVdhdE9yd1JIXzR3U1BDZHRTR0hpVVozNGJYRHhCaEEwdTV4MDJ2U19wR1BhVWFLcHNNQWJ0NmRqN1o2YWvSAWdBVV95cUxPS0JmQlRSdWJYcmNvaURDYm01TGVXV3JpLVFrYkhlOUkzVVVXYXRPcndSSF80d1NQQ2R0U0dIaVVaMzRiWER4QmhBMHU1eDAydlNfcEdQYVVhS3BzTUFidDZkajdaNmFr?oc=5",
-      "source": "시대일보",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "성동구, 성수동 준공업지역 문화콘텐츠·첨단산업 거점으로... 용적률·높이규제 완화:시대일보 시대일보"
-    },
-    {
-      "id": "b59a7f512a5b443a",
-      "title": "역세권·재정·사업 재편…대전 동·서구 새 구청장들 민선9기 해법 제시",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9QV1RrNG11bE1pcmtHcmlhbUtGZFNjcUx6ZTh2RHFhR2E2aEhkR1FlcGQ4QXVhR1JTVFF6QkFQaHJtRkJlbmhHOExhMEdSWXM0OEVqV1dRQkJqSHhOQUpzWEVwa0Z0T0haWFdEeU9PWVBhQzdaQmxB0gF3QVVfeXFMT1BXVGs0bXVsTWlya0dyaWFtS0ZkU2NxTHplOHZEcWFHYTZoSGRHUWVwZDhBdWFHUlNUUXpCQVBocm1GQmVuaEc4TGEwR1JZczQ4RWpXV1FCQmpIeE5BSnNYRXBrRnRPSFpYV0R5T09ZUGFDN1pCbEE?oc=5",
-      "source": "스트레이트뉴스",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "역세권·재정·사업 재편…대전 동·서구 새 구청장들 민선9기 해법 제시 스트레이트뉴스"
-    },
-    {
-      "id": "33aa16508f14433a",
-      "title": "신도시는 늦고 신축은 귀해진다···원도심 정비사업에 쏠리는 실수요",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9HX0RNWGY3YWtYUS13NGdycEdNQnE4eEpxMVJNY3JWZVY5c19mTmRYWnBMZnNfVWpBRFNZaGRNQlNQSGdlTzRZVndQTUVJeVZnOWthREh4M3JCWVZNdUdXV2ZaSk1Lb0tuZkdUTA?oc=5",
-      "source": "스마트비즈",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "신도시는 늦고 신축은 귀해진다···원도심 정비사업에 쏠리는 실수요 스마트비즈"
-    },
-    {
-      "id": "b738a773e6b4282f",
-      "title": "황인호 대전 동구청장 “대전역세권 개발, 투자여건 조성해줘야”",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9SOTRuWFNMdDRRSnZiVVJ6bmdYOXpDYW4wUTAwT2taelFZMWRiX2F2Z1pUa2syWk43WHBIZkZjUm1kOEhUOE8wUnM2dldQTHRBOWJZSXlqNktrVzlLSTc1QWFwZ1g0Zjla?oc=5",
-      "source": "세종포스트",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "황인호 대전 동구청장 “대전역세권 개발, 투자여건 조성해줘야” 세종포스트"
-    },
-    {
-      "id": "788fef56dfd2182d",
-      "title": "성수동 준공업지역 용적률·높이 완화... '첨단산업·스타트업 유치' 박차",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBaTGcxdTRRbzAxZ3F5RlAxWTg0NEpuaTNRMHJoa2swSW5xWVFJX3FIUW14Y2tiSVpodzU1SHM4Q3lTQzlPYjdINzg1T3ZuMmJhS3pyQUtzSnV3b1ZMUHNvTEdTd0EyU1J0SnR3RDVPOWw?oc=5",
-      "source": "성동저널",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "성수동 준공업지역 용적률·높이 완화... '첨단산업·스타트업 유치' 박차 성동저널"
-    },
-    {
-      "id": "fe6d3e0f084a2cb6",
-      "title": "서울물재생체험관 '어린이 물놀이터' 7일 개장…물놀이·전시 즐길거리 풍성",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9PbmZSMi1iWFhud1lRLWJKNlhPbjhPSmJiZDVVc0FjdnM1VTBZYlhrRUMwNnp0alNuanF6S0E5bVdyekV6SVpkSWZoYkY2Nm9OTDkzWnRtX3Y3VWZ1V3VjelRtc2xPUFJwNE1qSmtVVUdfUmloZjlhVw?oc=5",
-      "source": "서울특별시",
-      "category": "정책",
-      "date": "2026-07-06",
-      "description": "서울물재생체험관 '어린이 물놀이터' 7일 개장…물놀이·전시 즐길거리 풍성 서울특별시"
-    },
-    {
-      "id": "4240d2e766c2153d",
-      "title": "성수 준공업지역 지구단위계획구역 지정 및 계획 결정(안)“수정가결”",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBMZ2FrZjBIZkN0dWtfdkRCUlVtUVVDU3NsYkJMX2VFLUlTb3EyZGc0cDhjcWZWRGxiX3dyNnpyX0RlbmhhVldXUW9HZXhQaDJsYWRubmtYRU0?oc=5",
-      "source": "서울로컬뉴스",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "성수 준공업지역 지구단위계획구역 지정 및 계획 결정(안)“수정가결” 서울로컬뉴스"
-    },
-    {
-      "id": "f7166f362afdca1d",
-      "title": "서울시 강북 개발 공공기여 '절반' 완화",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1kYlZhUlRKV1QxSjBTa0FWSFBXeW1RZU9BZ190dVV0eF9YQ3pMd2tycTVXVV9NVjNUTzJqQ1NpZmVRd3llSlprUWNlSndlYWtISFk1dVFEYnFhZnV3TWlETXA2NHZuLU5QNElBeg?oc=5",
-      "source": "서울동북신문",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "서울시 강북 개발 공공기여 '절반' 완화 서울동북신문"
-    },
-    {
-      "id": "df93bbb1c06b601f",
-      "title": "롯데 '성수 4지구 재개발사업' 수주 … 초대형 프로젝트",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE05TWt2cmtiWXQ1WW1TMFo5eTRDSXp1dUdOaHAtNmtoSHhSSFhmNmgyZ1EtbnAxTVpwRkJlbVN2dU1MNE42RUdyX3p0cDdKNnNySHNZSGRWRkxSdGc0Q1lQUndWdlUtYlNTWmE3Ug?oc=5",
-      "source": "서울동북신문",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "롯데 '성수 4지구 재개발사업' 수주 … 초대형 프로젝트 서울동북신문"
-    },
-    {
-      "id": "1b55bcac87012bc2",
-      "title": "화순군, 소상공인연합회와 함께 ‘지역상권 활성화’ 캠페인 전개",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1BdmRWMjZyTW5UMXZfOTk3ZjNlV2txR1pkcS1Gc1ZHUDVOTmYzd3FhX0lKeVJNSThVdnBGeHpzTGJyYk1FOHkzaEJvQ3dvRVh3LTlkeEhXN21reTA4OEhXMEhGUkpubjBBWXlV?oc=5",
-      "source": "서울뉴스통신",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "화순군, 소상공인연합회와 함께 ‘지역상권 활성화’ 캠페인 전개 서울뉴스통신"
-    },
-    {
-      "id": "a0cf443f41c9629c",
-      "title": "서울역 북부역세권 개발의 청사진, 그곳에 홈리스의 자리는 없다",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA4ekpidGh6S2JKWk5ydDN2WkN0SGdhQU5tTGZrMGxWR1hHckx3V1pHRndsaDRkbFZqRFFHTkZ3b3oxaUdNWmtTU1dBY0RGbUd3ZE9tcWE0Wnl3SFdoTFROdW5USHg5WVVB?oc=5",
-      "source": "비마이너",
-      "category": "기사",
-      "date": "2026-07-06",
-      "description": "서울역 북부역세권 개발의 청사진, 그곳에 홈리스의 자리는 없다 비마이너"
     }
   ]
 }
