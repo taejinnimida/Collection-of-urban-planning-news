@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-11 16:18 KST",
-  "run_started_at": "2026-07-11T16:18:37.573965+09:00",
+  "updated_at": "2026-07-11 18:08 KST",
+  "run_started_at": "2026-07-11T18:08:27.225866+09:00",
   "coverage": {
-    "items": 6365,
+    "items": 6370,
     "oldest": "2025-07-12",
     "newest": "2026-07-11",
     "days_covered": 365,
@@ -12,48 +12,48 @@
     "정책": 0,
     "법령": 0,
     "연구": 0,
-    "기사": 8
+    "기사": 9
   },
   "period_counts": {
     "weekly": {
-      "정책": 35,
+      "정책": 36,
       "법령": 2,
       "연구": 17,
-      "기사": 951
+      "기사": 953
     },
     "monthly": {
-      "정책": 192,
+      "정책": 193,
       "법령": 58,
       "연구": 125,
-      "기사": 3028
+      "기사": 3032
     },
     "yearly": {
-      "정책": 705,
+      "정책": 706,
       "법령": 772,
       "연구": 627,
-      "기사": 4261
+      "기사": 4265
     }
   },
   "source_status": {
-    "국토교통부": "11건 수집",
+    "국토교통부": "10건 수집",
     "서울특별시": "14건 수집",
     "경기도": "11건 수집",
-    "법령·입법": "34건 수집",
+    "법령·입법": "19건 수집",
     "연구기관": "16건 수집",
-    "지역연구원": "24건 수집",
+    "지역연구원": "23건 수집",
     "언론-도시계획": "10건 수집",
-    "언론-지구단위": "89건 수집",
-    "언론-정비사업": "100건 수집",
-    "언론-주택공급": "22건 수집",
-    "언론-지역정책": "20건 수집",
+    "언론-지구단위": "94건 수집",
+    "언론-정비사업": "99건 수집",
+    "언론-주택공급": "21건 수집",
+    "언론-지역정책": "19건 수집",
     "언론-교통공간": "100건 수집",
-    "언론-도시재생": "98건 수집",
+    "언론-도시재생": "99건 수집",
     "언론-공업지역산업단지": "96건 수집",
-    "언론-스마트기후": "17건 수집",
-    "분야:정책": "36건 수집",
-    "분야:연구": "40건 수집",
-    "분야:기사": "552건 수집",
-    "분야:법령": "34건 수집"
+    "언론-스마트기후": "16건 수집",
+    "분야:정책": "35건 수집",
+    "분야:연구": "39건 수집",
+    "분야:기사": "554건 수집",
+    "분야:법령": "19건 수집"
   },
   "backfill_status": {},
   "municipal_notices": [
@@ -168,16 +168,24 @@
       "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-23&enddt=2026-06-27&zonenm=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+2026-368+%EB%8F%84%EC%8B%9C%EA%B4%80%EB%A6%AC%EA%B3%84%ED%9A%8D%28%EB%8B%B9%EC%82%B0%EC%A7%80%EA%B5%AC%EC%A4%91%EC%8B%AC+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D+%EA%B2%B0%EC%A0%95%28%EB%B3%80%EA%B2%BD%29%2C+%ED%8A%B9%EB%B3%84%EA%B3%84%ED%9A%8D%EA%B5%AC%EC%97%AD2+%EC%A7%80%EC%A0%95+%EB%B0%8F+%EC%84%B8%EB%B6%80%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%29+%EA%B2%B0%EC%A0%95+%EB%B0%8F+%EC%A7%80%ED%98%95%EB%8F%84%EB%A9%B4+%EA%B3%A0%EC%8B%9C&pageNo=1",
       "date": "2026-06-25",
       "source_type": "서울도시공간포털 결정고시"
+    },
+    {
+      "city": "수원",
+      "title": "인계동 지구단위계획",
+      "url": "https://www.suwon.go.kr/web/board/BD_board.list.do?bbsCd=1303",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-06-15&enddt=2026-06-19&zonenm=%EC%9D%B8%EA%B3%84%EB%8F%99+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D&pageNo=1",
+      "date": "2026-06-17",
+      "source_type": "수원 지구단위계획"
     }
   ],
   "municipal_status": {
     "화성": "화성시 고시공고 1건",
+    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
+    "수원": "수원 지구단위계획 1건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
     "과천": "과천시 고시공고 4건",
     "광명": "광명시 고시공고 1건",
-    "서울": "서울도시공간포털 결정고시 20건",
-    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
-    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
-    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건"
+    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건",
+    "서울": "서울도시공간포털 결정고시 20건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -196,14 +204,14 @@
     }
   ],
   "maintenance_status": {
-    "인천": "0건",
     "화성": "0건",
-    "남양주": "0건",
     "수원": "0건",
+    "남양주": "0건",
+    "인천": "0건",
     "고양": "0건",
-    "과천": "0건",
-    "성남": "0건",
     "평택": "0건",
+    "성남": "0건",
+    "과천": "0건",
     "서울": "2건",
     "광명": "0건",
     "광주": "0건"
@@ -280,6 +288,15 @@
       "category": "기사",
       "date": "2026-07-11",
       "description": "안장성: 180만 필지 이상의 토지 정보가 국가 데이터베이스와 연동되었습니다. Vietnam.vn"
+    },
+    {
+      "id": "b25b551cc7f55c22",
+      "title": "′연말 개통′ 양산도시철도, 내달 3일 시운전 돌입",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5FRU5WdkVoSXFKQVdvY1laUVJESXp1VUsxeUU5R1JkRUpqaG5fOFhnNnc3bjA5d084WXYzRU1kdlZlVmlyMXVabVdGd3RCTWhLb3U00gFTQVVfeXFMTkVFTlZ2RWhJcUpBV29jWVpRUkRJenVVSzF5RTlHUmRFSmpobl84WGc2dzduMDl3TzhZdjNFTWR2VmVWaXIxdVptV0Z3dEJNaEtvdTQ?oc=5",
+      "source": "KPI뉴스",
+      "category": "기사",
+      "date": "2026-07-11",
+      "description": "′연말 개통′ 양산도시철도, 내달 3일 시운전 돌입 KPI뉴스"
     },
     {
       "id": "fd8bb5dde709d6c6",
@@ -676,6 +693,15 @@
       "category": "기사",
       "date": "2026-07-10",
       "description": "“서울 31만가구 착공 달성”… 부시장이 정비사업 진두지휘 문화일보"
+    },
+    {
+      "id": "6b22c8fe45438934",
+      "title": "‘행정 효율’ 앞세운 민형배 시장, 서남권 ‘균형발전’ 염원 짓밟나",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5aLTIxMkVxTUxLWEpKYUE3eEZiOHNpZVE3VzBjSU5XNlBYN1ZrZmxqUDZBcU9XQlJaLXBTajBfaXBNSGozSnVIY0dnS2d4eGMtV3UxVndTVkk2dldEQThvY0MyNG9sR09fUHc?oc=5",
+      "source": "무안신안뉴스",
+      "category": "기사",
+      "date": "2026-07-10",
+      "description": "‘행정 효율’ 앞세운 민형배 시장, 서남권 ‘균형발전’ 염원 짓밟나 무안신안뉴스"
     },
     {
       "id": "7912ebbdcfb18f34",
@@ -1990,24 +2016,6 @@
       "category": "기사",
       "date": "2026-07-09",
       "description": "서울시, 압구정로데오역 인근 35층 복합개발 센머니"
-    },
-    {
-      "id": "9ac938a78254a6ea",
-      "title": "모아주택·모아타운 용적률 최대 500%로 ↑",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5weXpEaGtOX2pERDQ5dEpXQ0xmaEhwb1diTXBrZGpNTVlLaHpNWkd5bGp6NXJKSU43VTBtbXc1a1U2bDF5NTlEcm5BbWVuUGFVU0s2VnpqNjfSAVRBVV95cUxObE5rY0U5d3VoUWZLcnBTZFMza05Rd3M0cENiUTJlSVd5YXZpdUZvcmd5ajlQN3J6d1k5bDVSUWhWT01XeHRzLXJJWEFsQmx0Wnluams?oc=5",
-      "source": "세계일보",
-      "category": "기사",
-      "date": "2026-07-09",
-      "description": "모아주택·모아타운 용적률 최대 500%로 ↑ 세계일보"
-    },
-    {
-      "id": "4e86387d1eea7f9e",
-      "title": "재개발·재건축 「분당 노후계획도시 2026년 특별정비구역」 지정 (12,000호 예정)",
-      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE0wUUNlV2g1YlJfaHlZc1g5d25KWURHSlgxS2NLOXNlUlZWUjFxQUdIblZzbWhERzV1NF9aM082REZTekVWX0Rvc3V2cmo?oc=5",
-      "source": "성남시 시정소식지 비전성남",
-      "category": "기사",
-      "date": "2026-07-09",
-      "description": "재개발·재건축 「분당 노후계획도시 2026년 특별정비구역」 지정 (12,000호 예정) 성남시 시정소식지 비전성남"
     }
   ]
 }
