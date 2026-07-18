@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-07-18 15:29 KST",
-  "run_started_at": "2026-07-18T15:29:09.317975+09:00",
+  "updated_at": "2026-07-18 18:09 KST",
+  "run_started_at": "2026-07-18T18:09:51.473275+09:00",
   "coverage": {
-    "items": 7503,
+    "items": 7514,
     "oldest": "2025-07-19",
     "newest": "2026-07-18",
     "days_covered": 365,
@@ -12,47 +12,47 @@
     "정책": 0,
     "법령": 0,
     "연구": 0,
-    "기사": 5
+    "기사": 7
   },
   "period_counts": {
     "weekly": {
       "정책": 30,
       "법령": 2,
       "연구": 20,
-      "기사": 1039
+      "기사": 1049
     },
     "monthly": {
       "정책": 198,
       "법령": 31,
-      "연구": 123,
-      "기사": 3958
+      "연구": 124,
+      "기사": 3968
     },
     "yearly": {
       "정책": 748,
       "법령": 762,
-      "연구": 644,
-      "기사": 5349
+      "연구": 645,
+      "기사": 5359
     }
   },
   "source_status": {
     "국토교통부": "3건 수집",
     "서울특별시": "13건 수집",
-    "경기도": "10건 수집",
+    "경기도": "11건 수집",
     "법령·입법": "40건 수집",
     "연구기관": "18건 수집",
     "지역연구원": "16건 수집",
-    "언론-도시계획": "13건 수집",
-    "언론-지구단위": "97건 수집",
+    "언론-도시계획": "12건 수집",
+    "언론-지구단위": "98건 수집",
     "언론-정비사업": "99건 수집",
     "언론-주택공급": "17건 수집",
     "언론-지역정책": "22건 수집",
     "언론-교통공간": "99건 수집",
     "언론-도시재생": "99건 수집",
     "언론-공업지역산업단지": "93건 수집",
-    "언론-스마트기후": "29건 수집",
-    "분야:정책": "26건 수집",
+    "언론-스마트기후": "31건 수집",
+    "분야:정책": "27건 수집",
     "분야:연구": "34건 수집",
-    "분야:기사": "568건 수집",
+    "분야:기사": "570건 수집",
     "분야:법령": "40건 수집"
   },
   "backfill_status": {},
@@ -140,17 +140,28 @@
   ],
   "municipal_status": {
     "화성": "화성시 고시공고 1건",
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
-    "수원": "수원 기본·도시관리계획 0건, 검색보완 0건 / 수원 지구단위계획 0건, 검색보완 0건",
     "과천": "과천시 고시공고 1건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건",
-    "서울": "서울도시공간포털 결정고시 23건"
+    "서울": "서울도시공간포털 결정고시 23건",
+    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
   "seoul_housing_link": "https://housing.seoul.go.kr/site/main/tvReportedInfo/list?cp=2&pageSize=5",
   "maintenance_updates": [
+    {
+      "id": "5a7b1be9359d9fcb",
+      "title": "위치도>사업현황>연희2구역 공공재개발사업 정비사업 정보몽땅",
+      "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxNQTN5M1c0dW1OTnpNWENPejFUd1NtSkVRTlV1TmxSSEViaUhyeU1hWTdtaDdLcjFLVl9GdmJYWW92RWpja2haQmlyU0dDMExzbzFidWxRRGdUWFItcGp6TmZFSXpJV29lMExHWnFwS01vOFJYem1nZTh3N3ZTQ0hzaGpfdWlZbmVUdVZNd0xMeFdFZlRZMnpWZDRhbVRRTjZSdVBIaXZ5ZWRUY3djQUxUaVhKb0VEMk1WSkdEM3JjUllPc3lfMUpVM3lrM0E5NXdvRjNFZE5Qc05aMEg2c3pSeTJocUtESkxuYmZOV3BLaXdZY0FKWnRHbFdzeU8xWHBsTjBWNmQwdi16aWpjVlllOE1QSXoxZFBqOE1HZzhPSnhPbVRjMTVRYjAwNUM3UWtjTTQ3MmkxMHFPWnItNnBNdW93?oc=5",
+      "source": "서울",
+      "category": "정비",
+      "date": "2026-07-17",
+      "description": "위치도>사업현황>연희2구역 공공재개발사업 정비사업 정보몽땅 정비사업 정보몽땅",
+      "city": "서울",
+      "source_type": "공식 정비사업 소식"
+    },
     {
       "id": "6140989f932cb3b4",
       "title": "[카드뉴스] 서울 전역 136곳에서 힘차게! 서울의 첫 번째 모아타운!",
@@ -172,28 +183,17 @@
       "description": "[Shorts] 멈춰버린 현저동, 모아타운과 함께 다시 시간이 흐르기 시작했습니다.(서대문구 현저동 1-5일대 모아타운) 분야별정보",
       "city": "서울",
       "source_type": "공식 정비사업 소식"
-    },
-    {
-      "id": "392c1ac45432460a",
-      "title": "위치도>사업현황>충정로1구역 주택정비형 공공재개발사업 정비사업 정보몽땅",
-      "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxQM0tENUpfa250Q0lwRDJNbGxkbUpHOVRfV2ZtbWZ2SHJIRTVkQ1llVzl6MUZPbkJYbTBVbWZEQlVsY2Fmck5kVFpRSTVzYUR4QlE3UlNidXEzN0p0dk1oOEF6cDZJb2xmQ2NZYS1hWEdFVkRfT2xyMHJWVGsxem5EaHBLY0prM1NUWDZmeEROV3dZZkpPVDJ4eXFhOTB1Rml1SDM4NWpKTHZpZFJpNVg2RXZBOE9YX0ktV0gyRmlETDBJa2c2NHF2Nk5Pd0pMZEhhODVMVVBpa0FpbEJHNWJWOVZjYjJfLUVOT2dGRzduZFQtZXBRZVdJTXpjZF9td2w3akxPRHNoOXVJRC1nMGZRWEt1MURMTmZOZmY2YjRpSmdXTlFsNHFiNmIxWHNHcFluX282bUpSUkpsbTAwNjdtWEZn?oc=5",
-      "source": "서울",
-      "category": "정비",
-      "date": "2026-07-15",
-      "description": "위치도>사업현황>충정로1구역 주택정비형 공공재개발사업 정비사업 정보몽땅 정비사업 정보몽땅",
-      "city": "서울",
-      "source_type": "공식 정비사업 소식"
     }
   ],
   "maintenance_status": {
-    "수원": "0건",
-    "남양주": "0건",
     "고양": "0건",
     "화성": "0건",
     "인천": "0건",
+    "남양주": "0건",
+    "수원": "0건",
+    "과천": "0건",
     "평택": "0건",
     "성남": "0건",
-    "과천": "0건",
     "광명": "0건",
     "광주": "0건",
     "서울": "5건"
@@ -209,6 +209,15 @@
       "description": "GTX-C 착공 훈풍… 과천·수원·의정부 등 정차역 주변 아파트값 상승세 중부일보"
     },
     {
+      "id": "3b043f4509dcfe39",
+      "title": "서천, 도시재생 핵심시설 복합이음센터 개소",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAtRy1TT3VZMXNlMUoweHAzSHBkbWQ4TE9FQWdPa2FZQUhuaEV4MnBpZm95SzE2ZmFMWHJxWXNLZ3p0a1VMZGtRM0VTa3VhZHAwdFhFYWlvNm9sOU44ejloMXdNbmVHWm5ZM1M1OQ?oc=5",
+      "source": "중도일보",
+      "category": "기사",
+      "date": "2026-07-18",
+      "description": "서천, 도시재생 핵심시설 복합이음센터 개소 중도일보"
+    },
+    {
       "id": "84d2550f877c10ec",
       "title": "은평뉴타운 ‘숲세권’에서 ‘GTX 교통요지’로…투자·실거주 가치 재평가 [백주연의 Asset Parking]",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE93b1JhMXFJWm94UHQ1MlZvZHJYNW1uY2NSSmhkVHRGaWpKLU9velUwZG9nYXJkYUdIRVYxVF9FODZPQ25tUWFTT3RqZUhjTjFJTEHSAVNBVV95cUxNc0k5TmNSWUt3ajNsZDQ2Ukl5M0xfRkxkOVZmYVVfQkVoOFZsVE5ObkdFT2kxUnJkM29jVVNkbF9zWEJGWmw2bUw4MUhuSDZERndSRQ?oc=5",
@@ -216,6 +225,15 @@
       "category": "기사",
       "date": "2026-07-18",
       "description": "은평뉴타운 ‘숲세권’에서 ‘GTX 교통요지’로…투자·실거주 가치 재평가 [백주연의 Asset Parking] 서울경제"
+    },
+    {
+      "id": "241e2282be51c089",
+      "title": "[마기자가 간다] KT 이전비 100억에 멈춘 재건축···1억 3천에 들어왔는데 “대기업 알박기”",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1BSERSaHZkNGhxanVqRWpraFVRZ205M0FwVEtKNUxIUGdONk1tUWJ2Y1VrY1Z5TkVzNUJMU3pSS0tORXlaR3pSdDNVdlc?oc=5",
+      "source": "대구MBC",
+      "category": "기사",
+      "date": "2026-07-18",
+      "description": "[마기자가 간다] KT 이전비 100억에 멈춘 재건축···1억 3천에 들어왔는데 “대기업 알박기” 대구MBC"
     },
     {
       "id": "d0120afe074d1579",
@@ -252,6 +270,15 @@
       "category": "기사",
       "date": "2026-07-17",
       "description": "'용산역+한강변'…재건축·재개발 속도낸다 한국경제"
+    },
+    {
+      "id": "8dd8c58afe9a7cea",
+      "title": "대전도시철도, AI 안내로봇 실증 착수",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9ES0lkQjdSR0VkZEd0TmI4RmpmdFdkYS1MWFpVdmFiMG02OGlwRzdmZE9ibzE0UUpJbk8xTjVQalc2NEVwV2ZHSmxCTjhYbXF1T0x5WA?oc=5",
+      "source": "타임뉴스",
+      "category": "기사",
+      "date": "2026-07-17",
+      "description": "대전도시철도, AI 안내로봇 실증 착수 타임뉴스"
     },
     {
       "id": "64a4390d5ac714be",
@@ -594,6 +621,15 @@
       "category": "기사",
       "date": "2026-07-16",
       "description": "개포현대2차아파트 200동220동 소규모재건축조합 친환경분야 용역업체 선정 입찰공고 한국주택경제신문"
+    },
+    {
+      "id": "370ffa7334485e7e",
+      "title": "풍향구역 재개발조합 지장물조사 협력업체 선정 입찰공고",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE11TloweEdidlJnOUNvZnJ6ZXNvbmlIUE9Kenk1YXdPZEhOVlg1Zk9mTkFwMVVqZ3hFTTVhdWY0cHJsTk00YjZvQmxKc0QwZTJKamtralVhZ3NyT3FFYlF0TnExeVdFQXlB?oc=5",
+      "source": "한국주택경제신문",
+      "category": "기사",
+      "date": "2026-07-16",
+      "description": "풍향구역 재개발조합 지장물조사 협력업체 선정 입찰공고 한국주택경제신문"
     },
     {
       "id": "a5d16fb421516072",
@@ -1197,6 +1233,15 @@
       "category": "기사",
       "date": "2026-07-16",
       "description": "오세훈 시장, '용적률 400%' 수혜 재건축 현장 찾아 의견 청취 아시아경제"
+    },
+    {
+      "id": "c2dc307663d635db",
+      "title": "태권도 열기 춘천 명동으로… 원도심 상권 활력 더한다",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBzM19UeG8xeUFkZ1lHc09FWmQ4Z1RfUmprN1NfVkhuTnI3UjIyck1rSy1vMk9LZ0JfMW41T21ncjhJQ3FaNFV3?oc=5",
+      "source": "시사줌뉴스",
+      "category": "기사",
+      "date": "2026-07-16",
+      "description": "태권도 열기 춘천 명동으로… 원도심 상권 활력 더한다 시사줌뉴스"
     },
     {
       "id": "506d0f4b0c118b13",
@@ -1953,51 +1998,6 @@
       "category": "기사",
       "date": "2026-07-16",
       "description": "[2026 대한민국 드론·UAM 박람회] \"하늘길 꿈나무 키운다\" 경인방송 뉴스"
-    },
-    {
-      "id": "9ac8e65a784b3225",
-      "title": "[2026 대한민국 드론·UAM 박람회] 국산 기체, 인천 날다",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBVcFNKMUJ6MlFXSXBIWlJTVklhX0JibnY4QW8yWGF4SDc1NDFvRTRWVkxXU3V2QlcxOXRSbWI1YXBkc01Ybkd6VlNpLWxZRVBScFVHajJNbk4xN2NqVWZ1VUV0UVLSAWhBVV95cUxPazRKbjFyNUZsVlB6QXJ4WlVPc3hvc1BCRVFKaEpTc1NrYWR5Tm84T0xyUHJmZ1RTdzN3YlA5T2NFM1V1SzZLc2gzVjUtZ0J4MVVvVWJLcFduUXJSZTJHVGhFX2xZQUUyMg?oc=5",
-      "source": "경인방송 뉴스",
-      "category": "기사",
-      "date": "2026-07-16",
-      "description": "[2026 대한민국 드론·UAM 박람회] 국산 기체, 인천 날다 경인방송 뉴스"
-    },
-    {
-      "id": "183a597652ae32af",
-      "title": "의정부시도시재생지원센터, 망월사역상가번영회연합회와 '호원동 건강도시 재생사업'을 위한 업무협약 체결",
-      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE8xNWozRTFjQW1nTFc2eUxEcXRRS1M4LXk2MzZRNE1hRHVEUFFpcHNsRjI1ODdnb0lzMWxKdm82a0liWWZqT2Vsb1BB?oc=5",
-      "source": "경기평화신문",
-      "category": "기사",
-      "date": "2026-07-16",
-      "description": "의정부시도시재생지원센터, 망월사역상가번영회연합회와 '호원동 건강도시 재생사업'을 위한 업무협약 체결 경기평화신문"
-    },
-    {
-      "id": "c9fb433da33ae18e",
-      "title": "경기도, ‘토지관련 법령 해설서’ 발간…복잡한 도시계획 한눈에 본다",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9zSUhYMW1USGNJNUFNSGNjRWlLcklfNW9vVDBDU2R6UUJJN1hYRTNtRXFiVXVESFZWT2lCNmd2aXI3WTNFT0lLZS16RC1ncjEyenJmSC1CY3lPcEU?oc=5",
-      "source": "경기일보",
-      "category": "기사",
-      "date": "2026-07-16",
-      "description": "경기도, ‘토지관련 법령 해설서’ 발간…복잡한 도시계획 한눈에 본다 경기일보"
-    },
-    {
-      "id": "c6d50df06bb9c227",
-      "title": "경기도, 김포 무더위쉼터 현장점검 “폭염 취약계층 보호에 빈틈없도록”",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPd1B3eVNncnh2UDVaNmNaY25XLUVxbGpRenJHMTRvUWw3bkpfcTRSdXRzZUdXYnZDdTFBandyQ0Q2OUdTN2RxMUltbHFUSUd5bDh6bzRRYWptYjdxNTRJbzF5V3JRTmpHT3JVSTk1UHFfR1BIeVFQdGpnUnZEWHByOUNGUi0?oc=5",
-      "source": "경기도",
-      "category": "정책",
-      "date": "2026-07-16",
-      "description": "경기도, 김포 무더위쉼터 현장점검 “폭염 취약계층 보호에 빈틈없도록” 경기도뉴스포털"
-    },
-    {
-      "id": "e1c89f0269d00972",
-      "title": "경기도, ‘토지관련 주요법령 해설’ 발간",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAweVFGdXFBX2x6YUlOM1hCUFJaNFZIbllkMWdYVjA1VTl1cllqaFlocEhQOHZFSzYwUkduenBwY1ktQ2tOM0RfZ05QOTgyYWZmSzhnRUprQ2YtVEtyT1AxXzNn?oc=5",
-      "source": "경기뉴스광장",
-      "category": "기사",
-      "date": "2026-07-16",
-      "description": "경기도, ‘토지관련 주요법령 해설’ 발간 경기뉴스광장"
     }
   ]
 }
