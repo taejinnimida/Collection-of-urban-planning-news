@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-07-25 14:47 KST",
-  "run_started_at": "2026-07-25T14:47:17.227311+09:00",
+  "updated_at": "2026-07-25 19:50 KST",
+  "run_started_at": "2026-07-25T19:50:49.623240+09:00",
   "coverage": {
-    "items": 8806,
+    "items": 8823,
     "oldest": "2025-07-26",
     "newest": "2026-07-25",
     "days_covered": 365,
     "complete": true
   },
   "today_counts": {
-    "정책": 0,
+    "정책": 1,
     "법령": 0,
     "연구": 0,
-    "기사": 4
+    "기사": 8
   },
   "period_counts": {
     "weekly": {
-      "정책": 26,
+      "정책": 28,
       "법령": 0,
       "연구": 31,
-      "기사": 1144
+      "기사": 1156
     },
     "monthly": {
-      "정책": 169,
+      "정책": 171,
       "법령": 10,
-      "연구": 126,
-      "기사": 4825
+      "연구": 127,
+      "기사": 4838
     },
     "yearly": {
-      "정책": 768,
+      "정책": 770,
       "법령": 771,
-      "연구": 674,
-      "기사": 6593
+      "연구": 675,
+      "기사": 6607
     }
   },
   "source_status": {
-    "국토교통부": "3건 수집",
-    "서울특별시": "9건 수집",
-    "경기도": "10건 수집",
-    "법령·입법": "29건 수집",
-    "연구기관": "23건 수집",
-    "지역연구원": "14건 수집",
-    "언론-도시계획": "24건 수집",
-    "언론-지구단위": "83건 수집",
+    "국토교통부": "1건 수집",
+    "서울특별시": "8건 수집",
+    "경기도": "12건 수집",
+    "법령·입법": "30건 수집",
+    "연구기관": "25건 수집",
+    "지역연구원": "13건 수집",
+    "언론-도시계획": "26건 수집",
+    "언론-지구단위": "84건 수집",
     "언론-정비사업": "98건 수집",
-    "언론-주택공급": "23건 수집",
+    "언론-주택공급": "21건 수집",
     "언론-지역정책": "14건 수집",
     "언론-교통공간": "99건 수집",
     "언론-도시재생": "97건 수집",
     "언론-공업지역산업단지": "89건 수집",
-    "언론-스마트기후": "30건 수집",
-    "분야:정책": "22건 수집",
-    "분야:연구": "37건 수집",
-    "분야:기사": "557건 수집",
-    "분야:법령": "29건 수집"
+    "언론-스마트기후": "27건 수집",
+    "분야:정책": "21건 수집",
+    "분야:연구": "38건 수집",
+    "분야:기사": "555건 수집",
+    "분야:법령": "30건 수집"
   },
   "backfill_status": {},
   "municipal_notices": [
@@ -155,13 +155,13 @@
     }
   ],
   "municipal_status": {
-    "성남": "성남 지구단위계획 고시·공고 HTTPError, 검색보완 0건",
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
     "화성": "화성시 고시공고 2건",
     "과천": "과천시 고시공고 1건",
-    "수원": "수원 기본·도시관리계획 0건, 검색보완 0건 / 수원 지구단위계획 0건, 검색보완 0건",
     "광명": "광명시 고시공고 1건",
-    "서울": "서울도시공간포털 결정고시 14건"
+    "서울": "서울도시공간포털 결정고시 14건",
+    "수원": "수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건 / 수원 지구단위계획 ConnectTimeout, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -180,17 +180,17 @@
     }
   ],
   "maintenance_status": {
-    "화성": "0건",
-    "수원": "0건",
-    "고양": "0건",
     "남양주": "0건",
+    "수원": "0건",
     "인천": "0건",
+    "고양": "0건",
+    "화성": "0건",
     "서울": "1건",
     "성남": "0건",
-    "광명": "0건",
-    "과천": "0건",
     "평택": "0건",
-    "광주": "0건"
+    "광명": "0건",
+    "광주": "0건",
+    "과천": "0건"
   },
   "items": [
     {
@@ -219,6 +219,51 @@
       "category": "기사",
       "date": "2026-07-25",
       "description": "부천 중동 1기 신도시 재정비 속도…노후계획도시정비법 시행 앞두고 마스터플랜 공개 에너지경제신문"
+    },
+    {
+      "id": "ff5cb7682f6cf3e7",
+      "title": "[르포] 재건축 ‘왕따’된 명일 삼익맨숀 5동 가 보니",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5LOWZwTnFzX191cjRzdnR2dmhPSGRNeUllZ3RrZlpPTGNxNGtlaEhhZ0tsT1R6LXBmZWJpY0lIcG1XbjZoZzhWSlJ1aDZfODVzcnB6eUx2VWpfWm8?oc=5",
+      "source": "에너지경제신문",
+      "category": "기사",
+      "date": "2026-07-25",
+      "description": "[르포] 재건축 ‘왕따’된 명일 삼익맨숀 5동 가 보니 에너지경제신문"
+    },
+    {
+      "id": "f889b8caeafc417a",
+      "title": "하남시의회 정병용 의장, GTX-D 등 4개 광역철도 신속 추진 촉구",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBqMG1uaFRBU19vZWZCNm5OSnpWRW04VnFMUi15MndEbGRSdXJSanNhNmVsTFJ5QlpKbEF4LV9LSEtONlUwOVQ5MW5pVy16LWpLVHlTMzJ3azIwQzlaWkVaM1J5LUNuazdSN1HSAWpBVV95cUxQajBtbmhUQVNfb2VmQjZuTkp6VkVtOFZxTFIteTJ3RGxkUnVyUmpzYTZlbExSeUJaSmxBeC1fS0hLTjZVMDlUOTFuaVctei1qS1R5UzMyd2syMEM5WlpFWjNSeS1Dbms3UjdR?oc=5",
+      "source": "새한일보",
+      "category": "기사",
+      "date": "2026-07-25",
+      "description": "하남시의회 정병용 의장, GTX-D 등 4개 광역철도 신속 추진 촉구 새한일보"
+    },
+    {
+      "id": "0d2b4f2eb31aec39",
+      "title": "\"택지도 없다, 재개발·재건축도 아니다\"…서울 주택공급 어쩌나",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBGYkhPUWJiWjdqRGUtTDlUeWJUTDJMTDJSZTRjZUFBMUc5RHhBQ284SWwtT2dnOFkzckU4RnFpaFZMX1dMNjJIamhRQU51bDRPSGhqY9IBWEFVX3lxTFBVNVhTYjJQMUF5LXpjVGtUN1lxZEJnLU91WU5QSmpXRS12MUFpblNiMUltSGlKU1BuZ2NNYzdyYWhZaEJIN3YzN2wyTlJRZTR5UTI0aGh6UkU?oc=5",
+      "source": "미디어펜",
+      "category": "기사",
+      "date": "2026-07-25",
+      "description": "\"택지도 없다, 재개발·재건축도 아니다\"…서울 주택공급 어쩌나 미디어펜"
+    },
+    {
+      "id": "46d9e7669376c04a",
+      "title": "[하남] 이정연 의원, 미사 상권 활성화 방안 마련 “촉구”",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5xUmx0VDM5cVhWbmx6Z3JnNnVKRFo1ckZYbGtUU1JCNlU1MUJjQklWa3MwX0VOU1N0dDAtWndTbkNEU2xjeFhDU1ZZVGZ2eWhBV2ViT09Mc2Fkaktydnl4UnhBRDlFTmc?oc=5",
+      "source": "교차로저널",
+      "category": "기사",
+      "date": "2026-07-25",
+      "description": "[하남] 이정연 의원, 미사 상권 활성화 방안 마련 “촉구” 교차로저널"
+    },
+    {
+      "id": "d6f0e91f2a1f9fa7",
+      "title": "7.25.(토) 폭염 일일상황보고 입니다.(17시기준)",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNaHhPd2dHbllzRHhyZkVRZExoa3RHYlJzSXAwalNfQW9lMm5xUzhISzR0b1BuaXR1UjlObWJMTUZtNEJEY2d5MDJMOE9QY0U3V2lKOVkwazBLaWxyLVg2VF9pMHVpX25DRFJRWENqdE9IbEdtZ3hUemtiWkRIWkZ4UjY1Zkc?oc=5",
+      "source": "경기도",
+      "category": "정책",
+      "date": "2026-07-25",
+      "description": "7.25.(토) 폭염 일일상황보고 입니다.(17시기준) 경기도뉴스포털"
     },
     {
       "id": "e0252656fbabc1d1",
@@ -327,6 +372,15 @@
       "category": "기사",
       "date": "2026-07-24",
       "description": "[토지 거래량] 상반기 토지거래량 94만5000필지 - 거래 늘었지만 ‘순수토지 회복’은 제한적 한국도시환경헤럴드"
+    },
+    {
+      "id": "7a293287e0c5f77a",
+      "title": "대형마트 새벽배송 허용 논란 확산…시민사회 \"노동자 안전·골목상권 외면한 정책\" 반발",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1rOXBZVEJvekVBWHVMNjlIWGdWWV9jcEpUN01ZYk5PaDV0RG5RTmh6cG9JN0p2RjAzY2huNjh6WFNhMUd0bFg5eDcxa0hwUXkzaUtubFF1V2cyQjg4YzUtZ3dJWU9UTF9X?oc=5",
+      "source": "한국NGO신문",
+      "category": "기사",
+      "date": "2026-07-24",
+      "description": "대형마트 새벽배송 허용 논란 확산…시민사회 \"노동자 안전·골목상권 외면한 정책\" 반발 한국NGO신문"
     },
     {
       "id": "25c57695c7c053a0",
@@ -716,6 +770,15 @@
       "description": "재개발·재건축만 잘돼도 서울·경기 790곳에서 23만가구 증가[집슐랭] 서울경제"
     },
     {
+      "id": "f471828373372fe0",
+      "title": "임만균 서울시의회의장 “도시철도는 서울 균형발전 핵심…난곡·서부선 속도 내야”",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE02RGdGTzN2aTZSNE1TU2h2cjlJT2lNS3JGZ2lUOF9NQnh1Mk43eW03bVMtMElqWkFBeWRZNHAxX2lwbnlTN0plWXhYLVRmOHNOeWxGZWp2bjdaMTlrTGJzcnJpSWllcE1XQ3Rr?oc=5",
+      "source": "비즈월드",
+      "category": "기사",
+      "date": "2026-07-24",
+      "description": "임만균 서울시의회의장 “도시철도는 서울 균형발전 핵심…난곡·서부선 속도 내야” 비즈월드"
+    },
+    {
       "id": "399491819757f71e",
       "title": "“조치원·오송 묶어 인구 20만 자족도시로”, 조상호 세종시장 첫 현장 소통",
       "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE8yWHBZWWRJbjkybThsQUlZWEJ2N3Y4TXNWeUp2b3hsbVZhTHVmVTdqbHJ2OERBd3Y3NEJ2UFkwNFRMZw?oc=5",
@@ -741,6 +804,15 @@
       "category": "기사",
       "date": "2026-07-24",
       "description": "‘더블 초역세권’ DL이앤씨, e편한세상 부천 어반스퀘어 분양 문화일보"
+    },
+    {
+      "id": "6d7600a8b4dbc4ce",
+      "title": "지구단위구역에 시니어주택 지으면 용적률 10%↑",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxORERiZTNhSlVNVk04dnEwcDZraXc4ZFYtRGluRVdnRGFWU1MzaU5WemJjVDQtR3dyUXNfcnRHSFNLM19LSGhsd3c4Mlp6QTNqVUZhUUp5WGloazlwMS1iaGtiQXFORHhIZjhxajB3UUwtYW9zLWpiM0RQaXBFZTlVaVk4VEVuQUxHbUxVcFZBTzBkNVZSNm0zRlpwdXo1QnoxZTBjNG5NUXprNk5GYnc?oc=5",
+      "source": "모바일한경",
+      "category": "기사",
+      "date": "2026-07-24",
+      "description": "지구단위구역에 시니어주택 지으면 용적률 10%↑ 모바일한경"
     },
     {
       "id": "e1324a4bcc3ac2bc",
@@ -806,6 +878,15 @@
       "description": "조상호 “조치원, 오송과 함께 20만 자족도시로” 디트NEWS24"
     },
     {
+      "id": "6debfc0c27a368c3",
+      "title": "[슬기로운 정비생활]‘착공’은 첫 삽이 아니다…재개발·재건축 공사의 진짜 시작",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE50alNUbUphQXNoNVNQUXc0SjJwNVBWZ3dzcThEeklZeDJIWjBmX3c3YlcwZkJrQUQyR1ZfTHRwN2lxT1pBMndYSkMwaThmNm1jYVI1N2c0Zy1EY2hfdW00SFExMlM2X0U5?oc=5",
+      "source": "디벨로퍼뉴스",
+      "category": "기사",
+      "date": "2026-07-24",
+      "description": "[슬기로운 정비생활]‘착공’은 첫 삽이 아니다…재개발·재건축 공사의 진짜 시작 디벨로퍼뉴스"
+    },
+    {
       "id": "44a3755cad77ad2e",
       "title": "오세훈 “李대통령, 재개발·재건축에 왜곡된 편견 드러내”",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1vU251dHp2RTR0ek5lem1oWFJsLVY4ckdVLTJQbkl4YjU5UmhEVUl6dkwxS3F5c1lsa0ViSTgtcTJ2Sl95NXQwQldoMHhMS2JyMW41UXVZVWI1V2g2UkI4aGQ2cUtId1NsSVVLcUpGSnBlcVh6ZUQ40gFmQVVfeXFMTUpCTS1qNjdQZFBBUzMwbXJXRzlxTGlqYkt6ekxCVWZLWGRDN3pYR2d2NnlWUGRwdEsxVk1MU042WVFtSXZrRy15bUdzSkVIQ1lfWkpIS3hQeU5zcXZSaVI2eURXVVRB?oc=5",
@@ -840,6 +921,15 @@
       "category": "기사",
       "date": "2026-07-24",
       "description": "영등포구, 정비사업 속도낸다…현장지원ㆍ전문자문 ‘투 트랙’ 대한경제"
+    },
+    {
+      "id": "b15f182a5401b42b",
+      "title": "오세훈 \"부동산 토론회, 李의 재개발·재건축 편견 재확인\"",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9UeWt4c3U0Z0ZEcFBsQXVoc2Y5M1YxcS1mb1pMSXoyWnRjUUJuTEpVVmdwYjJLeWxSbGZ5NTNUWEwtd1E5WHJ6c0liZmlENE1ZWE9XdEROUGpHN0E2TU01M3RLNVhITnRTV0Z5bGstUQ?oc=5",
+      "source": "대전일보",
+      "category": "기사",
+      "date": "2026-07-24",
+      "description": "오세훈 \"부동산 토론회, 李의 재개발·재건축 편견 재확인\" 대전일보"
     },
     {
       "id": "c9f4c89741a26566",
@@ -1902,96 +1992,6 @@
       "category": "기사",
       "date": "2026-07-23",
       "description": "완주군 상관면 구도심의 변신 ‘도시재생으로 활력’ 전북도민일보"
-    },
-    {
-      "id": "d1ad20b3a7371ec8",
-      "title": "상관면 구도심 ‘도시재생으로 활력’",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFAtYlprZVFrZmxwaVUxNEdaVzZoUk8xLWJVWElCWWJmSmxvMEduR3k3bWxhSGRaSnMyVnZlN2FtUGIyOEIzMmdVaGpHYXJOQ2h2RzRWTHE2ekMzVHNxMnU4eXRFRFB3aXM3QzZQN0NB?oc=5",
-      "source": "전라매일",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "상관면 구도심 ‘도시재생으로 활력’ 전라매일"
-    },
-    {
-      "id": "bd04a3eb98545148",
-      "title": "‘인구는 줄어드는데 아파트만 급증’…김미연 의원, “원도심 공동화 우려”",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB0RXFqZ004MDFVanUxOS15RlBUcTNZWHZWSUZuMzNrNTkxNWxqT2Y1NjNGYmtURnZXUnlBdTZSTWM1VG5GdUhWaEp2N1ExSTBYU29XbWp4MlVCby04eFFRa2NJdDM3SG8?oc=5",
-      "source": "전남타임스",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "‘인구는 줄어드는데 아파트만 급증’…김미연 의원, “원도심 공동화 우려” 전남타임스"
-    },
-    {
-      "id": "0f6336d49c6ebe9d",
-      "title": "TS, GTX-A 서울~수서 구간 현장 안전점검 실시",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1seUwzRVZTbEhiNWlmenJHZTY0amtTcF9ZRmNfR19MZWFrMDZWVUdKUkIySENyUlo0OU03TTlrX3pUQWtvcFFJSkNLQ2c1aWhaY2lEUXlQU1dxTmJYSXNJTFYyalVpUXlwUWdWMNIBcEFVX3lxTE1JQy1ndnp3WmZTci1oaXM3MHNJQWhJclE4U0N1cWRXT2w0ZEJhb2pLalVEdnp5ZjJXMDB0U2JORjRQRk5xbTVhd3RJcjhvY3cwV2xlUUlkeXpCZE5mRnVxOWRUSUJERmVndkhCR1dWNEQ?oc=5",
-      "source": "전기신문",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "TS, GTX-A 서울~수서 구간 현장 안전점검 실시 전기신문"
-    },
-    {
-      "id": "edef7a5c9cc1bda2",
-      "title": "[도시철도균형가속]서울시의회, 난곡선·서부선 조속 추진 촉구…“도시철도는 시민 삶의 기본 인프라”",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wTmxKalp3Q08waGpFanlTbjV4NlppYnVXcWExZXJad0lwcC16NUxGNTZIWlRvVW4xTTlZQXlvTm1SbzFlV3U5dDN1UUVuMUNBZmV2emhPdF9yM0diWEQxZTloSTlRRzNoemVUV3dON20?oc=5",
-      "source": "전국뉴스",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "[도시철도균형가속]서울시의회, 난곡선·서부선 조속 추진 촉구…“도시철도는 시민 삶의 기본 인프라” 전국뉴스"
-    },
-    {
-      "id": "5a4439133db28d2f",
-      "title": "경기도 ‘2040년 안성 도시기본계획’ 최종 승인",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBpWmhrcTdySmljbTVZWXlVY0JublRJV3lnZVI1T0NYdm9iNUJWMGgtaGZMamhOay1ZZzhMdEhYWi1ZUlUyOTZUV0tNcEJKUW12dm9UbWQ2VTBTaW5sUEVGZ1Y0TjlaTkxhbEVhaTlXQl9NMW9HRGp3ODZJdks?oc=5",
-      "source": "자치안성신문",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "경기도 ‘2040년 안성 도시기본계획’ 최종 승인 자치안성신문"
-    },
-    {
-      "id": "75d937ba21baa133",
-      "title": "[주인 잃은 집] 10. 빈집 문제 해결책…다시 살 수 있도록 '이주·재생' 지원",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9WdkRWQ0kyWVJfNVQxVUdodWR1cVJ4akJGY09qbG50WlZzLURkaVhZQkwwNFVvV2NRZmlHSVhnU1hYUnZyMUJhMFFadmNSVlV6RHhPcnlObnU4WDhFZm50MHV4WXFLV0xVaVNENmc3Tjc?oc=5",
-      "source": "인천일보",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "[주인 잃은 집] 10. 빈집 문제 해결책…다시 살 수 있도록 '이주·재생' 지원 인천일보"
-    },
-    {
-      "id": "d2b03b791339ab25",
-      "title": "제물포구 도시재생, 인천 최고 입증",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE41TDZKTVRYYkIzbVRBbENCWWNNa2VZSWROQnc4UlJnV1NxZGJPRUVMRWF3YWg3YXZON1BNTFZKdTlMbWlyQnJkSEo0X0lOUjBUMmFkUldJYV8zVlV4Q3Z0OVFrWXV5THFldy14RHJqQlRFM1Zh0gF0QVVfeXFMTjVMNkpNVFhiQjNtVEFsQ0JZY01rZVlJZE5CdzhSUmdXU3FkYk9FRUxFYXdhaDdhdk43UE1MVkp1OUxtaXJCcmRISjRfSU5SMFQyYWRSV0lhXzNWVXhDdnQ5UWtZdXlMcWV3LXhEcmpCVEUzVmE?oc=5",
-      "source": "이뉴스투데이",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "제물포구 도시재생, 인천 최고 입증 이뉴스투데이"
-    },
-    {
-      "id": "e836a565f7fbd8bb",
-      "title": "추경호 시장, 노후 산업단지 규제혁신 시동…대구 산업구조 대개조 본격 추진",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9PNTlGNDJuYTRXZDBHZzRqMk5KYXdfa241V19SNFlBOVYyaWZNazlaellEZW42dE10cWlaeGM3eTJvY2VTUTdrc3RkX1hpQ19MOXZSUlVBVE5CMVBGUHVVSkt6dF95c3FPYm9V?oc=5",
-      "source": "웹플러스뉴스",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "추경호 시장, 노후 산업단지 규제혁신 시동…대구 산업구조 대개조 본격 추진 웹플러스뉴스"
-    },
-    {
-      "id": "9d67c5f6052d252e",
-      "title": "원주시 도시재생지원센터, 퐁당아트마켓 개최",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE95RkxfR09peHpUMkdQWnlpY2Z6NUtwenpEdnBfVVNNbm5UQ1c4QkRHdkNaRHRvV3QtRkFjSlB3R0pmOXlXNkRsUnJSNmllaEJ5Q1oyRFVKZjJZbmdKbWY1MGpwaDRhQ1lh?oc=5",
-      "source": "원주신문",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "원주시 도시재생지원센터, 퐁당아트마켓 개최 원주신문"
-    },
-    {
-      "id": "0895d208688ff436",
-      "title": "원주시 도시재생지원센터, 「김학철 연극인생 45년 아카이브 기록전」 개최",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE0zYjZIM2lNUWJnM1hMLVdwa0Z3cGZXcmFjSERWZ2diOXRBQVJjcFMyWklOZUxOQjBTT2UycXZNZG5ZY1JNd2xRVjlncDJjQTVRUmVVdFFYRkY4ZDhsVG9LcE5URndUWjVE?oc=5",
-      "source": "원주신문",
-      "category": "기사",
-      "date": "2026-07-23",
-      "description": "원주시 도시재생지원센터, 「김학철 연극인생 45년 아카이브 기록전」 개최 원주신문"
     }
   ]
 }
