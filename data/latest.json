@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-03 16:55 KST",
-  "run_started_at": "2026-09-03T16:55:41.371772+09:00",
+  "updated_at": "2026-09-03 22:41 KST",
+  "run_started_at": "2026-09-03T22:41:51.590005+09:00",
   "coverage": {
-    "items": 15970,
+    "items": 15969,
     "oldest": "2025-09-04",
     "newest": "2026-09-03",
     "days_covered": 365,
@@ -12,47 +12,47 @@
     "정책": 2,
     "법령": 0,
     "연구": 1,
-    "기사": 47
+    "기사": 50
   },
   "period_counts": {
     "weekly": {
       "정책": 48,
       "법령": 0,
-      "연구": 44,
-      "기사": 1080
+      "연구": 38,
+      "기사": 1086
     },
     "monthly": {
       "정책": 146,
       "법령": 19,
-      "연구": 268,
-      "기사": 4997
+      "연구": 258,
+      "기사": 5005
     },
     "yearly": {
       "정책": 979,
-      "법령": 758,
-      "연구": 1121,
-      "기사": 13112
+      "법령": 759,
+      "연구": 1111,
+      "기사": 13120
     }
   },
   "source_status": {
-    "국토교통부": "12건 수집",
-    "서울특별시": "21건 수집",
-    "경기도": "22건 수집",
+    "국토교통부": "검색 결과 0건",
+    "서울특별시": "20건 수집",
+    "경기도": "검색 결과 0건",
     "법령·입법": "20건 수집",
-    "연구기관": "61건 수집",
-    "지역연구원": "36건 수집",
-    "언론-도시계획": "7건 수집",
-    "언론-지구단위": "99건 수집",
-    "언론-정비사업": "100건 수집",
+    "연구기관": "검색 결과 0건",
+    "지역연구원": "검색 결과 0건",
+    "언론-도시계획": "검색 결과 0건",
+    "언론-지구단위": "검색 결과 0건",
+    "언론-정비사업": "검색 결과 0건",
     "언론-주택공급": "26건 수집",
-    "언론-지역정책": "21건 수집",
-    "언론-교통공간": "99건 수집",
-    "언론-도시재생": "99건 수집",
-    "언론-공업지역산업단지": "94건 수집",
-    "언론-스마트기후": "1건 수집",
-    "분야:정책": "55건 수집",
-    "분야:연구": "97건 수집",
-    "분야:기사": "546건 수집",
+    "언론-지역정책": "24건 수집",
+    "언론-교통공간": "검색 결과 0건",
+    "언론-도시재생": "검색 결과 0건",
+    "언론-공업지역산업단지": "검색 결과 0건",
+    "언론-스마트기후": "검색 결과 0건",
+    "분야:정책": "20건 수집",
+    "분야:연구": "0건 수집",
+    "분야:기사": "50건 수집",
     "분야:법령": "20건 수집"
   },
   "backfill_status": {},
@@ -155,13 +155,13 @@
     }
   ],
   "municipal_status": {
+    "수원": "수원 지구단위계획 0건, 검색보완 0건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
+    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
     "화성": "화성시 고시공고 4건",
     "서울": "서울도시공간포털 결정고시 19건",
     "과천": "과천시 고시공고 0건, 검색보완 0건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건",
-    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
-    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건"
+    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -202,15 +202,15 @@
     }
   ],
   "maintenance_status": {
-    "화성": "0건",
-    "수원": "0건",
-    "인천": "0건",
     "남양주": "0건",
-    "고양": "0건",
+    "수원": "0건",
+    "화성": "0건",
+    "인천": "0건",
     "과천": "0건",
-    "평택": "0건",
     "성남": "0건",
+    "고양": "0건",
     "광명": "0건",
+    "평택": "0건",
     "광주": "0건",
     "서울": "7건"
   },
@@ -387,6 +387,15 @@
       "description": "부천시, 필리핀 공무원에 스마트시티·도시재생 사례 소개 서울경제TV"
     },
     {
+      "id": "994ba2c5d0268d10",
+      "title": "[인터뷰] 한양임 “북구 균형발전·재정 건전성 확보에 역량 집중”",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1wX2xtMkUyaTN3ZkpnNUxZNTVDYjhDblZkQy1HMGx5MEx5b0NYMjE2OU0yWWJHQnp3R3R4a3BhZHUwQzZXS2g2cTNiUHU?oc=5",
+      "source": "무등일보",
+      "category": "기사",
+      "date": "2026-09-03",
+      "description": "[인터뷰] 한양임 “북구 균형발전·재정 건전성 확보에 역량 집중” 무등일보"
+    },
+    {
       "id": "167e64c4a2bac7e8",
       "title": "노원구, 재건축·재개발 '규제혁신 100' 추진…첫 개선안 서울시에 건의",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5abHNwREZkWVBJWXl0RVJXYk9IejZua1k0TVM0WWwzbmw1akZzbERlSjNEeElFTjdDWVhlY3htcUVIN0hiR3RiSmFNb0lTNHNaRzJJQmI2Z3p1RlNNY0tGTHU1WUN0OHl5eVHSAW9BVV95cUxNcHNYWlpuUGppR20xU25kWkZUVXBUdHNUQ2RzdTZieXZzVU5DTkZnZ2NGckVNVUlRaW9WQU1aSUNyWURWNUFzQktURHJ5dWE4NWctUF9UdURjUm5wTzBPMHBOTndJeFFJbzFCSHlEMVE?oc=5",
@@ -430,6 +439,24 @@
       "category": "기사",
       "date": "2026-09-03",
       "description": "'래미안의 힘' 삼성물산, 올해만 정비사업 일감 13조 눈앞 더구루"
+    },
+    {
+      "id": "f3d12e8aabff7309",
+      "title": "공공기관 대수술에 노동계·지역사회 반발…노조·시민단체 \"밀실 행정-졸속 추진\"",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBaRUhBeVJET0lKczJnZU9fdUU3UklCYjhXaVlmd1lzZ09iU1BSZTJOOENnRThwNW5RYjc0YWNnTWg0S2xuZGpGTE9YX1h5bjB3djZCUG5fOHFRT0J2UnZHblJQY041QXpSUVBIYWJvRTVVOTI3T19uZg?oc=5",
+      "source": "네이트",
+      "category": "기사",
+      "date": "2026-09-03",
+      "description": "공공기관 대수술에 노동계·지역사회 반발…노조·시민단체 \"밀실 행정-졸속 추진\" 네이트"
+    },
+    {
+      "id": "cce268f3a69620ba",
+      "title": "민주당 부산, '통합 LCC 부산 본사 유치' 촉구···\"가덕신공항 성공·균형발전 필수\"",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1VZHFoUnBhYVRCNUUzaUY2MC1fcUJxMTVLajl4aTkxR2U1Vi1FNElwXzhIWU1hSlNoV29wREh5QkZraFpmTEQ1OGJwMGc1UFBqeWkw?oc=5",
+      "source": "네이트",
+      "category": "기사",
+      "date": "2026-09-03",
+      "description": "민주당 부산, '통합 LCC 부산 본사 유치' 촉구···\"가덕신공항 성공·균형발전 필수\" 네이트"
     },
     {
       "id": "83be00b50f83ebd0",
@@ -1620,6 +1647,15 @@
       "description": "野, '민간 정비 용적률 1.2배 완화' 與 제안 사실상 거절 뉴스1"
     },
     {
+      "id": "512e2fb9d8bb2a97",
+      "title": "증평군 '성장 가능 콤팩트 도시'로 새로운 성장 모델 제시",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBCSmN0Q19fYThzY19nRkdGMkdPNDV2a0d3MEY2OU83TmNLbUVQZ1pzV1lXdVY3SF9vWXZab0p2eDJZTTFnbFduaDZ4cUV2TDdmZjRUTHkzTm56MWNvU1BDWFhrWFjSAWRBVV95cUxQQkpjdENfX2E4c2NfZ0ZHRjJHTzQ1dmtHdzBGNjlPN05jS21FUGdac1dZV3VWN0hfb1l2Wm9KdngyWU0xZ2xXbmg2eHFFdkw3ZmY0VEx5M05uejFjb1NQQ1hYa1hY?oc=5",
+      "source": "뉴스1",
+      "category": "기사",
+      "date": "2026-09-02",
+      "description": "증평군 '성장 가능 콤팩트 도시'로 새로운 성장 모델 제시 뉴스1"
+    },
+    {
       "id": "2927a29335dec303",
       "title": "보령 벼멸구 밀도 증가 확인…서해안 인접 논 예찰 강화",
       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9ZOGZlYWFMaUxVZFU1RjVMQTVLX3ZxbjItb3lwMTA4a2V3cjZWT0ZKeVhZdC0xUGQxZVdqaFl4M3lTXzBjbzlHMnNFUE5PejFvUlp2dnlhTEJ3OEtCTUk1Z2RpVWgxWEtNQUJGQQ?oc=5",
@@ -1978,42 +2014,6 @@
       "category": "기사",
       "date": "2026-09-02",
       "description": "KTX 통영역 복합환승센터, 국가 기본계획 반영…\"차질없이 추진\" yna.co.kr"
-    },
-    {
-      "id": "80227d57992629c1",
-      "title": "최광호 위원장, 둔산리 상권 활성화 지원책 제안",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE8xZHliWm0xbEM1a1ZZWEQ4V0lQeEFaM0w3WjJ5ZmJvcmFaTEcxSmhVaTRVSGU2Z0pBMTJIeC02emthaDA2QTdfTUdBY0VFc3otd01ONldJZzBxdlhYcVdV?oc=5",
-      "source": "wj1news.com",
-      "category": "기사",
-      "date": "2026-09-02",
-      "description": "최광호 위원장, 둔산리 상권 활성화 지원책 제안 wj1news.com"
-    },
-    {
-      "id": "50f7c542430c0784",
-      "title": "성남시, 분당 노후계획도시 특별정비구역 지정 본격화",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE53TklLSFdGMTVBeGwwN1UzUE95bmQtRk1KWEpnVlhKN2gwX0VzZ1lOb0NtSkhrMUFQa3F4Y3d0c0J3X3h0b0lCSlFRUWpYd3lUbEpzakI0bVMxdw?oc=5",
-      "source": "viva100.com",
-      "category": "기사",
-      "date": "2026-09-02",
-      "description": "성남시, 분당 노후계획도시 특별정비구역 지정 본격화 viva100.com"
-    },
-    {
-      "id": "a60453ee6251da8c",
-      "title": "동탄에서 뻗어 나온 열 개의 예술 궤적… ‘밀도의 지도: 열 개의 선들’ 개막",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9teUcwOTMzTTNtY1ZlcEVVT21tbm5UY3hzd3NFWGxmYmdmNFFjdnNYYktobmpWS2IzcFhBcXg3Q1RXbmphcFlPdGRzZlNvQ1E?oc=5",
-      "source": "v.daum.net",
-      "category": "기사",
-      "date": "2026-09-02",
-      "description": "동탄에서 뻗어 나온 열 개의 예술 궤적… ‘밀도의 지도: 열 개의 선들’ 개막 v.daum.net"
-    },
-    {
-      "id": "aae5028c4b8fe304",
-      "title": "조직개편 앞두고 도시철도 간부 '원포인트 인사' 논란",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5fQUQ2TEQ5TDVxcE5RRjRWVko4U3hCbWJhSUk5UW80RExWTnMtRktrRHZwTUo0NERDT0d0bkYwNy04YmFQMlZCdTNtSTc0bkE?oc=5",
-      "source": "v.daum.net",
-      "category": "기사",
-      "date": "2026-09-02",
-      "description": "조직개편 앞두고 도시철도 간부 '원포인트 인사' 논란 v.daum.net"
     }
   ]
 }
