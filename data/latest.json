@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-12 16:48 KST",
-  "run_started_at": "2026-09-12T16:48:10.658217+09:00",
+  "updated_at": "2026-09-12 21:57 KST",
+  "run_started_at": "2026-09-12T21:57:39.712722+09:00",
   "coverage": {
-    "items": 17702,
+    "items": 17716,
     "oldest": "2025-09-13",
     "newest": "2026-09-12",
     "days_covered": 365,
@@ -12,47 +12,47 @@
     "정책": 0,
     "법령": 0,
     "연구": 0,
-    "기사": 3
+    "기사": 6
   },
   "period_counts": {
     "weekly": {
       "정책": 44,
       "법령": 4,
       "연구": 105,
-      "기사": 1118
+      "기사": 1133
     },
     "monthly": {
       "정책": 171,
       "법령": 11,
-      "연구": 313,
-      "기사": 4962
+      "연구": 312,
+      "기사": 4977
     },
     "yearly": {
       "정책": 1031,
       "법령": 758,
-      "연구": 1269,
-      "기사": 14644
+      "연구": 1268,
+      "기사": 14659
     }
   },
   "source_status": {
-    "국토교통부": "15건 수집",
-    "서울특별시": "21건 수집",
+    "국토교통부": "14건 수집",
+    "서울특별시": "20건 수집",
     "경기도": "12건 수집",
     "법령·입법": "29건 수집",
-    "연구기관": "80건 수집",
-    "지역연구원": "22건 수집",
-    "언론-도시계획": "24건 수집",
-    "언론-지구단위": "96건 수집",
+    "연구기관": "81건 수집",
+    "지역연구원": "20건 수집",
+    "언론-도시계획": "23건 수집",
+    "언론-지구단위": "95건 수집",
     "언론-정비사업": "96건 수집",
-    "언론-주택공급": "19건 수집",
+    "언론-주택공급": "25건 수집",
     "언론-지역정책": "16건 수집",
     "언론-교통공간": "99건 수집",
     "언론-도시재생": "100건 수집",
     "언론-공업지역산업단지": "89건 수집",
-    "언론-스마트기후": "66건 수집",
-    "분야:정책": "48건 수집",
-    "분야:연구": "102건 수집",
-    "분야:기사": "605건 수집",
+    "언론-스마트기후": "63건 수집",
+    "분야:정책": "46건 수집",
+    "분야:연구": "101건 수집",
+    "분야:기사": "606건 수집",
     "분야:법령": "29건 수집"
   },
   "backfill_status": {},
@@ -147,13 +147,13 @@
     }
   ],
   "municipal_status": {
-    "수원": "수원 기본·도시관리계획 0건, 검색보완 0건 / 수원 지구단위계획 0건, 검색보완 0건",
     "화성": "화성시 고시공고 3건",
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
     "서울": "서울도시공간포털 결정고시 11건",
     "과천": "과천시 고시공고 0건, 검색보완 0건",
     "광명": "광명시 고시공고 0건, 검색보완 0건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건"
+    "고양": "고양시 고시·도시계획 선별 ConnectTimeout, 검색보완 0건",
+    "수원": "수원 지구단위계획 ConnectTimeout, 검색보완 0건 / 수원 기본·도시관리계획 ConnectTimeout, 검색보완 0건",
+    "성남": "성남 지구단위계획 고시·공고 ConnectTimeout, 검색보완 0건"
   },
   "seoul_housing_news": [],
   "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
@@ -183,19 +183,28 @@
     }
   ],
   "maintenance_status": {
-    "화성": "0건",
-    "남양주": "0건",
     "수원": "0건",
     "인천": "0건",
+    "남양주": "0건",
+    "화성": "0건",
     "고양": "0건",
-    "과천": "0건",
-    "평택": "0건",
     "성남": "0건",
-    "서울": "2건",
+    "평택": "0건",
     "광명": "0건",
+    "과천": "0건",
+    "서울": "2건",
     "광주": "0건"
   },
   "items": [
+    {
+      "id": "d60abbe74cb1465a",
+      "title": "“원도심 상권 살리기” … 삼성면, ‘별별삼성 바베큐야장’ 성료",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9LVjRHcm1rRjJzbjRiZWpOYUhDdXh5Rkk4OXd5c0h6TjNSS2N4aWtURVBHNnNGOHBZVEt0OEtEWGV4TkR3aXN5MC1ZS3U5aFhYVW8zOEVYRXVrZF94MFVsUzFLcXhNdHNDOXc?oc=5",
+      "source": "음성타임즈",
+      "category": "기사",
+      "date": "2026-09-12",
+      "description": "“원도심 상권 살리기” … 삼성면, ‘별별삼성 바베큐야장’ 성료 음성타임즈"
+    },
     {
       "id": "3851343da630408e",
       "title": "돌곶이·상월곡역세권, 5주 만에 동의율 75% 돌파…2617세대 신탁 재개발 속도전",
@@ -204,6 +213,15 @@
       "category": "기사",
       "date": "2026-09-12",
       "description": "돌곶이·상월곡역세권, 5주 만에 동의율 75% 돌파…2617세대 신탁 재개발 속도전 디벨로퍼뉴스"
+    },
+    {
+      "id": "16e2d835948d636c",
+      "title": "“UAM 초기 상용화 정책 토론회: UAM 정책 방향 점검과 상용화 이행계획 실태 진단:동아경제신문 & daenews.co.kr",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFB5amtvclR6RFMzdlhBN0s2Z2tWdmJIV0tYREpvMlkyUkx4dmhQVS1KV3k1UnBxTTY1VVI4OGpXVE1uVjV6UFHSAWJBVV95cUxPM0prSmFCb3YyV2ZJdkR2dGxnX0hCWW5waERWSFowRHRRY0IxTS1YYmluekFFRy1WTWRVTFJ3VHRsTWdkWEF6MmRKbzZZdFB6S041VGxCaEh6aVRIZTVDYVYyQQ?oc=5",
+      "source": "동아경제",
+      "category": "기사",
+      "date": "2026-09-12",
+      "description": "“UAM 초기 상용화 정책 토론회: UAM 정책 방향 점검과 상용화 이행계획 실태 진단:동아경제신문 & daenews.co.kr 동아경제"
     },
     {
       "id": "859bebf3ce80e40e",
@@ -224,6 +242,15 @@
       "description": "[김덕기 박사의 한국·싱가포르 도시계획 법제 비교 제4편.] 계획을 다시 살피는 일 ― 재검토는 있는데 개정은 없다 kueherald.co.kr"
     },
     {
+      "id": "4ac31d413622b483",
+      "title": "제천시, 481억 쏟아붓고 골목은 쓰레기장, '의림동 도시재생' 논란",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tNE1GRGt3RXMyaDVBdHdlWmpENmVlN193cFRPY09GQmF5aXZ1Qy1MUUVkN0p5bzFmQ0lZNkktM1JKNzY3d0ZSMzlUcmZUeXZOVUFad3Q2NWRpSjhWTDIxalc0aHRNLTA?oc=5",
+      "source": "dhns.co.kr",
+      "category": "기사",
+      "date": "2026-09-12",
+      "description": "제천시, 481억 쏟아붓고 골목은 쓰레기장, '의림동 도시재생' 논란 dhns.co.kr"
+    },
+    {
       "id": "ffacd95432a824e0",
       "title": "“달빛 따라 칙칙폭폭, 영주 원도심을 걷다”",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1mWEhkVlQzTlBZZzRwRzlEUHNyZzBNZ2M1eE5sUUdBamJ5T3VlRGNySUZsbXFCWDJCVVNCeWQtNmlOdEdzRzFmaW5lQy1GVTNtZ0k0VnZJd2tMRlJjRG5jUE5CNE0xWnFY?oc=5",
@@ -240,6 +267,15 @@
       "category": "기사",
       "date": "2026-09-11",
       "description": "서귀포시 원도심 '상권 벨트'로 부활...옛 명성 되찾는다 헤드라인제주"
+    },
+    {
+      "id": "cf24941ccd82511f",
+      "title": "서귀포중심상가 글로컬상권.천지동 '런케이션 허브' 조성 본격화",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBzb2JGcGJsRTg0R3FsdG1oX2M1cXhaOGtabWxRYVdLeDluTzZ4aU1oamNZdjc1ZGY0T0I5cjFUWEpIckJ5bnh3a3JsSGdSWDFxRWxkUklmUzExaHdiVTJWTHFIZm9BN0RfbjJ3WFpRS2dGU1E?oc=5",
+      "source": "헤드라인제주",
+      "category": "기사",
+      "date": "2026-09-11",
+      "description": "서귀포중심상가 글로컬상권.천지동 '런케이션 허브' 조성 본격화 헤드라인제주"
     },
     {
       "id": "038749f75c66e6b6",
@@ -366,6 +402,15 @@
       "category": "기사",
       "date": "2026-09-11",
       "description": "중앙1구역 재개발조합 협력업체(토목 분야) 선정 입찰공고 한국주택경제신문"
+    },
+    {
+      "id": "f2b975d877714d03",
+      "title": "연산11구역 재개발조합 시공자 선정 입찰공고(2차)",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1wS0JYSktqNTZlSFRuQXZnYVdvLU9HX3NDbjFsNzJmbDczY3dvUV95N05sbGx3bURoQk55MldBeFNQaUhnYTRwRDdpY2ZMaGl1UHhHYjhpLWVsN1N6akdLaWktNGl0MFpx?oc=5",
+      "source": "한국주택경제신문",
+      "category": "기사",
+      "date": "2026-09-11",
+      "description": "연산11구역 재개발조합 시공자 선정 입찰공고(2차) 한국주택경제신문"
     },
     {
       "id": "6ee8ea38d102353b",
@@ -1950,51 +1995,6 @@
       "category": "기사",
       "date": "2026-09-10",
       "description": "구로구, GTX-B 환기구 위치 조정 건의…신구로선·차량기지 현안도 전달 신아일보"
-    },
-    {
-      "id": "4b333cb1e1442e72",
-      "title": "시흥시, 정왕동 도시재생으로 대한민국 도시대상 장관상",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE50c1FyX043UHJRTWlvVC1xU19GNE5jZ2dYbmx5NklmaF8ya0M2NTZxaDg4c0dVTGNYTjJCTGlqUmpUV0dYSmxfeDdESUprZzJfaTRveXBlN2V1YkpDNjh4RXVPU0Q4NGZGcTNnM1lUZXM?oc=5",
-      "source": "신아일보",
-      "category": "기사",
-      "date": "2026-09-10",
-      "description": "시흥시, 정왕동 도시재생으로 대한민국 도시대상 장관상 신아일보"
-    },
-    {
-      "id": "5d54f717ad4bdd34",
-      "title": "제주시, 11월까지 읍·면·동별 빈집 실태조사 실시",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5vN2dLTTlZUU5idWhaam1SdHgyWjdza013V1JSOG5Xd3c0dWJjWkdfNHJ4RXZrSlFLWjdiektiamR4MkpoeldiNWNucEpmb3g4UTZUVFE3WlRxblhsRHBCMjc1MXZDWEpjdFV2NDJQdlI?oc=5",
-      "source": "신아일보",
-      "category": "기사",
-      "date": "2026-09-10",
-      "description": "제주시, 11월까지 읍·면·동별 빈집 실태조사 실시 신아일보"
-    },
-    {
-      "id": "0f76aee38a63d213",
-      "title": "노원구, 재건축·재개발 추진대표와 ‘원팀’으로 뛴다",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE56SDVVY1I1WVg1VkxvdkJWbjVDWS1Mc2tta1pDbnpHS1R0NTBTUWJVZzNJQm1ReG55bmJBLUxSblRZX0FadEJFbENxdTZVTmlhOTNxbmJSbWF4QmNaRU5GczJpTTZPeFFubFVF?oc=5",
-      "source": "시정일보",
-      "category": "기사",
-      "date": "2026-09-10",
-      "description": "노원구, 재건축·재개발 추진대표와 ‘원팀’으로 뛴다 시정일보"
-    },
-    {
-      "id": "570b3f0b7d849e95",
-      "title": "김경대 용산구청장, ‘해방위크’ 개막식 참석…골목상권 현장 소통",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAzMXpwcV9ybGNLYlhBVEFsTTRMREphU05WSG4wZkt2T3JrdWZ6RGtWQmR2S3YxZFhYaXpTLXRycDNJTGNqZW5pak1jVjlsaVhwUTVhY3d4aGp0LWdDc0YweGJ1VkRtYlBHa0tF?oc=5",
-      "source": "시정일보",
-      "category": "기사",
-      "date": "2026-09-10",
-      "description": "김경대 용산구청장, ‘해방위크’ 개막식 참석…골목상권 현장 소통 시정일보"
-    },
-    {
-      "id": "99bed7b06d5c0382",
-      "title": "초기 절차 빨라진 노원 재건축···사업성은 여전히 ‘숙제’",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBib2ZFd3NHMURwVWswaVROWDhzckxCWndsT1lRV0duS3VIaThXWktJZWw1N1IxYWU1QXBPYThnaF8tdUVneEFZUDdYcG9WeC0tVUZBbE1QWnprX1A1bzdpeWFXVHhhY0VzMkVnVHg5SlNfcDA5MGfSAXZBVV95cUxQYm9mRXdzRzFEcFVrMGlUTlg4c3JMQlp3bE9ZUVdHbkt1SGk4V1pLSWVsNTdSMWFlNUFwT2E4Z2hfLXVFZ3hBWVA3WHBvVngtLVVGQWxNUFp6a19QNW83aXlhV1R4YWNFczJFZ1R4OUpTX3AwOTBn?oc=5",
-      "source": "시사저널e",
-      "category": "기사",
-      "date": "2026-09-10",
-      "description": "초기 절차 빨라진 노원 재건축···사업성은 여전히 ‘숙제’ 시사저널e"
     }
   ]
 }
