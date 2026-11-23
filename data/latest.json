@@ -1,68 +1,88 @@
 {
-  "updated_at": "2026-11-23 21:03 KST",
-  "run_started_at": "2026-11-23T21:03:19.687368+09:00",
+  "updated_at": "2026-11-24 06:35 KST",
+  "run_started_at": "2026-11-24T06:35:01.198978+09:00",
   "coverage": {
-    "items": 30422,
-    "oldest": "2025-11-24",
+    "items": 30398,
+    "oldest": "2025-11-25",
     "newest": "2026-11-23",
-    "days_covered": 365,
+    "days_covered": 364,
     "complete": true
   },
   "today_counts": {
-    "정책": 1,
+    "정책": 0,
     "법령": 0,
-    "연구": 5,
-    "기사": 177
+    "연구": 0,
+    "기사": 0
   },
   "period_counts": {
     "weekly": {
-      "정책": 15,
-      "법령": 1,
-      "연구": 44,
-      "기사": 1204
+      "정책": 11,
+      "법령": 0,
+      "연구": 24,
+      "기사": 1002
     },
     "monthly": {
-      "정책": 109,
+      "정책": 105,
       "법령": 16,
-      "연구": 215,
-      "기사": 5597
+      "연구": 202,
+      "기사": 5543
     },
     "yearly": {
-      "정책": 1340,
-      "법령": 684,
-      "연구": 1886,
-      "기사": 26512
+      "정책": 1338,
+      "법령": 682,
+      "연구": 1872,
+      "기사": 26506
     }
   },
   "source_status": {
-    "국토교통부": "7건 수집",
-    "서울특별시": "10건 수집",
-    "경기도": "10건 수집",
-    "법령·입법": "9건 수집",
-    "연구기관": "46건 수집",
-    "지역연구원": "19건 수집",
-    "언론-도시계획": "19건 수집",
-    "언론-지구단위": "96건 수집",
-    "언론-정비사업": "98건 수집",
-    "언론-주택공급": "11건 수집",
-    "언론-지역정책": "30건 수집",
-    "언론-교통공간": "100건 수집",
-    "언론-도시재생": "100건 수집",
-    "언론-공업지역산업단지": "20건 수집",
-    "언론-스마트기후": "8건 수집",
-    "분야:정책": "27건 수집",
-    "분야:연구": "65건 수집",
-    "분야:법령": "9건 수집",
-    "분야:기사": "482건 수집"
+    "국토교통부": "수집 실패 1회",
+    "서울특별시": "수집 실패 1회",
+    "경기도": "수집 실패 1회",
+    "법령·입법": "수집 실패 1회",
+    "연구기관": "수집 실패 1회",
+    "지역연구원": "수집 실패 1회",
+    "언론-도시계획": "수집 실패 1회",
+    "언론-지구단위": "수집 실패 1회",
+    "언론-정비사업": "수집 실패 1회",
+    "언론-주택공급": "수집 실패 1회",
+    "언론-지역정책": "수집 실패 1회",
+    "언론-교통공간": "수집 실패 1회",
+    "언론-도시재생": "수집 실패 1회",
+    "언론-공업지역산업단지": "수집 실패 1회",
+    "언론-스마트기후": "수집 실패 1회"
   },
   "backfill_status": {},
   "municipal_notices": [
     {
+      "city": "화성",
+      "title": "화성시 고시 제2026-898호 도시계획시설(열공급설비)사업 시행자 지정 및 실시계획인가 도시개발과",
+      "url": "https://www.hscity.go.kr/www/gosi/BD_notice.do?q_currPage=1&q_rowPerPage=50",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-11-22&enddt=2026-11-26&zonenm=%ED%99%94%EC%84%B1%EC%8B%9C+%EA%B3%A0%EC%8B%9C+%EC%A0%9C2026-898%ED%98%B8+%EB%8F%84%EC%8B%9C%EA%B3%84%ED%9A%8D%EC%8B%9C%EC%84%A4%28%EC%97%B4%EA%B3%B5%EA%B8%89%EC%84%A4%EB%B9%84%29%EC%82%AC%EC%97%85+%EC%8B%9C%ED%96%89%EC%9E%90+%EC%A7%80%EC%A0%95+%EB%B0%8F+%EC%8B%A4%EC%8B%9C%EA%B3%84%ED%9A%8D%EC%9D%B8%EA%B0%80+%EB%8F%84%EC%8B%9C%EA%B0%9C%EB%B0%9C%EA%B3%BC&pageNo=1",
+      "date": "2026-11-24",
+      "source_type": "화성시 고시공고"
+    },
+    {
       "city": "광명",
-      "title": "광명 도시관리계획(금당마을 지구단위계획) 결정(경미한 변경) 고시",
+      "title": "광명3동 52호 소공원조성계획 결정(안) 공람・공고",
       "url": "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
-      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-11-18&enddt=2026-11-22&zonenm=%EA%B4%91%EB%AA%85+%EB%8F%84%EC%8B%9C%EA%B4%80%EB%A6%AC%EA%B3%84%ED%9A%8D%28%EA%B8%88%EB%8B%B9%EB%A7%88%EC%9D%84+%EC%A7%80%EA%B5%AC%EB%8B%A8%EC%9C%84%EA%B3%84%ED%9A%8D%29+%EA%B2%B0%EC%A0%95%28%EA%B2%BD%EB%AF%B8%ED%95%9C+%EB%B3%80%EA%B2%BD%29+%EA%B3%A0%EC%8B%9C&pageNo=1",
-      "date": "2026-11-20",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-11-22&enddt=2026-11-26&zonenm=%EA%B4%91%EB%AA%853%EB%8F%99+52%ED%98%B8+%EC%86%8C%EA%B3%B5%EC%9B%90%EC%A1%B0%EC%84%B1%EA%B3%84%ED%9A%8D+%EA%B2%B0%EC%A0%95%28%EC%95%88%29+%EA%B3%B5%EB%9E%8C%E3%83%BB%EA%B3%B5%EA%B3%A0&pageNo=1",
+      "date": "2026-11-24",
+      "source_type": "광명시 고시공고"
+    },
+    {
+      "city": "광명",
+      "title": "광명 도시관리계획(대로1-6호선 외 1개소) 결정(경미한 변경) 및 실시계획인가 사전열람공고",
+      "url": "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-11-22&enddt=2026-11-26&zonenm=%EA%B4%91%EB%AA%85+%EB%8F%84%EC%8B%9C%EA%B4%80%EB%A6%AC%EA%B3%84%ED%9A%8D%28%EB%8C%80%EB%A1%9C1-6%ED%98%B8%EC%84%A0+%EC%99%B8+1%EA%B0%9C%EC%86%8C%29+%EA%B2%B0%EC%A0%95%28%EA%B2%BD%EB%AF%B8%ED%95%9C+%EB%B3%80%EA%B2%BD%29+%EB%B0%8F+%EC%8B%A4%EC%8B%9C%EA%B3%84%ED%9A%8D%EC%9D%B8%EA%B0%80+%EC%82%AC%EC%A0%84%EC%97%B4%EB%9E%8C%EA%B3%B5%EA%B3%A0&pageNo=1",
+      "date": "2026-11-24",
+      "source_type": "광명시 고시공고"
+    },
+    {
+      "city": "광명",
+      "title": "광명 도시계획시설(대로2-2호선) 실시계획(변경)인가 사전열람공고",
+      "url": "https://www.gm.go.kr/pt/user/nftcBbs/BD_selectNftcBbsList.do?q_nftcBbsCode=1001",
+      "eum_url": "https://www.eum.go.kr/web/gs/gv/gvGosiList.jsp?startdt=2026-11-22&enddt=2026-11-26&zonenm=%EA%B4%91%EB%AA%85+%EB%8F%84%EC%8B%9C%EA%B3%84%ED%9A%8D%EC%8B%9C%EC%84%A4%28%EB%8C%80%EB%A1%9C2-2%ED%98%B8%EC%84%A0%29+%EC%8B%A4%EC%8B%9C%EA%B3%84%ED%9A%8D%28%EB%B3%80%EA%B2%BD%29%EC%9D%B8%EA%B0%80+%EC%82%AC%EC%A0%84%EC%97%B4%EB%9E%8C%EA%B3%B5%EA%B3%A0&pageNo=1",
+      "date": "2026-11-24",
       "source_type": "광명시 고시공고"
     },
     {
@@ -155,53 +175,30 @@
     }
   ],
   "municipal_status": {
-    "수원": "수원 지구단위계획 2건 / 수원 기본·도시관리계획 0건, 검색보완 0건",
-    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 0건",
-    "화성": "화성시 고시공고 1건",
+    "수원": "수원 지구단위계획 2건 / 수원 기본·도시관리계획 0건, 검색보완 RetryError",
     "서울": "서울도시공간포털 결정고시 15건",
-    "과천": "과천시 고시공고 0건, 검색보완 0건",
-    "광명": "광명시 고시공고 1건",
-    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 0건"
+    "화성": "화성시 고시공고 2건",
+    "광명": "광명시 고시공고 3건",
+    "고양": "고양시 고시·도시계획 선별 0건, 검색보완 RetryError",
+    "성남": "성남 지구단위계획 고시·공고 SSLError, 검색보완 RetryError",
+    "과천": "과천시 고시공고 0건, 검색보완 RetryError"
   },
   "seoul_housing_news": [],
-  "seoul_housing_status": "공식 목록 0건, 검색보완 0건",
+  "seoul_housing_status": "공식 목록 0건, 검색보완 RetryError",
   "seoul_housing_link": "https://housing.seoul.go.kr/site/main/tvReportedInfo/list?cp=2&pageSize=5",
-  "maintenance_updates": [
-    {
-      "id": "ede5490195429284",
-      "title": "서울시, 구로·양천·강북·성북 모아주택 6,319세대 공급 본격화 > 보도자료",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB6akthRmdhVERHUEdrSEdqOVp6OXRhVEVXUThTX2ZDWHpJcS1ocnNFSFQ3X0prU21JR01rSExhRkc5Mmp5bUhjWGRxZmxNaFBPSG9QY211SXRMaFFodXl4c1VEWUNyNmc?oc=5",
-      "source": "서울",
-      "category": "정비",
-      "date": "2026-11-18",
-      "description": "서울시, 구로·양천·강북·성북 모아주택 6,319세대 공급 본격화 > 보도자료 | 서울특별시 서울특별시",
-      "city": "서울",
-      "source_type": "공식 정비사업 소식"
-    },
-    {
-      "id": "eee99d4dda2642d8",
-      "title": "[설명자료] 국토장관 \"서울시, 법에 없는 절차로 도심복합사업 지연\" 신속 진행 촉구",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5DaElHUlV6Z3NPWDc0bmdFNHFSNXBmOXJ6by1WdmtYeVEza0F1WHYzVHk0ZFRxUUlBNUtIaHJMeU03NEhwVjRwZUI2enpxaVBjZlc5MjNaYmw?oc=5",
-      "source": "서울",
-      "category": "정비",
-      "date": "2026-11-17",
-      "description": "[설명자료] 국토장관 \"서울시, 법에 없는 절차로 도심복합사업 지연\" 신속 진행 촉구 서울특별시",
-      "city": "서울",
-      "source_type": "공식 정비사업 소식"
-    }
-  ],
+  "maintenance_updates": [],
   "maintenance_status": {
-    "인천": "0건",
-    "남양주": "0건",
-    "고양": "0건",
-    "수원": "0건",
-    "화성": "0건",
-    "성남": "0건",
-    "서울": "2건",
-    "평택": "0건",
-    "과천": "0건",
-    "광명": "0건",
-    "광주": "0건"
+    "수원": "수집 실패: RetryError",
+    "서울": "수집 실패: RetryError",
+    "인천": "수집 실패: RetryError",
+    "남양주": "수집 실패: RetryError",
+    "화성": "수집 실패: RetryError",
+    "고양": "수집 실패: RetryError",
+    "성남": "수집 실패: RetryError",
+    "광명": "수집 실패: RetryError",
+    "과천": "수집 실패: RetryError",
+    "평택": "수집 실패: RetryError",
+    "광주": "수집 실패: RetryError"
   },
   "items": [
     {
@@ -1718,7 +1715,7 @@
     },
     {
       "id": "093caaaa0b505b8f",
-      "title": "LH 파주가든, '아시아 도시경관상' 본상 수상(2026.11.20. 파이낸셜뉴스) | 언론기사",
+      "title": "LH 파주가든, '아시아 도시경관상' 본상 수상(2026.11.20. 파이낸셜뉴스)",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPYjJISkFzdzYxY09VYUtocm1JUzdTbGVLWl9fWXhuUG1TRHlCTmFuZFBaTW4yaTYydWgyNm9ubE9XNXFpQk1yRExvZWlEZTk5LTlBeEd6ckRFR3JHd3JaYnNjY1g0ZE5yTEhBbkRaSk9IUXZjdXF3RHQyQ0c5NTVDZm9fdjdKZw?oc=5",
       "source": "건축공간연구원",
       "category": "연구",
@@ -1727,7 +1724,7 @@
     },
     {
       "id": "abec79290960e816",
-      "title": "영주 주택 소유의 역설…가구 줄어도 다주택자는 늘었다(2026.11.23. 영주시민신문) | 언론기사",
+      "title": "영주 주택 소유의 역설…가구 줄어도 다주택자는 늘었다(2026.11.23. 영주시민신문)",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQQmJGTGFZbk1ncV9xMkQ2SGJZRkd2V0dpM3lBQlQxSU5VNkRkUWJtRlBna2NOUkRGVkZNUnBEc0ZPMUlLWVVNMm9ER0E2U3pjTS1zdFBGSVdRSk5pWmVxTmM3ZzQ2T2YwcHFFZ3JHSUQ4V1hVOXBDUnN4QWp1ZkdlWGVaS1ZpZw?oc=5",
       "source": "건축공간연구원",
       "category": "연구",
